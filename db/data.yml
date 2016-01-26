@@ -1,0 +1,186 @@
+
+---
+articles:
+  columns:
+  - article_id
+  - person_id
+  - graphic_id
+  - issue_id
+  - headline
+  - text
+  - brief
+  records:
+  - - 1
+    - 1
+    - 1
+    - 1
+    - Monopoly Remembers One Year Anniversary of Ferguson Riots with Commemorative
+      Game
+    - "/var/lib/mysql/article/TZORImonopoly.txt"
+    - '0'
+  - - 2
+    - 3
+    - 2
+    - 1
+    - Freshman ready to vote
+    - "/var/lib/mysql/article/EHLERTfreshmanvoter.txt"
+    - '0'
+
+---
+graphics:
+  columns:
+  - graphic_id
+  - article_id
+  - person_id
+  - issue_id
+  - image
+  - caption
+  records:
+  - - 1
+    - 1
+    - 2
+    - 1
+    - "/var/lib/mysql/graphics/WINDSORmonopoly.jpg"
+    - something something squirrle congress
+  - - 2
+    - 2
+    - 2
+    - 1
+    - "/var/lib/mysql/graphics/WINDSORfreshmanvoter.jpg"
+    - I'm a caption and I approve this message
+
+---
+issues:
+  columns:
+  - issue_id
+  - volume_no
+  - issue_no
+  - date
+  - staff_photo
+  - staff_photo_caption
+  - eic_note
+  - booster_club
+  - brief_title
+  - masthead
+  - celeb_quote
+  - celeb
+  - celeb_photo
+  records:
+  - - 1
+    - 1
+    - 1
+    - 2016-01-05
+    - "/var/lib/mysql/graphics/22.2StaffPhoto.jpg"
+    - I am a staff photo caption
+    - I am an eic note, here me Roar
+    - Who brought the red vines again?
+    - The brief with no name
+    - 2% fat free jokes
+    - I'm dumb
+    - Gerald Ford
+    -
+
+---
+persons:
+  columns:
+  - person_id
+  - position_id
+  - name
+  - bio
+  - image
+  - current
+  records:
+  - - 1
+    - 1
+    - Barak Tzori
+    - I am Barak and this is my Bio
+    -
+    - '1'
+  - - 2
+    - 2
+    - Jen Windsor
+    - I am Jen and this is my Bio
+    -
+    - '1'
+  - - 3
+    - 3
+    - Brandon Elhert
+    - I am Brandon and this is MY bio
+    -
+    - '1'
+
+---
+positions:
+  columns:
+  - position_id
+  - title
+  records:
+  - - 1
+    - Managing Editor
+  - - 2
+    - Graphics Editor
+  - - 3
+    - Distribution Captain
+
+---
+top_ten_entries:
+  columns:
+  - top_ten_entry_id
+  - top_ten_id
+  - text
+  - entry_no
+  records:
+  - - 1
+    - 1
+    - One pair belongs to a lying, corrups politician, and the other belongs to Clinton
+    - 10
+  - - 2
+    - 1
+    - Yours are black and hers are a darker shade of black
+    - 9
+  - - 3
+    - 1
+    - Her shoes have their own email account
+    - 8
+  - - 4
+    - 1
+    - Your shoes aren't responsible for the deaths of Americans in Libya
+    - 7
+  - - 5
+    - 1
+    - You put yours on one foot at a time
+    - 6
+  - - 6
+    - 1
+    - Your shoes weren't made overseas
+    - 5
+  - - 7
+    - 1
+    - Yours are tied correctly. Made you look!
+    - 4
+  - - 8
+    - 1
+    - '"Hillary, stop calling them the First Heels of the United States"'
+    - 3
+  - - 9
+    - 1
+    - Yours are made of cement and sinking very quickly. You probably shouldn't have
+      opposed her foreign policy plans
+    - 2
+  - - 10
+    - 1
+    - Hers are probably better looking
+    - 1
+
+---
+top_tens:
+  columns:
+  - top_ten_id
+  - issue_id
+  - title
+  - no_of_entries
+  records:
+  - - 1
+    - 1
+    - Differences Between Your Shoes and Hillary Clinton's Shoes
+    - 10

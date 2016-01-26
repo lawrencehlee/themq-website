@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160126030818) do
 
   create_table "article_tags", id: false, force: :cascade do |t|
     t.integer "article_id", limit: 4, null: false
@@ -160,8 +160,6 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "top_tens", ["issue_id"], name: "issue_id", using: :btree
 
-  add_foreign_key "article_tags", "articles", primary_key: "article_id", name: "article_tags_ibfk_1"
-  add_foreign_key "article_tags", "tags", primary_key: "tag_id", name: "article_tags_ibfk_2"
   add_foreign_key "articles", "graphics", primary_key: "graphic_id", name: "articles_ibfk_3"
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
   add_foreign_key "articles", "persons", primary_key: "person_id", name: "articles_ibfk_1"
