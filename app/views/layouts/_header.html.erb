@@ -1,4 +1,18 @@
-<header class="header">
-  <%= link_to image_tag("MQ Logo.png", alt: "MQ logo"), '#' %>
-  <p>Masthead masthead masthead</p>
-</header>
+<div class="header">
+  <div class="header-masthead container">
+    Masthead
+  </div>
+  <div class="header-logo container">
+    <%= link_to image_tag("MQ Logo.png", alt: "MQ logo"), '#' %>
+  </div>
+  <div class="header-nav container">
+    <div class="header-nav pure-menu pure-menu-horizontal">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><%= link_to "Top Tens", '#' %></li>
+        <li class="pure-menu-item"><%= link_to "Features", '#' %></li>
+        <li class="pure-menu-item"><%= link_to "Placeholder 1", '#' %></li>
+        <li class="pure-menu-item"><%= link_to "Placeholder 2", '#' %></li>
+      </ul>
+    </div>
+  </div>
+</div>
