@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160126030818) do
 
   create_table "articles", primary_key: "article_id", force: :cascade do |t|
     t.integer "person_id",  limit: 4,     null: false
-    t.integer "graphic_id", limit: 4,     null: false
+    t.integer "graphic_id", limit: 4
     t.integer "issue_id",   limit: 4,     null: false
     t.string  "headline",   limit: 200
     t.text    "text",       limit: 65535, null: false
