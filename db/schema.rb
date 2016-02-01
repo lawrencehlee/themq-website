@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126030818) do
+ActiveRecord::Schema.define(version: 20160201193001) do
 
   create_table "article_tags", id: false, force: :cascade do |t|
     t.integer "article_id", limit: 4, null: false
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 20160126030818) do
     t.binary  "celeb_photo",         limit: 4294967295
   end
 
-  create_table "persons", primary_key: "person_id", force: :cascade do |t|
+  create_table "people", primary_key: "person_id", force: :cascade do |t|
     t.integer "position_id", limit: 4,          null: false
     t.string  "name",        limit: 200
     t.text    "bio",         limit: 65535
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160126030818) do
     t.binary  "current",     limit: 1
   end
 
-  add_index "persons", ["position_id"], name: "position_id", using: :btree
+  add_index "people", ["position_id"], name: "position_id", using: :btree
 
   create_table "positions", primary_key: "position_id", force: :cascade do |t|
     t.string "title", limit: 200
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20160126030818) do
 
   add_foreign_key "articles", "graphics", primary_key: "graphic_id", name: "articles_ibfk_3"
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
-  add_foreign_key "articles", "persons", primary_key: "person_id", name: "articles_ibfk_1"
+  add_foreign_key "articles", "people", primary_key: "person_id", name: "articles_ibfk_1"
   add_foreign_key "ed_pcp_tags", "ed_pcps", primary_key: "ed_pcp_id", name: "ed_pcp_tags_ibfk_1"
   add_foreign_key "ed_pcp_tags", "tags", primary_key: "tag_id", name: "ed_pcp_tags_ibfk_2"
   add_foreign_key "ed_pcps", "issues", primary_key: "issue_id", name: "ed_pcps_ibfk_1"
@@ -171,8 +171,8 @@ ActiveRecord::Schema.define(version: 20160126030818) do
   add_foreign_key "features", "issues", primary_key: "issue_id", name: "features_ibfk_1"
   add_foreign_key "graphics", "articles", primary_key: "article_id", name: "graphics_ibfk_1"
   add_foreign_key "graphics", "issues", primary_key: "issue_id", name: "graphics_ibfk_3"
-  add_foreign_key "graphics", "persons", primary_key: "person_id", name: "graphics_ibfk_2"
-  add_foreign_key "persons", "positions", primary_key: "position_id", name: "persons_ibfk_1"
+  add_foreign_key "graphics", "people", primary_key: "person_id", name: "graphics_ibfk_2"
+  add_foreign_key "people", "positions", primary_key: "position_id", name: "people_ibfk_1"
   add_foreign_key "self_ads", "issues", primary_key: "issue_id", name: "self_ads_ibfk_1"
   add_foreign_key "skyboxes", "issues", primary_key: "issue_id", name: "skyboxes_ibfk_1"
   add_foreign_key "top_ten_entries", "top_tens", primary_key: "top_ten_id", name: "top_ten_entries_ibfk_1"
