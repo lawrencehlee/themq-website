@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: mq_website_production
-  username: mq_website
-  password: <%= ENV['MQ_WEBSITE_DATABASE_PASSWORD'] %>
+  database: mqdb_production
+  username: root
+  password: <%= ENV['ROOT_DB_PASSWORD'] %>
