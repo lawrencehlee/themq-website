@@ -3,6 +3,7 @@
 
 $font-stack: 'Libre Baskerville', serif;
 $primary-text-color: #000;
+$link-hover-background-color: #d3d3d3;
 
 .container {
   width: 64em;
@@ -13,4 +14,16 @@ $primary-text-color: #000;
 body {
   font-family: $font-stack;
   color: $primary-text-color;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    background-color: $link-hover-background-color;
+  }
+
+  &:visited {
+    color: $primary-text-color;
+  }
 }
