@@ -1,2 +1,9 @@
 <p><%= @article.headline %></p>
 <p><%= @article_text %></p>
+<p><%= @author.name %>, <%= @author_position %></p>
+<p><%= @graphic.image %></p>
+<%= link_to image_tag(@graphic.image, alt:"Article Graphic"), '#' %>
+<p>Caption: <%= @graphic.caption %></p>
+<p>Photo by: <%= @graphic_designer.name %></p>
+<p>issue number: <%= @issue.volume_no %>.<%= @issue.issue_no %></p>
+<p>date: <%= @issue.date %></p>

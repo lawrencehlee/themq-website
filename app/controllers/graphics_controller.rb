@@ -1,0 +1,2 @@
+class GraphicsController < ApplicationController
+end

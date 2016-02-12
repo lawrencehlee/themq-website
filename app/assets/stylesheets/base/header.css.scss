@@ -1,0 +1,29 @@
+$header-border: 1px solid #000;
+
+.header {
+  margin-top: 1em;
+
+  .header-masthead {
+    text-align: center;
+    border-top: $header-border;
+    border-bottom: $header-border;
+  }
+
+  .header-nav {
+    border-top: $header-border;
+    border-bottom: $header-border;
+    ul.pure-menu-list {
+      display: flex;
+      justify-content: space-between;
+
+      li.pure-menu-item {
+
+      }
+    }
+  }
+
+  .pure-menu-heading {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
