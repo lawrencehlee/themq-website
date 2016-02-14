@@ -1,0 +1,6 @@
+<p><%= @top_ten.title %></p>
+<ul>
+  <% @top_ten_entries.each do |entry| %>
+    <li><%= entry.entry_no.to_s + ". " + entry.text %></li>
+  <% end %>
+</ul>

@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
         @author_position = Position.find(@author.position_id).title
         @graphic_designer = Person.find(@graphic.person_id)
     end
+
     def index
     end
 
