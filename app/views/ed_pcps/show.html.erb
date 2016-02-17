@@ -1,3 +1,19 @@
-<p>yoer</p>
-<p><%= @ed_pcp.headline %></p>
+<div>
+  <% @ed_pcps.each do |piece| %>
+    <div>
+    <% if piece.point == "1" %>
+      <h3>Point</h3>
+    <% end %>
+    <% if piece.counterpoint == "1" %>
+      <h3>Counterpoint</h3>
+    <% end %>
+    <% if piece.ed == "1" %>
+      <h3>Editorial</h3>
+    <% end %>
 
+    <p><%= piece.headline %></p>
+    <p><%= "By " + piece.author + ", " + piece.author_title %></p>
+    </div>
+  <% end %>
+
+</div>
