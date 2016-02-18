@@ -5,8 +5,6 @@ $font-stack: 'Libre Baskerville', serif;
 $primary-text-color: #000;
 $link-hover-background-color: #d3d3d3;
 
-$font-size-large: 300%;
-
 .container {
   width: 64em;
   margin: 0 auto;
@@ -16,10 +14,6 @@ $font-size-large: 300%;
 body {
   font-family: $font-stack;
   color: $primary-text-color;
-	
-	h1{
-		font-size:$font-size-large;
-	}
 }
 
 a {
