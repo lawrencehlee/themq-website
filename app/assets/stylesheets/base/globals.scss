@@ -5,15 +5,19 @@ $font-stack: 'Libre Baskerville', serif;
 $primary-text-color: #000;
 $link-hover-background-color: #d3d3d3;
 
-.container {
-  width: 64em;
-  margin: 0 auto;
-  float: none;
+* {
+	margin: 0;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
 }
 
 body {
   font-family: $font-stack;
   color: $primary-text-color;
+	margin: 0 0 8em;
 }
 
 a {
@@ -26,4 +30,10 @@ a {
   &:visited {
     color: $primary-text-color;
   }
+}
+
+.container {
+  width: 64em;
+  margin: 0 auto;
+  float: none;
 }
