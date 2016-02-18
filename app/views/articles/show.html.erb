@@ -1,9 +1,8 @@
+# implement the tags up here
 <h1><%= @article.headline %></h1>
 <p><%= markdown(@article_text) %></p>
-<p><%= @author.name %>, <%= @author_position %></p>
+<p><%= @author.name %>, <%= @author_position %> - <%= @issue.date %> <left>Issue <%= @issue.issue_no %>, Volume <%= @issue.volume_no %></left></p>
 <p><%= @graphic.image %></p>
 <%= link_to image_tag(@graphic.image, alt:"Article Graphic"), '#' %>
 <p>Caption: <%= @graphic.caption %></p>
 <p>Photo by: <%= @graphic_designer.name %></p>
-<p>issue number: <%= @issue.volume_no %>.<%= @issue.issue_no %></p>
-<p>date: <%= @issue.date %></p>
