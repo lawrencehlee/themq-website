@@ -3,7 +3,7 @@
     <%= @masthead %>
   </div>
   <div class="header-logo container">
-    <%= link_to image_tag("MQ Logo.png", alt: "MQ logo"),
+    <%= link_to image_tag("MQ Logo.png", alt: "MQ logo", width: "256"),
 			:controller => 'static_pages', :action => 'about' %>
   </div>
   <div class="header-nav container">
@@ -11,7 +11,7 @@
       <ul class="pure-menu-list">
         <li class="pure-menu-item"><%= link_to "Top Tens", '#' %></li>
         <li class="pure-menu-item"><%= link_to "Features", '#' %></li>
-        <li class="pure-menu-item"><%= link_to "Articles", 
+        <li class="pure-menu-item"><%= link_to "Articles",
 		:controller => 'articles', :action => 'index' %></li>
         <li class="pure-menu-item"><%= link_to "Placeholder 2", '#' %></li>
       </ul>
