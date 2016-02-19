@@ -1,0 +1,68 @@
+@import 'purecss';
+@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+$serif-font-stack: 'Libre Baskerville', serif;
+$primary-text-color: #000;
+$link-hover-background-color: #d3d3d3;
+$footer-height: 12em;
+
+* {
+	margin: 0;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+  font-family: $serif-font-stack;
+}
+
+body {
+  color: $primary-text-color;
+	margin: 0 0 $footer-height; // For footer
+}
+
+a {
+  text-decoration: none;
+	color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+  &:hover {
+    background-color: $link-hover-background-color;
+  }
+
+}
+
+.container {
+	max-width: 95%;
+  margin: 0 auto;
+  float: none;
+	//padding: 0 1em;
+}
+
+// Responsive media queries for container
+@media screen and (min-width: 35.5em) {
+	.container {
+		width: 24em;
+	}
+}
+@media screen and (min-width: 48em) {
+	.container {
+		width: 48em;
+	}
+}
+@media screen and (min-width: 64em) {
+	.container {
+		width: 64em;
+	}
+}
+@media screen and (min-width: 80em) {
+	.container {
+		width: 72em;
+	}
+}
