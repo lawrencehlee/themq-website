@@ -1,6 +1,13 @@
 <div class="ed_pcp-show-content pure-g">
     <div class="ed_pcp-content pure-u-2-3">
-        <p>implement the tags up here</p>
+
+        <div class="pure-g">
+            <% @tags.each do |tag| %>
+                <button class="pure-button">
+                    <%= tag.title %>
+                </button>
+            <% end %>
+        </div>
         <% @ed_pcps.each do |piece| %>
             <% if piece.point == "1" %>
                 <h2>Point</h2>
