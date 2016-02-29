@@ -10,10 +10,6 @@ class ArticlesController < ApplicationController
     end
 
     def index
+			@articles = Article.order(article_id: :desc)
     end
-
-    private
-    #def get_article_text
-    #  "abcd"
-    #end
 end
