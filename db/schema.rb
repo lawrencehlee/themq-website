@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201193001) do
+ActiveRecord::Schema.define(version: 20160219201755) do
 
   create_table "article_tags", id: false, force: :cascade do |t|
     t.integer "article_id", limit: 4, null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160201193001) do
   add_index "ed_pcp_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "ed_pcps", primary_key: "ed_pcp_id", force: :cascade do |t|
-    t.integer "issue_id",        limit: 4,          null: false
+    t.integer "issue_id",        limit: 4,     null: false
     t.binary  "ed",              limit: 1
     t.binary  "point",           limit: 1
     t.binary  "counterpoint",    limit: 1
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20160201193001) do
     t.string  "headline",        limit: 200
     t.string  "author",          limit: 200
     t.string  "author_title",    limit: 200
-    t.binary  "author_image",    limit: 4294967295
+    t.string  "author_image",    limit: 255
     t.text    "text",            limit: 65535
   end
 

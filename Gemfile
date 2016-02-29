@@ -26,7 +26,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # For markdown parsing
 gem 'redcarpet'
-
+#For icon importing
+gem 'font-awesome-rails'
 # misc
 gem 'yaml_db'
 

@@ -1,4 +1,6 @@
 @import 'purecss';
+//@import "font-awesome-sprockets";
+//@import "font-awesome";
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
@@ -6,6 +8,10 @@ $serif-font-stack: 'Libre Baskerville', serif;
 $primary-text-color: #000;
 $link-hover-background-color: #d3d3d3;
 $footer-height: 12em;
+
+$font-size-large: 300%;
+$font-size-medium: 160%;
+$font-size-small: 70%;
 
 * {
 	margin: 0;
@@ -23,6 +29,10 @@ html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
 body {
   color: $primary-text-color;
 	margin: 0 0 $footer-height; // For footer
+
+	h1{
+		font-size: $font-size-large;
+	}
 }
 
 a {
@@ -65,4 +75,8 @@ a {
 	.container {
 		width: 72em;
 	}
+}
+
+.main {
+  text-align: justify;
 }
