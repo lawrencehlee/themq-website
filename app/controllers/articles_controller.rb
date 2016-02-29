@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
     end
 
     def index
-			@articles = Article.order(article_id: :desc)
+			@articles = Article.paginate(:page => params[:page], :per_page => 1).order(article_id: :desc)
+			@graphics = Graphic.paginate(:page => params[:page], :per_page => 1).order(article_id: :desc)
     end
 end

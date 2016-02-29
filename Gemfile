@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'redcarpet'
 #For icon importing
 gem 'font-awesome-rails'
+#For pagination
+gem 'will_paginate', '~> 3.0.6'
 # misc
 gem 'yaml_db'
 
