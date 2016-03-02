@@ -15,8 +15,8 @@ class Article < ActiveRecord::Base
 				line = f.gets || break
 				lines << line
 			end
-			firstLine = lines.first
-			firstLine.split(' ')[0, 25].join(" ") + "...";
+			first_line = lines.first
+			first_line.split(' ')[0, 25].join(' ') + "...";
 
 		end
 	end
