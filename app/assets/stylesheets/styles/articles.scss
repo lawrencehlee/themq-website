@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$light-grey: #757575;
+
 .article-show-content {
 	margin-left: 2em;
 	margin-top: 2em;
@@ -14,5 +16,23 @@
 			margin-top: 1em;
 			margin-bottom: 1em;
 		}
+	}
+}
+
+.article-index-content {
+	.article-box {
+		p {
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+		.date-author {
+			p {
+				color: $light-grey;
+			}
+		}
+	}
+	hr {
+		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 }
