@@ -30,6 +30,10 @@ gem 'redcarpet'
 gem 'font-awesome-rails'
 # misc
 gem 'yaml_db'
+#for admin page
+gem 'activeadmin', github: 'gregbell/active_admin'
+#for authentication
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -39,7 +43,6 @@ gem 'yaml_db'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
