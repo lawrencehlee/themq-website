@@ -13,7 +13,7 @@
 
 					<p><%= @article_text_teaser %></p>
 					<div class="date-author">
-						<p><%= @issue.date %> / <%= @person.name %></p>
+						<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
 					</div>
 				</div>
 			</div>
