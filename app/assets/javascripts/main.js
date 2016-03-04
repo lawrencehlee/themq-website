@@ -1,3 +1,6 @@
 $(document).ready(function() {
-    $('.owl-carousel').owlCarousel();
+    $('.owl-carousel').owlCarousel({
+        navigation: true,
+        singleItem: true
+    });
 });
