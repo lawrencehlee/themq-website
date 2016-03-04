@@ -15,3 +15,5 @@ Rails.application.config.assets.version = '1.0'
 			["#{controller}.coffee", "#{controller}.js",
 			"#{controller}.scss", "#{controller}.css"]
 end
+
+Rails.application.config.assets.precompile += %w( .woff .ttf )

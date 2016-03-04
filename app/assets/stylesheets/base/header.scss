@@ -1,5 +1,7 @@
+@import "variables";
+@import "mixins";
+
 $header-border: 1px solid #000;
-$sans-serif-font-stack: 'Lato', sans-serif;
 
 .header {
 	font-family: $sans-serif-font-stack;
