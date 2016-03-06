@@ -1,9 +1,15 @@
 <div class="main pure-g">
 	<div class="main-content pure-u-2-3">
 		<div class="owl-carousel">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
+			<% @featured_content.each do |content| %>
+				<% # TODO: not every piece of content has a headline
+					# How do we handle this?
+					graphic = Graphic.find(content.graphic_id) %>
+				<div>
+					<%= link_to image_tag(graphic.image, alt:"Article Graphic", width: '400'), '#' %>
+					<h3><%= content.headline %></h3>
+				</div>
+			<% end %>
 		</div>
 	</div>
 	<div class="sidebar-content pure-u-1-3">
