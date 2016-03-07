@@ -1,4 +1,7 @@
 ActiveAdmin.register Article do
+
+	permit_params :person_id, :graphic_id, :issue_id, :headline, :text, :brief
+
 	index do
 		selectable_column
 		column :article_id
@@ -13,7 +16,6 @@ ActiveAdmin.register Article do
 
 	form do |f|
 		f.inputs "Article Details" do
-			f.input :article_id
 			f.input :person_id
 			f.input :graphic_id
 			f.input :issue_id
