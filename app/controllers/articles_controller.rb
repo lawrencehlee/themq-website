@@ -19,4 +19,10 @@ class ArticlesController < ApplicationController
 			@articles = Article.paginate(:page => params[:page], :per_page => 10).order(article_id: :desc)
 			@graphics = Graphic.paginate(:page => params[:page], :per_page => 10).order(article_id: :desc)
     end
+
+		def new
+			#need to send in a top article and then next four or six articles
+
+			@topArticle = Article.last
+		end
 end
