@@ -46,24 +46,24 @@ a {
 }
 
 // Responsive media queries for container
-@media screen and (min-width: 35.5em) {
+@media screen and (min-width: $sm-min-width) {
 	.container {
-		width: 24em;
+		width: $sm-container-min-width;
 	}
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: $md-min-width) {
 	.container {
-		width: 48em;
+		width: $md-container-min-width;
 	}
 }
-@media screen and (min-width: 64em) {
+@media screen and (min-width: $lg-min-width) {
 	.container {
-		width: 64em;
+		width: $lg-container-min-width;
 	}
 }
-@media screen and (min-width: 80em) {
+@media screen and (min-width: $xl-min-width) {
 	.container {
-		width: 72em;
+		width: $xl-container-min-width;
 	}
 }
 
