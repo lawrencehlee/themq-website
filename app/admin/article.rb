@@ -1,6 +1,6 @@
 ActiveAdmin.register Article do
 
-	permit_params :person_id, :graphic_id, :issue_id, :headline, :text, :brief
+	permit_params :article_id, :person_id, :graphic_id, :issue_id, :headline, :text, :brief
 
 	index do
 		selectable_column

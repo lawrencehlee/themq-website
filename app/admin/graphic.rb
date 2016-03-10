@@ -1,6 +1,6 @@
 ActiveAdmin.register Graphic do
 
-	permit_params :article_id, :person_id, :issue_id, :image, :caption
+	permit_params :graphic_id, :article_id, :person_id, :issue_id, :image, :caption
 
 	index do
 		selectable_column
