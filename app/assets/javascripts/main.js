@@ -1,6 +1,7 @@
 $(document).ready(function() {
     $('.owl-carousel').owlCarousel({
-        navigation: true,
-        singleItem: true
+        singleItem: true,
+        paginationNumbers: true,
+        autoPlay: 8000
     });
 });

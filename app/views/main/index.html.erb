@@ -9,7 +9,11 @@
 					<div class="slideshow-element">
 						<%= link_to image_tag(graphic.get_relative_image_path,
 							alt:"Article Graphic", style: 'width:100%'), content %>
-						<h3><%= link_to content.headline, content %></h3>
+						<div class="slideshow-label-wrapper">
+							<h2 class="slideshow-label">
+								<%= link_to content.headline, content %>
+							</h2>
+						</div>
 					</div>
 				<% end %>
 			</div>

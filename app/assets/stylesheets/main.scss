@@ -10,9 +10,16 @@
 			img {
 				border: 1px solid;
 			}
+			.slideshow-label-wrapper {
+				background: rgba(255, 255, 255, 0.7);
+				position: absolute;
+				bottom: 1em;
+				width: 100%;
 
-			h3 {
-
+				h2 {
+					padding-left: 1em;
+					padding-right: 1em;
+				}
 			}
 		}
 	}
