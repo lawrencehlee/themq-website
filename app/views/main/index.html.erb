@@ -6,9 +6,10 @@
 					<% # TODO: not every piece of content has a headline
 						# How do we handle this?
 						graphic = Graphic.find(content.graphic_id) %>
-					<div>
-							<%= link_to image_tag(graphic.get_relative_image_path, alt:"Article Graphic", width: '400'), '#' %>
-							<h3><%= content.headline %></h3>
+					<div class="slideshow-element">
+						<%= link_to image_tag(graphic.get_relative_image_path,
+							alt:"Article Graphic", style: 'width:100%'), content %>
+						<h3><%= link_to content.headline, content %></h3>
 					</div>
 				<% end %>
 			</div>
