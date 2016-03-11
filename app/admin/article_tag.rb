@@ -6,7 +6,7 @@ ActiveAdmin.register ArticleTag do
 		selectable_column
 		column :article_id
 		column :tag_id
-		#actions
+		actions
 	end
 
 	form do |f|
