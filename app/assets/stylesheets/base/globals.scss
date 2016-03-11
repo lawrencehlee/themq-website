@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 @import "variables";
 @import "mixins";
 @import "purecss";
-=======
-@import 'purecss';
-//@import "font-awesome-sprockets";
-//@import "font-awesome";
->>>>>>> master
-@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 * {
 	margin: 0;
@@ -75,4 +67,9 @@ a {
 
 .main {
   text-align: justify;
+}
+
+.left-bar, .right-bar {
+	padding-left: 1em;
+	padding-right: 1em;
 }
