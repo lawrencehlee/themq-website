@@ -8,6 +8,10 @@ class EdPcpsController < ApplicationController
    
     @ed_pcps = Array.new
     @ed_pcps << @ed_pcp
+    @tags = Array.new
+    EdPcpTag.where(ed_pcp_id: params[:id]).each do |ed_pcp_tag|
+        @tags << Tag.find(ed_pcp_tag.tag_id)
+    end
 
 
     if @ed_pcp.point == "1"
