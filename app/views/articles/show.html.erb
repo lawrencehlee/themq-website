@@ -19,7 +19,7 @@
 		</div>
 
 		<p><%= @graphic.image %></p>
-		<%= link_to image_tag(@graphic.image, alt:"Article Graphic", width: '800'), '#' %>
+		<%= link_to image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '800'), '#' %>
 		<p>Caption: <%= @graphic.caption %></p>
 		<p>Photo by: <%= @graphic_designer.name %></p>
 		<div class="content-text"><%= markdown(@article_text) %></div>
