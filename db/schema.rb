@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311235104) do
+ActiveRecord::Schema.define(version: 20160312010409) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20160311235104) do
   add_index "article_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "articles", primary_key: "article_id", force: :cascade do |t|
-    t.integer "person_id",  limit: 4,     null: false
+    t.integer "person_id",  limit: 4,   null: false
     t.integer "graphic_id", limit: 4
-    t.integer "issue_id",   limit: 4,     null: false
+    t.integer "issue_id",   limit: 4,   null: false
     t.string  "headline",   limit: 200
-    t.text    "text",       limit: 65535, null: false
+    t.string  "text",       limit: 255, null: false
     t.binary  "brief",      limit: 1
   end
 
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20160311235104) do
   add_index "ed_pcp_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "ed_pcps", primary_key: "ed_pcp_id", force: :cascade do |t|
-    t.integer "issue_id",        limit: 4,     null: false
+    t.integer "issue_id",        limit: 4,   null: false
     t.binary  "ed",              limit: 1
     t.binary  "point",           limit: 1
     t.binary  "counterpoint",    limit: 1
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20160311235104) do
     t.string  "author",          limit: 200
     t.string  "author_title",    limit: 200
     t.string  "author_image",    limit: 255
-    t.text    "text",            limit: 65535
+    t.string  "text",            limit: 255
   end
 
   add_index "ed_pcps", ["issue_id"], name: "issue_id", using: :btree
@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 20160311235104) do
   add_index "feature_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "features", primary_key: "feature_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,          null: false
+    t.integer "issue_id", limit: 4,   null: false
     t.string  "title",    limit: 200
-    t.binary  "image",    limit: 4294967295
+    t.string  "image",    limit: 255
     t.binary  "spread",   limit: 1
   end
 
@@ -149,18 +149,18 @@ ActiveRecord::Schema.define(version: 20160311235104) do
   end
 
   create_table "self_ads", primary_key: "self_ad_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,          null: false
+    t.integer "issue_id", limit: 4,   null: false
     t.string  "text",     limit: 200
-    t.binary  "image",    limit: 4294967295
+    t.string  "image",    limit: 255
   end
 
   add_index "self_ads", ["issue_id"], name: "issue_id", using: :btree
 
   create_table "skyboxes", primary_key: "skybox_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,          null: false
+    t.integer "issue_id", limit: 4,   null: false
     t.string  "text1",    limit: 200
     t.string  "text2",    limit: 200
-    t.binary  "image",    limit: 4294967295
+    t.string  "image",    limit: 255
   end
 
   add_index "skyboxes", ["issue_id"], name: "issue_id", using: :btree
