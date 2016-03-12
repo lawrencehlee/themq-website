@@ -2,12 +2,13 @@
 @import "base/mixins";
 
 .main {
-	margin-top: 1em;
-	margin-bottom: 1em;
+	padding-top: 1em;
+	padding-bottom: 2em;
 
 	.main-content {
-
 		.slideshow {
+			margin-bottom: 0.25em;
+			border-bottom: 1px solid;
 
 			.slideshow-element {
 				.slideshow-label {
@@ -40,6 +41,24 @@
 
 			.owl-controls {
 				margin-top: 0;
+			}
+		}
+	}
+
+	.more-shit {
+		border-top: 1px solid;
+		padding-top: 1em;
+
+		.more-shit-title {
+			text-align: center;
+			border-bottom: 1px solid;
+			margin-bottom: 1em;
+		}
+
+		.more-shit-content {
+			.more-shit-content-piece {
+				padding-left: 1em;
+				padding-right: 1em;
 			}
 		}
 	}
