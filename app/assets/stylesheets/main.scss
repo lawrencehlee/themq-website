@@ -6,20 +6,42 @@
 	margin-bottom: 1em;
 
 	.main-content {
-		.slideshow-element {
-			img {
-				border: 1px solid;
-			}
-			.slideshow-label-wrapper {
-				background: rgba(255, 255, 255, 0.7);
-				position: absolute;
-				bottom: 1em;
-				width: 100%;
 
-				h2 {
-					padding-left: 1em;
-					padding-right: 1em;
+		.slideshow {
+
+			.slideshow-element {
+				img {
+					border: 1px solid transparent;
+					border-bottom-left-radius: 1em;
+					border-bottom-right-radius: 1em;
 				}
+
+				.slideshow-label {
+					background: rgba(0, 0, 0, 0.8);
+					position: absolute;
+					left: 1em;
+					bottom: 1em;
+					margin-right: 1em;
+					padding: 1em;
+					font-size: 1.5em;
+					color: white;
+					font-weight: bold;
+					text-shadow:
+						-1px -1px 0 #000,
+						1px -1px 0 #000,
+						-1px 1px 0 #000,
+						1px 1px 0 #000;
+					border: 1px solid transparent;
+					border-radius: 0.25em;
+
+					&:hover {
+						background: rgba(0, 0, 0, 0.6);
+					}
+				}
+			}
+
+			.owl-controls {
+				margin-top: 0;
 			}
 		}
 	}
