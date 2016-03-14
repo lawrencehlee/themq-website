@@ -1,8 +1,11 @@
-$(document).ready(function() {
+$(function() {
+    loadOwlCarousel();
+});
+
+function loadOwlCarousel() {
     $('.owl-carousel').owlCarousel({
         singleItem: true,
-        //paginationNumbers: true,
         mouseDrag: false,
         autoPlay: 8000
     });
-});
+}
