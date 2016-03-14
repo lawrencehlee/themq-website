@@ -1,7 +1,7 @@
 ActiveAdmin.register Issue do
 
-	permit_params :issue_id, :volumn_no, :issue_no, :date, :staff_photo, :staff_photo_caption,
-		:eic_not, :booster_club, :brief_title, :masthead, :celeb_quote, :celeb, :celeb_photo
+	permit_params :issue_id, :volume_no, :issue_no, :date, :staff_photo, :staff_photo_caption,
+		:eic_note, :booster_club, :brief_title, :masthead, :celeb_quote, :celeb, :celeb_photo
 
 	index do
 		selectable_column
