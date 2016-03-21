@@ -1,6 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-$serif-font-stack: 'Libre Baskerville', serif;
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Fjord+One);
+$serif-headline-font-stack: 'Playfair Display', serif;
+$serif-text-font-stack: 'Fjord One', serif;
 $sans-serif-font-stack: 'Lato', sans-serif;
 $primary-text-color: #000;
 $link-hover-background-color: #d3d3d3;
