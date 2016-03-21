@@ -65,7 +65,11 @@ a {
   text-align: justify;
 }
 
-.left-bar, .right-bar {
-	padding-left: 0em;
+.left-bar {
 	padding-right: 1em;
+	border-right: 1px solid $bar-border-color;
+}
+
+.right-bar {
+	padding-left: 1em;
 }
