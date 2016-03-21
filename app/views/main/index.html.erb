@@ -59,6 +59,8 @@
 			<%= form_tag({}, method: "get", class: "search-bar") do %>
 				<%= text_field_tag("contents") %>
 			<% end %>
+
+			<%= render 'top_tens/inline', :top_ten => @random_top_ten %>
 		</div>
 	</div>
 </div>

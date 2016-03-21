@@ -1,2 +1,8 @@
 @import "base/variables";
 @import "base/mixins";
+
+.top-ten {
+	.top-ten-title {
+		font-size: 1.25em;
+	}
+}
