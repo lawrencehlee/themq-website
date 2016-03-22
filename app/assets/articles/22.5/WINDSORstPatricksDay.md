@@ -1,0 +1,15 @@
+This March, UCSD students will commemorate St. Patrick, the man recognized by the Catholic Church as being on par with the original twelve apostles, by getting drunk and searching through their closets for clothes that are just the right intersection of green and sexually provocative.
+
+Observers will congregate in bars, pubs, and — for those persecuted by laws about the proscribed drinking age — in their own homes to show their appreciation for the rich history and culture of the greatly admired nation of Ireland and the great symbol St. Patrick has come to represent.
+
+Howard Johnson, a junior in Warren College and one of the dedicated few who risked jail time to provide his freshman roommate with whisky so that he would be able to partake in the festivities, announced his joy upon finding out that his great-great-grandfather had lived in Ireland for six months, and proclaimed his newfound Irish citizenship with pride, a sense of cultural belonging, and the ceremonious chugging of a bottle of Jack Daniels, to all his roommates and neighbors.
+
+To celebrate the joyous occasion, his girlfriend Jessie Adams bought him a “Kiss me, I’m Irish” tank top, and a matching crop top for herself. The couple are projected to break up after St. Patrick’s Day, when both Adams and Johnson will at different times make out with the bartender of their go-to pub, the Hammered Inn, in full view of their significant other, and fail to admit to it after.
+
+The faithful followers of a man who, according to legend, is responsible for the absence of snakes in all of Ireland, and personally inserts luck into every four-leaf clover, will take a break from studying and all other personal responsibilities and imbibe enough alcohol to drown their testing sorrows to show respect for Ireland’s patron saint. Some students plan to incorporate smoking marijuana into their observances, stating that “weed is just the kind of shamrock that St. Patrick would have liked. It’s the least we can do to honor all he’s done for us.”
+
+UCSD Facilities has announced its plans to dye all water supplying the “EZ H2O” water fountains green, in a combined effort to both support the St. Patrick’s Day celebrations and to spread awareness about the water crisis in Flint, Michigan. The administration has, however, reiterated its neutrality concerning religion, domestic politics, and Irish culture.
+
+From Sammy’s Shamrock Emporium, key spokesperson and expert on Irish heritage and St. Patrick himself, Sammy Sherwood announced his support for the worldwide endeavor to change the spirit and message of St. Patrick’s Day from what it used to be. He explained in a press release on Monday that “St. Patrick’s renowned illustration of a shamrock representing the holy trinity was really meant to refer to the trinity of Cider, Rum, and the Holy Spirits.”
+
+Sherwood added, “It can also be interpreted as a strong message to buy 20 percent off Leprechaun aprons and matching shamrock hats. There’s truly no better way to show deeper devotion and respect to the Irish saint.”
