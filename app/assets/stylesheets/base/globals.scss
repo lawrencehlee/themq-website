@@ -11,11 +11,11 @@ html {
 	min-height: 100%;
 }
 
-html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+.serif-text, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
   font-family: $serif-text-font-stack;
 }
 
-h1, h2, h3, h4, h5, h6, .title, .headline {
+.serif-headline, h1, h2, h3, h4, h5, h6, .title, .headline {
 	font-family: $serif-headline-font-stack;
 }
 

@@ -2,7 +2,27 @@
 @import "base/mixins";
 
 .top-ten {
-	.top-ten-title {
-		font-size: 1.25em;
+	// This whole shtick does two things:
+	// 1) Left aligns the numbers of the ol
+	// 2) Reverses the numbers so that they count down from whatever
+	ol {
+		list-style: none;
+		padding-left: 0;
+		display: table;
+
+		li {
+			counter-increment: reverse -1;
+			display: table-row;
+			position: relative;
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+
+			&:before {
+				content: counter(reverse) '.';
+				display: table-cell;
+				text-align: left;
+				padding-right: 0.5em;
+			}
+		}
 	}
 }

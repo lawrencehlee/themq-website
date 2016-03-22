@@ -1,10 +1,12 @@
 <div class="top-ten">
 	<div class="top-ten-title">
-		<div class="caps bold sans-serif">Top Ten</div>
-		<div><%= top_ten.title %></div>
+		<h2 class="caps sans-serif">Top Ten</h3>
+		<h3 class="serif-text"><%= top_ten.title %></h3>
 	</div>
-	<ol reversed>
-	<% top_ten.get_entries.each do |entry| %>
+	<% entries = top_ten.get_entries %>
+	<!-- More bad practice, but dynamically set the number to count down from -->
+	<ol class="reverse" style="counter-reset: reverse <%= entries.count + 1 %>">
+	<% entries.each do |entry| %>
 		<li class="top-ten-entry"><%= entry.text %></li>
 	<% end %>
 	</ol>
