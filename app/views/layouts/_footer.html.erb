@@ -10,7 +10,11 @@
 					<div><%= link_to "Donate", '#' %></div>
 				</div>
 				<div class="pure-u-1-2">
-					<div><%= link_to "Home", '#' %></div>
+					<div>
+						<%= link_to "Home",
+							{:controller => 'main', :action => 'index'},
+							{:data => {:'no-turbolink' => true}} %>
+					</div>
 					<div><%= link_to "Facebook", 'https://facebook.com/ucsdmq' %></div>
 					<div><%= link_to "Twitter", 'https://twitter.com/the_mq' %></div>
 					<div><%= link_to "Read the issue", 'https://issuu.com/themq' %></div>

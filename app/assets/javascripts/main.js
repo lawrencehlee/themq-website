@@ -1,6 +1,11 @@
-$(document).ready(function() {
-    $('.owl-carousel').owlCarousel({
-        navigation: true,
-        singleItem: true
-    });
+$(function() {
+    loadOwlCarousel();
 });
+
+function loadOwlCarousel() {
+    $('.owl-carousel').owlCarousel({
+        singleItem: true,
+        mouseDrag: false,
+        autoPlay: 8000
+    });
+}

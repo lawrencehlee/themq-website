@@ -21,6 +21,12 @@ $header-border: 1px solid #000;
 				font-size: 1.25em;
       }
     }
+
+		a {
+			&:hover {
+				background-color: $link-hover-background-color;
+			}
+		}
   }
 
   .pure-menu-heading {

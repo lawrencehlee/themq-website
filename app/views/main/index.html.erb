@@ -1,23 +1,66 @@
 <div class="main pure-g">
-	<div class="main-content pure-u-2-3">
+	<div class="main-content pure-u-1 pure-u-md-2-3">
 		<div class="left-bar">
-			<div class="owl-carousel">
+
+			<div class="owl-carousel slideshow">
 				<% @featured_content.each do |content| %>
 					<% # TODO: not every piece of content has a headline
 						# How do we handle this?
-						graphic = Graphic.find(content.graphic_id) %>
-					<div class="slideshow-element">
-						<%= link_to image_tag(graphic.get_relative_image_path,
-							alt:"Article Graphic", style: 'width:100%'), content %>
-						<h3><%= link_to content.headline, content %></h3>
+						graphic = Graphic.find(content.graphic_id)
+						person = Person.find(content.person_id)
+						issue = Issue.find(content.issue_id)
+					%>
+
+				<!-- Link to the specified content -->
+				<a href="<%= url_for(content) %>">
+					<!-- This disgusting style is to dynamically place the background
+					image -->
+					<div class="slideshow-element"
+							style="background:
+								linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
+								url(<%= asset_path graphic.get_relative_image_path %>);
+								background-size: cover; background-position: center;">
+						<div class="slideshow-text">
+							<div class="slideshow-label headline"><%= content.headline %></div>
+							<div class="slideshow-details">
+								<span class="index-person"><%= person.name %> -</span>
+								<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
+								<span class="index-date"><%= issue.get_human_readable_date %></span>
+							</div>
+						</div>
 					</div>
+				</a>
 				<% end %>
+			</div>
+
+			<div class="more-shit">
+				<h2 class="more-shit-title">
+					More Shit
+				</h2>
+				<div class="more-shit-content pure-g">
+					<div class="pure-u-1 pure-u-md-1-2">
+						<div class="more-shit-content-piece" id="more-shit-1">
+							<h4><%= @more_shit_1.headline %></h4>
+						</div>
+					</div>
+					<div class="pure-u-1 pure-u-md-1-2">
+						<div class="more-shit-content-piece" id="more-shit-2">
+							<h4><%= @more_shit_2.headline %></h4>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="sidebar-content pure-u-1-3">
+	<div class="sidebar-content pure-u-1 pure-u-md-1-3">
 		<div class="right-bar">
-			<p>big whoop</p>
+			<% #form_tag(controller: "search", action: "index", method: "get",
+									#class: "search-bar") do %>
+			<%= form_tag({}, method: "get", class: "search-bar") do %>
+				<%= text_field_tag("contents") %>
+			<% end %>
+
+			<%= render 'top_tens/inline', :top_ten => @random_top_ten %>
 		</div>
 	</div>
 </div>
