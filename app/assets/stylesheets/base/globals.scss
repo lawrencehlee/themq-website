@@ -11,12 +11,16 @@ html {
 	min-height: 100%;
 }
 
-html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+.serif-text, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
   font-family: $serif-text-font-stack;
 }
 
-h1, h2, h3, h4, h5, h6, .title, .headline {
+.serif-headline, h1, h2, h3, h4, h5, h6, .title, .headline {
 	font-family: $serif-headline-font-stack;
+}
+
+.sans-serif {
+	font-family: $sans-serif-font-stack;
 }
 
 body {
@@ -76,6 +80,16 @@ a {
 
 .right-bar {
 	padding-left: 1em;
+
+	.top-right-bar-element {
+		padding-bottom: 1em;
+	}
+
+	.right-bar-element {
+		padding-top: 1em;
+		padding-bottom: 1em;
+		border-top: 1px solid $bar-border-color;
+	}
 }
 
 .caps {
