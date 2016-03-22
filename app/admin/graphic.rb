@@ -15,12 +15,11 @@ ActiveAdmin.register Graphic do
 
 	form do |f|
 		f.inputs "Graphics Details" do
-			f.input :graphic_id
 			f.input :article_id
 			f.input :person_id
 			f.input :issue_id
 			f.input :image
-			f.input :caaption
+			f.input :caption
 		end
 		f.actions
 	end
