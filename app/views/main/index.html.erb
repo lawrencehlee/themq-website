@@ -19,7 +19,7 @@
 								url(<%= asset_path graphic.get_relative_image_path %>);
 								background-size: cover; background-position: center;">
 						<div class="slideshow-text">
-							<div class="slideshow-label headline"><%= content.headline %></div>
+							<h2 class="slideshow-label headline"><%= content.headline %></h2>
 							<div class="slideshow-details sans-serif">
 								<span class="index-person"><%= person.name %> -</span>
 								<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
@@ -31,22 +31,20 @@
 				<% end %>
 			</div>
 
-			<div class="more-shit">
-				<h2 class="more-shit-title">
-					More Shit
-				</h2>
-				<div class="more-shit-content pure-g">
-					<div class="pure-u-1 pure-u-lg-1-2">
-						<div class="more-shit-content-piece" id="more-shit-1">
-							<h4><%= @more_shit_1.headline %></h4>
+			<div class="news">
+				<h2 class="news-title">News</h2>
+				<% @news_articles.each do |article| %>
+					<% graphic = Graphic.find(article.graphic_id) %>
+					<div class="news-content pure-g">
+						<div class="news-content-image pure-u-1-3">
+							<%= link_to image_tag(graphic.get_relative_image_path),
+								article %>
+						</div>
+						<div class="news-content-headline pure-u-2-3">
+							<h3><%= article.headline %></h3>
 						</div>
 					</div>
-					<div class="pure-u-1 pure-u-lg-1-2">
-						<div class="more-shit-content-piece" id="more-shit-2">
-							<h4><%= @more_shit_2.headline %></h4>
-						</div>
-					</div>
-				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
