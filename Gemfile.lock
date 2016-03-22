@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 2635bdb2bc37f3eb103d5ba6dee16b2c7e4da2a6
+  revision: 18fd1c23fc60d3a96f8a31dffb13329c7d0595db
   specs:
     activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
@@ -171,7 +171,7 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
-    responders (2.1.1)
+    responders (2.1.2)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.21)
     sass-rails (5.0.4)
