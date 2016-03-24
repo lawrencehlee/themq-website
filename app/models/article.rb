@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
 
 	def get_article_text_teaser
 		filepath = File.join(
-			Rails.root, 'app', 'assets', 'articles', self.text)
+			Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
 		n = 1;
 		open(filepath) do |f|
 			lines = []
@@ -29,6 +29,34 @@ class Article < ActiveRecord::Base
 		issue = Issue.find(self.issue_id)
 		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
 		"#{issue_string}/#{ARTICLE_SUBDIRECTORY}/#{self.text}"
+	end
+
+	def get_top_story
+		issue = Issue.last
+		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
+		filepath = File.join(
+			Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topStories.txt')
+
+		f_lines = File.open(filepath).read.split("\n")
+		f_lines.each_with_index do |line, index|
+			if line.include? "top story"
+				return f_lines[index + 1]
+			end
+		end
+	end
+
+	def get_more_stories
+		issue = Issue.last
+		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
+		filepath = File.join(
+			Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topStories.txt')
+
+		f_lines = File.open(filepath).read.split("\n")
+		f_lines.each_with_index do |line, index|
+			if line.include? "more"
+				return f_lines[index + 1].split(",")
+			end
+		end
 	end
 
 end

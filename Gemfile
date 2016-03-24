@@ -33,7 +33,7 @@ gem 'owlcarousel-rails'
 #For icon importing
 gem 'font-awesome-rails'
 #For pagination
-gem 'will_paginate', '~> 3.0.6'
+gem 'kaminari'
 # misc
 gem 'yaml_db'
 #for admin page
