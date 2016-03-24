@@ -11,9 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219201755) do
+ActiveRecord::Schema.define(version: 20160312010409) do
 
-  create_table "article_tags", id: false, force: :cascade do |t|
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace",     limit: 255
+    t.text     "body",          limit: 65535
+    t.string   "resource_id",   limit: 255,   null: false
+    t.string   "resource_type", limit: 255,   null: false
+    t.integer  "author_id",     limit: 4
+    t.string   "author_type",   limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "article_tags", primary_key: "article_tag_id", force: :cascade do |t|
     t.integer "article_id", limit: 4, null: false
     t.integer "tag_id",     limit: 4, null: false
   end
@@ -22,11 +55,11 @@ ActiveRecord::Schema.define(version: 20160219201755) do
   add_index "article_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "articles", primary_key: "article_id", force: :cascade do |t|
-    t.integer "person_id",  limit: 4,     null: false
+    t.integer "person_id",  limit: 4,   null: false
     t.integer "graphic_id", limit: 4
-    t.integer "issue_id",   limit: 4,     null: false
+    t.integer "issue_id",   limit: 4,   null: false
     t.string  "headline",   limit: 200
-    t.text    "text",       limit: 65535, null: false
+    t.string  "text",       limit: 255, null: false
     t.binary  "brief",      limit: 1
   end
 
@@ -34,7 +67,7 @@ ActiveRecord::Schema.define(version: 20160219201755) do
   add_index "articles", ["issue_id"], name: "issue_id", using: :btree
   add_index "articles", ["person_id"], name: "person_id", using: :btree
 
-  create_table "ed_pcp_tags", id: false, force: :cascade do |t|
+  create_table "ed_pcp_tags", primary_key: "ed_pcp_tag_id", force: :cascade do |t|
     t.integer "ed_pcp_id", limit: 4, null: false
     t.integer "tag_id",    limit: 4, null: false
   end
@@ -43,7 +76,7 @@ ActiveRecord::Schema.define(version: 20160219201755) do
   add_index "ed_pcp_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "ed_pcps", primary_key: "ed_pcp_id", force: :cascade do |t|
-    t.integer "issue_id",        limit: 4,     null: false
+    t.integer "issue_id",        limit: 4,   null: false
     t.binary  "ed",              limit: 1
     t.binary  "point",           limit: 1
     t.binary  "counterpoint",    limit: 1
@@ -52,12 +85,12 @@ ActiveRecord::Schema.define(version: 20160219201755) do
     t.string  "author",          limit: 200
     t.string  "author_title",    limit: 200
     t.string  "author_image",    limit: 255
-    t.text    "text",            limit: 65535
+    t.string  "text",            limit: 255
   end
 
   add_index "ed_pcps", ["issue_id"], name: "issue_id", using: :btree
 
-  create_table "feature_tags", id: false, force: :cascade do |t|
+  create_table "feature_tags", primary_key: "feature_tag_id", force: :cascade do |t|
     t.integer "feature_id", limit: 4, null: false
     t.integer "tag_id",     limit: 4, null: false
   end
@@ -66,9 +99,9 @@ ActiveRecord::Schema.define(version: 20160219201755) do
   add_index "feature_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "features", primary_key: "feature_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,          null: false
+    t.integer "issue_id", limit: 4,   null: false
     t.string  "title",    limit: 200
-    t.binary  "image",    limit: 4294967295
+    t.string  "image",    limit: 255
     t.binary  "spread",   limit: 1
   end
 
@@ -98,14 +131,14 @@ ActiveRecord::Schema.define(version: 20160219201755) do
     t.string  "masthead",            limit: 200
     t.string  "celeb_quote",         limit: 200
     t.string  "celeb",               limit: 200
-    t.binary  "celeb_photo",         limit: 4294967295
+    t.string  "celeb_photo",         limit: 255
   end
 
   create_table "people", primary_key: "person_id", force: :cascade do |t|
-    t.integer "position_id", limit: 4,          null: false
+    t.integer "position_id", limit: 4,     null: false
     t.string  "name",        limit: 200
     t.text    "bio",         limit: 65535
-    t.binary  "image",       limit: 4294967295
+    t.string  "image",       limit: 255
     t.binary  "current",     limit: 1
   end
 
@@ -116,18 +149,18 @@ ActiveRecord::Schema.define(version: 20160219201755) do
   end
 
   create_table "self_ads", primary_key: "self_ad_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,          null: false
+    t.integer "issue_id", limit: 4,   null: false
     t.string  "text",     limit: 200
-    t.binary  "image",    limit: 4294967295
+    t.string  "image",    limit: 255
   end
 
   add_index "self_ads", ["issue_id"], name: "issue_id", using: :btree
 
   create_table "skyboxes", primary_key: "skybox_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,          null: false
+    t.integer "issue_id", limit: 4,   null: false
     t.string  "text1",    limit: 200
     t.string  "text2",    limit: 200
-    t.binary  "image",    limit: 4294967295
+    t.string  "image",    limit: 255
   end
 
   add_index "skyboxes", ["issue_id"], name: "issue_id", using: :btree
@@ -144,7 +177,7 @@ ActiveRecord::Schema.define(version: 20160219201755) do
 
   add_index "top_ten_entries", ["top_ten_id"], name: "top_ten_id", using: :btree
 
-  create_table "top_ten_tags", id: false, force: :cascade do |t|
+  create_table "top_ten_tags", primary_key: "top_ten_tag_id", force: :cascade do |t|
     t.integer "top_ten_id", limit: 4, null: false
     t.integer "tag_id",     limit: 4, null: false
   end

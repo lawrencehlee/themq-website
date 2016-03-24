@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Fjord+One);
+$serif-headline-font-stack: 'Playfair Display', serif;
+$serif-text-font-stack: 'Fjord One', serif;
+$sans-serif-font-stack: 'Lato', sans-serif;
+$primary-text-color: #000;
+$link-hover-background-color: #d3d3d3;
+
+// Footer
+$footer-height: 12em;
+$footer-background-color: #262626;
+$footer-link-color: #fff;
+$footer-text-color: #808080;
+
+$font-size-large: 300%;
+$font-size-medium: 160%;
+$font-size-small: 70%;
+
+// Responsive shit
+$sm-min-width: 35.5em;
+$md-min-width: 48em;
+$lg-min-width: 64em;
+$xl-min-width: 80em;
+
+$sm-container-min-width: 24em;
+$md-container-min-width: 48em;
+$lg-container-min-width: 64em;
+$xl-container-min-width: 72em;
+
+// Colors
+$bar-border-color: #d1d3d4;

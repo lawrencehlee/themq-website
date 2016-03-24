@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_tree ./base
- *= require_tree ./styles
+ *= require top_tens
  *= require_self
+ *= require owl.carousel
+ *= require owl.theme
  */

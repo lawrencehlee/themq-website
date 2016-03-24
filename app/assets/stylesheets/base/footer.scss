@@ -1,8 +1,5 @@
-$footer-background-color: #262626;
-$sans-serif-font-stack: 'Lato', sans-serif;
-$link-color: #fff;
-$text-color: #808080;
-$footer-height: 12em;
+@import "variables";
+@import "mixins";
 
 footer {
 	.pure-g [class *= "pure-u"] {
@@ -16,7 +13,7 @@ footer {
 	width: 100%;
 	height: $footer-height;
 
-	color: $text-color;
+	color: $footer-text-color;
 	background-color: $footer-background-color;
 	font-family: $sans-serif-font-stack;
 
@@ -27,10 +24,10 @@ footer {
 
 	// Links!
 	a {
-		color: $link-color;
+		color: $footer-link-color;
 
 		&:visited {
-			color: $link-color;
+			color: $footer-link-color;
 		}
 		&:hover {
 			background-color: inherit;

@@ -4,7 +4,8 @@
   </div>
   <div class="header-logo container">
     <%= link_to image_tag("logo_black_transparent.png", alt: "MQ logo", width: "256"),
-			:controller => 'static_pages', :action => 'about' %>
+			{:controller => 'main', :action => 'index'},
+			{:data => {:'no-turbolink' => true}} %>
   </div>
   <div class="header-nav container">
     <div class="header-nav pure-menu pure-menu-horizontal">

@@ -1,0 +1,64 @@
+@import "base/variables";
+@import "base/mixins";
+
+.main {
+	padding-top: 1em;
+	padding-bottom: 2em;
+
+	.main-content {
+		.slideshow {
+
+			.slideshow-element {
+				width: 100%;
+				height: 24em;
+
+				.slideshow-text {
+					// Position it inside the image
+					position: absolute;
+					bottom: 1.75em;
+					margin-right: 1em;
+					padding: 1em;
+
+					.slideshow-label {
+						// Text modifications
+						font-size: 1.5em;
+						color: white;
+						font-weight: bold;
+						text-shadow:
+							-1px -1px 0 #000,
+							1px -1px 0 #000,
+							-1px 1px 0 #000,
+							1px 1px 0 #000;
+					}
+					.slideshow-details {
+						color: white;
+						font-size: 0.75em;
+					}
+				}
+
+			}
+
+			.owl-controls {
+				margin-top: 0;
+				position: relative;
+				bottom: 2em;
+			}
+		}
+	}
+
+	.more-shit {
+
+		.more-shit-title {
+			text-align: center;
+			border-bottom: 1px solid;
+			margin-bottom: 1em;
+		}
+
+		.more-shit-content {
+			.more-shit-content-piece {
+				padding-left: 1em;
+				padding-right: 1em;
+			}
+		}
+	}
+}

@@ -1,5 +1,7 @@
+@import "variables";
+@import "mixins";
+
 $header-border: 1px solid #000;
-$sans-serif-font-stack: 'Lato', sans-serif;
 
 .header {
 	font-family: $sans-serif-font-stack;
@@ -19,6 +21,12 @@ $sans-serif-font-stack: 'Lato', sans-serif;
 				font-size: 1.25em;
       }
     }
+
+		a {
+			&:hover {
+				background-color: $link-hover-background-color;
+			}
+		}
   }
 
   .pure-menu-heading {

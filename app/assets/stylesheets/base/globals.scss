@@ -1,17 +1,6 @@
-@import 'purecss';
-//@import "font-awesome-sprockets";
-//@import "font-awesome";
-@import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-
-$serif-font-stack: 'Libre Baskerville', serif;
-$primary-text-color: #000;
-$link-hover-background-color: #d3d3d3;
-$footer-height: 12em;
-
-$font-size-large: 300%;
-$font-size-medium: 160%;
-$font-size-small: 70%;
+@import "variables";
+@import "mixins";
+@import "purecss";
 
 * {
 	margin: 0;
@@ -22,8 +11,16 @@ html {
 	min-height: 100%;
 }
 
-html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
-  font-family: $serif-font-stack;
+.serif-text, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+  font-family: $serif-text-font-stack;
+}
+
+.serif-headline, h1, h2, h3, h4, h5, h6, .title, .headline {
+	font-family: $serif-headline-font-stack;
+}
+
+.sans-serif {
+	font-family: $sans-serif-font-stack;
 }
 
 body {
@@ -42,41 +39,63 @@ a {
   &:visited {
     color: inherit;
   }
-  &:hover {
-    background-color: $link-hover-background-color;
-  }
-
 }
 
 .container {
 	max-width: 95%;
   margin: 0 auto;
   float: none;
-	//padding: 0 1em;
 }
 
 // Responsive media queries for container
-@media screen and (min-width: 35.5em) {
+@media screen and (min-width: $sm-min-width) {
 	.container {
-		width: 24em;
+		width: $sm-container-min-width;
 	}
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: $md-min-width) {
 	.container {
-		width: 48em;
+		width: $md-container-min-width;
 	}
 }
-@media screen and (min-width: 64em) {
+@media screen and (min-width: $lg-min-width) {
 	.container {
-		width: 64em;
+		width: $lg-container-min-width;
 	}
 }
-@media screen and (min-width: 80em) {
+@media screen and (min-width: $xl-min-width) {
 	.container {
-		width: 72em;
+		width: $xl-container-min-width;
 	}
 }
 
 .main {
   text-align: justify;
+}
+
+.left-bar {
+	padding-right: 1em;
+	border-right: 1px solid $bar-border-color;
+}
+
+.right-bar {
+	padding-left: 1em;
+
+	.top-right-bar-element {
+		padding-bottom: 1em;
+	}
+
+	.right-bar-element {
+		padding-top: 1em;
+		padding-bottom: 1em;
+		border-top: 1px solid $bar-border-color;
+	}
+}
+
+.caps {
+	text-transform: uppercase;
+}
+
+.bold {
+	font-weight: bold;
 }

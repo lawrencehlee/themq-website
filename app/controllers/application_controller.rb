@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_var
 
+	def index
+	end
+
   private
   def set_var
     @masthead = Issue.order("date").last.masthead
