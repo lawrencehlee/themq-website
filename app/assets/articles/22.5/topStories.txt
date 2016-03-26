@@ -4,7 +4,7 @@
 //Putting article_ids here, which will be used to find the active record
 
 top story:
-1
+11
 
 more stories:
 2, 3, 4, 5, 6, 7

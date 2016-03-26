@@ -1,20 +1,52 @@
 <div class="article-index-content pure-g">
 	<div class="articles-content pure-u-2-3">
 		<div class="articles-top-story">
-			<% art = Article.find(1) %>
-			<% top_story = Article.find(art.get_top_story) %>
-			<%= top_story.headline %>
+			<div class="top-story-image">
+				<%= link_to image_tag(@top_story_graphic.get_relative_image_path, alt:"Top Story Graphic", width: '100%'),
+				@top_story %>
+			</div>
+			<div class="top-story-data">
+				<div class="top-story-tags">
+					<% top_story_tags = @top_story.get_article_tags %>
+					<% top_story_tags.each do |tag| %>
+						<%= link_to tag.title, '#' %>
+					<% end %>
+				</div>
+				<h2><%= link_to @top_story.headline, @top_story %></h2>
+				<div class="date-author">
+					<p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= @top_story_person.name %></p>
+				</div>
+			</div>
+			<hr>
 		</div>
 
 		<div class="articles-more-stories pure-g">
-			<div class="test pure-u-1">
-				<% art = Article.find(1) %>
-				<%= art.get_more_stories %>
+			<div class="more-stories pure-u-1">
+				<h2>More Stories</h2>
+			</div>
+			<% @more_stories.zip(@more_stories_graphics).each do |article, graphic| %>
+				<div class="sub-story pure-u-1-3">
+					<%= link_to image_tag(graphic.get_relative_image_path, alt:"Sub Story Graphic", width: '100%'), article %>
+					<div class="sub-story-tags">
+						<% tags = article.get_article_tags %>
+						<% tags.each do |tag| %>
+							<%= link_to tag.title, '#' %>
+						<% end %>
+					</div>
+					<h3><%= link_to article.headline, article %></h3>
+					<div class="date-author">
+						<% @issue = Issue.find(article.issue_id) %>
+						<% @person = Person.find(article.person_id) %>
+						<p><%= @issue.date.to_formatted_s(:long) %> - <%= @person.name %></p>
+					</div>
+				</div>
+			<% end %>
 		</div>
+		<div class="see-more">
+			<%= link_to "See more articles", :controller => 'articles', :action => 'all' %>
 		</div>
-
-		<%= link_to "See more articles", :controller => 'articles', :action => 'all' %>
 	</div>
+
 	<div class="sidebar-content pure-u-1-3">
 		<p>big whoop</p>
 	</div>

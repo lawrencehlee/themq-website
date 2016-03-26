@@ -59,4 +59,12 @@ class Article < ActiveRecord::Base
 		end
 	end
 
+	def get_article_tags
+		tags = Array.new()
+		ArticleTag.where(article_id: self.article_id).each do |article_tag|
+			tags << Tag.find(article_tag.tag_id)
+		end
+		tags
+	end
+
 end

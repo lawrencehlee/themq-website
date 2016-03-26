@@ -16,8 +16,19 @@ class ArticlesController < ApplicationController
     end
 
     def index
-			@articles = Article.order(article_id: :desc)
-			@graphics = Graphic.order(article_id: :desc)
+			@top_story = Article.find(Article.first.get_top_story)
+			@top_story_graphic = Graphic.find(@top_story.graphic_id)
+			@top_story_issue = Issue.find(@top_story.issue_id)
+			@top_story_person = Person.find(@top_story.person_id)
+
+			@more_stories = Array.new()
+			@more_stories_graphics = Array.new()
+			Article.first.get_more_stories.each do |article_id|
+				article = Article.find(article_id)
+				@more_stories << article
+				@more_stories_graphics << Graphic.find(article.graphic_id)
+			end
+
     end
 
 		def all
