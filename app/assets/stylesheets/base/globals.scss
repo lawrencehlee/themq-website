@@ -19,7 +19,7 @@ html {
 	font-family: $serif-headline-font-stack;
 }
 
-.sans-serif {
+.sans-serif, .attribution {
 	font-family: $sans-serif-font-stack;
 }
 
@@ -98,4 +98,8 @@ a {
 
 .bold {
 	font-weight: bold;
+}
+
+.attribution {
+	font-size: 0.85em;
 }
