@@ -3,6 +3,16 @@
 
 
 /* Here goes the css for article show */
+.social-share {
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+	.social-media-buttons {
+		position: fixed;
+	}
+}
+
 .article-show-content {
 	margin-left: 2em;
 	margin-top: 2em;

@@ -1,5 +1,17 @@
 <div class="article-show-content pure-g">
-	<div class="article-content pure-u-2-3">
+	<div class="social-share pure-u-1-24">
+		<ul class="social-media-buttons">
+			<li>
+				<%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
+			 		'http://facebook.com/ucsdmq' %>
+			</li>
+			<li>
+				<%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
+					'http://twitter.com/the_mq' %>
+			</li>
+		</ul>
+	</div>
+	<div class="article-content pure-u-15-24">
         <div class="pure-g">
             <% @tags.each do |tag| %>
                 <button class="pure-button">
