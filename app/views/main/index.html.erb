@@ -31,7 +31,7 @@
 				<% end %>
 			</div>
 
-			<div class="news main-section">
+			<div id="news" class="main-section">
 				<h2 class="main-section-title">News</h2>
 				<% @news_articles.each do |article| %>
 					<% graphic = Graphic.find(article.graphic_id) %>
@@ -54,6 +54,9 @@
 						</div>
 					</div>
 				<% end %>
+				<div id="news-more">
+					<%= link_to "More	news ›", :controller => :articles, :action => :index %>
+				</div>
 			</div>
 
 			<div class="more-stories main-section">
