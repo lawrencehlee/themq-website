@@ -64,8 +64,15 @@
 			}
 			margin-bottom: 1em;
 		}
-		#news-more {
-			text-align: right;
+	}
+
+	#more-stories {
+		.more-stories-content {
+			margin-bottom: 1em;
 		}
+	}
+
+	.see-more {
+		text-align: right;
 	}
 }

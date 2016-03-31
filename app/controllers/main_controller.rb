@@ -12,6 +12,9 @@ class MainController < ApplicationController
 		@news_articles << Article.find(13)
 		@news_articles << Article.find(14)
 
+		@point = EdPcp.where(point: 1).first
+		@counterpoint = EdPcp.where(crspnd_point_id: @point.ed_pcp_id).first
+
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
   end
 end

@@ -54,13 +54,36 @@
 						</div>
 					</div>
 				<% end %>
-				<div id="news-more">
+				<div id="news-more" class="see-more">
 					<%= link_to "More	news ›", :controller => :articles, :action => :index %>
 				</div>
 			</div>
 
-			<div class="more-stories main-section">
+			<div id="more-stories" class="main-section">
 				<h2 class="main-section-title">More Stories</h2>
+				<div class="more-stories-content">
+					<a href="<%= url_for(@point) %>">
+						<h2>Point: <%= "#{@point.headline}" %> </h2>
+						<span class="attribution"><%= "#{@point.author}, #{@point.author_title}" %></span>
+						<h2>Counterpoint: <%= "#{@counterpoint.headline}" %> </h2>
+						<span class="attribution"><%= "#{@counterpoint.author}, #{@counterpoint.author_title}" %></span>
+					</a>
+					<div id="more-stories-edpcp-more" class="see-more">
+						<%= link_to "More	editorials and PCPs ›", :controller => :ed_pcps, :action => :index %>
+					</div>
+				</div>
+				<div class="more-stories-content">
+					<h2>Feature: Sample Feature</h2>
+					<div id="more-stories-features-more" class="see-more">
+						<%= link_to "More	features ›", "#" %>
+					</div>
+				</div>
+				<div class="more-stories-content">
+					<h2>Brief: Sample Brief</h2>
+					<div id="more-stories-briefs-more" class="see-more">
+						<%= link_to "More	briefs ›", "#" %>
+					</div>
+				</div>
 			</div>
 
 		</div>
