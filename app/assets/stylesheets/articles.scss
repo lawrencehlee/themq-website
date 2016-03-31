@@ -1,23 +1,52 @@
 @import "base/variables";
 @import "base/mixins";
 
-$light-grey: #757575;
 
+/* Here goes the css for article show */
 .article-show-content {
 	margin-left: 2em;
 	margin-top: 2em;
 	margin-bottom: 2em;
-}
 
-.article-content {
-	.content-text {
-		p {
+	.article-content {
+		h1 {
+			text-align: left;
+		}
+		.content-text {
+			p {
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+		}
+		.author-position {
+			p {
+				color: $light-grey;
+			}
+		}
+		.issue-date {
+			p {
+				color: $light-grey;
+				text-align: right;
+			}
+		}
+		.article-image {
 			margin-top: 1em;
-			margin-bottom: 1em;
+		}
+		.image-data {
+			color: $light-grey;
+			p {
+				position: relative;
+				top: -2em;
+				margin-right: 5px;
+				text-align: right;
+				color: white;
+				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+			}
 		}
 	}
 }
 
+/*Here starts the index page css. I hope*/
 .article-index-content {
 	.article-box {
 		p {
@@ -100,6 +129,7 @@ $light-grey: #757575;
 		}
 	}
 }
+
 .see-more {
 	text-align: center;
 	margin-bottom: 1em;
@@ -109,4 +139,26 @@ $light-grey: #757575;
 		}
 	}
 }
+
+
+/* CSS for the all articles page */
+.articles-content {
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	.article-image {
+		margin-bottom: 1em;
+	}
+
+	.article-data {
+		.article-tags {
+			a {
+				&:hover {
+					background-color: $link-hover-background-color;
+				}
+			}
+		}
+	}
+}
+
 

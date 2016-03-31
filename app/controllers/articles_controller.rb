@@ -32,8 +32,8 @@ class ArticlesController < ApplicationController
     end
 
 		def all
-			@articles = Article.order(article_id: :desc)
-			@graphics = Graphic.order(article_id: :desc)
+			@articles = Article.order('article_id DESC').page(params[:page]).per(10)
+			@graphics = Graphic.order('article_id DESC').page(params[:page]).per(10)
 		end
 
 end
