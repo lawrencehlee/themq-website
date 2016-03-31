@@ -43,25 +43,25 @@
 		}
 	}
 
-	.news {
+	.main-section {
+		margin-bottom: 1em;
 
-		.news-title {
+		.main-section-title {
 			text-align: center;
 			border-bottom: 1px solid;
 			margin-bottom: 1em;
 		}
-
+	}
+	.news {
 		.news-content {
 			.news-content-image {
 				img {
 					width: 100%;
 				}
 			}
-
 			.news-content-headline {
 				padding-left: 1em;
 			}
-
 			margin-bottom: 1em;
 		}
 	}

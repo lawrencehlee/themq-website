@@ -31,8 +31,8 @@
 				<% end %>
 			</div>
 
-			<div class="news">
-				<h2 class="news-title">News</h2>
+			<div class="news main-section">
+				<h2 class="main-section-title">News</h2>
 				<% @news_articles.each do |article| %>
 					<% graphic = Graphic.find(article.graphic_id) %>
 					<% person = Person.find(article.person_id) %>
@@ -54,6 +54,10 @@
 						</div>
 					</div>
 				<% end %>
+			</div>
+
+			<div class="more-stories main-section">
+				<h2 class="main-section-title">More Stories</h2>
 			</div>
 
 		</div>
