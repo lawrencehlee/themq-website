@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :top_tens
   resources :ed_pcps
 	resources :tags
+	resources :people
 
 
 end

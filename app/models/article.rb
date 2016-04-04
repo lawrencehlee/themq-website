@@ -67,4 +67,9 @@ class Article < ActiveRecord::Base
 		tags
 	end
 
+	def get_graphic_for_article
+		graphic = Graphic.find(self.graphic_id)
+		graphic
+	end
+
 end
