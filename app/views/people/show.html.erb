@@ -1,9 +1,28 @@
 <div class="person-show-page pure-g">
 	<div class="person-show-content pure-u-2-3">
 		<div class="person-info">
-			<h2>Hi! I'm <%= @person.name %>.</h2>
+			<% if @position.title == "Staff Member" %>
+				<!--person is a staff member here -->
+				<h2><%= @person.name %>
+			<% else %>
+				<!-- person is an editor here -->
+				<div class="editor-info pure-g">
+					<div class="name-position pure-u-1-6">
+						<h2><%= @person.name %></h2>
+						<h3><%= @position.title %></h3>
+					</div>
+					<div class="bio pure-u-1-2">
+						<p><%= @person.bio %></p>
+					</div>
+					<div class="image pure-u-1-3">
+						<%= image_tag(@person.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+					</div>
+			</div>
+			<% end %>
+
 		</div>
 		<div class="person-articles">
+			<p class="see-articles"><%= @person.get_first_name %>'s articles</p>
 			<% @articles.zip(@graphics).each do |article, graphic| %>
 				<div class="article-box pure-g">
 					<div class="article-image pure-u-1-3">
