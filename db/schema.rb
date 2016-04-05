@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312010409) do
+ActiveRecord::Schema.define(version: 20160331161551) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160312010409) do
     t.string  "celeb_quote",         limit: 200
     t.string  "celeb",               limit: 200
     t.string  "celeb_photo",         limit: 255
+    t.string  "issuu_link",          limit: 255
   end
 
   create_table "people", primary_key: "person_id", force: :cascade do |t|
