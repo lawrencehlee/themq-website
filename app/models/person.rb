@@ -14,4 +14,5 @@ class Person < ActiveRecord::Base
 	def get_first_name
 		self.name.gsub(/\s+/m, ' ').strip.split(" ").first
 	end
+
 end

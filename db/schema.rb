@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331161551) do
+ActiveRecord::Schema.define(version: 20160407153153) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -109,10 +109,10 @@ ActiveRecord::Schema.define(version: 20160331161551) do
 
   create_table "graphics", primary_key: "graphic_id", force: :cascade do |t|
     t.integer "article_id", limit: 4
-    t.integer "person_id",  limit: 4,   null: false
-    t.integer "issue_id",   limit: 4,   null: false
+    t.integer "person_id",  limit: 4,     null: false
+    t.integer "issue_id",   limit: 4,     null: false
     t.string  "image",      limit: 200
-    t.string  "caption",    limit: 200
+    t.text    "caption",    limit: 65535
   end
 
   add_index "graphics", ["article_id"], name: "article_id", using: :btree
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20160331161551) do
     t.text    "bio",         limit: 65535
     t.string  "image",       limit: 255
     t.binary  "current",     limit: 1
+    t.string  "quote",       limit: 255
   end
 
   add_index "people", ["position_id"], name: "position_id", using: :btree
