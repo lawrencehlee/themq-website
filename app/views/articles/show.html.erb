@@ -27,7 +27,7 @@
 			</div>
 			<div class="issue-date pure-u-1 pure-u-md-1-2">
 				<p>Is. <%= @issue.issue_no %>, Vo. <%= @issue.volume_no %> -
-								 <%= @issue.date.to_formatted_s(:long) %></p>
+								 <%= @issue.get_human_readable_date %></p>
 			</div>
 		</div>
 
