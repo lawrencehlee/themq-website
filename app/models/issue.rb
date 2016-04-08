@@ -16,6 +16,6 @@ class Issue < ActiveRecord::Base
 
 	# Returns the issue date in the form January 5, 2025
 	def get_human_readable_date
-		date.strftime('%B %-d, %Y')
+	  self.date.to_formatted_s(:long)
 	end
 end
