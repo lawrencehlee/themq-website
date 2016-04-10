@@ -12,7 +12,7 @@
 						<%= link_to tag.title, '#' %>
 					<% end %>
 				</div>
-				<h2><%= link_to @top_story.headline, @top_story %></h2>
+				<h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
 				<div class="date-author">
 					<p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= @top_story_person.name %></p>
 				</div>
@@ -33,7 +33,7 @@
 							<%= link_to tag.title, '#' %>
 						<% end %>
 					</div>
-					<h3><%= link_to article.headline, article %></h3>
+					<h3 class="regular-headline"><%= link_to article.headline, article %></h3>
 					<div class="date-author">
 						<% @issue = Issue.find(article.issue_id) %>
 						<% @person = Person.find(article.person_id) %>
