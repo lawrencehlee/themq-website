@@ -44,7 +44,9 @@
 						</div>
 						<div class="pure-u-2-3">
 							<div class="news-content-headline">
-								<h2><%= link_to article.headline, article %></h2>
+								<h2 class="regular-headline">
+									<%= link_to article.headline, article %>
+								</h2>
 								<div class="attribution">
 									<span class="index-person"><%= person.name %> -</span>
 									<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
@@ -63,9 +65,9 @@
 				<h2 class="main-section-title">More Stories</h2>
 				<div class="more-stories-content">
 					<a href="<%= url_for(@point) %>">
-						<h2>Point: <%= "#{@point.headline}" %> </h2>
+						<h2 class="regular-headline">Point: <%= "#{@point.headline}" %> </h2>
 						<span class="attribution"><%= "#{@point.author}, #{@point.author_title}" %></span>
-						<h2>Counterpoint: <%= "#{@counterpoint.headline}" %> </h2>
+						<h2 class="regular-headline">Counterpoint: <%= "#{@counterpoint.headline}" %> </h2>
 						<span class="attribution"><%= "#{@counterpoint.author}, #{@counterpoint.author_title}" %></span>
 					</a>
 					<div id="more-stories-edpcp-more" class="see-more">
@@ -73,13 +75,13 @@
 					</div>
 				</div>
 				<div class="more-stories-content">
-					<h2>Feature: Sample Feature</h2>
+					<h2 class="regular-headline">Feature: Sample Feature</h2>
 					<div id="more-stories-features-more" class="see-more">
 						<%= link_to "More	features ›", "#" %>
 					</div>
 				</div>
 				<div class="more-stories-content">
-					<h2>Brief: Sample Brief</h2>
+					<h2 class="regular-headline">Brief: Sample Brief</h2>
 					<div id="more-stories-briefs-more" class="see-more">
 						<%= link_to "More	briefs ›", "#" %>
 					</div>
