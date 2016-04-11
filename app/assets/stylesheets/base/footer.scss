@@ -34,4 +34,22 @@ footer {
 			color: #d3d3d3;
 		}
 	}
+
+	div {
+		font-size: 1.1em;
+	}
+	small {
+		font-size: 0.9em;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	.footer {
+		div {
+			font-size: 1em;
+		}
+		small {
+			font-size: 0.8em;
+		}
+	}
 }
