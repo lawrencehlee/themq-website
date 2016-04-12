@@ -7,9 +7,13 @@ $sans-serif-font-stack: 'Lato', sans-serif;
 $primary-text-color: #000;
 $link-hover-background-color: #d3d3d3;
 
-$font-size-large: 300%;
-$font-size-medium: 160%;
-$font-size-small: 70%;
+$font-xs: 60%;
+$font-xs-sm: 80%;
+$font-sm: 90%;
+$font-md-lg: 110%;
+$font-lg: 120%;
+$font-lg-xl: 150%;
+$font-xl: 200%;
 
 // Responsive shit
 $sm-min-width: 35.5em;
@@ -27,12 +31,7 @@ $bar-border-color: #d1d3d4;
 $light-grey: #757575;
 
 // Footer
-$footer-height: 8em;
+$footer-height: 14em;
 $footer-background-color: #262626;
 $footer-link-color: #fff;
 $footer-text-color: #808080;
-
-@media screen and (max-width: $lg-min-width) {
-	footer { height: 14em; }
-	body { margin-bottom: 14em; }
-}

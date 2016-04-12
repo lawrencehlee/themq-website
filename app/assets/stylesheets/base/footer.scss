@@ -16,13 +16,14 @@ footer {
 	color: $footer-text-color;
 	background-color: $footer-background-color;
 	font-family: $sans-serif-font-stack;
+	text-align: center;
 
 	.footer-main {
 		margin-top: 1em;
+		margin-bottom: 1em;
 
 		.footer-links, .footer-social {
 			font-weight: bold;
-			font-size: 120%;
 		}
 
 		// Links!
@@ -38,4 +39,27 @@ footer {
 			}
 		}
 	}
+}
+
+@media screen and (min-width: $md-min-width) {
+	footer {
+		.footer-main {
+			.footer-links, .footer-social {
+				font-size: $font-md-lg;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $lg-min-width) {
+	footer {
+		height: 8em;
+		text-align: left;
+		.footer-main {
+			.footer-links, .footer-social {
+				font-size: $font-lg;
+			}
+		}
+	}
+	body { margin-bottom: 12em; }
 }
