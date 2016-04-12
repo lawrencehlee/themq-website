@@ -19,37 +19,23 @@ footer {
 
 	.footer-main {
 		margin-top: 1em;
-		margin-bottom: 1em;
-	}
 
-	// Links!
-	a {
-		color: $footer-link-color;
+		.footer-links, .footer-social {
+			font-weight: bold;
+			font-size: 120%;
+		}
 
-		&:visited {
+		// Links!
+		a {
 			color: $footer-link-color;
-		}
-		&:hover {
-			background-color: inherit;
-			color: #d3d3d3;
-		}
-	}
 
-	div {
-		font-size: 1.1em;
-	}
-	small {
-		font-size: 0.9em;
-	}
-}
-
-@media screen and (min-width: 64em) {
-	.footer {
-		div {
-			font-size: 1em;
-		}
-		small {
-			font-size: 0.8em;
+			&:visited {
+				color: $footer-link-color;
+			}
+			&:hover {
+				background-color: inherit;
+				color: #d3d3d3;
+			}
 		}
 	}
 }

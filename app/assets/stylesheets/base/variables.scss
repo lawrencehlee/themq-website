@@ -7,12 +7,6 @@ $sans-serif-font-stack: 'Lato', sans-serif;
 $primary-text-color: #000;
 $link-hover-background-color: #d3d3d3;
 
-// Footer
-$footer-height: 12em;
-$footer-background-color: #262626;
-$footer-link-color: #fff;
-$footer-text-color: #808080;
-
 $font-size-large: 300%;
 $font-size-medium: 160%;
 $font-size-small: 70%;
@@ -23,7 +17,7 @@ $md-min-width: 48em;
 $lg-min-width: 64em;
 $xl-min-width: 80em;
 
-$sm-container-min-width: 24em;
+$sm-container-min-width: 32em;
 $md-container-min-width: 48em;
 $lg-container-min-width: 64em;
 $xl-container-min-width: 72em;
@@ -31,3 +25,14 @@ $xl-container-min-width: 72em;
 // Colors
 $bar-border-color: #d1d3d4;
 $light-grey: #757575;
+
+// Footer
+$footer-height: 8em;
+$footer-background-color: #262626;
+$footer-link-color: #fff;
+$footer-text-color: #808080;
+
+@media screen and (max-width: $lg-min-width) {
+	footer { height: 14em; }
+	body { margin-bottom: 14em; }
+}
