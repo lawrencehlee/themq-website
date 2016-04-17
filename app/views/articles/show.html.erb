@@ -1,18 +1,8 @@
 <div class="article-show-content pure-g">
 	<div class="social-share pure-u-1-24">
-		<ul class="social-media-buttons">
-			<li>
-				<%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
-					"http://facebook.com/sharer.php?u=#{url_for([@article, {only_path: false}])}", :target => :blank%>
-			</li>
-			<li>
-				<%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
-					"http://twitter.com/home?status=#{@article.headline} #{url_for([@article, {only_path: false}])}",
-					:target => :blank%>
-			</li>
-		</ul>
+		<%= render :partial => "social_share", :locals => {:article => @article, :status => @article.headline} %>
 	</div>
-	<div class="article-content pure-u-15-24">
+	<div class="article-content pure-u-23-24 pure-u-lg-15-24">
 		<h1><%= @article.headline %></h1>
         <div class="article-tags pure-g">
             <% @tags.each do |tag| %>
@@ -41,7 +31,7 @@
 		</div>
 		<div class="content-text"><%= markdown(@article_text) %></div>
 	</div>
-	<div class="sidebar-content pure-u-1-3">
+	<div class="sidebar-content pure-u-23-24 pure-u-lg-1-3">
 		<p>big whoop</p>
 	</div>
 </div>

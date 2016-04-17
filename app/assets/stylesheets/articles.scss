@@ -42,7 +42,7 @@
 		.issue-date {
 			p {
 				color: $light-grey;
-				text-align: right;
+				text-align: left;
 			}
 		}
 		.article-image {
@@ -195,4 +195,5 @@
 	}
 }
 
-
+@media screen and (mid-width: $md-min-width) {
+}
