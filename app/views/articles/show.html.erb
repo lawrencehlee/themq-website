@@ -26,7 +26,7 @@
 				<p><%= @author.name %>, <%= @author_position %></p>
 			</div>
 			<div class="issue-date pure-u-1 pure-u-md-1-2">
-				<p>Is. <%= @issue.issue_no %>, Vo. <%= @issue.volume_no %> -
+				<p><%= @issue.get_full_issue_name %> -
 								 <%= @issue.get_human_readable_date %></p>
 			</div>
 		</div>
@@ -35,8 +35,8 @@
 			<%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
 		</div>
 		<div class="image-data">
-			<p>Photo by: <%= @graphic_designer.name %></p>
-			<small><%= @graphic.caption %></small>
+			<p class="designer">Photo by: <%= @graphic_designer.name %></p>
+			<p class="caption"><%= @graphic.caption %></p>
 		</div>
 		<div class="content-text"><%= markdown(@article_text) %></div>
 	</div>
