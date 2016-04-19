@@ -1,0 +1,9 @@
+//This here file is to manually enter which ed_pcps will appear on the ed_pcp index page
+//Putting ed_pcp_ids here, which will be used to find the active record
+//must be careful to only put ids of points, not counterpoints, although there should be logic to pretect against that
+
+top story:
+1
+
+more stories:
+2

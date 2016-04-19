@@ -5,7 +5,8 @@ class EdPcpsController < ApplicationController
 
   def show
     @ed_pcp = EdPcp.find(params[:id])
-   
+		@issue = Issue.find(@ed_pcp.issue_id)
+
     @ed_pcps = Array.new
     @ed_pcps << @ed_pcp
     @tags = Array.new
