@@ -232,6 +232,13 @@
 		}
 		.article-show-content {
 			margin-left: 2em;
+			.article-content{
+				.issue-date {
+					p {
+						text-align: right;
+					}
+				}
+			}
 		}
 		.social-share {
 			font-size: 100%;
