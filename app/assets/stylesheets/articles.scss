@@ -11,10 +11,11 @@
 	.social-media-buttons {
 		position: fixed;
 	}
+	font-size: .5em;
 }
 
 .article-show-content {
-	margin-left: 2em;
+	margin-left: 1em;
 	margin-top: 2em;
 	margin-bottom: 2em;
 
@@ -227,6 +228,12 @@
 			}
 		}
 		.articles-more-stories {
+			font-size: 100%;
+		}
+		.article-show-content {
+			margin-left: 2em;
+		}
+		.social-share {
 			font-size: 100%;
 		}
 	}
