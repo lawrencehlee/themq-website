@@ -17,8 +17,13 @@
 			    	<% end %>
 			  	  <% if ed_pcp.ed == "1" %>
 				    	<h3>Editorial</h3>
-			    	<% end %>
-						<h3><%= link_to ed_pcp.headline, ed_pcp %></h3>
+						<% end %>
+
+						<% if ed_pcp.counterpoint == "1" %>
+							<h3><%= link_to ed_pcp.headline, EdPcp.find(ed_pcp.crspnd_point_id) %></h3>
+						<% else %>
+							<h3><%= link_to ed_pcp.headline, ed_pcp %></h3>
+						<% end %>
 						<div class="ed-pcp-tags">
 							<% tags = ed_pcp.get_ed_pcp_tags %>
 							<% tags.each do |tag| %>
