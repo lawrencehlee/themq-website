@@ -9,8 +9,13 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :ed_pcps do
+		collection do
+			get 'all'
+		end
+	end
+
   resources :top_tens
-  resources :ed_pcps
 
 
 end

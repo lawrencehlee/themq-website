@@ -55,6 +55,49 @@
 	}
 }
 
+/* CSS for the all articles page */
+.ed-pcp-content {
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	h1 {
+		text-align: center;
+	}
+	.ed-pcp-box {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	.ed-pcp-data {
+		font-size: $font-md-lg;
+		p {
+			margin-left: 1em;
+		}
+		h3 {
+			margin-left: 1em;
+		}
+		.ed-pcp-tags {
+			margin-left: 1em;
+			a {
+				&:hover {
+					background-color: $link-hover-background-color;
+				}
+			}
+		}
+		.ed-pcp-teaser {
+			display: none;
+		}
+		.date-author {
+			color: $light-grey;
+		}
+	}
+}
+
+//pure button sizing
+.button-small {
+	font-size: 85%;
+}
+
 //Default specified above is for minimum width less than small I guess?
 
 @media screen and (min-width: $md-min-width){
@@ -62,7 +105,7 @@
 		.ed-pcp-all-content {
 			.ed-pcp-data {
 				font-size: 100%;
-				.article-teaser{
+				.ed-pcp-teaser{
 					display: block;
 				}
 			}
