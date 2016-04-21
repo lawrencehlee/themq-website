@@ -1,9 +1,13 @@
 //This here file is to manually enter which ed_pcps will appear on the ed_pcp index page
 //Putting ed_pcp_ids here, which will be used to find the active record
 //must be careful to only put ids of points, not counterpoints, although there should be logic to pretect against that
+//_op story must be an editorial
+//if in the '_ore stories' section there is a counterpoint, make sure to place it right after the point
+//	but not straddling positions 3 and 4, so that the pcp won't be split over 2 lines in the lg
+//	screen size or the md screen size
 
 top story:
 1
 
 more stories:
-2
+2, 3, 1, 1, 2, 3

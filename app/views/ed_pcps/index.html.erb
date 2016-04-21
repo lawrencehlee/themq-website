@@ -1,1 +1,76 @@
-<p>yo</p>
+<div class="ed-pcp-index-content pure-g">
+	<div class="ed-pcp-content pure-u-1 pure-u-lg-2-3">
+		<div class="ed-pcp-top-story">
+			<div class="top-story-image">
+				<%= link_to image_tag(@top_story.get_relative_author_image_path, alt:"Top Story Graphic", width: '100%'),
+					@top_story %>
+			</div>
+			<div class="top-story-data">
+				<div class="top-story-tags">
+					<% top_story_tags = @top_story.get_ed_pcp_tags %>
+					<% top_story_tags.each do |tag| %>
+						<button class="button-small pure-button">
+							<i class-"fa fa-tag"></i>
+						  <%= tag.title %>
+						</button>
+					<% end %>
+				</div>
+				<% if @top_story.point == "1" %>
+	    		<h3>Point</h3>
+		    <% end %>
+				<% if @top_story.counterpoint == "1" %>
+	    		<h3>Counterpoint</h3>
+  	  	<% end %>
+  		  <% if @top_story.ed == "1" %>
+	    		<h3>Editorial</h3>
+	    	<% end %>
+				<h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
+				<div class="date-author">
+					<p><%= @top_story_issue.get_human_readable_date %> - <%= @top_story.author %>, <%= @top_story.author_title %></p>
+				</div>
+			</div>
+			<hr>
+		</div>
+
+		<div class="ed-pcp-more-stories pure-g">
+			<div class="more-stories pure-u-1">
+				<h2>More Editorials</h2>
+			</div>
+			<% @more_stories.each do |ed_pcp| %>
+				<div class="sub-story pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+					<%= link_to image_tag(ed_pcp.get_relative_author_image_path, alt:"Sub Story Graphic", width: '100%'), ed_pcp %>
+					<div class="sub-story-tags">
+						<% tags = ed_pcp.get_ed_pcp_tags %>
+						<% tags.each do |tag| %>
+							<button class="button-small pure-button">
+								<i class="fa fa-tag"></i>
+							  <%= tag.title %>
+							</button>
+						<% end %>
+					</div>
+					<% if ed_pcp.point == "1" %>
+		    		<h3>Point</h3>
+			    <% end %>
+					<% if ed_pcp.counterpoint == "1" %>
+	    			<h3>Counterpoint</h3>
+	  	  	<% end %>
+  			  <% if ed_pcp.ed == "1" %>
+	  	  		<h3>Editorial</h3>
+	    		<% end %>
+					<h3 class="regular-headline"><%= link_to ed_pcp.headline, ed_pcp %></h3>
+					<div class="date-author">
+						<% @issue = Issue.find(ed_pcp.issue_id) %>
+						<p><%= @issue.get_human_readable_date %> - <%= ed_pcp.author %>, <%= ed_pcp.author_title %></p>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="see-more">
+			<%= link_to  "See more editorials", :controller => 'ed_pcps', :action => 'all' %>
+		</div>
+	</div>
+
+	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
+		<p>jesus that's a large whoop</p>
+	</div>
+</div>

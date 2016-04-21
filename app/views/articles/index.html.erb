@@ -17,7 +17,7 @@
 				</div>
 				<h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
 				<div class="date-author">
-					<p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= @top_story_person.name %></p>
+					<p><%= @top_story_issue.get_human_readable_date %> - <%= @top_story_person.name %></p>
 				</div>
 			</div>
 			<hr>
@@ -43,7 +43,7 @@
 					<div class="date-author">
 						<% @issue = Issue.find(article.issue_id) %>
 						<% @person = Person.find(article.person_id) %>
-						<p><%= @issue.date.to_formatted_s(:long) %> - <%= @person.name %></p>
+						<p><%= @issue.get_human_readable_date %> - <%= @person.name %></p>
 					</div>
 				</div>
 			<% end %>
