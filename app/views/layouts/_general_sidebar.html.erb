@@ -9,7 +9,9 @@
 		</div>
 		<div class="sidebar-element">
 			<h3 class="regular-headline">Brief: <%= brief.headline %></h3>
-			<div class="brief-text-preview"></div>
+			<p class="brief-text-preview">
+				<%= brief.get_article_text_teaser 50 %>
+			</p>
 			<div class="see-more">
 				<%= link_to "Continue reading ›", brief %>
 			</div>

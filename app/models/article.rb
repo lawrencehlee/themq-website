@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
 		"#{person.name} - #{issue.get_full_issue_name} - #{issue.get_human_readable_date}"
 	end
 
-	def get_article_text_teaser
+	def get_article_text_teaser(words)
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
 		n = 1;
@@ -25,7 +25,7 @@ class Article < ActiveRecord::Base
 				lines << line
 			end
 			first_line = lines.first
-			first_line.split(' ')[0, 25].join(' ') + "...";
+			first_line.split(' ')[0, words].join(' ') + "...";
 
 		end
 	end
