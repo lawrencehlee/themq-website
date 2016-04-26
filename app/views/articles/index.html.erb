@@ -1,5 +1,5 @@
 <div class="article-index-content pure-g">
-	<div class="articles-content pure-u-lg-2-3 pure-u-1">
+	<div class="articles-content pure-u-1 pure-u-lg-2-3">
 		<div class="articles-top-story">
 			<div class="top-story-image">
 				<%= link_to image_tag(@top_story_graphic.get_relative_image_path, alt:"Top Story Graphic", width: '100%'),
@@ -9,7 +9,10 @@
 				<div class="top-story-tags">
 					<% top_story_tags = @top_story.get_article_tags %>
 					<% top_story_tags.each do |tag| %>
-						<%= link_to tag.title, '#' %>
+           	<button class="button-small pure-button">
+             	<i class="fa fa-tag"></i>
+              <%= tag.title %>
+            </button>
 					<% end %>
 				</div>
 				<h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
@@ -30,7 +33,10 @@
 					<div class="sub-story-tags">
 						<% tags = article.get_article_tags %>
 						<% tags.each do |tag| %>
-							<%= link_to tag.title, '#' %>
+	           	<button class="button-small pure-button">
+  	           	<i class="fa fa-tag"></i>
+    	          <%= tag.title %>
+      	      </button>
 						<% end %>
 					</div>
 					<h3 class="regular-headline"><%= link_to article.headline, article %></h3>
@@ -47,7 +53,7 @@
 		</div>
 	</div>
 
-	<div class="sidebar-content pure-u-lg-1-3 pure-u-1">
+	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
 		<p>big whoop</p>
 	</div>
 </div>

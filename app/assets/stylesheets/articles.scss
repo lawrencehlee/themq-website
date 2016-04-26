@@ -11,10 +11,11 @@
 	.social-media-buttons {
 		position: fixed;
 	}
+	font-size: .5em;
 }
 
 .article-show-content {
-	margin-left: 2em;
+	margin-left: 1em;
 	margin-top: 2em;
 	margin-bottom: 2em;
 
@@ -42,7 +43,7 @@
 		.issue-date {
 			p {
 				color: $light-grey;
-				text-align: right;
+				text-align: left;
 			}
 		}
 		.article-image {
@@ -50,7 +51,7 @@
 		}
 		.image-data {
 			color: $light-grey;
-			p {
+			.designer {
 				position: relative;
 				top: -2em;
 				margin-right: 5px;
@@ -58,12 +59,22 @@
 				color: white;
 				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 			}
+			.caption {
+				position: relative;
+				top: -1em;
+				font-size: 90%;
+			}
 		}
 	}
 }
 
 /*Here starts the index page css. I hope*/
 .article-index-content {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	.articles-content {
+		margin: auto;
+	}
 	.article-box {
 		p {
 			margin-top: 1em;
@@ -84,7 +95,7 @@
 .articles-top-story {
 	.top-story-image {
 		text-align: center;
-		margin-top: 1em;
+		//margin-top: 1em;
 		margin-bottom: 1em;
 		img {
 			width: 95%;
@@ -114,6 +125,7 @@
 
 
 .articles-more-stories {
+	font-size: $font-md-lg;
 	.more-stories {
 		h2 {
 			text-align: center;
@@ -165,11 +177,16 @@
 	margin-top: 1em;
 	margin-bottom: 1em;
 
-	.article-image {
+	h1 {
+		text-align: center;
+	}
+	.article-box {
+		margin-top: 1em;
 		margin-bottom: 1em;
 	}
 
 	.article-data {
+		font-size: $font-md-lg;
 		p {
 			margin-left: 1em;
 		}
@@ -184,10 +201,40 @@
 				}
 			}
 		}
+		.article-teaser {
+			display: none;
+		}
 		.date-author {
 			color: $light-grey;
 		}
 	}
 }
 
+//pure button sizing
+.button-small {
+	font-size: 85%;
+}
 
+//Default specified above is for minimum width less than small I guess?
+
+@media screen and (min-width: $md-min-width){
+	body {
+		.article-all-content {
+			.article-data {
+				font-size: 100%;
+				.article-teaser{
+					display: block;
+				}
+			}
+		}
+		.articles-more-stories {
+			font-size: 100%;
+		}
+		.article-show-content {
+			margin-left: 2em;
+		}
+		.social-share {
+			font-size: 100%;
+		}
+	}
+}

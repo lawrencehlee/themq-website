@@ -1,25 +1,29 @@
 <div class="article-all-content pure-g">
-	<div class="articles-content pure-u-lg-2-3 pure-u-1">
+	<div class="articles-content pure-u-1 pure-u-lg-2-3">
+		<h1>All Articles</h1>
 		<% @articles.zip(@graphics).each do |article, graphic| %>
+			<hr>
 			<div class="article-box pure-g">
-				<div class="article-image pure-u-1-3">
+				<div class="article-image pure-u-1 pure-u-md-1-3">
 					<%= link_to image_tag(graphic.get_relative_image_path, alt: "Article Graphic", width: '100%'), article %>
 				</div>
-				<div class="article-data pure-u-2-3">
-					<hr>
+				<div class="article-data pure-u-1 pure-u-md-2-3">
 					<h3><%= link_to article.headline, article %></h3>
 					<div class="article-tags">
-						<i class="fa fa-tag"></i>
 						<% tags = article.get_article_tags %>
 						<% tags.each do |tag| %>
-							<%= link_to tag.title, "#" %>
+            	<button class="button-small pure-button">
+              	<i class="fa fa-tag"></i>
+                <%= tag.title %>
+              </button>
 						<% end %>
 					</div>
 					<% @person = Person.find(article.person_id) %>
 					<% @issue = Issue.find(article.issue_id) %>
-					<% @article_text_teaser = article.get_article_text_teaser %>
-
-					<p><%= @article_text_teaser %></p>
+					<div class="article-teaser">
+						<% @article_text_teaser = article.get_article_text_teaser %>
+						<p><%= @article_text_teaser %></p>
+					</div>
 					<div class="date-author">
 						<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
 					</div>
@@ -28,7 +32,7 @@
 
 		<% end %>
 	</div>
-	<div class="sidebar-content pure-u-1-3">
+	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
 		<p>big whoop</p>
 	</div>
 
