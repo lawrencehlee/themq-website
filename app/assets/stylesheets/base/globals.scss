@@ -71,18 +71,14 @@ a {
 	border-right: 1px solid $bar-border-color;
 }
 
-.right-bar {
-	padding-left: 1em;
-
-	.top-right-bar-element {
+.sidebar-element {
+	&:first-child {
 		padding-bottom: 1em;
 	}
 
-	.right-bar-element {
-		padding-top: 1em;
-		padding-bottom: 1em;
-		border-top: 1px solid $bar-border-color;
-	}
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-top: 1px solid $bar-border-color;
 }
 
 .caps {
