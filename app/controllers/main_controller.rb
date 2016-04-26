@@ -17,5 +17,7 @@ class MainController < ApplicationController
 
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
 		@random_self_ad = SelfAd.get_random_from_issue(@current_issue)
+
+		@brief = Article.find(12)
   end
 end
