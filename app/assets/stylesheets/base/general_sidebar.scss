@@ -1,10 +1,17 @@
-.general-sidebar {
-	.general-sidebar-inner {
-		padding-left: 1em;
-	}
+@import "variables";
+@import "mixins";
 
+.general-sidebar {
 	img {
 		width: 100%;
 		border: 1px solid black;
+	}
+}
+
+@media screen and (min-width: $lg-min-width) {
+	.general-sidebar {
+		.general-sidebar-inner {
+			padding-left: 1em;
+		}
 	}
 }
