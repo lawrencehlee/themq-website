@@ -66,9 +66,11 @@ a {
 	}
 }
 
-.left-bar {
-	padding-right: 1em;
-	border-right: 1px solid $bar-border-color;
+@media screen and (min-width: $lg-min-width) {
+	.left-bar {
+		padding-right: 1em;
+		border-right: 1px solid $bar-border-color;
+	}
 }
 
 .sidebar-element {
