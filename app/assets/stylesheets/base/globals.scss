@@ -29,6 +29,12 @@ body {
 	font-size: 1em;
 }
 
+@media screen and (min-width: $lg-min-width) {
+	body {
+		margin-bottom: 8em;
+	}
+}
+
 a {
   text-decoration: none;
 	color: inherit;
