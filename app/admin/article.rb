@@ -11,6 +11,7 @@ ActiveAdmin.register Article do
 		column :headline
 		column :text
 		column :brief
+		column :name
 		actions
 	end
 
@@ -22,6 +23,7 @@ ActiveAdmin.register Article do
 			f.input :headline
 			f.input :text
 			f.input :brief, as: :string
+			f.input :name
 		end
 		f.actions
 	end

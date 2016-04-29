@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 	extend FriendlyId
-	friendly_id :text, use: :slugged
+	friendly_id :name
 	ARTICLE_SUBDIRECTORY = 'articles'
 
   def get_article_text

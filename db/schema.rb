@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426164111) do
+ActiveRecord::Schema.define(version: 20160429205942) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160426164111) do
     t.string  "text",       limit: 255, null: false
     t.binary  "brief",      limit: 1
     t.string  "slug",       limit: 255
+    t.string  "name",       limit: 255
   end
 
   add_index "articles", ["graphic_id"], name: "graphic_id", using: :btree
