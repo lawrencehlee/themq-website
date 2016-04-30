@@ -9,9 +9,7 @@ class ArticlesController < ApplicationController
         @graphic_designer = Person.find(@graphic.person_id)
 
         @tags = Array.new()
-        ArticleTag.where(article_id: params[:id]).each do |article_tag|
-            @tags << Tag.find(article_tag.tag_id)
-        end
+				@tags = @article.get_article_tags
 
     end
 
