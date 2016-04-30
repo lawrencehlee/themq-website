@@ -1,4 +1,6 @@
 class EdPcp < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name
 	IMAGE_SUBDIRECTORY = 'ed_pcps'
 	ARTICLE_SUBDIRECTORY = 'articles'
 

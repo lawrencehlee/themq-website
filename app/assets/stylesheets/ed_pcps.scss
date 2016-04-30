@@ -3,6 +3,7 @@
 
 /* Here goes the css for ed_pcp show */
 .social-share {
+	display: none;
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -11,6 +12,9 @@
 		position: fixed;
 	}
 	font-size: .5em;
+}
+.social-share-small {
+	margin-left: 1em;
 }
 
 .ed-pcp-show-content {
@@ -38,17 +42,13 @@
 				margin-bottom: 1em;
 			}
 		}
-		.author-title {
+		.ed-pcp-data {
+			margin-top: 1em;
 			p {
 				color: $light-grey;
 			}
 		}
-		.issue-date {
-			p {
-				color: $light-grey;
-				text-align: left;
-			}
-		}
+
 		.author-image {
 			margin-top: 1em;
 		}
@@ -91,21 +91,32 @@
 	}
 	.top-story-data {
 		text-align: left;
-		margin-left: 2.5%;
-		margin-right: 2.5%;
+		//margin-left: 2.5%;
+		//margin-right: 2.5%;
 		p {
 			color: $light-grey;
+			margin-left: 1.125em; //how many decimal places do you think css supports?
 		}
 		h2 {
 			margin-top: .5em;
 			//margin-bottom: 1em;
 		}
+		.regular-headline {
+			margin-left: .75em;
+		}
+		h3 {
+			margin-left: 1em;
+		}
 		.top-story-tags {
+			margin-left: 1em;
 			a {
 				&:hover {
 					background-color: $link-hover-background-color;
 				}
 			}
+		}
+		.date-author {
+			//margin-left: 1em;
 		}
 	}
 }
@@ -217,6 +228,12 @@
 		}
 		.ed-pcp-show-content {
 			margin-left: 2em;
+			.social-share {
+				display: block;
+			}
+			.social-share-small {
+				display: none;
+			}
 			.ed-pcp-content{
 				.issue-date {
 					p {

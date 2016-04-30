@@ -16,6 +16,7 @@ ActiveAdmin.register EdPcp do
 		column :author_title
 		column :author_image
 		column :text
+		column :name
 		actions
 	end
 
@@ -31,6 +32,7 @@ ActiveAdmin.register EdPcp do
 			f.input :author_title
 			f.input :author_image
 			f.input :text
+			f.input :name
 		end
 		f.actions
 	end

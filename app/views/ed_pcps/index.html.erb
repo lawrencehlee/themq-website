@@ -1,11 +1,11 @@
 <div class="ed-pcp-index-content pure-g">
 	<div class="ed-pcp-content pure-u-1 pure-u-lg-2-3">
-		<div class="ed-pcp-top-story">
-			<div class="top-story-image">
+		<div class="ed-pcp-top-story pure-g">
+			<div class="top-story-image pure-u-1-4">
 				<%= link_to image_tag(@top_story.get_relative_author_image_path, alt:"Top Story Graphic", width: '100%'),
 					@top_story %>
 			</div>
-			<div class="top-story-data">
+			<div class="top-story-data pure-u-3-4">
 				<div class="top-story-tags">
 					<% top_story_tags = @top_story.get_ed_pcp_tags %>
 					<% top_story_tags.each do |tag| %>
@@ -29,9 +29,9 @@
 					<p><%= @top_story_issue.get_human_readable_date %> - <%= @top_story.author %>, <%= @top_story.author_title %></p>
 				</div>
 			</div>
-			<hr>
 		</div>
 
+		<hr>
 		<div class="ed-pcp-more-stories pure-g">
 			<div class="more-stories pure-u-1">
 				<h2>More Editorials</h2>
