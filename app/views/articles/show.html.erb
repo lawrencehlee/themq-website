@@ -4,14 +4,18 @@
 	</div>
 	<div class="article-content pure-u-23-24 pure-u-lg-15-24">
 		<h1><%= @article.headline %></h1>
-    <div class="article-tags pure-g">
+		<span class="article-tags">
     	<% @tags.each do |tag| %>
       	<button class="pure-button">
         	<i class="fa fa-tag"></i>
-	        <%= tag.title %>
-     		</button>
-      <% end %>
-    </div>
+          <%= tag.title %>
+        </button>
+			<% end %>
+		</span>
+		<span class="social-share-small">
+			<%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>
+		</span>
+
 		<div class="pure-g">
 			<div class="author-position pure-u-1 pure-u-md-1-2">
 				<p><%= @author.name %>, <%= @author_position %></p>

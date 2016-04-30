@@ -4,6 +4,7 @@
 
 /* Here goes the css for article show */
 .social-share {
+	display: none;
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -232,7 +233,13 @@
 		}
 		.article-show-content {
 			margin-left: 2em;
-			.article-content{
+			.social-share {
+				display: block;
+			}
+			.social-share-small {
+				display: none;
+			}
+			.article-content {
 				.issue-date {
 					p {
 						text-align: right;
