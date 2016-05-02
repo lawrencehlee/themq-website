@@ -73,4 +73,12 @@ class Article < ActiveRecord::Base
 		tags
 	end
 
+	def self.get_all_briefs_from_issue(issue)
+		Article.where(issue_id: issue.issue_id, brief: 1)
+	end
+
+	def self.get_random_brief_from_issue(issue)
+		all_from_issue = Article.get_all_briefs_from_issue(issue)
+		all_from_issue.offset(rand(all_from_issue.count)).first
+	end
 end
