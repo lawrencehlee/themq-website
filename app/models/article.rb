@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
-
+	extend FriendlyId
+	friendly_id :name
 	ARTICLE_SUBDIRECTORY = 'articles'
 
   def get_article_text
@@ -8,6 +9,11 @@ class Article < ActiveRecord::Base
     File.read(filepath).encode("UTF-8", :invalid=>:replace)
   end
 
+	def get_attribution_line
+		person = Person.find(self.person_id)
+		issue = Issue.find(self.issue_id)
+		"#{person.name} - #{issue.get_full_issue_name} - #{issue.get_human_readable_date}"
+	end
 
 	def get_article_text_teaser
 		filepath = File.join(

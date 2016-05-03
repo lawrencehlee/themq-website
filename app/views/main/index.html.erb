@@ -1,7 +1,6 @@
 <div class="main pure-g">
 	<div class="main-content pure-u-1 pure-u-lg-2-3">
 		<div class="left-bar">
-
 			<div class="owl-carousel slideshow">
 				<% @featured_content.each do |content| %>
 					<% # TODO: not every piece of content has a headline
@@ -10,7 +9,6 @@
 						person = Person.find(content.person_id)
 						issue = Issue.find(content.issue_id)
 					%>
-
 				<!-- Link to the specified content -->
 				<a href="<%= url_for(content) %>">
 					<!-- This disgusting style is to dynamically place the background
@@ -21,8 +19,8 @@
 								url(<%= asset_path graphic.get_relative_image_path %>);
 								background-size: cover; background-position: center;">
 						<div class="slideshow-text">
-							<div class="slideshow-label headline"><%= content.headline %></div>
-							<div class="slideshow-details sans-serif">
+							<h2 class="slideshow-label headline"><%= content.headline %></h2>
+							<div class="slideshow-details attribution">
 								<span class="index-person"><%= person.name %> -</span>
 								<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
 								<span class="index-date"><%= issue.get_human_readable_date %></span>
@@ -33,36 +31,65 @@
 				<% end %>
 			</div>
 
-			<div class="more-shit">
-				<h2 class="more-shit-title">
-					More Shit
-				</h2>
-				<div class="more-shit-content pure-g">
-					<div class="pure-u-1 pure-u-lg-1-2">
-						<div class="more-shit-content-piece" id="more-shit-1">
-							<h4><%= @more_shit_1.headline %></h4>
+			<div id="news" class="main-section">
+				<h2 class="main-section-title">News</h2>
+				<% @news_articles.each do |article| %>
+					<% graphic = Graphic.find(article.graphic_id) %>
+					<% person = Person.find(article.person_id) %>
+					<% issue = Issue.find(article.issue_id) %>
+					<div class="news-content pure-g">
+						<div class="news-content-image pure-u-1-3">
+							<%= link_to image_tag(graphic.get_relative_image_path),
+								article %>
+						</div>
+						<div class="pure-u-2-3">
+							<div class="news-content-headline">
+								<h2 class="regular-headline">
+									<%= link_to article.headline, article %>
+								</h2>
+								<div class="attribution">
+									<span class="index-person"><%= person.name %> -</span>
+									<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
+									<span class="index-date"><%= issue.get_human_readable_date %></span>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="pure-u-1 pure-u-lg-1-2">
-						<div class="more-shit-content-piece" id="more-shit-2">
-							<h4><%= @more_shit_2.headline %></h4>
-						</div>
+				<% end %>
+				<div id="news-more" class="see-more">
+					<%= link_to "More	news ›", :controller => :articles, :action => :index %>
+				</div>
+			</div>
+
+			<div id="more-stories" class="main-section">
+				<h2 class="main-section-title">More Stories</h2>
+				<div class="more-stories-content">
+					<a href="<%= url_for(@point) %>">
+						<h2 class="regular-headline">Point: <%= "#{@point.headline}" %> </h2>
+						<span class="attribution"><%= "#{@point.author}, #{@point.author_title}" %></span>
+						<h2 class="regular-headline">Counterpoint: <%= "#{@counterpoint.headline}" %> </h2>
+						<span class="attribution"><%= "#{@counterpoint.author}, #{@counterpoint.author_title}" %></span>
+					</a>
+					<div id="more-stories-edpcp-more" class="see-more">
+						<%= link_to "More	editorials and PCPs ›", :controller => :ed_pcps, :action => :index %>
+					</div>
+				</div>
+				<div class="more-stories-content">
+					<h2 class="regular-headline">Feature: Sample Feature</h2>
+					<div id="more-stories-features-more" class="see-more">
+						<%= link_to "More	features ›", "#" %>
+					</div>
+				</div>
+				<div class="more-stories-content">
+					<h2 class="regular-headline">Brief: Sample Brief</h2>
+					<div id="more-stories-briefs-more" class="see-more">
+						<%= link_to "More	briefs ›", "#" %>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
-		<div class="right-bar">
-			<div class="top-right-bar-element">
-				<%= form_tag({}, method: "get", class: "search-bar") do %>
-					<%= text_field_tag("contents") %>
-				<% end %>
-			</div>
 
-			<div class="right-bar-element">
-				<%= render 'top_tens/inline', :top_ten => @random_top_ten %>
-			</div>
 		</div>
 	</div>
+
+	<%= render 'main/sidebar', :top_ten => @random_top_ten %>
 </div>

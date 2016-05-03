@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     def show
-        @article = Article.find(params[:id])
+        @article = Article.friendly.find(params[:id])
         @article_text = @article.get_article_text
         @graphic = Graphic.find(@article.graphic_id)
         @issue = Issue.find(@article.issue_id)
@@ -9,9 +9,7 @@ class ArticlesController < ApplicationController
         @graphic_designer = Person.find(@graphic.person_id)
 
         @tags = Array.new()
-        ArticleTag.where(article_id: params[:id]).each do |article_tag|
-            @tags << Tag.find(article_tag.tag_id)
-        end
+				@tags = @article.get_article_tags
 
     end
 

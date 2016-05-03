@@ -10,11 +10,12 @@
 		'data-turbolinks-track' => true %>
 	<%= javascript_include_tag params[:controller] %>
   <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width", initial-scale="1">
 
 </head>
 <body>
 	<%= render 'layouts/header' %>
-	<div class="main container">
+	<div class="container">
 		<%= yield %>
 	</div>
 	<%= render 'layouts/footer' %>

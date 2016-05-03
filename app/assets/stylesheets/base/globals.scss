@@ -26,10 +26,7 @@ html {
 body {
   color: $primary-text-color;
 	margin: 0 0 $footer-height; // For footer
-
-	h1{
-		font-size: $font-size-large;
-	}
+	font-size: 1em;
 }
 
 a {
@@ -98,4 +95,12 @@ a {
 
 .bold {
 	font-weight: bold;
+}
+
+.attribution {
+	font-size: 0.85em;
+}
+
+.regular-headline {
+	margin-bottom: 0.25em;
 }
