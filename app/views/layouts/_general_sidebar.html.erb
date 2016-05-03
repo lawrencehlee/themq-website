@@ -1,20 +1,19 @@
-<div class="general-sidebar pure-u-1 pure-u-lg-1-3">
-	<div class="general-sidebar-inner">
-		<div class="sidebar-element">
-			<%= render 'top_tens/inline', :top_ten => top_ten %>
-		</div>
-
-		<div class="sidebar-element">
-			<%= image_tag(self_ad.get_relative_image_path) %>
-		</div>
-		<div class="sidebar-element">
-			<h3 class="regular-headline">Brief: <%= brief.headline %></h3>
-			<p class="brief-text-preview">
-				<%= brief.get_article_text_teaser 50 %>
-			</p>
-			<div class="see-more">
-				<%= link_to "Continue reading ›", brief %>
-			</div>
-		</div>
+<% content_for :specific_sidebar do %>
+<div class="sidebar-element">
+	<%= render 'top_tens/inline', :top_ten => top_ten %>
+</div>
+<div class="sidebar-element">
+	<%= image_tag(self_ad.get_relative_image_path) %>
+</div>
+<div class="sidebar-element">
+	<h3 class="regular-headline">Brief: <%= brief.headline %></h3>
+	<p class="brief-text-preview">
+	<%= brief.get_article_text_teaser 50 %>
+	</p>
+	<div class="see-more">
+		<%= link_to "Continue reading ›", brief %>
 	</div>
 </div>
+<% end %>
+
+<%= render 'layouts/sidebar' %>
