@@ -4,6 +4,9 @@ class TopTensController < ApplicationController
         @top_ten = TopTen.find(params[:id])
         @issue = Issue.find(@top_ten.issue_id)
         @top_ten_entries = @top_ten.get_entries
+
+				@random_top_ten = TopTen.get_random_from_db(@top_ten.top_ten_id)
+				@random_top_ten_entries = @random_top_ten.get_entries
     end
 
     def index
