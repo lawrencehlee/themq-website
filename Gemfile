@@ -34,14 +34,15 @@ gem 'owlcarousel-rails'
 gem 'font-awesome-rails'
 #For pagination
 gem 'kaminari'
-# misc
-gem 'yaml_db'
 #for admin page
 gem 'activeadmin', github: 'gregbell/active_admin'
 #for authentication
 gem 'devise'
 #for readable URLs
 gem 'friendly_id', '~> 5.1.0'
+
+# So that we can render stuff in models
+gem 'render_anywhere', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
