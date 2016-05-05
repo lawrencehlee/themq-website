@@ -1,6 +1,6 @@
-<% if article.brief %>
+<% if article.is_brief? %>
 	<h3 class="regular-headline">
-		<%= link_to "Brief: " + <%= article.headline %>, article %>
+		<%= link_to "Brief: " + article.headline , article %>
 	</h3>
 <% else %>
 	<h3 class="regular-headline"><%= link_to article.headline, article %></h3>

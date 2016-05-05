@@ -1,7 +1,16 @@
+require 'render_anywhere'
+
 class Article < ActiveRecord::Base
 	extend FriendlyId
+	include RenderAnywhere
+
 	friendly_id :name
+
 	ARTICLE_SUBDIRECTORY = 'articles'
+
+	def is_brief?
+		brief == 1
+	end
 
   def get_article_text
 		filepath = File.join(
@@ -80,5 +89,14 @@ class Article < ActiveRecord::Base
 	def self.get_random_brief_from_issue(issue)
 		all_from_issue = Article.get_all_briefs_from_issue(issue)
 		all_from_issue.offset(rand(all_from_issue.count)).first
+	end
+
+	def render_sidebar_view
+		#render :layout => 'articles/sidebar_view', :locals => {article: self}
+		render :partial => 'articles/sidebar_view', :locals => {:article => self}
+	end
+
+	def get_related_content
+		[self, Article.find(4)]
 	end
 end
