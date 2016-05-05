@@ -22,4 +22,19 @@ class TopTen < ActiveRecord::Base
 		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc")
 	end
 
+	# Gets top ten entries 10 through 7.
+	def get_top_ten_entries_teaser
+		number_of_entries = 4
+		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc").first(number_of_entries)
+		#TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc")
+	end
+
+	def get_top_ten_tags
+		tags = Array.new()
+		TopTenTag.where(top_ten_id: self.top_ten_id).each do |top_ten_tag|
+			tags << Tag.find(top_ten_tag.tag_id)
+		end
+		tags
+	end
+
 end
