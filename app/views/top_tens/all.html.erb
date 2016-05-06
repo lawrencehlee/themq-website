@@ -18,14 +18,7 @@
 						<% end %>
 					</div>
 
-					<% top_ten_entries = top_ten.get_entries %>
-					<div class="top-ten">
-						<ol class="reverse" style="counter-reset: reverse <%= top_ten_entries.count + 1%>">
-							<% top_ten_entries.each do |entry| %>
-								<li class="top-ten-entry"><%= entry.text %></li>
-							<% end %>
-						</ol>
-					</div>
+					<%= render 'inline', :top_ten => top_ten %>
 				</div>
 			</div>
 		<% end %>
