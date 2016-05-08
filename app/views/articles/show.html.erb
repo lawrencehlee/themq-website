@@ -18,6 +18,9 @@
 
 		<div class="pure-g">
 			<div class="author-position pure-u-1 pure-u-md-1-2">
+				<% if @co_author %>
+					<p><%= @co_author.name %>, <%= @co_author_position %></p>
+				<% end %>
 				<p><%= @author.name %>, <%= @author_position %></p>
 			</div>
 			<div class="issue-date pure-u-1 pure-u-md-1-2">

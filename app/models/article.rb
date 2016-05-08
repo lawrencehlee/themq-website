@@ -73,4 +73,13 @@ class Article < ActiveRecord::Base
 		tags
 	end
 
+	def get_co_author_or_nil
+		if self.co_author
+			co_author = Person.find(self.co_author)
+			return co_author, Position.find(co_author.position_id).title
+		end
+
+		return nil, nil
+	end
+
 end
