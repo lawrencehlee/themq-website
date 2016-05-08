@@ -27,6 +27,31 @@
 	}
 }
 
+.top-ten-show-content {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.top-ten-all-content {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	h1 {
+		text-align: center;
+	}
+	.top-ten-tags {
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+	hr {
+		margin-top: 1em;
+		margin-bottom: .5em;
+	}
+	.pagination {
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+}
+
 .social-share {
 	display: none;
 	ul {
@@ -45,6 +70,9 @@
 			.social-share {
 				display: block;
 				font-size: 100%;
+			}
+			.social-share-small {
+				display: none;
 			}
 		}
 	}

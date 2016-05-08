@@ -10,6 +10,7 @@ class TopTensController < ApplicationController
     end
 
     def index
+			@top_tens = TopTen.order('top_ten_id DESC').page(params[:page]).per(5)
     end
 
 		def all
