@@ -92,11 +92,55 @@ class Article < ActiveRecord::Base
 	end
 
 	def render_sidebar_view
-		#render :layout => 'articles/sidebar_view', :locals => {article: self}
 		render :partial => 'articles/sidebar_view', :locals => {:article => self}
 	end
 
-	def get_related_content
+	# This method is a bit complex so I guess it deserves a header
+	# get_related_content(limit, content_types, filter)
+	# Returns an array of content models that are "related" by tag to
+	# this article. It will find up to limit results that are of the
+	# classes specified in the content_types parameter.
+	# The filter parameter is used for any other miscellaneous
+	# criteria in querying for models.
+	def get_related_content(limit, content_types, filter)
+		related_content = Array.new
+
+		# Loop over all combinations of the tags, starting with matching
+		# the most tags
+		tags = get_article_tags
+		tags.length.downto(1) do |num_tags|
+			tags_of_this_length = tags.combination(num_tags).to_a
+
+			# Loop through each of the content pieces and query
+			content_types.each do |content_type|
+				results = content_type.find_with_tags(tags_of_this_length, filter)
+			end
+		end
+
 		[self, Article.find(4)]
+	end
+
+	def self.find_with_tags(tags, filter)
+		actual_results = Array.new
+		potential_results = Article.where(filter)
+
+		# Loop over potential results
+		potential_results.each do |result|
+			result_valid = true
+
+			# Check if they match all the provided tags
+			tags.each do |tag|
+				if ArticleTag.where(
+					article_id: result.article_id, tag_id: tag.tag_id).empty?
+					result_valid = false
+					break
+				end
+			end
+
+			# If so, add them to the return array
+			if result_valid
+				actual_results << result
+			end
+		end
 	end
 end
