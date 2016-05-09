@@ -38,7 +38,7 @@ class EdPcp < ActiveRecord::Base
 		tags
 	end
 
-	def get_top_story
+	def get_editorials
 		issue = Issue.last
 		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
 		filepath = File.join(
@@ -46,13 +46,13 @@ class EdPcp < ActiveRecord::Base
 
 		f_lines = File.open(filepath).read.split("\n")
 		f_lines.each_with_index do |line, index|
-			if line.include? "top story"
-				return f_lines[index + 1]
+			if line.include? "editorials"
+				return f_lines[index + 1].split(",")
 			end
 		end
 	end
 
-	def get_more_stories
+	def get_pcps
 		issue = Issue.last
 		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
 		filepath = File.join(
@@ -60,7 +60,7 @@ class EdPcp < ActiveRecord::Base
 
 		f_lines = File.open(filepath).read.split("\n")
 		f_lines.each_with_index do |line, index|
-			if line.include? "more"
+			if line.include? "point_counterpoints"
 				return f_lines[index + 1].split(",")
 			end
 		end

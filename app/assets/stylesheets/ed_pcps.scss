@@ -74,22 +74,25 @@
 		}
 	}
 	hr {
-		margin-top: 1em;
+		margin-top: .5em;
 		margin-bottom: 1em;
 	}
 }
 
-.ed-pcp-top-story {
-	.top-story-image {
+.ed-pcp-editorials {
+	h1 {
+		text-align: center;
+	}
+	.editorial-image {
 		text-align: center;
 		//margin-top: 1em;
-		margin-bottom: 1em;
+		margin-bottom: .5em;
 		img {
 			width: 95%;
 			position: center;
 		}
 	}
-	.top-story-data {
+	.editorial-data {
 		text-align: left;
 		//margin-left: 2.5%;
 		//margin-right: 2.5%;
@@ -107,7 +110,7 @@
 		h3 {
 			margin-left: 1em;
 		}
-		.top-story-tags {
+		.editorials-tags {
 			margin-left: 1em;
 			a {
 				&:hover {
@@ -121,18 +124,13 @@
 	}
 }
 
-.ed-pcp-more-stories {
+.ed-pcp-pcps {
 	font-size: $font-md-lg;
-	.more-stories {
-		h2 {
-			text-align: center;
-		}
-	}
-	.sub-story {
+	.pcp {
 		text-align: left;
 		margin-bottom: 2em;
 		margin-top: 2em;
-		.sub-story-tags {
+		.pcp-tags {
 			a {
 				&:hover {
 					background-color: $link-hover-background-color;

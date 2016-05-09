@@ -1,11 +1,13 @@
 class EdPcpsController < ApplicationController
 
   def index
-		@top_story = EdPcp.find(EdPcp.first.get_top_story)
-		@top_story_issue = Issue.find(@top_story.issue_id)
-		@more_stories = Array.new
-		EdPcp.first.get_more_stories.each do |ed_pcp_id|
-			@more_stories << EdPcp.find(ed_pcp_id)
+		@eds = Array.new
+		@pcps = Array.new
+		EdPcp.first.get_editorials.each do |ed_pcp_id|
+			@eds << EdPcp.find(ed_pcp_id)
+		end
+		EdPcp.first.get_pcps.each do |ed_pcp_id|
+			@pcps << EdPcp.find(ed_pcp_id)
 		end
   end
 
