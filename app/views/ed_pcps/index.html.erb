@@ -51,7 +51,7 @@
 
 					<!-- here is the stuff for the counterpoint -->
 					<%= link_to image_tag(cp.get_relative_author_image_path, alt:"Counterpoint Graphic", width: '100%'),
-						cp %>
+						p %>
 					<div class="pcp-tags">
 						<% pcp_tags = cp.get_ed_pcp_tags %>
 						<% pcp_tags.each do |tag| %>
@@ -62,7 +62,7 @@
 						<% end %>
 					</div>
 					<h3>Counterpoint</h3>
-					<h3 class="regular-headline"><%= link_to cp.headline, cp %></h3>
+					<h3 class="regular-headline"><%= link_to cp.headline, p %></h3>
 					<div class="date-author">
 						<% cp_issue = Issue.find(p.issue_id) %>
 						<p><%= cp_issue.get_human_readable_date %> - <%= cp.author %>, <%= cp.author_title %></p>
@@ -80,4 +80,5 @@
 	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
 		<p>jesus that's a large whoop</p>
 	</div>
+
 </div>
