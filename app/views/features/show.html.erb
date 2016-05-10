@@ -1,2 +1,17 @@
 <%= @feature.title %>
-<%= image_tag(@feature.get_relative_feature_path, alt: "Feature Graphic", width: '100%') %>
+<%= image_tag(@feature.get_relative_feature_path, alt: "Feature Graphic", width: '100%',
+							:id => 'zoom',
+							data: { zoom_image: '/barak/assets/' + @feature.get_relative_feature_path}) %>
+
+
+<script>
+$('#zoom').elevateZoom({
+	zoomType		: "lens",
+	lensSize		: 600,
+	lensShape 	: "square",
+	scrollZoom 	: true,
+	zoomWindowWidth		: 500,
+	zoomWindowHeight	: 200
+});
+</script>
+

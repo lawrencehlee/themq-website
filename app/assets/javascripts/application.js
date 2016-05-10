@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.elevatezoom
 //
 //= require owl.carousel
 // require_tree ./base
