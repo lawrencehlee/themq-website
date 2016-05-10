@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 		end
 	end
 
+	resources :features do
+		collection do
+			get 'all'
+		end
+	end
+
   resources :top_tens
 
 
