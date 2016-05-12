@@ -1,7 +1,18 @@
 ActiveAdmin.register EdPcp do
 
+	# find record with slug (friendly id)
+	controller do
+		def find_resource
+			begin
+				scoped_collection.where(slug: params[:id]).first!
+			rescue ActiveRecord::RecordNotFound
+				scoped_collection.find(params[:id])
+			end
+		end
+	end
+
 	permit_params :ed_pcp_id, :issue_id, :ed, :point, :counterpoint, :crspnd_point_id,
-		:headline, :author, :author_title, :author_image, :text
+		:headline, :author, :author_title, :author_image, :text, :title
 
 	index do
 		selectable_column
@@ -16,7 +27,7 @@ ActiveAdmin.register EdPcp do
 		column :author_title
 		column :author_image
 		column :text
-		column :name
+		column :title
 		actions
 	end
 
@@ -32,7 +43,7 @@ ActiveAdmin.register EdPcp do
 			f.input :author_title
 			f.input :author_image
 			f.input :text
-			f.input :name
+			f.input :title
 		end
 		f.actions
 	end
