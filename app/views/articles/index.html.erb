@@ -17,7 +17,11 @@
 				</div>
 				<h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
 				<div class="date-author">
-					<p><%= @top_story_issue.get_human_readable_date %> - <%= @top_story_person.name %></p>
+					<% if @top_story_co_author %>
+						<p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= @top_story_person.name %> - <%= @top_story_co_author.name %></p>
+					<% else %>
+						<p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= @top_story_person.name %></p>
+					<% end %>
 				</div>
 			</div>
 			<hr>
@@ -43,7 +47,11 @@
 					<div class="date-author">
 						<% @issue = Issue.find(article.issue_id) %>
 						<% @person = Person.find(article.person_id) %>
-						<p><%= @issue.get_human_readable_date %> - <%= @person.name %></p>
+						<% @co_author, @position = article.get_co_author_or_nil %>
+						<p><%= @issue.date.to_formatted_s(:long) %> - <%= @person.name %></p>
+						<% if @co_author %>
+							<p> - <%= @co_author.name %>
+						<% end %>
 					</div>
 				</div>
 			<% end %>
