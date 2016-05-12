@@ -44,6 +44,9 @@ gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
 #for zooming in on features
 gem 'elevatezoom-rails'
+#for feature lightboxing
+gem 'photoswipe-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
