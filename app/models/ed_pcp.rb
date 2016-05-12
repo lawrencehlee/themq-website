@@ -1,8 +1,12 @@
 class EdPcp < ActiveRecord::Base
 	extend FriendlyId
-	friendly_id :name
+	friendly_id :title, use: :slugged
 	IMAGE_SUBDIRECTORY = 'ed_pcps'
 	ARTICLE_SUBDIRECTORY = 'articles'
+
+	def should_generate_new_friendly_id?
+		slug.blank? || self.title_changed?
+	end
 
 	def get_ed_pcp_text
 		filepath = File.join(
