@@ -8,10 +8,10 @@
 			<span class="article-tags">
 				<% @tags.each do |tag| %>
 					<button class="pure-button">
-						<i class="fa fa-tag"></i>
-						<%= tag.title %>
-					</button>
-				<% end %>
+					<i class="fa fa-tag"></i>
+					<%= tag.title %>
+				</button>
+			<% end %>
 			</span>
 			<span class="social-share-small">
 				<%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>
@@ -19,11 +19,14 @@
 
 			<div class="pure-g">
 				<div class="author-position pure-u-1 pure-u-md-1-2">
+					<% if @co_author %>
+						<p><%= @co_author.name %>, <%= @co_author_position %></p>
+				<% end %>
 					<p><%= @author.name %>, <%= @author_position %></p>
 				</div>
 				<div class="issue-date pure-u-1 pure-u-md-1-2">
 					<p><%= @issue.get_full_issue_name %> -
-									 <%= @issue.get_human_readable_date %></p>
+					<%= @issue.get_human_readable_date %></p>
 				</div>
 			</div>
 

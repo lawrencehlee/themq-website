@@ -19,13 +19,18 @@
 						<% end %>
 					</div>
 					<% @person = Person.find(article.person_id) %>
+					<% @co_author, @position = article.get_co_author_or_nil %>
 					<% @issue = Issue.find(article.issue_id) %>
 					<div class="article-teaser">
 						<% @article_text_teaser = article.get_article_text_teaser 25 %>
 						<p><%= @article_text_teaser %></p>
 					</div>
 					<div class="date-author">
-						<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
+						<% if @co_author %>
+							<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %> / <%= @co_author.name %></p>
+						<% else %>
+							<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
+						<% end %>
 					</div>
 				</div>
 			</div>

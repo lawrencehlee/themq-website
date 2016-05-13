@@ -4,12 +4,16 @@ class Article < ActiveRecord::Base
 	extend FriendlyId
 	include RenderAnywhere
 
-	friendly_id :name
+	friendly_id :title, use: :slugged
 
 	ARTICLE_SUBDIRECTORY = 'articles'
 
 	def is_brief?
 		brief == 1
+	end
+
+	def should_generate_new_friendly_id?
+		slug.blank? || self.title_changed?
 	end
 
   def get_article_text
@@ -142,5 +146,14 @@ class Article < ActiveRecord::Base
 				actual_results << result
 			end
 		end
+	end
+
+	def get_co_author_or_nil
+		if self.co_author
+			co_author = Person.find(self.co_author)
+			return co_author, Position.find(co_author.position_id).title
+		end
+
+		return nil, nil
 	end
 end

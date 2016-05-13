@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 		@issue = Issue.find(@article.issue_id)
 		@author = Person.find(@article.person_id)
 		@author_position = Position.find(@author.position_id).title
+		@co_author, @co_author_position = @article.get_co_author_or_nil
 		@graphic_designer = Person.find(@graphic.person_id)
 
 		@tags = Array.new()
@@ -19,6 +20,7 @@ class ArticlesController < ApplicationController
 		@top_story_graphic = Graphic.find(@top_story.graphic_id)
 		@top_story_issue = Issue.find(@top_story.issue_id)
 		@top_story_person = Person.find(@top_story.person_id)
+		@top_story_co_author, @top_story_co_author_positon = @top_story.get_co_author_or_nil
 
 		@more_stories = Array.new()
 		@more_stories_graphics = Array.new()
