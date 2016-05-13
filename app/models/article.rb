@@ -113,17 +113,25 @@ class Article < ActiveRecord::Base
 		# the most tags
 		tags = get_article_tags
 		tags.length.downto(1) do |num_tags|
-			tags_of_this_length = tags.combination(num_tags).to_a
+			tag_combinations = tags.combination(num_tags)
 
 			# Loop through each of the content pieces and query
 			content_types.each do |content_type|
-				results = content_type.find_with_tags(tags_of_this_length, filter)
+				tag_combinations.to_a.each do |tag_combination|
+					related_content +=
+						content_type.find_with_tags(tag_combination, filter)
+				end
 			end
 		end
 
-		[self, Article.find(4)]
+		# Get limit random items from the content
+		related_content.sample(limit)
 	end
 
+	# This static method also deserves some explaining and maybe a header
+	# self.find_with_tags(tags, filter)
+	# Returns an array of articles that are filtered by filter (a hash)
+	# and that have all the tags specified in tags
 	def self.find_with_tags(tags, filter)
 		actual_results = Array.new
 		potential_results = Article.where(filter)
@@ -135,7 +143,7 @@ class Article < ActiveRecord::Base
 			# Check if they match all the provided tags
 			tags.each do |tag|
 				if ArticleTag.where(
-					article_id: result.article_id, tag_id: tag.tag_id).empty?
+					{article_id: result.article_id, tag_id: tag.tag_id}).empty?
 					result_valid = false
 					break
 				end
@@ -143,9 +151,11 @@ class Article < ActiveRecord::Base
 
 			# If so, add them to the return array
 			if result_valid
+				#puts result
 				actual_results << result
 			end
 		end
+		actual_results
 	end
 
 	def get_co_author_or_nil

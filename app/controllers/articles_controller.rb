@@ -12,7 +12,9 @@ class ArticlesController < ApplicationController
 		@tags = Array.new()
 		@tags = @article.get_article_tags
 
-		@related_content = @article.get_related_content
+		content_types = [Article]
+		@related_content = @article.get_related_content(
+			2,content_types,{ issue_id: @issue.issue_id })
 	end
 
 	def index
