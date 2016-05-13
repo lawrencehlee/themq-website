@@ -46,7 +46,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'elevatezoom-rails'
 #for feature lightboxing
 gem 'photoswipe-rails'
-
+#for getting image sizes
+gem 'fastimage'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
