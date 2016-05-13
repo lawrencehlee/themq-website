@@ -1,10 +1,21 @@
 <% content_for :specific_sidebar do %>
 <div class="article-sidebar">
-	<h2>Related Content</h2>
-	<% related_content.each do |content_piece| %>
-		<div class="sidebar-element">
-			<%= content_piece.render_sidebar_view %>
-		</div>
+	<% if not related_content.empty? %>
+		<h2>Related Content</h2>
+		<% related_content.each do |content_piece| %>
+			<div class="sidebar-element">
+				<%= content_piece.render_sidebar_view %>
+			</div>
+		<% end %>
+	<% end %>
+
+	<% if not same_author_content.empty? %>
+		<h2>More by this author</h2>
+		<% same_author_content.each do |content_piece| %>
+			<div class="sidebar-element">
+				<%= content_piece.render_sidebar_view %>
+			</div>
+		<% end %>
 	<% end %>
 </div>
 <% end %>
