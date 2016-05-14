@@ -130,6 +130,10 @@
 		text-align: left;
 		margin-bottom: 2em;
 		margin-top: 2em;
+		.point-container, .counterpoint-container {
+			padding-left: 1em;
+			border-right: 2px solid $bar-border-color;
+		}
 		.pcp-tags {
 			a {
 				&:hover {
