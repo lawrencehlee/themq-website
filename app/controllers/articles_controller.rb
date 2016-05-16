@@ -1,4 +1,10 @@
 class ArticlesController < ApplicationController
+	RELATED_CONTENT_LIMIT = 2
+	SAME_AUTHOR_CONTENT_LIMIT = 1
+	RELATED_CONTENT_TYPES = [Article]
+	SAME_AUTHOR_CONTENT_TYPES = [Article]
+
+
 	def show
 		@article = Article.friendly.find(params[:id])
 		@article_text = @article.get_article_text
@@ -12,20 +18,20 @@ class ArticlesController < ApplicationController
 		@tags = Array.new()
 		@tags = @article.get_article_tags
 
-		related_content_types = [Article]
-		same_author_content_types = [Article]
 		current_issue_filter = "issue_id = #{@issue.issue_id}"
 		not_current_issue_filter = "issue_id != #{@issue.issue_id}"
 
 		@related_content = @article.get_related_content(
-				2, related_content_types, current_issue_filter)
+				RELATED_CONTENT_LIMIT, RELATED_CONTENT_TYPES, current_issue_filter)
 		@related_content += @article.get_related_content(
-				2, related_content_types, not_current_issue_filter)
+				RELATED_CONTENT_LIMIT, RELATED_CONTENT_TYPES, not_current_issue_filter)
 
 		@same_author_content = @author.get_more_content(
-				1, same_author_content_types, current_issue_filter, @article)
+				SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
+				current_issue_filter, @article)
 		@same_author_content += @author.get_more_content(
-				1, same_author_content_types, not_current_issue_filter, @article)
+				SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
+				not_current_issue_filter, @article)
 	end
 
 	def index
