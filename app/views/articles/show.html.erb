@@ -42,10 +42,12 @@
 	</div>
 
 	<div class="sidebar pure-u-23-24 pure-u-lg-1-3">
-		<%= render :partial => 'articles/article_sidebar',
-			:locals =>
-			{ :related_content => @related_content,
-				:same_author_content => @same_author_content }
+		<%= render partial: 'articles/article_sidebar',
+			locals: {
+				related_content: @related_content,
+				same_author_content: @same_author_content,
+				author: @author
+			}
 		%>
 	</div>
 </div>

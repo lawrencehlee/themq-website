@@ -13,14 +13,14 @@ class ArticlesController < ApplicationController
 		@tags = @article.get_article_tags
 
 		content_types = [Article]
-		#current_issue_filter = 'issue_id = ?'
-			#{ issue_id: @issue.issue_id })
+		current_issue_filter = "issue_id = #{@issue.issue_id}"
+
 		@related_content = @article.get_related_content(
 			2,content_types, current_issue_filter)
 
 		@same_author_content = @author.get_more_content(
 			1, content_types, current_issue_filter)
-		@same_author_content += @author.get_more_content(
+		#@same_author_content += @author.get_more_content(
 	end
 
 	def index

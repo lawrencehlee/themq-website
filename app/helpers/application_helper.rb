@@ -6,7 +6,4 @@ module ApplicationHelper
 				fenced_code_blocks: true)
 		md.render(text).html_safe
 	end
-
-	def combine_query_strings(combine_word, queries)
-		queries.join(" #{combine_word} ")
 end

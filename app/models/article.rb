@@ -115,6 +115,17 @@ class Article < ActiveRecord::Base
 		tags.length.downto(1) do |num_tags|
 			tag_combinations = tags.combination(num_tags)
 
+			# Do Article first to exclude self
+			if content_types.include?(Article)
+				content_types.delete(Article)
+				prevent_duplicate_filter = "article_id != #{self.article_id}"
+				new_filter = [filter, prevent_duplicate_filter].join(" AND ")
+				tag_combinations.to_a.each do |tag_combination|
+					related_content +=
+						Article.find_with_tags(tag_combination, new_filter)
+				end
+			end
+
 			# Loop through each of the content pieces and query
 			content_types.each do |content_type|
 				tag_combinations.to_a.each do |tag_combination|
@@ -130,7 +141,7 @@ class Article < ActiveRecord::Base
 
 	# This static method also deserves some explaining and maybe a header
 	# self.find_with_tags(tags, filter)
-	# Returns an array of articles that are filtered by filter (a hash)
+	# Returns an array of articles that are filtered by filter
 	# and that have all the tags specified in tags
 	def self.find_with_tags(tags, filter)
 		actual_results = Array.new
@@ -151,7 +162,6 @@ class Article < ActiveRecord::Base
 
 			# If so, add them to the return array
 			if result_valid
-				#puts result
 				actual_results << result
 			end
 		end
