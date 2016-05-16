@@ -34,14 +34,15 @@ gem 'owlcarousel-rails'
 gem 'font-awesome-rails'
 #For pagination
 gem 'kaminari'
-# misc
-gem 'yaml_db'
 #for admin page
 gem 'activeadmin', github: 'gregbell/active_admin'
 #for authentication
 gem 'devise'
 #for readable URLs
 gem 'friendly_id', '~> 5.1.0'
+
+# So that we can render stuff in models
+gem 'render_anywhere', :require => false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -53,7 +54,7 @@ gem 'friendly_id', '~> 5.1.0'
 # gem 'capistrano-rails', group: :development
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 end
 
 group :development, :test do

@@ -59,8 +59,6 @@ GEM
       activesupport (>= 3.0.0)
     arel (6.0.3)
     bcrypt (3.1.11)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bourbon (4.2.7)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -175,6 +173,8 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
+    render_anywhere (0.0.12)
+      rails (>= 3.0.7)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -206,14 +206,10 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.6)
       rack (>= 1.0)
-    web-console (2.3.0)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
-    yaml_db (0.3.0)
-      rails (>= 3.0, < 4.3)
-      rake (>= 0.8.7)
+    web-console (3.1.1)
+      activemodel (>= 4.2)
+      debug_inspector
+      railties (>= 4.2)
 
 PLATFORMS
   ruby
@@ -235,13 +231,13 @@ DEPENDENCIES
   purecss-sass
   rails (= 4.2.0)
   redcarpet
+  render_anywhere
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   turbolinks
   uglifier (>= 1.3.0)
-  web-console (~> 2.0)
-  yaml_db
+  web-console
 
 BUNDLED WITH
    1.11.2
