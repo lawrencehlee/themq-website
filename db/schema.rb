@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407153153) do
+ActiveRecord::Schema.define(version: 20160506182430) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -61,11 +61,15 @@ ActiveRecord::Schema.define(version: 20160407153153) do
     t.string  "headline",   limit: 200
     t.string  "text",       limit: 255, null: false
     t.binary  "brief",      limit: 1
+    t.string  "slug",       limit: 255
+    t.string  "name",       limit: 255
+    t.integer "co_author",  limit: 4
   end
 
   add_index "articles", ["graphic_id"], name: "graphic_id", using: :btree
   add_index "articles", ["issue_id"], name: "issue_id", using: :btree
   add_index "articles", ["person_id"], name: "person_id", using: :btree
+  add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "ed_pcp_tags", primary_key: "ed_pcp_tag_id", force: :cascade do |t|
     t.integer "ed_pcp_id", limit: 4, null: false
@@ -86,9 +90,12 @@ ActiveRecord::Schema.define(version: 20160407153153) do
     t.string  "author_title",    limit: 200
     t.string  "author_image",    limit: 255
     t.string  "text",            limit: 255
+    t.string  "name",            limit: 255
+    t.string  "slug",            limit: 255
   end
 
   add_index "ed_pcps", ["issue_id"], name: "issue_id", using: :btree
+  add_index "ed_pcps", ["slug"], name: "index_ed_pcps_on_slug", using: :btree
 
   create_table "feature_tags", primary_key: "feature_tag_id", force: :cascade do |t|
     t.integer "feature_id", limit: 4, null: false
@@ -152,7 +159,6 @@ ActiveRecord::Schema.define(version: 20160407153153) do
 
   create_table "self_ads", primary_key: "self_ad_id", force: :cascade do |t|
     t.integer "issue_id", limit: 4,   null: false
-    t.string  "text",     limit: 200
     t.string  "image",    limit: 255
   end
 

@@ -1,42 +1,54 @@
 <footer>
 	<div class="container">
-
 		<div class="footer-main">
 			<div class="pure-g">
-				<div class="pure-u-1-2">
-					<div><%= link_to "Site Map", '#' %></div>
-					<div><%= link_to "Contact", '#' %></div>
-					<div><%= link_to "Contributors", :controller => :people, :action => :index %></div>
-					<div><%= link_to "Donate", '#' %></div>
+				<div class="footer-img pure-u-1 pure-u-lg-1-3">
+					<%= image_tag("logo_white_transparent.png", alt: "MQ logo", width: "256") %>
 				</div>
-				<div class="pure-u-1-2">
-					<div>
-						<%= link_to "Home",
-							{:controller => 'main', :action => 'index'},
-							{:data => {:'no-turbolink' => true}} %>
+				<div class="footer-other pure-u-1 pure-u-lg-2-3">
+					<div class="footer-links">
+						<span>
+							<%= link_to "Home",
+								{:controller => 'main', :action => 'index'},
+								{:data => {:'no-turbolink' => true}} %>
+						</span>·
+							<span>
+								<%= link_to "About", "#" %>
+							</span>·
+							<span>
+								<%= link_to "Contributors", "#" %>
+							</span>·
+							<span>
+								<%= link_to "Contact", "#" %>
+							</span>
+						</div>
+						<div class="footer-social">
+							<span>
+								<%= link_to "Read on Issuu", "http://issuu.com/themq" %>
+							</span>·
+							<span>
+								<%= link_to "Facebook", 'http://facebook.com/ucsdmq' %>
+							</span>·
+							<span>
+								<%= link_to "Twitter", 'http://twitter.com/the_mq' %>
+							</span>
+						</div>
+						<div class="footer-legal">
+							<small>
+								Copyright &copy; <%= Date.today.year %> The MQ. All rights reserved.
+							</small>
+						</div>
+
+						<div class="footer-acknowledgements">
+							<small>
+								Powered by
+								<%= link_to "Rails", 'http://rubyonrails.org' %> and
+								<%= link_to "Pure", 'http://purecss.io' %>.
+							</small>
+						</div>
 					</div>
-					<div><%= link_to "Facebook", 'https://facebook.com/ucsdmq' %></div>
-					<div><%= link_to "Twitter", 'https://twitter.com/the_mq' %></div>
-					<div><%= link_to "Read the issue", 'https://issuu.com/themq' %></div>
 				</div>
 			</div>
 		</div>
-
-		<div class="footer-legal">
-			<p>
-				<small>
-				Copyright &copy; 2016 by The MQ.
-				</small>
-			</p>
-		</div>
-
-		<div class="footer-acknowledgements">
-			<small>
-				Website developed internally by The MQ. Powered by
-				<%= link_to "Rails", 'http://rubyonrails.org' %> and
-				<%= link_to "Pure", 'http://purecss.io' %>.
-			</small>
-		</div>
 	</div>
 </footer>
-

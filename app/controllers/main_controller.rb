@@ -8,9 +8,16 @@ class MainController < ApplicationController
 		@featured_content << Article.find(1)
 		@featured_content << Article.find(2)
 
-		@more_shit_1 = Article.find(1)
-		@more_shit_2 = Article.find(2)
+		@news_articles = Array.new
+		@news_articles << Article.find(13)
+		@news_articles << Article.find(14)
+
+		@point = EdPcp.where(point: 1).first
+		@counterpoint = EdPcp.where(crspnd_point_id: @point.ed_pcp_id).first
 
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
+		@random_self_ad = SelfAd.get_random_from_issue(@current_issue)
+
+		@brief = Article.find(9)
   end
 end

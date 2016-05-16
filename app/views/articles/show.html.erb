@@ -1,33 +1,31 @@
 <div class="article-show-content pure-g">
 	<div class="social-share pure-u-1-24">
-		<ul class="social-media-buttons">
-			<li>
-				<%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
-			 		'http://facebook.com/ucsdmq' %>
-			</li>
-			<li>
-				<%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
-					'http://twitter.com/the_mq' %>
-			</li>
-		</ul>
+		<%= render :partial => "social_share", :locals => {:article => @article, :status => @article.headline} %>
 	</div>
-	<div class="article-content pure-u-15-24">
+	<div class="article-content pure-u-23-24 pure-u-lg-15-24">
 		<h1><%= @article.headline %></h1>
-        <div class="article-tags pure-g">
-            <% @tags.each do |tag| %>
-                <button class="pure-button">
-                    <i class="fa fa-tag"></i>
-                    <%= tag.title %>
-                </button>
-            <% end %>
-        </div>
+		<span class="article-tags">
+    	<% @tags.each do |tag| %>
+      	<button class="pure-button">
+        	<i class="fa fa-tag"></i>
+          <%= tag.title %>
+        </button>
+			<% end %>
+		</span>
+		<span class="social-share-small">
+			<%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>
+		</span>
+
 		<div class="pure-g">
 			<div class="author-position pure-u-1 pure-u-md-1-2">
-				<p><%= link_to @author.name, @author %>, <%= @author_position %></p>
+				<% if @co_author %>
+					<p><%= @co_author.name %>, <%= @co_author_position %></p>
+				<% end %>
+				<p><%= @author.name %>, <%= @author_position %></p>
 			</div>
 			<div class="issue-date pure-u-1 pure-u-md-1-2">
-				<p>Is. <%= @issue.issue_no %>, Vo. <%= @issue.volume_no %> -
-								 <%= @issue.date.to_formatted_s(:long) %></p>
+				<p><%= @issue.get_full_issue_name %> -
+								 <%= @issue.get_human_readable_date %></p>
 			</div>
 		</div>
 
@@ -35,12 +33,12 @@
 			<%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
 		</div>
 		<div class="image-data">
-			<p>Photo by: <%= @graphic_designer.name %></p>
-			<small><%= @graphic.caption %></small>
+			<p class="designer">Photo by: <%= @graphic_designer.name %></p>
+			<p class="caption"><%= @graphic.caption %></p>
 		</div>
 		<div class="content-text"><%= markdown(@article_text) %></div>
 	</div>
-	<div class="sidebar-content pure-u-1-3">
+	<div class="sidebar-content pure-u-23-24 pure-u-lg-1-3">
 		<p>big whoop</p>
 	</div>
 </div>

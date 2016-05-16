@@ -1,6 +1,18 @@
 ActiveAdmin.register Article do
 
-	permit_params :article_id, :person_id, :graphic_id, :issue_id, :headline, :text, :brief
+	# find record with slug (friendly id)
+	controller do
+		def find_resource
+			begin
+				scoped_collection.where(slug: params[:id]).first!
+			rescue ActiveRecord::RecordNotFound
+				scoped_collection.find(params[:id])
+			end
+		end
+	end
+
+
+	permit_params :article_id, :person_id, :graphic_id, :issue_id, :headline, :text, :brief, :title
 
 	index do
 		selectable_column
@@ -11,6 +23,7 @@ ActiveAdmin.register Article do
 		column :headline
 		column :text
 		column :brief
+		column :title
 		actions
 	end
 
@@ -22,6 +35,7 @@ ActiveAdmin.register Article do
 			f.input :headline
 			f.input :text
 			f.input :brief, as: :string
+			f.input :title
 		end
 		f.actions
 	end

@@ -2,7 +2,7 @@
 @import "base/mixins";
 
 .main {
-	padding-top: 1em;
+	padding-top: 2em;
 	padding-bottom: 2em;
 
 	.main-content {
@@ -21,9 +21,7 @@
 
 					.slideshow-label {
 						// Text modifications
-						font-size: 1.5em;
 						color: white;
-						font-weight: bold;
 						text-shadow:
 							-1px -1px 0 #000,
 							1px -1px 0 #000,
@@ -32,7 +30,6 @@
 					}
 					.slideshow-details {
 						color: white;
-						font-size: 0.75em;
 					}
 				}
 
@@ -46,18 +43,47 @@
 		}
 	}
 
-	.more-shit {
+	.main-section {
+		margin-bottom: 1em;
 
-		.more-shit-title {
+		.main-section-title {
 			text-align: center;
 			border-bottom: 1px solid;
 			margin-bottom: 1em;
 		}
+	}
+	#news {
+		.news-content {
+			.news-content-image {
+				img {
+					width: 100%;
+				}
+			}
+			margin-bottom: 1em;
+		}
+	}
 
-		.more-shit-content {
-			.more-shit-content-piece {
+	#more-stories {
+		.more-stories-content {
+			margin-bottom: 1em;
+		}
+	}
+
+	.see-more {
+		text-align: right;
+	}
+
+	.attribution {
+		color: $light-grey;
+	}
+}
+
+@media screen and (min-width: $lg-min-width)
+{
+	.main {
+		#news {
+			.news-content-headline {
 				padding-left: 1em;
-				padding-right: 1em;
 			}
 		}
 	}

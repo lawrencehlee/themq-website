@@ -1,6 +1,11 @@
 class Article < ActiveRecord::Base
-
+	extend FriendlyId
+	friendly_id :title, use: :slugged
 	ARTICLE_SUBDIRECTORY = 'articles'
+
+	def should_generate_new_friendly_id?
+		slug.blank? || self.title_changed?
+	end
 
   def get_article_text
 		filepath = File.join(
@@ -8,8 +13,13 @@ class Article < ActiveRecord::Base
     File.read(filepath).encode("UTF-8", :invalid=>:replace)
   end
 
+	def get_attribution_line
+		person = Person.find(self.person_id)
+		issue = Issue.find(self.issue_id)
+		"#{person.name} - #{issue.get_full_issue_name} - #{issue.get_human_readable_date}"
+	end
 
-	def get_article_text_teaser
+	def get_article_text_teaser(words)
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
 		n = 1;
@@ -20,7 +30,7 @@ class Article < ActiveRecord::Base
 				lines << line
 			end
 			first_line = lines.first
-			first_line.split(' ')[0, 25].join(' ') + "...";
+			first_line.split(' ')[0, words].join(' ') + "...";
 
 		end
 	end
@@ -70,6 +80,15 @@ class Article < ActiveRecord::Base
 	def get_graphic_for_article
 		graphic = Graphic.find(self.graphic_id)
 		graphic
+	end
+
+	def get_co_author_or_nil
+		if self.co_author
+			co_author = Person.find(self.co_author)
+			return co_author, Position.find(co_author.position_id).title
+		end
+
+		return nil, nil
 	end
 
 end
