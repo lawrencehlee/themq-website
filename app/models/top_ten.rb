@@ -1,4 +1,12 @@
 class TopTen < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
+	def should_generate_new_friendly_id?
+		slug.blank? || self.name_changed?
+	end
+
+
 	# Static method that gets all top tens from the specified issue
 	def self.get_all_from_issue(issue)
 		TopTen.where(issue_id: issue.issue_id)
