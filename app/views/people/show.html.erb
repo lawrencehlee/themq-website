@@ -39,7 +39,7 @@
 							<% end %>
 						</div>
 						<% @issue = Issue.find(article.issue_id) %>
-						<% @article_text_teaser = article.get_article_text_teaser %>
+						<% @article_text_teaser = article.get_article_text_teaser 25 %>
 
 						<p><%= @article_text_teaser %></p>
 						<div class="article-date">

@@ -1,5 +1,13 @@
 class Person < ActiveRecord::Base
 
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
+	def should_generate_new_friendly_id?
+		slug.blank? || self.name_changed?
+	end
+
+
 	EDITORS_SUBDIRECTORY = 'editors'
 
 	def get_all_articles_for_person

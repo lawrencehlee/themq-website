@@ -19,7 +19,7 @@
 					<!-- feature random editor here -->
 					<div class="pure-g">
 						<div class="pure-u-1-2">
-							<h2><%= @featured_editor.name %></h2>
+							<h2><%= link_to @featured_editor.name, @featured_editor %></h2>
 							<h3><%= @featured_position.title %></h3>
 							<p class="quote"><%= @featured_editor.quote %></p>
 							<p class="bio"><%= @featured_editor.bio %></p>
