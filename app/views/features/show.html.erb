@@ -1,2 +1,5 @@
 <%= @feature_path %>
 <%= @width %>
+
+<%= render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_pat, :width => @width, :height => @height} %>
+
