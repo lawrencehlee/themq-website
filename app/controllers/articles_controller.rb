@@ -12,15 +12,20 @@ class ArticlesController < ApplicationController
 		@tags = Array.new()
 		@tags = @article.get_article_tags
 
-		content_types = [Article]
+		related_content_types = [Article]
+		same_author_content_types = [Article]
 		current_issue_filter = "issue_id = #{@issue.issue_id}"
+		not_current_issue_filter = "issue_id != #{@issue.issue_id}"
 
 		@related_content = @article.get_related_content(
-			2,content_types, current_issue_filter)
+				2, related_content_types, current_issue_filter)
+		@related_content += @article.get_related_content(
+				2, related_content_types, not_current_issue_filter)
 
 		@same_author_content = @author.get_more_content(
-			1, content_types, current_issue_filter)
-		#@same_author_content += @author.get_more_content(
+				1, same_author_content_types, current_issue_filter, @article)
+		@same_author_content += @author.get_more_content(
+				1, same_author_content_types, not_current_issue_filter, @article)
 	end
 
 	def index

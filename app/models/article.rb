@@ -96,7 +96,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def render_sidebar_view
-		render :partial => 'articles/sidebar_view', :locals => {:article => self}
+		render partial: 'articles/sidebar_view', locals: {:article => self}
 	end
 
 	# This method is a bit complex so I guess it deserves a header
@@ -108,6 +108,7 @@ class Article < ActiveRecord::Base
 	# criteria in querying for models.
 	def get_related_content(limit, content_types, filter)
 		related_content = Array.new
+		content_types_clone = content_types.clone
 
 		# Loop over all combinations of the tags, starting with matching
 		# the most tags
@@ -116,8 +117,8 @@ class Article < ActiveRecord::Base
 			tag_combinations = tags.combination(num_tags)
 
 			# Do Article first to exclude self
-			if content_types.include?(Article)
-				content_types.delete(Article)
+			if content_types_clone.include?(Article)
+				content_types_clone.delete(Article)
 				prevent_duplicate_filter = "article_id != #{self.article_id}"
 				new_filter = [filter, prevent_duplicate_filter].join(" AND ")
 				tag_combinations.to_a.each do |tag_combination|
@@ -127,7 +128,7 @@ class Article < ActiveRecord::Base
 			end
 
 			# Loop through each of the content pieces and query
-			content_types.each do |content_type|
+			content_types_clone.each do |content_type|
 				tag_combinations.to_a.each do |tag_combination|
 					related_content +=
 						content_type.find_with_tags(tag_combination, filter)
