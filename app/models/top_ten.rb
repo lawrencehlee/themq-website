@@ -1,4 +1,8 @@
+require 'render_anywhere'
+
 class TopTen < ActiveRecord::Base
+	include RenderAnywhere
+
 	# Static method that gets all top tens from the specified issue
 	def self.get_all_from_issue(issue)
 		TopTen.where(issue_id: issue.issue_id)
@@ -14,5 +18,10 @@ class TopTen < ActiveRecord::Base
 	def get_entries
 		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc")
 	end
+
+	def render_tag_view
+		render partial: 'top_tens/tag_view', locals: {:top_ten => self}
+	end
+
 
 end

@@ -1,5 +1,8 @@
+require 'render_anywhere'
+
 class EdPcp < ActiveRecord::Base
 	extend FriendlyId
+	include RenderAnywhere
 	friendly_id :title, use: :slugged
 	IMAGE_SUBDIRECTORY = 'ed_pcps'
 	ARTICLE_SUBDIRECTORY = 'articles'
@@ -85,5 +88,13 @@ class EdPcp < ActiveRecord::Base
 			first_line.split(' ')[0, 25].join(' ') + "...";
 
 		end
+	end
+
+	def render_tag_view
+		ed = self
+		if self.counterpoint == 1
+			ed = EdPcp.find(self.crspnd_point)
+		end
+		render partial: 'ed_pcps/tag_view', locals: {:ed => ed}
 	end
 end

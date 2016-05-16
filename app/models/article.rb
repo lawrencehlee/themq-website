@@ -99,6 +99,12 @@ class Article < ActiveRecord::Base
 		render partial: 'articles/sidebar_view', locals: {:article => self}
 	end
 
+	#want to do the same thing as render_sidebar_view, but for the tag page
+	def render_tag_view
+		graphic = Graphic.find(self.graphic_id)
+		render partial: 'articles/tag_view', locals: {:article => self, :graphic => graphic}
+	end
+
 	# This method is a bit complex so I guess it deserves a header
 	# get_related_content(limit, content_types, filter)
 	# Returns an array of content models that are "related" by tag to

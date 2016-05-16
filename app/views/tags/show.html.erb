@@ -1,11 +1,15 @@
 <div class="tag-show pure-g">
 	<div class="tag-show-content pure-u-2-3">
 		<% @articles.each do |article| %>
-			<%= article.article_id %>
+			<%= article.render_tag_view %>
 		<% end %>
 		<hr>
 		<% @ed_pcps.each do |ed_pcp| %>
-			<%= ed_pcp.ed_pcp_id %>
+			<%= ed_pcp.render_tag_view %>
+		<% end %>
+		<hr>
+		<% @top_tens.each do |top_ten| %>
+			<%= top_ten.render_tag_view %>
 		<% end %>
 	</div>
 	<div class="sidebar-content pure-u-1-3">
