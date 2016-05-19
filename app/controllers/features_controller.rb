@@ -1,5 +1,4 @@
 class FeaturesController < ApplicationController
-	require 'fastimage'
 
 	def index
 	end
@@ -9,8 +8,8 @@ class FeaturesController < ApplicationController
 
 	def show
 		@feature = Feature.find(params[:id])
-		@feature_path = request.protocol + request.host_with_port + "/assets/" + @feature.get_relative_feature_path
-		@width = 1024
-		@height = 768
+		@feature_path = "/barak/assets/" + @feature.get_relative_feature_path
+		@width = @feature.width
+		@height = @feature.height
 	end
 end

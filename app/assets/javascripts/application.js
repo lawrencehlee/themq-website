@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery.elevatezoom
 //= require photoswipe
 //
 //= require owl.carousel

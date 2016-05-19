@@ -1,6 +1,6 @@
 ActiveAdmin.register Feature do
 
-	permit_params :feature_id, :issue_id, :title, :image, :spread
+	permit_params :feature_id, :issue_id, :title, :image, :spread, :height, :width
 
 	index do
 		selectable_column
@@ -9,6 +9,8 @@ ActiveAdmin.register Feature do
 		column :title
 		column :image
 		column :spread
+		column :height
+		column :width
 		actions
 	end
 
@@ -18,6 +20,8 @@ ActiveAdmin.register Feature do
 			f.input :title
 			f.input :image, as: :string
 			f.input :spread, as: :string
+			f.input :height
+			f.input :width
 		end
 		f.actions
 	end
