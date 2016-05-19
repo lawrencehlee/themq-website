@@ -1,6 +1,18 @@
 ActiveAdmin.register Feature do
 
-	permit_params :feature_id, :issue_id, :title, :image, :spread
+	# find record with slug (friendly id)
+	controller do
+		def find_resource
+			begin
+				scoped_collection.where(slug: params[:id]).first!
+			rescue ActiveRecord::RecordNotFound
+				scoped_collection.find(params[:id])
+			end
+		end
+	end
+
+
+	permit_params :feature_id, :issue_id, :title, :image, :spread, :height, :width
 
 	index do
 		selectable_column
@@ -9,6 +21,8 @@ ActiveAdmin.register Feature do
 		column :title
 		column :image
 		column :spread
+		column :height
+		column :width
 		actions
 	end
 
@@ -18,6 +32,8 @@ ActiveAdmin.register Feature do
 			f.input :title
 			f.input :image, as: :string
 			f.input :spread, as: :string
+			f.input :height
+			f.input :width
 		end
 		f.actions
 	end

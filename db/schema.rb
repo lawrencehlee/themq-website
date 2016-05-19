@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160506182430) do
+ActiveRecord::Schema.define(version: 20160519013939) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -62,10 +62,11 @@ ActiveRecord::Schema.define(version: 20160506182430) do
     t.string  "text",       limit: 255, null: false
     t.binary  "brief",      limit: 1
     t.string  "slug",       limit: 255
-    t.string  "name",       limit: 255
+    t.string  "title",      limit: 255
     t.integer "co_author",  limit: 4
   end
 
+  add_index "articles", ["co_author"], name: "co_author", using: :btree
   add_index "articles", ["graphic_id"], name: "graphic_id", using: :btree
   add_index "articles", ["issue_id"], name: "issue_id", using: :btree
   add_index "articles", ["person_id"], name: "person_id", using: :btree
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 20160506182430) do
     t.string  "author_title",    limit: 200
     t.string  "author_image",    limit: 255
     t.string  "text",            limit: 255
-    t.string  "name",            limit: 255
+    t.string  "title",           limit: 255
     t.string  "slug",            limit: 255
   end
 
@@ -110,9 +111,14 @@ ActiveRecord::Schema.define(version: 20160506182430) do
     t.string  "title",    limit: 200
     t.string  "image",    limit: 255
     t.binary  "spread",   limit: 1
+    t.integer "height",   limit: 4
+    t.integer "width",    limit: 4
+    t.string  "slug",     limit: 255
+    t.string  "name",     limit: 255
   end
 
   add_index "features", ["issue_id"], name: "issue_id", using: :btree
+  add_index "features", ["slug"], name: "index_features_on_slug", using: :btree
 
   create_table "graphics", primary_key: "graphic_id", force: :cascade do |t|
     t.integer "article_id", limit: 4
@@ -140,7 +146,11 @@ ActiveRecord::Schema.define(version: 20160506182430) do
     t.string  "celeb",               limit: 200
     t.string  "celeb_photo",         limit: 255
     t.string  "issuu_link",          limit: 255
+    t.string  "slug",                limit: 255
+    t.string  "name",                limit: 255
   end
+
+  add_index "issues", ["slug"], name: "index_issues_on_slug", using: :btree
 
   create_table "people", primary_key: "person_id", force: :cascade do |t|
     t.integer "position_id", limit: 4,     null: false
@@ -149,9 +159,11 @@ ActiveRecord::Schema.define(version: 20160506182430) do
     t.string  "image",       limit: 255
     t.binary  "current",     limit: 1
     t.string  "quote",       limit: 255
+    t.string  "slug",        limit: 255
   end
 
   add_index "people", ["position_id"], name: "position_id", using: :btree
+  add_index "people", ["slug"], name: "index_people_on_slug", using: :btree
 
   create_table "positions", primary_key: "position_id", force: :cascade do |t|
     t.string "title", limit: 200
@@ -175,7 +187,10 @@ ActiveRecord::Schema.define(version: 20160506182430) do
 
   create_table "tags", primary_key: "tag_id", force: :cascade do |t|
     t.string "title", limit: 200
+    t.string "slug",  limit: 255
   end
+
+  add_index "tags", ["slug"], name: "index_tags_on_slug", using: :btree
 
   create_table "top_ten_entries", primary_key: "top_ten_entry_id", force: :cascade do |t|
     t.integer "top_ten_id", limit: 4,   null: false
@@ -197,12 +212,16 @@ ActiveRecord::Schema.define(version: 20160506182430) do
     t.integer "issue_id",      limit: 4,   null: false
     t.string  "title",         limit: 200, null: false
     t.integer "no_of_entries", limit: 4,   null: false
+    t.string  "slug",          limit: 255
+    t.string  "name",          limit: 255
   end
 
   add_index "top_tens", ["issue_id"], name: "issue_id", using: :btree
+  add_index "top_tens", ["slug"], name: "index_top_tens_on_slug", using: :btree
 
   add_foreign_key "articles", "graphics", primary_key: "graphic_id", name: "articles_ibfk_3"
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
+  add_foreign_key "articles", "people", column: "co_author", primary_key: "person_id", name: "articles_ibfk_4"
   add_foreign_key "articles", "people", primary_key: "person_id", name: "articles_ibfk_1"
   add_foreign_key "ed_pcp_tags", "ed_pcps", primary_key: "ed_pcp_id", name: "ed_pcp_tags_ibfk_1"
   add_foreign_key "ed_pcp_tags", "tags", primary_key: "tag_id", name: "ed_pcp_tags_ibfk_2"

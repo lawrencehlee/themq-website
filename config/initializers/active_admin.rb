@@ -1,8 +1,8 @@
-ActiveAdmin::ResourceController.class_eval do
-	def find_resource
-		resource_class.is_a?(FriendlyId) ? scoped_collection.where(slug: params[:id]).first! : scoped_collection.where(id: params[:id]).first!
-	end
-end
+#ActiveAdmin::ResourceController.class_eval do
+	#def find_resource
+	#	resource_class.is_a?(FriendlyId) ? scoped_collection.where(slug: params[:id]).first! : scoped_collection.where(id: params[:id]).first!
+	#end
+#end
 
 ActiveAdmin.setup do |config|
   # == Site Title
