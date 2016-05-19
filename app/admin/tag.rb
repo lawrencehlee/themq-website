@@ -12,7 +12,6 @@ ActiveAdmin.register Tag do
 	end
 
 
-
 	permit_params :tag_id, :title
 
 	index do

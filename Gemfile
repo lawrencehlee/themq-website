@@ -40,6 +40,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 #for readable URLs
 gem 'friendly_id', '~> 5.1.0'
+#for feature lightboxing
+gem 'photoswipe-rails'
 
 # So that we can render stuff in models
 gem 'render_anywhere', :require => false
