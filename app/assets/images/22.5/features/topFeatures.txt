@@ -1,0 +1,14 @@
+//This here file is to manually enter which features will appear on the feature index page
+//Putting feature_ids here, which will be used to find the active record
+//Splitting this into three, the first section is for the main story, which will be the centerspread from that issue.
+//The second will be two _olumn features (word misspelled to avoid codefusion), they will be next to each other
+//The third will be one or two horizontal features. Wouldn't recommend putting more than 2 things there. A BP would be nice for extra color
+
+top feature:
+1
+
+column features:
+2, 3
+
+more features:
+1, 3
