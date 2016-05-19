@@ -7,10 +7,12 @@
 			<h1><%= @article.headline %></h1>
 			<span class="article-tags">
 				<% @tags.each do |tag| %>
-					<button class="pure-button">
-						<i class="fa fa-tag"></i>
-						<%= tag.title %>
-					</button>
+					<%= link_to(tag) do %>
+						<button class="pure-button">
+							<i class="fa fa-tag"></i>
+							<%= tag.title %>
+						</button>
+					<% end %>
 				<% end %>
 			</span>
 			<span class="social-share-small">
