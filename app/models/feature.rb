@@ -15,4 +15,12 @@ class Feature < ActiveRecord::Base
 		"#{issue_string}/#{FEATURE_SUBDIRECTORY}/#{self.image}"
 	end
 
+	def get_feature_tags
+		tags = Array.new()
+		FeatureTag.where(feature_id: self.feature_id).each do |feature_tag|
+			tags << Tag.find(feature_tag.tag_id)
+		end
+		tags
+	end
+
 end
