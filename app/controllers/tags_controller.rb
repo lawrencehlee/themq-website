@@ -10,6 +10,7 @@ class TagsController < ApplicationController
 		@ed_pcps = @tag.get_all_ed_pcps_with_tag
 		@features = @tag.get_all_features_with_tag
 		@top_tens = @tag.get_all_top_tens_with_tag
+		@features = @tag.get_all_features_with_tag
 	end
 
 end

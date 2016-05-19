@@ -8,10 +8,10 @@
 			<span class="article-tags">
 				<% @tags.each do |tag| %>
 					<button class="pure-button">
-					<i class="fa fa-tag"></i>
-					<%= tag.title %>
-				</button>
-			<% end %>
+						<i class="fa fa-tag"></i>
+						<%= tag.title %>
+					</button>
+				<% end %>
 			</span>
 			<span class="social-share-small">
 				<%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>

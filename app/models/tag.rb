@@ -44,4 +44,13 @@ class Tag < ActiveRecord::Base
 		top_tens
 	end
 
+	def get_all_features_with_tag
+		feature_tags = FeatureTag.where(tag_id: self.tag_id)
+		features = Array.new()
+		feature_tags.each do |feature_tag|
+			features << Feature.find(feature_tag.feature_id)
+		end
+		features
+	end
+
 end

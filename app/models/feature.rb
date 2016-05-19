@@ -1,5 +1,8 @@
+require 'render_anywhere'
+
 class Feature < ActiveRecord::Base
 	extend FriendlyId
+	include RenderAnywhere
 
 	friendly_id :name, use: :slugged
 	FEATURE_SUBDIRECTORY = 'features'
@@ -65,5 +68,10 @@ class Feature < ActiveRecord::Base
 			end
 		end
 	end
+
+	def render_tag_view
+		render partial: 'features/tag_view', locals: {:feature => self}
+	end
+
 
 end
