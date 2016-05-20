@@ -21,7 +21,10 @@ class Tag < ActiveRecord::Base
 		ed_pcp_tags = EdPcpTag.where(tag_id: self.tag_id)
 		ed_pcps = Array.new()
 		ed_pcp_tags.each do |ed_pcp_tag|
-			ed_pcps << EdPcp.find(ed_pcp_tag.ed_pcp_id)
+			ed_pcp =  EdPcp.find(ed_pcp_tag.ed_pcp_id)
+			if ed_pcp.counterpoint == "0"
+				ed_pcps << ed_pcp
+			end
 		end
 		ed_pcps
 	end
