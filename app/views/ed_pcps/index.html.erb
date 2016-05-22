@@ -31,43 +31,46 @@
 			<h1 class="pure-u-1">Point - Counterpoints</h1>
 			<% @pcps.each_slice(2) do |p, cp| %>
 				<div class="pcp pure-u-1 pure-u-md-1-3">
-					<%= link_to image_tag(p.get_relative_author_image_path, alt:"Point Graphic", width: '100%'),
-						p %>
-					<div class="pcp-tags">
-						<% pcp_tags = p.get_ed_pcp_tags %>
-						<% pcp_tags.each do |tag| %>
-							<button class="button-small pure-button">
-								<i class="fa fa-tag"></i>
-								<%= tag.title %>
-							</button>
-						<% end %>
-					</div>
-					<h3>Point</h3>
-					<h3 class="regular-headline"><%= link_to p.headline, p %></h3>
-					<div class="date-author">
-						<% p_issue = Issue.find(p.issue_id) %>
-						<p><%= p_issue.get_human_readable_date %> - <%= p.author %>, <%= p.author_title %></p>
+					<div class="point-container">
+						<%= link_to image_tag(p.get_relative_author_image_path, alt:"Point Graphic", width: '100%'),
+							p %>
+						<div class="pcp-tags">
+							<% pcp_tags = p.get_ed_pcp_tags %>
+							<% pcp_tags.each do |tag| %>
+								<button class="button-small pure-button">
+									<i class="fa fa-tag"></i>
+									<%= tag.title %>
+								</button>
+							<% end %>
+						</div>
+						<h3>Point</h3>
+						<h3 class="regular-headline"><%= link_to p.headline, p %></h3>
+						<div class="date-author">
+							<% p_issue = Issue.find(p.issue_id) %>
+							<p><%= p_issue.get_human_readable_date %> - <%= p.author %>, <%= p.author_title %></p>
+						</div>
 					</div>
 
 					<!-- here is the stuff for the counterpoint -->
-					<%= link_to image_tag(cp.get_relative_author_image_path, alt:"Counterpoint Graphic", width: '100%'),
-						p %>
-					<div class="pcp-tags">
-						<% pcp_tags = cp.get_ed_pcp_tags %>
-						<% pcp_tags.each do |tag| %>
-							<button class="button-small pure-button">
-								<i class="fa fa-tag"></i>
-								<%= tag.title %>
-							</button>
-						<% end %>
+					<div class="counterpoint-container">
+						<%= link_to image_tag(cp.get_relative_author_image_path, alt:"Counterpoint Graphic", width: '100%'),
+							p %>
+						<div class="pcp-tags">
+							<% pcp_tags = cp.get_ed_pcp_tags %>
+							<% pcp_tags.each do |tag| %>
+								<button class="button-small pure-button">
+									<i class="fa fa-tag"></i>
+									<%= tag.title %>
+								</button>
+							<% end %>
+						</div>
+						<h3>Counterpoint</h3>
+						<h3 class="regular-headline"><%= link_to cp.headline, p %></h3>
+						<div class="date-author">
+							<% cp_issue = Issue.find(p.issue_id) %>
+							<p><%= cp_issue.get_human_readable_date %> - <%= cp.author %>, <%= cp.author_title %></p>
+						</div>
 					</div>
-					<h3>Counterpoint</h3>
-					<h3 class="regular-headline"><%= link_to cp.headline, p %></h3>
-					<div class="date-author">
-						<% cp_issue = Issue.find(p.issue_id) %>
-						<p><%= cp_issue.get_human_readable_date %> - <%= cp.author %>, <%= cp.author_title %></p>
-					</div>
-
 				</div>
 			<% end %>
 		</div>
