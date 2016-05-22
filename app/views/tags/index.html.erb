@@ -6,6 +6,7 @@
 					<%= article.render_tag_view %>
 				</div>
 			<% end %>
+			<p class="pure-u-1"><%= link_to "See All Articles Tagged " + @tag.title, @tag %></p>
 			<hr class="pure-u-1">
 			<% @ed_pcps.each do |ed_pcp| %>
 				<div class="tag-ed-pcp pure-u-1 pure-u-md-1-2">
