@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
 
 	def all
 		@articles = Article.order('article_id DESC').page(params[:page]).per(10)
-		@graphics = Graphic.order('article_id DESC').page(params[:page]).per(10)
+		#@graphics = Graphic.order('article_id DESC').page(params[:page]).per(10)
 	end
 
 end

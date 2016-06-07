@@ -1,7 +1,8 @@
 <div class="article-all-content pure-g">
 	<div class="articles-content pure-u-1 pure-u-lg-2-3">
 		<h1>All Articles</h1>
-		<% @articles.zip(@graphics).each do |article, graphic| %>
+    <% @articles.each do |article| %>
+      <% graphic = article.get_graphic_for_article %>
 			<hr>
 			<div class="article-box pure-g">
 				<div class="article-image pure-u-1 pure-u-md-1-3">

@@ -39,8 +39,8 @@ class Article < ActiveRecord::Base
 				lines << line
 			end
 			first_line = lines.first
+      words = [words, first_line.split(' ').length].min
 			first_line.split(' ')[0, words].join(' ') + "...";
-
 		end
 	end
 
@@ -183,4 +183,14 @@ class Article < ActiveRecord::Base
 
 		return nil, nil
 	end
+
+  def get_graphic_for_article
+    if self.graphic_id.nil?
+      graphic = Graphic.first
+    else
+      graphic = Graphic.find(self.graphic_id)
+    end
+    graphic
+  end
+
 end
