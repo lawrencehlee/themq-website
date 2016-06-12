@@ -11,8 +11,11 @@ class Tag < ActiveRecord::Base
 	def get_all_articles_with_tag
 		article_tags = ArticleTag.where(tag_id: self.tag_id)
 		articles = Array.new()
-		article_tags.each do |article_tag|
-			articles << Article.find(article_tag.article_id)
+		article_tags.reverse.each do |article_tag|
+			art = Article.find(article_tag.article_id)
+      if art.brief == "0"
+        articles << art
+      end
 		end
 		articles
 	end

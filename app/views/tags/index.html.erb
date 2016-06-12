@@ -1,26 +1,30 @@
 <div class="tag-index pure-g">
 	<div class="tag-index-content pure-u-2-3">
-		<div class="pure-g">
-			<% @articles.each do |article| %>
+    <div class="pure-g">
+      <div class="tag-title pure-u-1">
+        <h3 class="regular-headline"><%= @tag.title %></h3>
+      </div>
+			<% @articles.take(4).each do |article| %>
 				<div class="tag-article pure-u-1 pure-u-md-1-2">
 					<%= article.render_tag_view %>
 				</div>
 			<% end %>
-			<p class="pure-u-1"><%= link_to "See All Articles Tagged " + @tag.title, @tag %></p>
+      <p class="pure-u-1"><%= link_to "See All Articles Tagged " + @tag.title,
+        tag_path(@tag, tag_id: @tag.tag_id, content_type: "article") %></p>
 			<hr class="pure-u-1">
-			<% @ed_pcps.each do |ed_pcp| %>
+			<% @ed_pcps.take(2).each do |ed_pcp| %>
 				<div class="tag-ed-pcp pure-u-1 pure-u-md-1-2">
 					<%= ed_pcp.render_tag_view %>
 				</div>
 			<% end %>
 			<hr class="pure-u-1">
-			<% @top_tens.each do |top_ten| %>
+			<% @top_tens.take(2).each do |top_ten| %>
 				<div class="tag-top-ten pure-u-1 pure-u-md-1-2">
 					<%= top_ten.render_tag_view %>
 				</div>
 			<% end %>
 			<hr class="pure-u-1">
-			<% @features.each do |feature| %>
+			<% @features.take(2).each do |feature| %>
 				<div class="tag-feature pure-u-1 pure-u-md-1-2">
 					<%= feature.render_tag_view %>
 				</div>
