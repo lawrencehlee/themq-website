@@ -23,5 +23,9 @@ class TopTen < ActiveRecord::Base
 		render partial: 'top_tens/tag_view', locals: {:top_ten => self}
 	end
 
+  def render_tag_show_view
+    render partial: 'top_tens/tag_show_view', locals: {:top_ten => self}
+  end
+
 
 end

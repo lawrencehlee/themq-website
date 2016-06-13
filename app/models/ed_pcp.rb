@@ -97,4 +97,12 @@ class EdPcp < ActiveRecord::Base
 		end
 		render partial: 'ed_pcps/tag_view', locals: {:ed_pcp => ed_pcp}
 	end
+
+	def render_tag_show_view
+		ed_pcp = self
+		if self.counterpoint == 1
+			ed_pcp = EdPcp.find(self.crspnd_point)
+		end
+		render partial: 'ed_pcps/tag_show_view', locals: {:ed_pcp => ed_pcp}
+	end
 end

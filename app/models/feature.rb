@@ -73,5 +73,9 @@ class Feature < ActiveRecord::Base
 		render partial: 'features/tag_view', locals: {:feature => self}
 	end
 
+  def render_tag_show_view
+    render partial: 'features/tag_show_view', locals: {:feature => self}
+  end
+
 
 end

@@ -16,19 +16,25 @@
 				<div class="tag-ed-pcp pure-u-1 pure-u-md-1-2">
 					<%= ed_pcp.render_tag_view %>
 				</div>
-			<% end %>
+      <% end %>
+      <p class="pure-u-1"><%= link_to "See All Editorials Tagged " + @tag.title,
+        tag_path(@tag, tag_id: @tag.tag_id, content_type: "ed_pcp") %></p>
 			<hr class="pure-u-1">
 			<% @top_tens.take(2).each do |top_ten| %>
 				<div class="tag-top-ten pure-u-1 pure-u-md-1-2">
 					<%= top_ten.render_tag_view %>
 				</div>
-			<% end %>
+      <% end %>
+      <p class="pure-u-1"><%= link_to "See All Top Tens Tagged " + @tag.title,
+        tag_path(@tag, tag_id: @tag.tag_id, content_type: "top_ten") %></p>
 			<hr class="pure-u-1">
 			<% @features.take(2).each do |feature| %>
 				<div class="tag-feature pure-u-1 pure-u-md-1-2">
 					<%= feature.render_tag_view %>
 				</div>
-			<% end %>
+      <% end %>
+      <p class="pure-u-1"><%= link_to "See All Features Tagged " + @tag.title,
+        tag_path(@tag, tag_id: @tag.tag_id, content_type: "feature") %></p>
 		</div>
 	</div>
 	<div class="sidebar-content pure-u-1-3">
