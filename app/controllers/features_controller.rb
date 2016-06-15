@@ -18,12 +18,13 @@ class FeaturesController < ApplicationController
     #That means having an array of length num_of_issues,
     #with each element in that array being an array of the features in the issue
     @allFeatures = Array.new()
-    Issue.all.each do |issue|
+    Issue.order("volume_no, issue_no").each do |issue|
       feature_set = Feature.where(issue_id: issue.issue_id)
       if feature_set != nil
         @allFeatures << Feature.where(issue_id: issue.issue_id)
       end
     end
+    @feature_sets = @allFeatures[1..-1].reverse
 	end
 
 	def show
@@ -35,7 +36,4 @@ class FeaturesController < ApplicationController
 		@tags = @feature.get_feature_tags
 
 	end
-
-  def test
-  end
 end

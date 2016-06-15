@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 	resources :features do
 		collection do
 			get 'all'
-      get 'test'
 		end
 	end
 
