@@ -2,7 +2,7 @@
 @import "base/mixins";
 
 
-/* Here goes the css for article show */
+/* Here goes the css for feature show */
 .social-share {
 	display: none;
 	ul {
@@ -36,11 +36,13 @@
 .feature-index-content {
 	margin-top: 2em;
 	margin-bottom: 2em;
+  text-align: center;
 	.feature-content {
 		margin: auto;
 	}
 	.see-more {
 		text-align: center;
+    margin-bottom: 2em;
 	}
 }
 
