@@ -1,0 +1,21 @@
+Freshman chemical engineering major Heather Turley sees herself as a renewed, independent adult of the post-Nixon era after catching the 201 bus from campus to La Jolla Village Square for the first time last Tuesday.
+
+A girl who once depended on her mother to order pizza over the phone now envisions a future where she lives with the utmost “self-sufficiency, liberated from [her] parents’ dominion, perhaps even off the grid.”
+
+“I didn’t think I could do it at first,” tells Turley of her pilgrimage to Trader Joe’s. “I was transported, in every sense of the word.”
+
+When Turley’s stock of Costco-sized snack foods began to dwindle at the end of week one, she knew she would have to find another source of sustenance. After briefly considering hiring an Uber, she felt compelled to use the bus sticker on her student card upon discovery of the student transportation fee included in her tuition. Turley estimates it would take 420 rides worth in bus fare to meet the sum suggested by UC Regents. Turley, who had never dreamed of taking the bus, reportedly spent hours researching bus timetables preparing for this moment.
+
+Marina Chau, Turley’s roommate who admits she has yet to delve into public transportation herself, recalls Turley’s apprehension about how to actually board the bus and notes how Turley rationed her remaining Fiber One bars and bottled waters to last her through the week in case of unexpected public transportation delays.
+
+“Heather had an oil lantern on all night and kept shuffling around the room with all these weird science instruments she ordered online. There were charts and maps duct taped on every wall and she begged me to help her calibrate her barometer at one point. I don’t even know what that is.”
+
+Turley attributes her success to Google Maps GPS tracking, the mobile application she used to trace the bus live location. If it were not for the “red dot” telling her she had arrived at her stop, she claimed, “I would have not dared to step off the bus.”
+
+After grocery shopping for 20 minutes, Turley noticed that she had already completed her shopping despite having cleared her whole week for this. Fearing another panic episode, she furiously created a pros and cons Venn diagram on the back of her receipt. Turley, who is a hobbyist actuary, took the chance and got back on the 201 bus.
+
+“According to my calculations, there is a higher risk of dying in the Ralph’s parking lot via vehicular manslaughter than there is if I get back on the 201 and say, accidentally ended up in Tijuana,” she concluded.
+
+Turley mentions she had never felt more inspired than when she got off at Gilman and Myers that day and hauled her collapsible wheelbarrow of shopping bags to her dorm room in ERC.
+
+San Diego MTS spokesman claimed that “MTS is honored and hopeful that they can instill newfound confidences in more women, just like Turley.” Armed with a glowing zeal for public transportation and the compass app on her smartphone, Turley says her next destination is the UTC mall.

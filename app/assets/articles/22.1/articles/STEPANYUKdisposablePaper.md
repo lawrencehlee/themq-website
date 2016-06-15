@@ -1,0 +1,15 @@
+Tim Cook, Apple’s CEO, recently unveiled a new product, shortly following his new “genius” creation, the Apple Pencil. Cook announced, “Now, not only can you utilize all the qualities of a pencil without ever touching an archaic, lead-filled wooden contraption. But for those who want a compromise between spending $749 on an iPad to use with their new pencil, and disposable but simplistic paper, I pioneered my company into the age of disposable iPaper.”
+
+The new iPaper is a revolutionary .1 mm retina display that is capable of reinventing most of the basic functions of an iPad. It lacks a charging dock, an auxiliary output, and volume controls, but is almost as light as a piece of paper, making it apple’s most extraordinary device yet.
+
+Shortly after the keynote, Apple’s CEO unveiled and explained what he thinks makes iPaper truly extraordinary. “It not that the paper has the Apple logo on it, or a space grey margin finish, which also comes in silver, gold, rose gold and neon yellow. It’s the fact that you can have a brand new, one-use piece of paper in front of you at your convenience.
+
+“Now rather than spending months and sometimes years making a device truly yours, just to have it break to be replaced by a meaningless new gadget, you can willingly throw away your electronics before ever really being attached to them,” Cook continued.
+
+The paper comes in two different styles: college ruled and graphing style. It is also offered in two different sizes, the regular 8.5” by 11” measurements, and for those who are a little more extravagant, a larger iPaper+ size that measures 8.75” by 11.25”.
+
+The iPaper was originally developed with ground breaking 3D touch technology, allowing the writer to control the thickness of the marks they make. However in order to maintain the natural paper-like feel, the 3D technology was not incorporated in the final product. Made from the extremely rare Amazon pulpwood log fibers, iPaper is reportedly much more durable than normal paper, and is even able to conserve the folds necessary for paper airplane creation.
+
+Cook mentioned during his talk that people might be worried about the price of this technology. However, in order to stress how much Apple truly cares about its customers, he explained that they will be incorporating Apple Care + with the iPaper. This guarantees that for 12 installment payments of $34.99 (or $39.99 for iPaper+) anyone can own 12 sheets of iPaper. Cook emphasized the value of this deal by furthering that “since the sheets are two sided, it’s almost like having 24 sheets a year, which if you think about it is even more than 23 sheets of one-sided paper.”
+
+Shortly after Cook announced the price to be less than $35 (or $40 for the iPaper+), one of his hand model representatives transitioned into a demo during which they reportedly underestimated the sensitivity of the touch screen, and made a mark much larger than expected. Although seeming like an easy fix, the pencil and paper do not have erasing capabilities. This incident has already spurred a new product idea planned to be released by September next year, when Tim and his crew will unveil the iRaser.

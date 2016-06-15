@@ -1,0 +1,7 @@
+This past Wednesday, to coincide with the approach of finals, Campus Crusade for Christ and InterVarsity both offered hugs for charity on Library Walk, resulting in a competitive price war. Originally a friendly competition to raise money for the Samaritan’s Purse and Compassion International charities respectively, Cru and IV began to incrementally knock down prices from the original $1 hugs down to flat-out free hugs. Each price slash was accompanied by loving heckling toward the other fellowship.
+
+“We’re definitely going to raise more money than those incredible people over at Cru, even if we have to cut prices,” said Hope Lim, an Economics major and hugger for IV. “It’s simple supply and demand — we earn more money than them if we have a small price cut and a lot more people wanting hugs.”
+
+On the Cru side, small group leader Mark Freid commented that he had a new strategy. “In addition to slashing the price, we’re going improve the quality of the hugs. I’m developing a mandatory training seminar for volunteer huggers to go through. We’re looking to create a real bear hug that’s long, has at least one sigh of happiness from the hugger, and really compresses the receiver.” He further remarked that hugs from IV were “truly wonderful” but would “still pale in comparison to ours.”
+
+By the end of the day, IV was heard shouting “Hugs for a dollar—we pay you!” while a student was seen crushed by one of the Cru huggers, awkwardly trying to escape.

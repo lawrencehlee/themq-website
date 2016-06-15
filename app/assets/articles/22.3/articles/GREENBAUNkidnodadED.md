@@ -1,0 +1,11 @@
+Okay, I am SO excited right now! Even more excited than last week when Ms. Johnson said my self-portrait looked like a sick monkey, which is awesome ‘cause I love monkeys and sick means really cool is what Johnny the fifth grader taught me. But the reason I’m so excited is Daddy’s coming home!
+
+Last time I saw him he and Mommy were discussing loudly and then he left. Mommy said he went for ice cream but he didn’t come back. Mommy must be really excited he’s visiting today too. She’s so happy she’s crying! She’s starting a bonfire with Daddy’s clothes which I bet means we are gonna make s’mores together. I really hope Daddy will stay for dinner ‘cause he knows I like dinosaur nuggets. Mommy just always makes me eat TV dinners while she and her new friend Steve go play in her room.
+
+Mommy wouldn’t let me see Daddy a month ago which is really mean! But it’s sort of okay Daddy was gone because I got to talk to Daddy on the phone a bunch when Mommy wasn’t around and he said it’s our secret. He told me wanted to take me to see his new friends. They all chanted a song about karate at me over the phone in unison, which sounded really cool especially because they said it very slow and deep. I bet they practiced just like I do in choir. Mommy said Daddy was “crazy” and has a “out-of control obsession with Ralph Macchio,” but Daddy said his friends were a group of people who wanted to teach me karate so they sound really nice.
+
+Daddy told me that I’m very special because I am the “reincarnation of the Chosen One Ralph Macchio” and he’s gonna be my “Mr. Miyagi” to train me to fight the “imposter Jaden Smith” which sounds fun. Daddy also told me if I visit him I can see his new home which he calls “the glorious Temple of Karate” but Mommy told me he really lives in a van behind a Chinese restaurant so that doesn’t sound as fun.
+
+Ohmigosh, Daddy’s here! He shaved his head and is wearing white robes, which is weird. Hi Daddy! Wait, Daddy, I want to stay with Mommy! I don’t want to leave and catch flies in chopsticks with you for the rest of my days! Stop telling me to wax on and wax off!
+
+Holy cow, Mommy is beating the poop out of Daddy! This is too loud and screamy, I’m going back inside to wait for s'mores.

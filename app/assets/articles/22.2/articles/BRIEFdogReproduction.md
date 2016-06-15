@@ -1,0 +1,7 @@
+A recent study by the University of California, San Diego Biology department has revealed, after so many years, just how canines reproduce. This discovery was facilitated by current weather conditions, which made observing the previously unknown process possible. 
+
+“This is a very hard time in every dog owner’s life,” said Primary Investigator Donna Geldale. “But take comfort in the fact that this is natural. Like pinecones opening after a forest fire, dogs are evolutionarily programmed to spread themselves geographically during wet seasons.
+
+“During periods of high rain and wind, a special flap unfurls which allows dogs to catch the wind sending them tumbling away. This is a way to perpetuate their genetic material over distance. When they land in a dirt area, softened by the rain — they catch, at which point their roots anchor them in place, and they begin to germinate.
+
+“The gametes, stored within them and fertilized during their quadrupedal life phase, bud. Eventually, the larva grow complex enough to survive on their own, bursting out of their ‘parent’s’ ‘skin,’ wriggling, onto the ground. Their large eyes and soft fur are meant to — and successful at — attracting human hosts, who provide them with safety and nourishment until they are ready to sprout on their own.”

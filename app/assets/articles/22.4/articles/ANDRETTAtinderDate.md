@@ -1,0 +1,15 @@
+Guinness World Records recently awarded their prestigious award for “quickest time for deciding not to have sexual intercourse with another human (male)” to Patricia Cornbread, officially recorded at a mere 7.2 seconds.
+
+Cornbread breezed past the previous record, which was held by Taylor “Too Cool For You” Springstein, who decided a certain Brad was “just not her type,” at an impressive time of 9.4 seconds. According to Cornbread, the feat was accomplished two weeks previous while she was scrolling through Tinder accompanied by a pair of female friends at a sleepover. “I didn’t expect to break any records,” she laughed. “I just wanted to find someone to make me whole, someone to keep me warm at night, someone to know the deepest ins and outs of what makes me who I am … or, you know, someone cute!” When pushed to define what exactly she would find “cute,” Cornbread rolled her eyes and made a crude hand gesture.
+
+The rejected male in question, Steven Waterfield, is not a typical Friday night catch according to a recent poll amongst female fishermen.
+
+However, he claims he still has a lot to offer. “I’m honestly not sure why Patricia wouldn’t have sex with me. On my Tinder profile I have lots of emojis to show my interests, I’m honest about my previous relationships in detail, and I even have a picture of my boner showing through my gym shorts! Chicks love that shit!”
+
+Cornbread reported that she, in fact, “did not love that shit,” and that she has other ideas for what she would like in a man for the evening. “If I wanted to get down and dirty with someone, I’d need them to at least have one picture of their six pack or maybe some Taylor Swift lyrics. I need something to get me hot and heavy in my crotch AND my heart, you know?”
+
+“I’m proud of my daughter for knowing what she wants,” Cornbread’s mother remarked after being asked if she approved of Cornbread’s latest achievement. “I raised her to have high standards in every aspect of her life, especially to know when to hit it and when to quit it.” 
+
+Men’s rights activist group ‘Men For Equal Sex Opportunity’ has decided to support Steven and protest Guinness’ decision to award Cornbread “based on such lowly standards.” The group claims to stand up for all men everywhere who have been subjected to objectification by women. “It’s just not fair for her to judge us based on outward appearances,” one activist claimed. “Some of us have real depth to our character. Besides, she can’t tell the size of our dicks from a picture alone!”
+
+One recent study has shown that Waterfield still has yet to receive any female attention in or out of the bedroom. While Men For Equal Sex Opportunity pledged to rally in solidarity with Waterfield, there is little indication that any of the group’s members will make good on the promise, as many of them were reportedly last seen admiring their penises in a bathroom mirror.

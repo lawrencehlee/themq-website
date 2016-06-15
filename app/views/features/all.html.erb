@@ -1,0 +1,7 @@
+<% @allFeatures.each do |feature_set| %>
+  <div class="feature-image">
+    <%= feature_set %>
+    <%= render :partial => "photoswipe_slides_insert", :locals => {:feature_set => feature_set} %>
+  </div>
+  <hr>
+<% end %>

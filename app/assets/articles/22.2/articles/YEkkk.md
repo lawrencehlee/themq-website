@@ -1,0 +1,17 @@
+The KKK released their plan to incorporate new progressive policies last week, in an attempt to recruit new liberal members, and gain support in their effort to raise awareness of the marginalized white, racist demographic.
+
+One such liberal policy stems from the recent suicides and scandals involving underpaid laborers in China. In response to this, the KKK of America has decided to cancel plans to expand its operations in “the Orient.” The KKK announced that it will keep jobs in American families, marking a decidedly radical change in company policy that has existed since the early 1960’s.
+
+“There will be no overpaid foreign workers stealing the industries of hard-working Americans,” one spokesperson for the KKK stated. “We decided to save money by keeping the operation inhouse. We are asking every suburban trophy wife to step up and apply for jobs traditionally reserved for lucky foreign children. Yes, Klan dues are bound to increase steadily over the following weeks to accommodate for the higher wages, but this is a necessary adjustment for our modern ways of thinking. There are plenty of good, honest, white American women who can sew a brilliant hoodie.”
+
+The KKK has also decided to undergo a new branding process beginning with the hire of new management. New CFO Ben White, who had been inside the multicultural center at his college once, has a halfblack “friend” in Kansas, and who is also 1/32 Scandinavian, is expected to bring his multicultural expertise.
+
+“I think it’s important to demonstrate that the KKK is not an organization that is unwilling to adapt to progress. We want to offer our support for the underprivileged, socially stigmatized, and the brainwashed. Our campaign aims to guide affluent hipsters, suburban housewives, and fans of the band Coldplay back towards the correct path,” White said.
+
+This is part of a larger effort by the KKK to advocate equality among all people. The new slogan “Racist Lives Matter” will be introduced later this month to, according to White, “address the hatred ordinary people have for the blatantly racist minority.”
+
+Additionally, the KKK has introduced a new line of products on their online store. Their new hood design can be purchased in a plethora of new colors with the words “We Are All White Inside” emblazoned across the back. In consideration of the “Free the Nipple Movement,” the KKK will also offer an additional invisible-T option, though public display of such attire is still strongly discouraged.
+
+Meanwhile, fans of the Cleveland Indians and Washington Redskins, which the Klan describes as “popular native organizations in their own right,” will be able to order customized Klan jerseys in their team colors. The KKK hopes that these changes will help millions of people better understand marginalized minorities within the United States.
+
+In other news, multicultural groups across the country are rejecting the Klan’s request for their members to be included in new “affirmative action” policies.

@@ -1,0 +1,17 @@
+Following an incident on Jan. 18 in which he fired an assault rifle at an Oklahoma Court House for “five uninterrupted minutes,” white militia member Stephen Kelly is currently wanted for questioning to determine if his “legitimate political protest” may have represented reckless endangerment. The Oklahoma City District Attorney has elected not to pursue charges for domestic terrorism. The protest killed five and injured 46 more.
+
+Kelly, who posted a video of himself on social media holding an automatic rifle and professing a set of extremist religious beliefs that include the use of violence against civilians, is firmly not a terrorist. He is also wanted for questioning in many states for non-terrorism related bombings of markets and schools.
+
+In addition to performing political demonstrations, Kelly heads a paramilitary “non-terroristy” organization, Death to America’s Lack of Freedom. Death to America’s Lack of Freedom was briefly being investigated by the federal government for extremist behavior until everyone “freaked out or whatever,” according to President Barack Obama. Now, they have been classified by the government as a “Freedom Organization,” and given tax benefits to make up for the prior suspicion.
+
+Kelly’s organization is part of a broader movement in the United States referred to as the Militia Movement. The Militia Movement, unlike terrorist movements, is a growing group of primarily white males concerned with government overreach and encouraging the death of minorities. The growth of the militia movement has, in large part, been made up of the same group of disillusioned, extremism and violence- oriented white males that could have been drawn into the Ku Klux Klan in previous generations.
+
+However, commentators argue there are many differences between these militia groups and terrorist groups. “For example,” said CNBC Contributor Chuck Allen. “ …. ”
+
+The Oklahoma District Attorney held a press conference last week with the intention of clarifying why Kelly was not being charged with domestic terrorism. However, this wound up being unnecessary, given that no press journalists asked any questions regarding terrorism, or mentioned the word terrorism in any articles related to Kelly. Instead, the press conference focused on the potential charge of reckless endangerment, and whether a fine should be levied against Kelly for forcing city service workers to sweep up “thousands of spent shell casings” following his “political demonstration.”
+
+“If this is a legitimate form of protest — and I’ve been given no reason to believe it’s not — I see no reason to take legal action against this man, either criminally or civilly,” said District Attorney Arthur Jones. “White speech is sp- I mean speech is speech. And we should accept a little inconvenience for sustained, longer lasting freedom for whi- all. All.” 
+
+Jones, who is many things, none of which are a terrorist, has listed his inspirations as “The Unabomber,” Timothy McVeigh, and The Monkies.
+
+Republican Presidential Candidate Marco Rubio said of the growing white militia movement, “Except for walking like a terrorist, quacking like a terrorist, and disregarding the values of innocent lives in the face of a set of political and religious ideology borne out of centuries of colonialism like a terrorist, I see no solid reason to call these people terrorists.”
