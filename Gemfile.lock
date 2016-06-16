@@ -63,15 +63,7 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
-<<<<<<< HEAD
     byebug (9.0.5)
-=======
-<<<<<<< HEAD
-    byebug (9.0.3)
-=======
-    byebug (9.0.0)
->>>>>>> b4e68cd5e943f83986e7c0f3a48f198784a701c2
->>>>>>> features
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -81,27 +73,15 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
-<<<<<<< HEAD
     devise (4.1.1)
-=======
-    devise (4.1.0)
->>>>>>> b4e68cd5e943f83986e7c0f3a48f198784a701c2
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
     erubis (2.7.0)
-<<<<<<< HEAD
     execjs (2.7.0)
-=======
-    execjs (2.6.0)
-<<<<<<< HEAD
->>>>>>> features
     font-awesome-rails (4.6.3.0)
-=======
-    font-awesome-rails (4.6.2.0)
->>>>>>> b4e68cd5e943f83986e7c0f3a48f198784a701c2
       railties (>= 3.2, < 5.1)
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
@@ -142,20 +122,10 @@ GEM
       mime-types (>= 1.16, < 4)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
-<<<<<<< HEAD
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-=======
-    mime-types-data (3.2016.0221)
-    mini_portile2 (2.0.0)
-<<<<<<< HEAD
->>>>>>> features
     minitest (5.9.0)
     multi_json (1.12.1)
-=======
-    minitest (5.8.4)
-    multi_json (1.12.0)
->>>>>>> b4e68cd5e943f83986e7c0f3a48f198784a701c2
     mysql2 (0.3.20)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -230,15 +200,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.1)
     thread_safe (0.3.5)
-<<<<<<< HEAD
     tilt (2.0.5)
-=======
-<<<<<<< HEAD
-    tilt (2.0.4)
-=======
-    tilt (2.0.3)
->>>>>>> b4e68cd5e943f83986e7c0f3a48f198784a701c2
->>>>>>> features
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
