@@ -1,7 +1,7 @@
 class FeaturesController < ApplicationController
 
 	def index
-		@topFeature = Feature.find(Feature.get_top_feature)
+		@top_feature = Feature.find(Feature.get_top_feature)
 		@columnFeatures = Array.new()
 		Feature.get_column_features.each do |feat_id|
 			@columnFeatures << Feature.find(feat_id)
@@ -11,6 +11,8 @@ class FeaturesController < ApplicationController
 		Feature.get_more_features.each do |feat_id|
 			@moreFeatures << Feature.find(feat_id)
 		end
+
+    @all_features = [@top_feature] + @columnFeatures + @moreFeatures
 	end
 
 	def all
