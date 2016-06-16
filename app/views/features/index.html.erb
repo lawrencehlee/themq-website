@@ -1,25 +1,28 @@
 <div class="feature-index-content pure-g">
-	<div class="feature-content pure-u-1 pure-u-lg-2-3">
+  <div class="feature-content pure-u-1 pure-u-lg-2-3">
+    <h1 class="regular-headline">Featured Features</h1>
 		<div class="pure-g">
-			<div class="top-feature pure-u-1">
-				<%= link_to image_tag(@topFeature.get_relative_feature_path, alt: "Feature Image", width: '100%'),
-		        @topFeature	%>
+      <div class="top-feature photoswipe-gallery pure-u-1">
+        <% @feature_path = "/assets/" + @top_feature.get_relative_feature_path %>
+        <!-- = render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_path, :width => @top_feature.width, :height => @top_feature.height} -->
+        <%= image_tag(@top_feature.get_relative_feature_path, alt: "Feature Image", width: '100%') %>
+				<!-- link_to image_tag(@topFeature.get_relative_feature_path, alt: "Feature Image", width: '100%'),
+		        @topFeature	-->
 			</div>
 			<div class="column-features pure-u-1">
 				<div class="pure-g">
 					<% @columnFeatures.each do |columnFeature| %>
-						<div class="column-feature pure-u-1 pure-u-md-1-2">
-							<%= link_to image_tag(columnFeature.get_relative_feature_path, alt: "Feature Image", width: '100%'),
-							    columnFeature %>
+						<div class="column-feature photoswipe-gallery pure-u-1 pure-u-md-1-2">
+              <%= image_tag(columnFeature.get_relative_feature_path, alt: "Feature Image", width: '100%') %>
 						</div>
 					<% end %>
 				</div>
 			</div>
 			<div class="more-features pure-u-1">
 				<% @moreFeatures.each do |feature| %>
-					<div class="more-feature">
-						<%= link_to image_tag(feature.get_relative_feature_path, alt: "Feature Image", width: '100%'),
-					      feature %>
+          <div class="more-feature photoswipe-gallery">
+            <% @feature_path = "/assets/" + feature.get_relative_feature_path %>
+						<%= image_tag(feature.get_relative_feature_path, alt: "Feature Image", width: '100%') %>
 					</div>
 				<% end %>
 			</div>
@@ -35,3 +38,100 @@
 	</div>
 
 </div>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+	<!-- Background of PhotoSwipe.
+       It's a separate element, as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg"></div>
+
+	<!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+
+		<!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+	  <div class="pswp__container">
+    	<!-- don't modify these 3 pswp__item elements, data is added later on -->
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+
+		<!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+		<div class="pswp__ui pswp__ui--hidden">
+			<div class="pswp__top-bar">
+
+				<!--  Controls are self-explanatory. Order can be changed. -->
+
+				<div class="pswp__counter"></div>
+
+				<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+				<button class="pswp__button pswp__button--share" title="Share"></button>
+
+				<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+				<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+				<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+				<!-- element will get class pswp__preloader-active when preloader is running -->
+        <div class="pswp__preloader">
+					<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				<div class="pswp__share-tooltip"></div>
+			</div>
+
+			<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+			</button>
+
+			<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+			</button>
+
+			<div class="pswp__caption">
+				<div class="pswp__caption__center"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<script>
+	var openPhotoSwipe = function() {
+		var pswpElement = document.querySelectorAll('.pswp')[0];
+
+    var slides = [];
+    <% @all_features.each do |feature| %>
+      <% feature_path = "/assets/" + feature.get_relative_feature_path %>
+      item = {
+        src: "<%= feature_path %>",
+        w: <%= feature.width %>,
+        h: <%= feature.height %>
+      };
+      slides.push(item);
+    <% end %>
+
+		//define options here if needed
+		var options = {
+			showAnimationDuration: 0,
+			hideAnimationDuration: 0
+		};
+
+		var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, slides, options);
+		gallery.init();
+	};
+
+  var clickables = document.getElementsByClassName("photoswipe-gallery");
+  for (var i=0; i<clickables.length; i++) {
+    clickables[i].onclick = openPhotoSwipe;
+  }
+</script>
