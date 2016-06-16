@@ -1,17 +1,13 @@
 require 'render_anywhere'
 
 class TopTen < ActiveRecord::Base
-<<<<<<< HEAD
 	include RenderAnywhere
-=======
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
 	def should_generate_new_friendly_id?
 		slug.blank? || self.name_changed?
 	end
-
->>>>>>> features
 
 	# Static method that gets all top tens from the specified issue
 	def self.get_all_from_issue(issue)
@@ -36,12 +32,10 @@ class TopTen < ActiveRecord::Base
 		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc")
 	end
 
-<<<<<<< HEAD
 	def render_tag_view
 		render partial: 'top_tens/tag_view', locals: {:top_ten => self}
 	end
 
-=======
 	# Gets top ten entries 10 through 7.
 	def get_top_ten_entries_teaser
 		number_of_entries = 4
@@ -56,6 +50,5 @@ class TopTen < ActiveRecord::Base
 		end
 		tags
 	end
->>>>>>> features
 
 end
