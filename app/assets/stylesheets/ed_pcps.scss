@@ -131,6 +131,7 @@
 		margin-bottom: 2em;
 		margin-top: 2em;
 		.point-container, .counterpoint-container {
+      height: 550px; //this is hardcoded right now
 			padding-left: 1em;
 			border-right: 2px solid $bar-border-color;
 		}
@@ -143,7 +144,7 @@
 		}
 		img {
 			width: 95%;
-			height: 162px;
+			height: auto;
 			position: center;
 		}
 		h3 {
