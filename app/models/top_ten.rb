@@ -1,6 +1,7 @@
 require 'render_anywhere'
 
 class TopTen < ActiveRecord::Base
+
 	include RenderAnywhere
 	extend FriendlyId
 	friendly_id :name, use: :slugged
