@@ -1,3 +1,69 @@
-// Place all the styles related to the Tags controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "base/variables";
+@import "base/mixins";
+
+/* css for tags index page */
+.tag-index {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  h1 {
+    text-align: center;
+  }
+
+  .tag-article {
+    margin: auto;
+    .tag-article {
+      margin-right: 1em;
+      margin-bottom: 1em;
+      .date-author {
+        color: $light-grey;
+      }
+    }
+  }
+
+  .tag-ed-pcp {
+    margin: auto;
+    .tag-ed-pcp {
+      margin-right: 1em;
+      margin-bottom: 1em;
+      .author-image {
+        p {
+          margin-right: 0.5em;
+        }
+      }
+      .date-author {
+        color: $light-grey;
+      }
+    }
+  }
+
+  .tag-top-ten {
+    margin-top: 0;
+    margin-bottom: 0;
+    .tag-top-ten {
+      margin-right: 1em;
+      margin-bottom: 1em;
+    }
+  }
+
+  .tag-feature {
+    margin: auto;
+    .tag-feature {
+      margin-right: 1em;
+      margin-bottom: 1em;
+      height: 280px;
+      overflow: hidden;
+    }
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+  a {
+		&:hover {
+			background-color: $link-hover-background-color;
+		}
+  }
+  hr {
+    margin-bottom: 1em;
+  }
+}

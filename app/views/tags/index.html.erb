@@ -1,8 +1,8 @@
 <div class="tag-index pure-g">
-	<div class="tag-index-content pure-u-2-3">
+	<div class="tag-index-content pure-u-1 pure-u-lg-2-3">
     <div class="pure-g">
       <div class="tag-title pure-u-1">
-        <h3 class="regular-headline"><%= @tag.title %></h3>
+        <h1 class="regular-headline"><%= @tag.title %> Content</h1>
       </div>
 			<% @articles.take(4).each do |article| %>
 				<div class="tag-article pure-u-1 pure-u-md-1-2">
@@ -37,7 +37,7 @@
         tag_path(@tag, tag_id: @tag.tag_id, content_type: "feature") %></p>
 		</div>
 	</div>
-	<div class="sidebar-content pure-u-1-3">
+	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
 		whoop me amadeus
 	</div>
 </div>
