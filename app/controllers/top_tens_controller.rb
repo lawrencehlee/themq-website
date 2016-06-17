@@ -16,4 +16,15 @@ class TopTensController < ApplicationController
 		def all
 			@top_tens = TopTen.order('top_ten_id DESC').page(params[:page]).per(5)
 		end
+
+    def random
+      @top_ten = TopTen.offset(rand(TopTen.count)).first
+      i = 1
+      @entries = Array.new()
+      while i < (@top_ten.no_of_entries + 1) do
+        @entries << TopTenEntry.where(entry_no: i).sample
+        i = i + 1
+      end
+      @entries = @entries.reverse
+    end
 end
