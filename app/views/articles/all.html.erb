@@ -12,11 +12,13 @@
 					<h3><%= link_to article.headline, article %></h3>
 					<div class="article-tags">
 						<% tags = article.get_article_tags %>
-						<% tags.each do |tag| %>
-            	<button class="button-small pure-button">
-              	<i class="fa fa-tag"></i>
-                <%= tag.title %>
-              </button>
+            <% tags.each do |tag| %>
+              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+              	<button class="button-small pure-button">
+                	<i class="fa fa-tag"></i>
+                  <%= tag.title %>
+                </button>
+              <% end %>
 						<% end %>
 					</div>
 					<% @person = Person.find(article.person_id) %>

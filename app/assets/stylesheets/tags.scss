@@ -10,7 +10,8 @@
   }
 
   .tag-article {
-    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
     .tag-article {
       margin-right: 1em;
       margin-bottom: 1em;
@@ -65,5 +66,35 @@
   }
   hr {
     margin-bottom: 1em;
+  }
+}
+
+/* css for tags show */
+.tag-show {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  .tag-show-content {
+    h1 {
+      text-align: center;
+    }
+    hr {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    .tag-feature {
+      height: 300px;
+      overflow: hidden;
+    }
+    .tag-ed-pcp {
+      .date-author {
+        color: $light-grey;
+      }
+      h3 {
+        margin-left: 1em;
+      }
+      p {
+        margin-left: 1em;
+      }
+    }
   }
 }
