@@ -7,9 +7,11 @@
 					<!-- loop through first six editors here, each a pure-u-1-3 -->
 						<div class="pure-g">
 						<% @first_editors.zip(@first_positions).each do |editor, position| %>
-							<div class="editor-data pure-u-1-3">
-								<%= image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
-								<h3><%= editor.name %></h3>
+              <div class="editor-data pure-u-1-3">
+                <div class="editor-image">
+	  							<%= image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+                </div>
+								<h3><%= link_to editor.name, editor %></h3>
 								<small><%= position.title %></small>
 							</div>
 						<% end %>
@@ -33,9 +35,11 @@
 			<div class="rest-of-rows pure-g">
 				<!-- loop through rest of editors here -->
 				<% @last_editors.zip(@last_positions).each do |editor, position| %>
-					<div class="editor-data pure-u-1-5">
-						<%= image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
-						<h3><%= editor.name %></h3>
+          <div class="editor-data pure-u-1-5">
+            <div class="editor-image">
+  						<%= image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+            </div>
+						<h3><%= link_to editor.name, editor %></h3>
 						<small><%= position.title %></small>
 					</div>
 				<% end %>
