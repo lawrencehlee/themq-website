@@ -1,7 +1,16 @@
+require 'render_anywhere'
+
 class Article < ActiveRecord::Base
 	extend FriendlyId
+	include RenderAnywhere
+
 	friendly_id :title, use: :slugged
+
 	ARTICLE_SUBDIRECTORY = 'articles'
+
+	def is_brief?
+		brief == 1
+	end
 
 	def should_generate_new_friendly_id?
 		slug.blank? || self.title_changed?
@@ -19,7 +28,7 @@ class Article < ActiveRecord::Base
 		"#{person.name} - #{issue.get_full_issue_name} - #{issue.get_human_readable_date}"
 	end
 
-	def get_article_text_teaser
+	def get_article_text_teaser(words)
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
 		n = 1;
@@ -30,8 +39,8 @@ class Article < ActiveRecord::Base
 				lines << line
 			end
 			first_line = lines.first
-			first_line.split(' ')[0, 25].join(' ') + "...";
-
+      words = [words, first_line.split(' ').length].min
+			first_line.split(' ')[0, words].join(' ') + "...";
 		end
 	end
 
@@ -77,6 +86,95 @@ class Article < ActiveRecord::Base
 		tags
 	end
 
+	def self.get_all_briefs_from_issue(issue)
+		Article.where(issue_id: issue.issue_id, brief: 1)
+	end
+
+	def self.get_random_brief_from_issue(issue)
+		all_from_issue = Article.get_all_briefs_from_issue(issue)
+		all_from_issue.offset(rand(all_from_issue.count)).first
+	end
+
+	def render_sidebar_view
+		render partial: 'articles/sidebar_view', locals: {:article => self}
+	end
+
+	#want to do the same thing as render_sidebar_view, but for the tag page
+	def render_tag_view
+		graphic = Graphic.find(self.graphic_id)
+		render partial: 'articles/tag_view', locals: {:article => self, :graphic => graphic}
+	end
+
+	# This method is a bit complex so I guess it deserves a header
+	# get_related_content(limit, content_types, filter)
+	# Returns an array of content models that are "related" by tag to
+	# this article. It will find up to limit results that are of the
+	# classes specified in the content_types parameter.
+	# The filter parameter is used for any other miscellaneous
+	# criteria in querying for models.
+	def get_related_content(limit, content_types, filter)
+		related_content = Array.new
+		content_types_clone = content_types.clone
+
+		# Loop over all combinations of the tags, starting with matching
+		# the most tags
+		tags = get_article_tags
+		tags.length.downto(1) do |num_tags|
+			tag_combinations = tags.combination(num_tags)
+
+			# Do Article first to exclude self
+			if content_types_clone.include?(Article)
+				content_types_clone.delete(Article)
+				prevent_duplicate_filter = "article_id != #{self.article_id}"
+				new_filter = [filter, prevent_duplicate_filter].join(" AND ")
+				tag_combinations.to_a.each do |tag_combination|
+					related_content +=
+						Article.find_with_tags(tag_combination, new_filter)
+				end
+			end
+
+			# Loop through each of the content pieces and query
+			content_types_clone.each do |content_type|
+				tag_combinations.to_a.each do |tag_combination|
+					related_content +=
+						content_type.find_with_tags(tag_combination, filter)
+				end
+			end
+		end
+
+		# Get limit random items from the content
+		related_content.sample(limit)
+	end
+
+	# This static method also deserves some explaining and maybe a header
+	# self.find_with_tags(tags, filter)
+	# Returns an array of articles that are filtered by filter
+	# and that have all the tags specified in tags
+	def self.find_with_tags(tags, filter)
+		actual_results = Array.new
+		potential_results = Article.where(filter)
+
+		# Loop over potential results
+		potential_results.each do |result|
+			result_valid = true
+
+			# Check if they match all the provided tags
+			tags.each do |tag|
+				if ArticleTag.where(
+					{article_id: result.article_id, tag_id: tag.tag_id}).empty?
+					result_valid = false
+					break
+				end
+			end
+
+			# If so, add them to the return array
+			if result_valid
+				actual_results << result
+			end
+		end
+		actual_results
+	end
+
 	def get_co_author_or_nil
 		if self.co_author
 			co_author = Person.find(self.co_author)
@@ -85,5 +183,14 @@ class Article < ActiveRecord::Base
 
 		return nil, nil
 	end
+
+  def get_graphic_for_article
+    if self.graphic_id.nil?
+      graphic = Graphic.first
+    else
+      graphic = Graphic.find(self.graphic_id)
+    end
+    graphic
+  end
 
 end

@@ -38,11 +38,11 @@
 					<% person = Person.find(article.person_id) %>
 					<% issue = Issue.find(article.issue_id) %>
 					<div class="news-content pure-g">
-						<div class="news-content-image pure-u-1-3">
+						<div class="news-content-image pure-u-1 pure-u-lg-1-3">
 							<%= link_to image_tag(graphic.get_relative_image_path),
 								article %>
 						</div>
-						<div class="pure-u-2-3">
+						<div class="pure-u-1 pure-u-lg-2-3">
 							<div class="news-content-headline">
 								<h2 class="regular-headline">
 									<%= link_to article.headline, article %>
@@ -80,16 +80,13 @@
 						<%= link_to "More	features ›", "#" %>
 					</div>
 				</div>
-				<div class="more-stories-content">
-					<h2 class="regular-headline">Brief: Sample Brief</h2>
-					<div id="more-stories-briefs-more" class="see-more">
-						<%= link_to "More	briefs ›", "#" %>
-					</div>
-				</div>
 			</div>
 
 		</div>
 	</div>
 
-	<%= render 'main/sidebar', :top_ten => @random_top_ten %>
+	<div class="sidebar pure-u-1 pure-u-lg-1-3">
+		<%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
+			:self_ad => @random_self_ad, :brief => @brief %>
+	</div>
 </div>

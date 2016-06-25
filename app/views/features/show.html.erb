@@ -1,0 +1,26 @@
+<div class="feature-show-content pure-g">
+	<div class="social-share pure-u-1-24">
+		<%= render :partial => "social_share", :locals => {:feature => @feature, :status => @feature.title} %>
+	</div>
+	<div class="feature-content pure-u-23-24 pure-u-lg-15-24">
+		<span class="feature-tags">
+    	<% @tags.each do |tag| %>
+      	<button class="pure-button">
+        	<i class="fa fa-tag"></i>
+          <%= tag.title %>
+        </button>
+			<% end %>
+		</span>
+
+		<span class="social-share-small">
+			<%= render :partial => "social_share_small", :locals => {:feature => @feature, :status => @feature.title} %>
+		</span>
+
+		<div class="feature-image">
+			<%= render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_path, :width => @width, :height => @height} %>
+		</div>
+	</div>
+	<div class="sidebar-content pure-u-23-24 pure-u-lg-1-3">
+		<p>whoop me into submission</p>
+	</div>
+</div

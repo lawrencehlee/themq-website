@@ -1,0 +1,17 @@
+@import "variables";
+@import "mixins";
+
+.sidebar {
+	img {
+		width: 100%;
+		border: 1px solid black;
+	}
+}
+
+@media screen and (min-width: $lg-min-width) {
+	.sidebar {
+		.sidebar-inner {
+			padding-left: 1em;
+		}
+	}
+}

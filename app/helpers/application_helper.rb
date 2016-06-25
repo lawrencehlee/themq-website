@@ -6,6 +6,4 @@ module ApplicationHelper
 				fenced_code_blocks: true)
 		md.render(text).html_safe
 	end
-
-
 end

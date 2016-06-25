@@ -1,6 +1,21 @@
-<p><%= @top_ten.title %></p>
-<ul>
-  <% @top_ten_entries.each do |entry| %>
-    <li><%= entry.entry_no.to_s + ". " + entry.text %></li>
-  <% end %>
-</ul>
+<div class="top-ten-show-content pure-g">
+	<div class="social-share pure-u-1-24">
+		<%= render :partial => "social_share", :locals => {:top_ten =>@top_ten, :status => @top_ten.title} %>
+	</div>
+
+	<div class="top-ten-content pure-u-23-24 pure-u-lg-15-24">
+
+		<div class="social-share-small">
+			<%= render :partial => "social_share_small", :locals => {:article => @top_ten, :status => @top_ten.title} %>
+		</div>
+		<%= render 'inline', :top_ten => @top_ten %>
+		<div class="see-more">
+			<%= link_to "More top tens ›",
+				:controller => :top_tens, :action => :index %>
+		</div>
+	</div>
+
+	<div class="sidebar-content pure-u-23-24 pure-u-lg-1-3">
+		<p>I'm sorry Dave, I cannot determine the size of this whoop</p>
+	</div>
+</div>

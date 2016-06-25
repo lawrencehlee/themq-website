@@ -16,5 +16,9 @@ class MainController < ApplicationController
 		@counterpoint = EdPcp.where(crspnd_point_id: @point.ed_pcp_id).first
 
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
+		@random_self_ad = SelfAd.get_random_from_issue(@current_issue)
+
+		@brief = Article.find(5)
+		# @brief = Article.get_random_brief_from_issue(@current_issue)
   end
 end
