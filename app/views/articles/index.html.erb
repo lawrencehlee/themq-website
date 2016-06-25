@@ -8,11 +8,13 @@
 			<div class="top-story-data">
 				<div class="top-story-tags">
 					<% top_story_tags = @top_story.get_article_tags %>
-					<% top_story_tags.each do |tag| %>
-           	<button class="button-small pure-button">
-             	<i class="fa fa-tag"></i>
-              <%= tag.title %>
-            </button>
+          <% top_story_tags.each do |tag| %>
+            <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+             	<button class="button-small pure-button">
+               	<i class="fa fa-tag"></i>
+                <%= tag.title %>
+              </button>
+            <% end %>
 					<% end %>
 				</div>
 				<h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
@@ -36,11 +38,13 @@
 					<%= link_to image_tag(graphic.get_relative_image_path, alt:"Sub Story Graphic", width: '100%'), article %>
 					<div class="sub-story-tags">
 						<% tags = article.get_article_tags %>
-						<% tags.each do |tag| %>
-	           	<button class="button-small pure-button">
-  	           	<i class="fa fa-tag"></i>
-    	          <%= tag.title %>
-      	      </button>
+            <% tags.each do |tag| %>
+              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+  	           	<button class="button-small pure-button">
+    	           	<i class="fa fa-tag"></i>
+      	          <%= tag.title %>
+        	      </button>
+              <% end %>
 						<% end %>
 					</div>
 					<h3 class="regular-headline"><%= link_to article.headline, article %></h3>

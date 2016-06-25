@@ -37,7 +37,11 @@ class TopTen < ActiveRecord::Base
 		render partial: 'top_tens/tag_view', locals: {:top_ten => self}
 	end
 
-  # Gets top ten entries 10 through 7.
+  def render_tag_show_view
+    render partial: 'top_tens/tag_show_view', locals: {:top_ten => self}
+  end
+
+	# Gets top ten entries 10 through 7.
 	def get_top_ten_entries_teaser
 		number_of_entries = 4
 		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc").first(number_of_entries)

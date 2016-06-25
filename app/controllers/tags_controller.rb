@@ -1,10 +1,12 @@
 class TagsController < ApplicationController
 
 	def index
-		@tag = Tag.find(params[:tag_id])
-		if @tag == nil
-			@tag = Tag.offest(rand(Tag.count)).first
-		end
+    @tag_id = params[:tag_id]
+    if @tag_id == nil
+      @tag_id = Tag.offset(rand(Tag.count)).first
+    end
+		@tag = Tag.find(@tag_id)
+
 
 		@articles = @tag.get_all_articles_with_tag
 		@ed_pcps = @tag.get_all_ed_pcps_with_tag
@@ -14,10 +16,23 @@ class TagsController < ApplicationController
 	end
 
 	def show
-		#this is going to recieve a param of a piece of content as well as the tag id.
-		#in the view, the piece of content is going to render a view for itself.
-		#so this controller and view should be very bare
-		@contentPiece = params[:content]
+    @tag = Tag.find(params[:tag_id])
+    @content_type = params[:content_type]
+
+    case @content_type
+    when "article"
+      @content_pieces = @tag.get_all_articles_with_tag
+      @type_name = "Articles"
+    when "ed_pcp"
+      @content_pieces = @tag.get_all_ed_pcps_with_tag
+      @type_name = "Editorials"
+    when "top_ten"
+      @content_pieces = @tag.get_all_top_tens_with_tag
+      @type_name = "Top Tens"
+    when "feature"
+      @content_pieces = @tag.get_all_features_with_tag
+      @type_name = "Features"
+    end
 	end
 
 end

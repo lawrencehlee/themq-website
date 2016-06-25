@@ -10,11 +10,13 @@
 				<div class="editorial-data pure-u-3-4">
 					<div class="editorial-tags">
 						<% ed_tags = ed.get_ed_pcp_tags %>
-						<% ed_tags.each do |tag| %>
-							<button class="button-small pure-button">
-								<i class="fa fa-tag"></i>
-								<%= tag.title %>
-							</button>
+            <% ed_tags.each do |tag| %>
+              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+  							<button class="button-small pure-button">
+	  							<i class="fa fa-tag"></i>
+		  						<%= tag.title %>
+                </button>
+              <% end %>
 						<% end %>
 					</div>
 					<h2 class="regular-headline"><%= link_to ed.headline, ed %></h2>
@@ -36,11 +38,13 @@
 							p %>
 						<div class="pcp-tags">
 							<% pcp_tags = p.get_ed_pcp_tags %>
-							<% pcp_tags.each do |tag| %>
-								<button class="button-small pure-button">
-									<i class="fa fa-tag"></i>
-									<%= tag.title %>
-								</button>
+              <% pcp_tags.each do |tag| %>
+                <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+  								<button class="button-small pure-button">
+	  								<i class="fa fa-tag"></i>
+		  							<%= tag.title %>
+                  </button>
+                <% end %>
 							<% end %>
 						</div>
 						<h3>Point</h3>
@@ -57,11 +61,13 @@
 							p %>
 						<div class="pcp-tags">
 							<% pcp_tags = cp.get_ed_pcp_tags %>
-							<% pcp_tags.each do |tag| %>
-								<button class="button-small pure-button">
-									<i class="fa fa-tag"></i>
-									<%= tag.title %>
-								</button>
+              <% pcp_tags.each do |tag| %>
+                <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+  								<button class="button-small pure-button">
+	  								<i class="fa fa-tag"></i>
+		  							<%= tag.title %>
+			  					</button>
+                <% end %>
 							<% end %>
 						</div>
 						<h3>Counterpoint</h3>

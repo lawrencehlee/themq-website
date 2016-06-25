@@ -6,11 +6,13 @@
 			<div class="top-ten-box">
 				<div class="top-ten-tags">
 					<% tags = top_ten.get_top_ten_tags %>
-					<% tags.each do |tag| %>
-						<button class="button-small pure-button">
-							<i class="fa fa-tag"></i>
-							<%= tag.title %>
-						</button>
+          <% tags.each do |tag| %>
+            <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+  						<button class="button-small pure-button">
+	  						<i class="fa fa-tag"></i>
+		  					<%= tag.title %>
+			  			</button>
+            <% end %>
 					<% end %>
 				</div>
 

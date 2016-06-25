@@ -33,12 +33,14 @@
 						<% end %>
 						<div class="ed-pcp-tags">
 							<% tags = ed_pcp.get_ed_pcp_tags %>
-							<% tags.each do |tag| %>
-								<button class="button-small pure-button">
-									<i class="fa fa-tag"></i>
-									<%= tag.title %>
-								</button>
-							<% end %>
+              <% tags.each do |tag| %>
+                <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+  								<button class="button-small pure-button">
+	  								<i class="fa fa-tag"></i>
+		  							<%= tag.title %>
+			  					</button>
+				    		<% end %>
+              <% end %>
 						</div>
 						<% @issue = Issue.find(ed_pcp.issue_id) %>
 						<div class="ed-pcp-teaser">
