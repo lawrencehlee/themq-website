@@ -39,6 +39,6 @@ bower.json
 # Passenger stuff
 passenger.*
 
-# articles and image stuff
+# article and image stuff
 /app/assets/images/
 /app/assets/articles/

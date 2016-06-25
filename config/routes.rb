@@ -23,5 +23,6 @@ Rails.application.routes.draw do
 
   resources :top_tens
 	resources :tags
+	resources :people
 
 end

@@ -1,6 +1,6 @@
 ActiveAdmin.register Person do
 
-	permit_params :person_id, :position_id, :name, :bio, :image, :current
+	permit_params :person_id, :position_id, :name, :bio, :image, :current, :quote
 
 	index do
 		selectable_column
@@ -8,6 +8,7 @@ ActiveAdmin.register Person do
 		column :position_id
 		column :name
 		column :bio
+    column :quote
 		column :image
 		column :current
 		actions
@@ -18,6 +19,7 @@ ActiveAdmin.register Person do
 			f.input :position_id
 			f.input :name
 			f.input :bio
+      f.input :quote
 			f.input :image
 			f.input :current, as: :string
 		end
