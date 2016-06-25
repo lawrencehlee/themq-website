@@ -10,7 +10,7 @@ class TopTen < ActiveRecord::Base
 		slug.blank? || self.name_changed?
 	end
 
-	# Static method that gets all top tens from the specified issue
+  # Static method that gets all top tens from the specified issue
 	def self.get_all_from_issue(issue)
 		TopTen.where(issue_id: issue.issue_id)
 	end
@@ -37,7 +37,7 @@ class TopTen < ActiveRecord::Base
 		render partial: 'top_tens/tag_view', locals: {:top_ten => self}
 	end
 
-	# Gets top ten entries 10 through 7.
+  # Gets top ten entries 10 through 7.
 	def get_top_ten_entries_teaser
 		number_of_entries = 4
 		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc").first(number_of_entries)
