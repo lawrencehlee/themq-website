@@ -175,9 +175,6 @@
 
 /* CSS for the all articles page */
 .articles-content {
-	margin-top: 1em;
-	margin-bottom: 1em;
-
 	h1 {
 		text-align: center;
 	}
@@ -209,6 +206,19 @@
 			color: $light-grey;
 		}
 	}
+}
+
+.pagination-bottom {
+  margin-bottom: 2em;
+}
+.pagination {
+  text-align: right;
+  margin-right: 0.5em;
+}
+
+.article-all-content {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 //pure button sizing

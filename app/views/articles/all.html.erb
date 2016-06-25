@@ -1,49 +1,82 @@
 <div class="article-all-content pure-g">
-	<div class="articles-content pure-u-1 pure-u-lg-2-3">
+
+  <div class="articles-content pure-u-1 pure-u-lg-2-3">
+
+    <div class="pagination pure-u-1">
+      <%= paginate @articles %>
+    </div>
 		<h1>All Articles</h1>
     <% @articles.each do |article| %>
-      <% graphic = article.get_graphic_for_article %>
-			<hr>
-			<div class="article-box pure-g">
-				<div class="article-image pure-u-1 pure-u-md-1-3">
-					<%= link_to image_tag(graphic.get_relative_image_path, alt: "Article Graphic", width: '100%'), article %>
-				</div>
-				<div class="article-data pure-u-1 pure-u-md-2-3">
-					<h3><%= link_to article.headline, article %></h3>
-					<div class="article-tags">
-						<% tags = article.get_article_tags %>
-						<% tags.each do |tag| %>
-            	<button class="button-small pure-button">
-              	<i class="fa fa-tag"></i>
-                <%= tag.title %>
-              </button>
-						<% end %>
-					</div>
-					<% @person = Person.find(article.person_id) %>
-					<% @co_author, @position = article.get_co_author_or_nil %>
-					<% @issue = Issue.find(article.issue_id) %>
-					<div class="article-teaser">
-						<% @article_text_teaser = article.get_article_text_teaser 25 %>
-						<p><%= @article_text_teaser %></p>
-					</div>
-					<div class="date-author">
-						<% if @co_author %>
-							<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %> / <%= @co_author.name %></p>
-						<% else %>
-							<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
-						<% end %>
-					</div>
-				</div>
-			</div>
+      <% if article.brief == "1" %>
+        <hr>
+        <div class="article-box pure-g">
+          <div class="article-data pure-u-1">
+            <h3>Brief</h3>
+            <h3><%= link_to article.headline, article %></h3>
+            <div class="article-tags">
+              <% tags = article.get_article_tags %>
+              <% tags.each do |tag| %>
+                <button class="button-small pure-button">
+               	  <i class="fa fa-tag"></i>
+                  <%= tag.title %>
+                </button>
+	    				<% end %>
+            </div>
+            <% @issue = Issue.find(article.issue_id) %>
+            <div class="article-teaser">
+              <% @article_text_teaser = article.get_article_text_teaser 25 %>
+              <p><%= @article_text_teaser %></p>
+            </div>
+            <div class="date-author">
+              <p><%= @issue.date.to_formatted_s(:long) %></p>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <% graphic = article.get_graphic_for_article %>
+	  		<hr>
+		  	<div class="article-box pure-g">
+			  	<div class="article-image pure-u-1 pure-u-md-1-3">
+				  	<%= link_to image_tag(graphic.get_relative_image_path, alt: "Article Graphic", width: '100%'), article %>
+  				</div>
+	  			<div class="article-data pure-u-1 pure-u-md-2-3">
+		  			<h3><%= link_to article.headline, article %></h3>
+			  		<div class="article-tags">
+				  		<% tags = article.get_article_tags %>
+					  	<% tags.each do |tag| %>
+              	<button class="button-small pure-button">
+                	<i class="fa fa-tag"></i>
+                  <%= tag.title %>
+                </button>
+	  					<% end %>
+		  			</div>
+			  		<% @person = Person.find(article.person_id) %>
+				  	<% @co_author, @position = article.get_co_author_or_nil %>
+					  <% @issue = Issue.find(article.issue_id) %>
+  					<div class="article-teaser">
+	  					<% @article_text_teaser = article.get_article_text_teaser 25 %>
+		  				<p><%= @article_text_teaser %></p>
+			  		</div>
+				  	<div class="date-author">
+					  	<% if @co_author %>
+						  	<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %> / <%= @co_author.name %></p>
+  						<% else %>
+	  						<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
+		  				<% end %>
+			  		</div>
+				  </div>
+  			</div>
+      <% end %>
+    <% end %>
 
-		<% end %>
+  	<div class="pagination-bottom pure-u-1">
+	  	<%= paginate @articles %>
+  	</div>
+
 	</div>
 	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
 		<p>big whoop</p>
 	</div>
 
-	<div class="pagination pure-u-1">
-		<%= paginate @articles %>
-	</div>
 </div>
 
