@@ -32,14 +32,15 @@
 					<%= @issue.get_human_readable_date %></p>
 				</div>
 			</div>
-
-			<div class="article-image">
-				<%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
-			</div>
-			<div class="image-data">
-				<p class="designer">Photo by: <%= @graphic_designer.name %></p>
-				<p class="caption"><%= @graphic.caption %></p>
-			</div>
+      <% if @article.brief == "0" %>
+  			<div class="article-image">
+	  			<%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
+		  	</div>
+  			<div class="image-data">
+	  			<p class="designer">Photo by: <%= @graphic_designer.name %></p>
+		  		<p class="caption"><%= @graphic.caption %></p>
+			  </div>
+      <% end %>
 			<div class="content-text"><%= markdown(@article_text) %></div>
 		</div>
 	</div>
