@@ -42,6 +42,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 #for readable URLs
 gem 'friendly_id', '~> 5.1.0'
+#for making names possessive
+gem 'possessive'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
 		def get_all_editors
 			editors = Array.new()
 			Person.order(:position_id).each do |person|
-				if Position.find(person.position_id).title != "Staff Member"
+				if Position.find(person.position_id).title != "Staff Member" and person.current == "1"
 					editors << person
 				end
 			end

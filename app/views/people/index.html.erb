@@ -9,7 +9,7 @@
 						<% @first_editors.zip(@first_positions).each do |editor, position| %>
               <div class="editor-data pure-u-1-3">
                 <div class="editor-image">
-	  							<%= image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+	  							<%= link_to image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%'), editor %>
                 </div>
 								<h3><%= link_to editor.name, editor %></h3>
 								<small><%= position.title %></small>
@@ -23,11 +23,10 @@
 						<div class="pure-u-1-2">
 							<h2><%= link_to @featured_editor.name, @featured_editor %></h2>
 							<h3><%= @featured_position.title %></h3>
-							<p class="quote"><%= @featured_editor.quote %></p>
 							<p class="bio"><%= @featured_editor.bio %></p>
 						</div>
 						<div class="pure-u-1-2">
-							<%= image_tag(@featured_editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+							<%= link_to image_tag(@featured_editor.get_relative_image_path, alt: 'Editor Image', width: '100%'), @featured_editor %>
 						</div>
 					</div>
 				</div>
@@ -37,7 +36,7 @@
 				<% @last_editors.zip(@last_positions).each do |editor, position| %>
           <div class="editor-data pure-u-1-5">
             <div class="editor-image">
-  						<%= image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+  						<%= link_to image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%'), editor %>
             </div>
 						<h3><%= link_to editor.name, editor %></h3>
 						<small><%= position.title %></small>

@@ -30,9 +30,11 @@
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	.article-image {
-		margin-bottom: 1em;
-	}
+
+  .article-box {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
 	.article-data {
 		p {
@@ -57,20 +59,28 @@
 
 
 /* Here is the styling for the people index page */
-.editors-index {
-	margin-top: 2em;
-	margin-bottom: 1em;
+.person-index-content {
+  margin-top: 2em;
+  .editors-index {
+	  margin-top: 2em;
+  	margin-bottom: 1em;
 
-	.editor-data {
-    height: 300px;
-    overflow: hidden;
-    .editor-image {
-      height: 200px;
+  	.editor-data {
+      height: 300px;
       overflow: hidden;
-    }
-		img {
-			width: 95%;
-		}
-		margin-bottom: 0.5em;
-	}
+      .editor-image {
+        height: 200px;
+        overflow: hidden;
+      }
+	  	img {
+		  	width: 95%;
+  		}
+	  	margin-bottom: 0.5em;
+  	}
+  }
+}
+
+//pure button sizing
+.button-small {
+	font-size: 85%;
 }
