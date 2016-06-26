@@ -31,6 +31,12 @@ class PeopleController < ApplicationController
 		@articles.each do |article|
 			@graphics << article.get_graphic_for_article
 		end
+
+    @graphics2 = @person.get_all_graphics_for_person
+    @articles2 = Array.new()
+    @graphics2.each do |graphic|
+      @articles2 << graphic.get_article_for_graphic
+    end
 	end
 
 

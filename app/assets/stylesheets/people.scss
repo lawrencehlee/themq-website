@@ -7,6 +7,7 @@
 	margin-bottom: 1em;
 	.editor-info {
 		.bio {
+      display: none;
 			p {
 				margin-right: 1em;
 				margin-left: 1em;
@@ -22,7 +23,7 @@
 }
 
 
-.person-articles {
+.person-articles, .person-graphics {
 	margin-top: 1em;
 	margin-bottom: 1em;
 
@@ -65,6 +66,10 @@
 	  margin-top: 2em;
   	margin-bottom: 1em;
 
+    .featured-editor {
+      margin-bottom: 0.5em;
+    }
+
   	.editor-data {
       height: 300px;
       overflow: hidden;
@@ -83,4 +88,18 @@
 //pure button sizing
 .button-small {
 	font-size: 85%;
+}
+
+@media screen and (min-width: $md-min-width){
+  body {
+    .person-show-page {
+      .person-show-content {
+        .editor-info {
+          .bio {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 }
