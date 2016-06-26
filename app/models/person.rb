@@ -14,6 +14,11 @@ class Person < ActiveRecord::Base
 		articles
 	end
 
+  def get_all_graphics_for_person
+    graphics = Graphic.where(person_id: self.person_id)
+    graphics
+  end
+
 	def get_relative_image_path
 		"#{EDITORS_SUBDIRECTORY}/#{self.image}"
 	end

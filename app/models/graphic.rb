@@ -6,4 +6,10 @@ class Graphic < ActiveRecord::Base
 		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
 		"#{issue_string}/#{IMAGE_SUBDIRECTORY}/#{self.image}"
 	end
+
+  def get_article_for_graphic
+    article = Article.find(self.article_id)
+    article
+	end
+
 end
