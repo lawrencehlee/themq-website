@@ -33,6 +33,9 @@ class TagsController < ApplicationController
       @content_pieces = @tag.get_all_features_with_tag
       @type_name = "Features"
     end
+
+    @content_pieces = Kaminari.paginate_array(@content_pieces).page(params[:page]).per(10)
+
 	end
 
 end

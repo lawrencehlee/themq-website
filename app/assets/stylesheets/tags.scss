@@ -74,6 +74,7 @@
   margin-top: 1em;
   margin-bottom: 2em;
   .tag-show-content {
+    margin-bottom: 2em;
     h1 {
       text-align: center;
     }
@@ -96,5 +97,24 @@
         margin-left: 1em;
       }
     }
+    .tag-article {
+      .date-author {
+        color: $light-grey;
+      }
+      h3 {
+        margin-left: 1em;
+      }
+      p {
+        margin-left: 1em;
+      }
+      .article-tags {
+        margin-left: 1em;
+      }
+    }
+  }
+  .pagination {
+    margin-top: 1em;
+    margin-right: 0.5em;
+    text-align: right;
   }
 }
