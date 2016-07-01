@@ -2,7 +2,7 @@ require 'render_anywhere'
 
 class Article < ActiveRecord::Base
 	extend FriendlyId
-	include RenderAnywhere
+	include RenderAnywhere, RandomSelectable
 
 	friendly_id :title, use: :slugged
 
@@ -92,7 +92,7 @@ class Article < ActiveRecord::Base
 
 	def self.get_random_brief_from_issue(issue)
 		all_from_issue = Article.get_all_briefs_from_issue(issue)
-		all_from_issue.offset(rand(all_from_issue.count)).first
+		Article.random(all_from_issue)
 	end
 
 	def render_sidebar_view

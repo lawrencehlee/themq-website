@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
 	RELATED_CONTENT_TYPES = [Article]
 	SAME_AUTHOR_CONTENT_TYPES = [Article]
 
-
 	def show
 		@article = Article.friendly.find(params[:id])
 		@article_text = @article.get_article_text
@@ -35,6 +34,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def index
+		@current_issue = Issue.get_latest_issue
 		@top_story = Article.find(Article.first.get_top_story)
 		@top_story_graphic = Graphic.find(@top_story.graphic_id)
 		@top_story_issue = Issue.find(@top_story.issue_id)
@@ -49,11 +49,12 @@ class ArticlesController < ApplicationController
 			@more_stories_graphics << Graphic.find(article.graphic_id)
 		end
 
+		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
+		@random_self_ad = SelfAd.get_random
+		@brief = Article.get_random_brief_from_issue(@current_issue)
 	end
 
 	def all
 		@articles = Article.order('article_id DESC').page(params[:page]).per(10)
-		#@graphics = Graphic.order('article_id DESC').page(params[:page]).per(10)
 	end
-
 end

@@ -1,8 +1,7 @@
 require 'render_anywhere'
 
 class TopTen < ActiveRecord::Base
-
-	include RenderAnywhere
+	include RenderAnywhere, RandomSelectable
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
@@ -18,14 +17,18 @@ class TopTen < ActiveRecord::Base
 	# Static method that gets a random top ten from the specified issue
 	def self.get_random_from_issue(issue)
 		all_from_issue = TopTen.get_all_from_issue(issue)
-		all_from_issue.offset(rand(all_from_issue.count)).first
+		TopTen.random(all_from_issue)
 	end
 
 	# Static method that gets a random top ten from anywhere in the database
 	# so long as it's not the top ten passed in.
 	def self.get_random_from_db(current_top_ten_id)
 		all_from_db = TopTen.where.not(top_ten_id: current_top_ten_id)
-		all_from_db.offset(rand(all_from_db.count)).first
+		TopTen.random(all_from_db)
+	end
+
+	def self.get_random
+		TopTen.random(TopTen.all)
 	end
 
 	# Gets the entries associated with this top ten
