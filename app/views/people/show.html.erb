@@ -20,7 +20,55 @@
 			</div>
 			<% end %>
 
-		</div>
+    </div>
+
+    <div class="person-content pure-g">
+      <% if @first_column == "articles" %>
+        <% first = @person.get_first_name.possessive + " articles" %>
+        <% second = "Articles featuring " + @person.get_first_name.possessive + " photo" %>
+      <% else %>
+        <% second = @person.get_first_name.possessive + " articles" %>
+        <% first = "Articles featuring " + @person.get_first_name.possessive + " photo" %>
+      <% end %>
+      <div class="pure-u-1-2">
+        <h2 class="first-column"><%= first %></h2>
+      </div>
+      <div class="pure-u-1-2">
+        <h2 class="second-column"><%= second %></h2>
+      </div>
+
+      <% @leading_articles.each_with_index do |lead_article, idx| %>
+        <% @issue = Issue.find(lead_article.issue_id) %>
+        <div class="pure-u-1-2">
+          <div class="leading-article-box">
+            <div class="article-image">
+              <%= link_to image_tag(@leading_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), lead_article %>
+            </div>
+            <div class="article-data">
+              <h3><%= link_to lead_article.headline, lead_article %>
+            	<div class="article-tags">
+						  	<% tags = lead_article.get_article_tags %>
+                <% tags.each do |tag| %>
+                  <button class="button-small pure-button">
+              	    <i class="fa fa-tag"></i>
+                    <%= tag.title %>
+                  </button>
+		  					<% end %>
+						  </div>
+              <div class="article-date">
+		  					<p><%= @issue.get_human_readable_date %></p>
+			  			</div>
+            </div>
+          </div>
+        </div>
+        <% if @second_article = @second_articles[idx] %>
+          <div class="pure-1-2">
+            <%= @second_article.headline %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
 		<div class="person-articles">
 			<h2 class="see-articles"><%= @person.get_first_name.possessive %> articles</h2>
       <% @articles.zip(@graphics).each do |article, graphic| %>
