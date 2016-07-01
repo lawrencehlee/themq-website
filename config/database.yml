@@ -17,7 +17,7 @@ default: &default
   username: mqdb-dev
   password: <%= ENV['DEV_DB_PASSWORD'] %>
   #this socket is not the same as in git
-  socket: /var/run/mysqld/mysqld.sock
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
