@@ -43,14 +43,14 @@ class PeopleController < ApplicationController
       @leading_graphics = @graphics
       @second_articles = @articles2
       @second_graphics = @graphic2
-      @leadinga_articles = Kaminari.paginate_array(@articles).page(params[:page]).per(10)
+      @leading_articles = Kaminari.paginate_array(@articles).page(params[:page]).per(10)
       @first_column = "articles"
     else
       @leading_articles = @articles2
       @leading_graphics = @graphics2
       @second_articles = @articles
-      @second_graphics = @graphic
-      @leadinga_articles = Kaminari.paginate_array(@articles2).page(params[:page]).per(10)
+      @second_graphics = @graphics
+      @leading_articles = Kaminari.paginate_array(@articles2).page(params[:page]).per(10)
       @first_column = "graphics"
     end
 	end

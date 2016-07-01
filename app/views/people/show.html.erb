@@ -19,7 +19,10 @@
 					</div>
 			</div>
 			<% end %>
+    </div>
 
+    <div class="paginate">
+      <%= paginate @leading_articles %>
     </div>
 
     <div class="person-content pure-g">
@@ -38,6 +41,8 @@
       </div>
 
       <% @leading_articles.each_with_index do |lead_article, idx| %>
+        <% # this next line is for updating the index with the pagination %>
+        <% idx = idx + (@leading_articles.current_page - 1)*10 %>
         <% @issue = Issue.find(lead_article.issue_id) %>
         <div class="pure-u-1-2">
           <div class="leading-article-box">
@@ -45,7 +50,7 @@
               <%= link_to image_tag(@leading_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), lead_article %>
             </div>
             <div class="article-data">
-              <h3><%= link_to lead_article.headline, lead_article %>
+              <h3><%= link_to lead_article.headline, lead_article %></h3>
             	<div class="article-tags">
 						  	<% tags = lead_article.get_article_tags %>
                 <% tags.each do |tag| %>
@@ -61,79 +66,37 @@
             </div>
           </div>
         </div>
-        <% if @second_article = @second_articles[idx] %>
-          <div class="pure-1-2">
-            <%= @second_article.headline %>
-          </div>
-        <% end %>
+        <div class="pure-u-1-2">
+          <% if second_article = @second_articles[idx] %>
+            <% @issue = Issue.find(second_article.issue_id) %>
+            <div class="leading-article-box">
+              <div class="article-image">
+                <%= link_to image_tag(@second_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), second_article %>
+              </div>
+              <div class="article-data">
+                <h3><%= link_to second_article.headline, second_article %></h3>
+                <div class="article-tags">
+						  	  <% tags = second_article.get_article_tags %>
+                  <% tags.each do |tag| %>
+                    <button class="button-small pure-button">
+                	    <i class="fa fa-tag"></i>
+                      <%= tag.title %>
+                    </button>
+		  		  			<% end %>
+						    </div>
+                <div class="article-date">
+		  					  <p><%= @issue.get_human_readable_date %></p>
+  			  			</div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
 
-		<div class="person-articles">
-			<h2 class="see-articles"><%= @person.get_first_name.possessive %> articles</h2>
-      <% @articles.zip(@graphics).each do |article, graphic| %>
-        <hr>
-				<div class="article-box pure-g">
-					<div class="article-image pure-u-1 pure-u-md-1-3">
-						<%= link_to image_tag(graphic.get_relative_image_path, alt: "Article Graphic", width: '100%'), article %>
-					</div>
-					<div class="article-data pure-u-1 pure-u-md-2-3">
-						<h3><%= link_to article.headline, article %></h3>
-						<div class="article-tags">
-							<% tags = article.get_article_tags %>
-              <% tags.each do |tag| %>
-                <button class="button-small pure-button">
-              	  <i class="fa fa-tag"></i>
-                  <%= tag.title %>
-                </button>
-							<% end %>
-						</div>
-						<% @issue = Issue.find(article.issue_id) %>
-						<% @article_text_teaser = article.get_article_text_teaser 25 %>
-
-						<p><%= @article_text_teaser %></p>
-						<div class="article-date">
-							<p><%= @issue.date.to_formatted_s(:long) %></p>
-						</div>
-					</div>
-				</div>
-
-      <% end %>
+    <div class="paginate">
+      <%= paginate @leading_articles %>
     </div>
 
-    <div class="person-graphics">
-			<h2 class="see-articles">Articles featuring <%= @person.get_first_name.possessive %> photo</h2>
-      <% @articles2.zip(@graphics2).each do |article, graphic| %>
-        <hr>
-				<div class="article-box pure-g">
-					<div class="article-image pure-u-1 pure-u-md-1-3">
-						<%= link_to image_tag(graphic.get_relative_image_path, alt: "Article Graphic", width: '100%'), article %>
-					</div>
-					<div class="article-data pure-u-1 pure-u-md-2-3">
-						<h3><%= link_to article.headline, article %></h3>
-						<div class="article-tags">
-							<% tags = article.get_article_tags %>
-              <% tags.each do |tag| %>
-                <button class="button-small pure-button">
-              	  <i class="fa fa-tag"></i>
-                  <%= tag.title %>
-                </button>
-							<% end %>
-						</div>
-						<% @issue = Issue.find(article.issue_id) %>
-						<% @article_text_teaser = article.get_article_text_teaser 25 %>
-
-						<p><%= @article_text_teaser %></p>
-						<div class="article-date">
-							<p><%= @issue.date.to_formatted_s(:long) %></p>
-						</div>
-					</div>
-				</div>
-			<% end %>
-
-    </div>
-	</div>
-	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
-		<p>an alright sized whoop</p>
-	</div>
+  </div>
 </div>
