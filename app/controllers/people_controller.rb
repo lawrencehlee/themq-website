@@ -37,6 +37,22 @@ class PeopleController < ApplicationController
     @graphics2.each do |graphic|
       @articles2 << graphic.get_article_for_graphic
     end
+
+    if @articles.count > @articles2.count
+      @leading_articles = @articles
+      @leading_graphics = @graphics
+      @second_articles = @articles2
+      @second_graphics = @graphic2
+      @leading_articles = Kaminari.paginate_array(@articles).page(params[:page]).per(10)
+      @first_column = "articles"
+    else
+      @leading_articles = @articles2
+      @leading_graphics = @graphics2
+      @second_articles = @articles
+      @second_graphics = @graphics
+      @leading_articles = Kaminari.paginate_array(@articles2).page(params[:page]).per(10)
+      @first_column = "graphics"
+    end
 	end
 
 
