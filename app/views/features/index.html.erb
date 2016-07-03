@@ -115,7 +115,8 @@
       item = {
         src: "<%= feature_path %>",
         w: <%= feature.width %>,
-        h: <%= feature.height %>
+        h: <%= feature.height %>,
+        share_url: "<%= url_for([feature, {only_path: false}]) %>"
       };
       slides.push(item);
     <% end %>
@@ -127,7 +128,7 @@
 		};
 
 		var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, slides, options);
-		gallery.init();
+    gallery.init();
 	};
 
   var clickables = document.getElementsByClassName("photoswipe-gallery");

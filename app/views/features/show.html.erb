@@ -16,8 +16,9 @@
 			<%= render :partial => "social_share_small", :locals => {:feature => @feature, :status => @feature.title} %>
 		</span>
 
-		<div class="feature-image">
-			<%= render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_path, :width => @width, :height => @height} %>
+    <div class="feature-image">
+      <% share_url = url_for([@feature, {only_path: false}]) %>
+      <%= render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_path, :width => @width, :height => @height, :share_url => share_url} %>
 		</div>
 	</div>
 	<div class="sidebar-content pure-u-23-24 pure-u-lg-1-3">
