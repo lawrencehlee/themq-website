@@ -45,9 +45,9 @@ class EdPcp < ActiveRecord::Base
 		tags
 	end
 
-	def get_editorials
-		issue = Issue.last
-		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
+	def self.get_top_editorials
+		issue = Issue.get_latest_issue
+		issue_string = issue.get_abbreviated_issue_name
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topEd_pcps.txt')
 
@@ -59,9 +59,9 @@ class EdPcp < ActiveRecord::Base
 		end
 	end
 
-	def get_pcps
-		issue = Issue.last
-		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
+	def self.get_top_pcps
+		issue = Issue.get_latest_issue
+		issue_string = issue.get_abbreviated_issue_name
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topEd_pcps.txt')
 

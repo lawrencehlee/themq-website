@@ -3,10 +3,10 @@ class EdPcpsController < ApplicationController
   def index
 		@eds = Array.new
 		@pcps = Array.new
-		EdPcp.first.get_editorials.each do |ed_pcp_id|
+		EdPcp.get_top_editorials.each do |ed_pcp_id|
 			@eds << EdPcp.find(ed_pcp_id)
 		end
-		EdPcp.first.get_pcps.each do |ed_pcp_id|
+		EdPcp.get_top_pcps.each do |ed_pcp_id|
 			@pcps << EdPcp.find(ed_pcp_id)
 		end
   end
