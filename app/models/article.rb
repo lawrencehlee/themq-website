@@ -87,12 +87,19 @@ class Article < ActiveRecord::Base
 	end
 
 	def self.get_all_briefs_from_issue(issue)
-		Article.where(issue_id: issue.issue_id, brief: 1)
+		Article.get_all.briefs.where(issue_id: issue.issue_id)
 	end
 
 	def self.get_random_brief_from_issue(issue)
-		all_from_issue = Article.get_all_briefs_from_issue(issue)
-		Article.random(all_from_issue)
+		Article.random(Article.get_all_briefs_from_issue(issue))
+	end
+
+	def self.get_all_briefs
+		Article.where(brief: 1)
+	end
+
+	def self.get_random_brief
+		Article.random(Article.get_all_briefs)
 	end
 
 	def render_sidebar_view
