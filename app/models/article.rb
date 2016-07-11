@@ -78,7 +78,7 @@ class Article < ActiveRecord::Base
 		end
 	end
 
-	def get_article_tags
+	def get_tags
 		tags = Array.new()
 		ArticleTag.where(article_id: self.article_id).each do |article_tag|
 			tags << Tag.find(article_tag.tag_id)
@@ -87,7 +87,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def self.get_all_briefs_from_issue(issue)
-		Article.get_all.briefs.where(issue_id: issue.issue_id)
+		Article.get_all_briefs.where(issue_id: issue.issue_id)
 	end
 
 	def self.get_random_brief_from_issue(issue)
@@ -130,7 +130,7 @@ class Article < ActiveRecord::Base
 
 		# Loop over all combinations of the tags, starting with matching
 		# the most tags
-		tags = get_article_tags
+		tags = get_tags
 		tags.length.downto(1) do |num_tags|
 			tag_combinations = tags.combination(num_tags)
 
@@ -155,7 +155,7 @@ class Article < ActiveRecord::Base
 		end
 
 		# Get limit random items from the content
-		related_content.sample(limit)
+		related_content.uniq.sample(limit)
 	end
 
 	# This static method also deserves some explaining and maybe a header

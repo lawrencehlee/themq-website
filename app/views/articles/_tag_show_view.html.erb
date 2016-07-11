@@ -7,7 +7,7 @@
 		<div class="article-data pure-u-1 pure-u-md-2-3">
 			<h3><%= link_to article.headline, article %></h3>
 			<div class="article-tags">
-				<% tags = article.get_article_tags %>
+				<% tags = article.get_tags %>
 				<% tags.each do |tag| %>
           <button class="button-small pure-button">
         	  <i class="fa fa-tag"></i>

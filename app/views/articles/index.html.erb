@@ -8,7 +8,7 @@
 				</div>
 				<div class="top-story-data">
 					<div class="top-story-tags">
-						<% top_story_tags = @top_story.get_article_tags %>
+						<% top_story_tags = @top_story.get_tags %>
 						<% top_story_tags.each do |tag| %>
 							<%= link_to(tags_path(tag_id: tag.tag_id)) do %>
 								<button class="button-small pure-button">
@@ -36,7 +36,7 @@
 					<div class="sub-story pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
 						<%= link_to image_tag(graphic.get_relative_image_path, alt:"Sub Story Graphic", width: '100%'), article %>
 						<div class="sub-story-tags">
-							<% tags = article.get_article_tags %>
+							<% tags = article.get_tags %>
 							<% tags.each do |tag| %>
 								<%= link_to(tags_path(tag_id: tag.tag_id)) do %>
 									<button class="button-small pure-button">

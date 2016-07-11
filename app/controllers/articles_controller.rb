@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	RELATED_CONTENT_LIMIT = 2
 	SAME_AUTHOR_CONTENT_LIMIT = 1
-	RELATED_CONTENT_TYPES = [Article]
+	RELATED_CONTENT_TYPES = [Article, EdPcp]
 	SAME_AUTHOR_CONTENT_TYPES = [Article]
 
 	def show
@@ -15,8 +15,9 @@ class ArticlesController < ApplicationController
 		@graphic_designer = Person.find(@graphic.person_id)
 
 		@tags = Array.new()
-		@tags = @article.get_article_tags
+		@tags = @article.get_tags
 
+		# Specific sidebar stuff
 		current_issue_filter = "issue_id = #{@issue.issue_id}"
 		not_current_issue_filter = "issue_id != #{@issue.issue_id}"
 
