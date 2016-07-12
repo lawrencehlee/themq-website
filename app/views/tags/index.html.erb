@@ -1,56 +1,59 @@
 <div class="tag-index pure-g">
 	<div class="tag-index-content pure-u-1 pure-u-lg-2-3">
-    <div class="pure-g">
-      <div class="tag-title pure-u-1">
-        <h1 class="regular-headline"><%= @tag.title %> Content</h1>
-      </div>
+		<div class="left-bar">
+			<div class="pure-g">
+				<div class="tag-title pure-u-1">
+					<h1 class="regular-headline"><%= @tag.title %> Content</h1>
+				</div>
 
-      <% if @articles.length != 0 %>
-        <% @articles.take(4).each do |article| %>
-	  			<div class="tag-article pure-u-1 pure-u-md-1-2">
-		  			<%= article.render_tag_view %>
-			  	</div>
-  			<% end %>
-        <p class="pure-u-1"><%= link_to "See All Articles Tagged " + @tag.title,
-          tag_path(@tag, tag_id: @tag.tag_id, content_type: "article") %></p>
-        <hr class="pure-u-1">
-      <% end %>
+				<% if @articles.length != 0 %>
+					<% @articles.take(4).each do |article| %>
+						<div class="tag-article pure-u-1 pure-u-md-1-2">
+							<%= article.render_tag_view %>
+						</div>
+					<% end %>
+					<p class="pure-u-1"><%= link_to "See All Articles Tagged " + @tag.title,
+						tag_path(@tag, tag_id: @tag.tag_id, content_type: "article") %></p>
+					<hr class="pure-u-1">
+				<% end %>
 
-      <% if @ed_pcps.length != 0 %>
-  			<% @ed_pcps.take(2).each do |ed_pcp| %>
-	  			<div class="tag-ed-pcp pure-u-1 pure-u-md-1-2">
-		  			<%= ed_pcp.render_tag_view %>
-			  	</div>
-        <% end %>
-        <p class="pure-u-1"><%= link_to "See All Editorials Tagged " + @tag.title,
-          tag_path(@tag, tag_id: @tag.tag_id, content_type: "ed_pcp") %></p>
-			  <hr class="pure-u-1">
-      <% end %>
+				<% if @ed_pcps.length != 0 %>
+					<% @ed_pcps.take(2).each do |ed_pcp| %>
+						<div class="tag-ed-pcp pure-u-1 pure-u-md-1-2">
+							<%= ed_pcp.render_tag_view %>
+						</div>
+					<% end %>
+					<p class="pure-u-1"><%= link_to "See All Editorials Tagged " + @tag.title,
+						tag_path(@tag, tag_id: @tag.tag_id, content_type: "ed_pcp") %></p>
+					<hr class="pure-u-1">
+				<% end %>
 
-      <% if @top_tens.length != 0 %>
-  			<% @top_tens.take(2).each do |top_ten| %>
-	  			<div class="tag-top-ten pure-u-1 pure-u-md-1-2">
-		  			<%= top_ten.render_tag_view %>
-			  	</div>
-        <% end %>
-        <p class="pure-u-1"><%= link_to "See All Top Tens Tagged " + @tag.title,
-          tag_path(@tag, tag_id: @tag.tag_id, content_type: "top_ten") %></p>
-			  <hr class="pure-u-1">
-      <% end %>
+				<% if @top_tens.length != 0 %>
+					<% @top_tens.take(2).each do |top_ten| %>
+						<div class="tag-top-ten pure-u-1 pure-u-md-1-2">
+							<%= top_ten.render_tag_view %>
+						</div>
+					<% end %>
+					<p class="pure-u-1"><%= link_to "See All Top Tens Tagged " + @tag.title,
+						tag_path(@tag, tag_id: @tag.tag_id, content_type: "top_ten") %></p>
+					<hr class="pure-u-1">
+				<% end %>
 
-      <% if @features.length != 0 %>
-  			<% @features.take(2).each do |feature| %>
-	  			<div class="tag-feature pure-u-1 pure-u-md-1-2">
-		  			<%= feature.render_tag_view %>
-			  	</div>
-        <% end %>
-        <p class="pure-u-1"><%= link_to "See All Features Tagged " + @tag.title,
-          tag_path(@tag, tag_id: @tag.tag_id, content_type: "feature") %></p>
-        <% end %>
+				<% if @features.length != 0 %>
+					<% @features.take(2).each do |feature| %>
+						<div class="tag-feature pure-u-1 pure-u-md-1-2">
+							<%= feature.render_tag_view %>
+						</div>
+					<% end %>
+					<p class="pure-u-1"><%= link_to "See All Features Tagged " + @tag.title,
+						tag_path(@tag, tag_id: @tag.tag_id, content_type: "feature") %></p>
+					<% end %>
 
+			</div>
 		</div>
 	</div>
-	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
-		whoop me amadeus
+	<div class="sidebar pure-u-1 pure-u-lg-1-3">
+		<%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
+			:self_ad => @random_self_ad, :brief => @brief %>
 	</div>
 </div>

@@ -13,6 +13,10 @@ class TagsController < ApplicationController
 		@features = @tag.get_all_features_with_tag
 		@top_tens = @tag.get_all_top_tens_with_tag
 		@features = @tag.get_all_features_with_tag
+
+		@random_top_ten = nil
+		@random_self_ad = SelfAd.get_random
+		@brief = Article.get_random_brief
 	end
 
 	def show
