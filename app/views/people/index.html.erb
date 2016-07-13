@@ -45,8 +45,31 @@
 			</div>
 		</div>
 
-		<div class="staff-members">
-		</div>
+    <div class="staff-members">
+      <h2>Staff Members</h2>
+      <div class="pure-g staff-box">
+        <div class="pure-u-1-2">
+          <div class="staff-members-col-1">
+            <% @staff_members_right.each do |staff_member| %>
+              <p><%= staff_member.name %></p>
+            <% end %>
+          </div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="staff-members-col-2">
+            <% @staff_members_left.each do |staff_member| %>
+              <p><%= staff_member.name %></p>
+            <% end %>
+          </div>
+        </div>
+        <div class="staff-photo pure-u-1">
+          <div class="staff-photo-image">
+            <%= image_tag(@staff_photo, alt: 'Staff Photo', width: '100%') %>
+          </div>
+          <h3 class="staff-photo-caption"><%=@staff_photo_caption%></h3>
+        </div>
+      </div>
+    </div>
 </div>
 
 

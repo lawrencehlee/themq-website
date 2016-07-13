@@ -1,5 +1,5 @@
 <div class="person-show-page pure-g">
-	<div class="person-show-content pure-u-1 pure-u-lg-2-3">
+	<div class="person-show-content pure-u-1">
 		<div class="person-info">
 			<% if @position.title == "Staff Member" %>
 				<!--person is a staff member here -->
@@ -27,11 +27,11 @@
 
     <div class="person-content pure-g">
       <% if @first_column == "articles" %>
-        <% first = @person.get_first_name.possessive + " articles" %>
-        <% second = "Articles featuring " + @person.get_first_name.possessive + " photo" %>
+        <% first = @person.split_full_name.first.possessive + " articles" %>
+        <% second = "Articles featuring " + @person.split_full_name.first.possessive + " photo" %>
       <% else %>
-        <% second = @person.get_first_name.possessive + " articles" %>
-        <% first = "Articles featuring " + @person.get_first_name.possessive + " photo" %>
+        <% second = @person.split_full_name.first.possessive + " articles" %>
+        <% first = "Articles featuring " + @person.split_full_name.first.possessive + " photo" %>
       <% end %>
       <div class="pure-u-1-2">
         <h2 class="first-column"><%= first %></h2>
@@ -54,10 +54,12 @@
             	<div class="article-tags">
 						  	<% tags = lead_article.get_tags %>
                 <% tags.each do |tag| %>
-                  <button class="button-small pure-button">
-              	    <i class="fa fa-tag"></i>
-                    <%= tag.title %>
-                  </button>
+                  <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                    <button class="button-small pure-button">
+                	    <i class="fa fa-tag"></i>
+                      <%= tag.title %>
+                    </button>
+                  <% end %>
 		  					<% end %>
 						  </div>
               <div class="article-date">
@@ -78,10 +80,12 @@
                 <div class="article-tags">
 						  	  <% tags = second_article.get_tags %>
                   <% tags.each do |tag| %>
-                    <button class="button-small pure-button">
-                	    <i class="fa fa-tag"></i>
-                      <%= tag.title %>
-                    </button>
+                    <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                      <button class="button-small pure-button">
+                  	    <i class="fa fa-tag"></i>
+                        <%= tag.title %>
+                      </button>
+                    <% end %>
 		  		  			<% end %>
 						    </div>
                 <div class="article-date">

@@ -77,8 +77,6 @@
   margin-top: 2em;
   .editors-index {
 	  margin-top: 2em;
-  	margin-bottom: 1em;
-
     .featured-editor {
       margin-bottom: 0.5em;
     }
@@ -96,6 +94,24 @@
 	  	margin-bottom: 0.5em;
   	}
   }
+  .staff-members {
+    h2 {
+      text-align: center;
+    }
+    .staff-members-col-1 {
+      margin-right: 1em;
+      float: right;
+    }
+    .staff-members-col-2 {
+      margin-left: 1em;
+    }
+    .staff-photo {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 1em;
+      margin-bottom: 2em;
+    }
+  }
 }
 
 //pure button sizing
@@ -111,6 +127,13 @@
           .bio {
             display: block;
           }
+        }
+      }
+    }
+    .person-index-content {
+      .staff-members {
+        .staff-photo {
+          width: 60%;
         }
       }
     }
