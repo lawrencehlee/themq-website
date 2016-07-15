@@ -25,6 +25,14 @@ class Person < ActiveRecord::Base
     self.name.gsub(/\s+/m, ' ').strip.split(" ")
   end
 
+  def get_last_name
+    self.name.gsub(/\s+/m, ' ').strip.split(" ").last
+  end
+
+  def get_last_name
+    self.name.gsub(/\s+/m, ' ').strip.split(" ").last
+  end
+
   def get_more_content(limit, content_types, filter, excluded)
     more_content = Array.new
     this_author_filter = "person_id = #{self.person_id}"

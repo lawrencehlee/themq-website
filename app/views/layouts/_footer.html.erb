@@ -13,7 +13,9 @@
 								{:data => {:'no-turbolink' => true}} %>
 						</span>·
 							<span>
-								<%= link_to "About", "#" %>
+                <%= link_to "About",
+                  {controller: 'static_pages', action: 'about' }
+                %>
 							</span>·
               <span>
                 <%= link_to "Contributors",
