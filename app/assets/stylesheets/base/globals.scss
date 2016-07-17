@@ -11,6 +11,11 @@ html {
 	min-height: 100%;
 }
 
+// So that the navbar looks better with all pages with h1 headings
+h1:first-of-type {
+	margin-top: 0;
+}
+
 .serif-text, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
   font-family: $serif-text-font-stack;
 }
@@ -108,4 +113,8 @@ a {
 .wrapper {
 	padding-top: 2em;
 	padding-bottom: 2em;
+}
+
+.navbar-mapper {
+	display: none;
 }

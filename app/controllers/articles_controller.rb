@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 	SAME_AUTHOR_CONTENT_LIMIT = 1
 	RELATED_CONTENT_TYPES = [Article, EdPcp]
 	SAME_AUTHOR_CONTENT_TYPES = [Article]
+	NAVBAR_ITEM = "Articles"
 
 	def show
 		@article = Article.friendly.find(params[:id])
@@ -32,6 +33,8 @@ class ArticlesController < ApplicationController
 		@same_author_content += @author.get_more_content(
 				SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
 				not_current_issue_filter, @article)
+
+		@navbar_item = NAVBAR_ITEM
 	end
 
 	def index
@@ -53,6 +56,8 @@ class ArticlesController < ApplicationController
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
 		@random_self_ad = SelfAd.get_random
 		@brief = Article.get_random_brief_from_issue(@current_issue)
+
+		@navbar_item = NAVBAR_ITEM
 	end
 
 	def all
@@ -61,5 +66,7 @@ class ArticlesController < ApplicationController
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
 		@random_self_ad = SelfAd.get_random
 		@brief = Article.get_random_brief
+
+		@navbar_item = NAVBAR_ITEM
 	end
 end

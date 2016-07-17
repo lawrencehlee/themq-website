@@ -16,6 +16,6 @@
 //= require photoswipe
 //
 //= require owl.carousel
-// require_tree ./base
+//= require_tree ./base
 //
 //= require turbolinks

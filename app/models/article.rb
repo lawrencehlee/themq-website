@@ -51,7 +51,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def get_top_story
-		issue = Issue.last
+		issue = Issue.get_latest_issue
 		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topStories.txt')
@@ -65,7 +65,7 @@ class Article < ActiveRecord::Base
 	end
 
 	def get_more_stories
-		issue = Issue.last
+		issue = Issue.get_latest_issue
 		issue_string = "#{issue.volume_no}.#{issue.issue_no}"
 		filepath = File.join(
 			Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topStories.txt')
