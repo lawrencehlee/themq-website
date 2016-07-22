@@ -25,12 +25,12 @@ class Person < ActiveRecord::Base
     self.name.gsub(/\s+/m, ' ').strip.split(" ")
   end
 
-  def get_last_name
-    self.name.gsub(/\s+/m, ' ').strip.split(" ").last
+  def get_first_name
+    self.split_full_name.first
   end
 
   def get_last_name
-    self.name.gsub(/\s+/m, ' ').strip.split(" ").last
+    self.split_full_name.last
   end
 
   def get_more_content(limit, content_types, filter, excluded)
