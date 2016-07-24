@@ -63,7 +63,7 @@ class ArticlesController < ApplicationController
 	def all
 		@current_issue = Issue.get_latest_issue
 		@articles = Article.order('article_id DESC').page(params[:page]).per(10)
-		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
+		@random_top_ten = TopTen.get_random
 		@random_self_ad = SelfAd.get_random
 		@brief = Article.get_random_brief
 

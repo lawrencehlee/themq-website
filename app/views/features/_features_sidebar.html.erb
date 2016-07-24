@@ -1,0 +1,14 @@
+<% content_for :specific_sidebar do %>
+<div class="feature-sidebar">
+	<% unless related_content.empty? %>
+		<h2>Related Content</h2>
+		<% related_content.each do |content_piece| %>
+			<div class="sidebar-element">
+				<%= content_piece.render_sidebar_view %>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+<% end %>
+
+<%= render 'layouts/sidebar' %>
