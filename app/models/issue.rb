@@ -1,6 +1,13 @@
 class Issue < ActiveRecord::Base
 	IMAGE_SUBDIRECTORY = 'general'
 
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
+	def should_generate_new_friendly_id?
+		slug.blank? || self.name_changed?
+	end
+
 	# Static method that gets the latest issue by date
 	def self.get_latest_issue
 		Issue.order("date DESC").first
@@ -24,4 +31,53 @@ class Issue < ActiveRecord::Base
 	def get_relative_celeb_photo_path
 		"#{self.get_abbreviated_issue_name}/#{IMAGE_SUBDIRECTORY}/#{self.celeb_photo}"
 	end
+
+  # Returns the index.txt file in the latest issue, as an array of lines
+  def self.get_index_txt_file
+  	issue = self.get_latest_issue
+		issue_string = issue.get_abbreviated_issue_name
+		filepath = File.join(
+			Rails.root, 'app', 'assets', 'images', "#{issue_string}/#{IMAGE_SUBDIRECTORY}", 'index.txt')
+
+		File.open(filepath).read.split("\n")
+  end
+
+  # This is accessing the index file in assets/images/general to pull info for the main_controller
+  def self.get_slideshow_content
+    f_lines = self.get_index_txt_file
+		f_lines.each_with_index do |line, index|
+			if line.include? "slideshow-content"
+				return f_lines[index + 1].split(",")
+			end
+		end
+	end
+
+  # Returns a list of article indices that will go in the News section of main page
+  def self.get_news_content
+    f_lines = self.get_index_txt_file
+		f_lines.each_with_index do |line, index|
+			if line.include? "news-content"
+				return f_lines[index + 1].split(",")
+			end
+		end
+	end
+
+  def self.get_more_stories
+    f_lines = self.get_index_txt_file
+		f_lines.each_with_index do |line, index|
+			if line.include? "more-stories"
+				return f_lines[index + 1].split(",")
+			end
+		end
+	end
+
+  def self.get_features_content
+    f_lines = self.get_index_txt_file
+		f_lines.each_with_index do |line, index|
+			if line.include? "features-content"
+				return f_lines[index + 1].split(",")
+			end
+		end
+	end
+
 end

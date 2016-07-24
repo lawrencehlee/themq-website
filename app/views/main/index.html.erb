@@ -63,21 +63,36 @@
 
 			<div id="more-stories" class="main-section">
 				<h2 class="main-section-title">More Stories</h2>
-				<div class="more-stories-content">
-					<a href="<%= url_for(@point) %>">
-						<h2 class="regular-headline">Point: <%= "#{@point.headline}" %> </h2>
-						<span class="attribution"><%= "#{@point.author}, #{@point.author_title}" %></span>
-						<h2 class="regular-headline">Counterpoint: <%= "#{@counterpoint.headline}" %> </h2>
-						<span class="attribution"><%= "#{@counterpoint.author}, #{@counterpoint.author_title}" %></span>
-					</a>
+        <div class="more-stories-content">
+          <% @more_stories.each do |story| %>
+            <a href="<%= url_for(story) %>">
+              <% header = (story.ed == "1" ? "Editorial" : "Point") %>
+              <h2 class="regular-headline"><%="#{header}: #{story.headline}" %> </h2>
+              <span class="attribution"><%= "#{story.author}, #{story.author_title}" %></span>
+              <% if header == "Point" %>
+                <% cp = story.get_counterpoint %>
+                <h2 class="regular-headline">Counterpoint: <%="#{cp.headline}" %> </h2>
+                <span class="attribution"><%= "#{cp.author}, #{story.author_title}" %></span>
+              <% end %>
+					  </a>
+          <% end %>
 					<div id="more-stories-edpcp-more" class="see-more">
 						<%= link_to "More	editorials and PCPs ›", :controller => :ed_pcps, :action => :index %>
 					</div>
-				</div>
-				<div class="more-stories-content">
-					<h2 class="regular-headline">Feature: Sample Feature</h2>
-					<div id="more-stories-features-more" class="see-more">
-						<%= link_to "More	features ›", "#" %>
+        </div>
+      </div>
+      <div id="features" class="main-section">
+        <h2 class="main-section-title">Features</h2>
+        <div class="more-stories-content">
+          <% @features_content.each do |feature| %>
+            <a href="<%= url_for(feature) %>">
+              <div class="feature-content-image">
+                <%= link_to image_tag(feature.get_relative_feature_path, alt: 'Feature', width: '100%'), feature %>
+              </div>
+            </a>
+          <% end %>
+          <div id="more-stories-features-more" class="see-more">
+            <%= link_to "More	features ›", :controller => :features, :action => :index %>
 					</div>
 				</div>
 			</div>
