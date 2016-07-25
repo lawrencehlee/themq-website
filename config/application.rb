@@ -23,5 +23,6 @@ module MqWebsite
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 		config.web_console.whitelisted_ips = '75.80.63.208'
+    config.exceptions_app = self.routes
   end
 end

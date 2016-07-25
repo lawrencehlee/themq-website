@@ -3,8 +3,9 @@
 	<div class="top-tens-content pure-u-1 pure-u-lg-2-3">
 		<h1>All Top Tens</h1>
 		<% @top_tens.each do |top_ten| %>
-			<hr>
-			<div class="top-ten-box">
+
+      <div class="top-ten-box">
+        <hr>
 				<div class="top-ten-tags">
 					<% tags = top_ten.get_top_ten_tags %>
           <% tags.each do |tag| %>

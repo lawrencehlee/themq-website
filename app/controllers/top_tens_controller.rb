@@ -16,10 +16,6 @@ class TopTensController < ApplicationController
         @navbar_item = NAVBAR_ITEM
     end
 
-    def all
-        @top_tens = TopTen.order('top_ten_id DESC').page(params[:page]).per(5)
-    end
-
     def random
         @top_ten = TopTen.offset(rand(TopTen.count)).first
         i = 1
@@ -30,5 +26,10 @@ class TopTensController < ApplicationController
         end
         @entries = @entries.reverse
         @navbar_item = NAVBAR_ITEM
+
+        @random_top_ten = nil
+        @random_self_ad = SelfAd.get_random
+    		@brief = nil
+
     end
 end

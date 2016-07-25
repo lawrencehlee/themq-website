@@ -29,4 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
+
+  # redirecting any unknown route to top ten random
+  # it is important that this is at the bottom of this file
+  if Rails.env.production?
+    get '*path', :to => 'top_tens#random'
+  end
 end
