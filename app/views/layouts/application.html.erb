@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The MQ</title>
+  <% if yield(:title) != ""%>  
+    <title><%= yield(:title) %> - The MQ</title>
+  <% else %>
+    <title>The MQ</title>
+  <% end %>
 
 	<%= stylesheet_link_tag 'application', :media => 'all',
 		'data-turbolinks-track' => true %>
