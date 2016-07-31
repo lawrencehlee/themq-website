@@ -1,4 +1,4 @@
-<nav>
+<nav class="navbar">
 	<div class="container">
 		<div id="navbar-content">
 			<div id="navbar-logo">
@@ -43,11 +43,13 @@
 						<li class="priority-secondary caps">
 							<%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
 						</li>
-						<li class="" id="show-nav-more">
+						<li id="show-nav-more">
 							<a href="#">More/Less</a>
 						</li>
 						<li class="priority-primary">
-							Search
+							<%= form_tag("/search", method: "get", class: "search navbar-search") do %>
+								<%= text_field_tag :query, nil, { placeholder: "Search" } %>
+							<% end %>
 						</li>
 					</ul>
 				</div>

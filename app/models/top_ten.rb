@@ -5,6 +5,10 @@ class TopTen < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
+  searchable do
+    text :title
+  end
+
 	def should_generate_new_friendly_id?
 		slug.blank? || self.name_changed?
 	end
@@ -44,12 +48,21 @@ class TopTen < ActiveRecord::Base
     render partial: 'top_tens/tag_show_view', locals: {:top_ten => self}
   end
 
+  def render_search_view
+    render partial: 'top_tens/search_view', locals: {top_ten: self}
+  end
+
 	# Gets top ten entries 10 through 7.
 	def get_top_ten_entries_teaser
 		number_of_entries = 4
 		TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc").first(number_of_entries)
 		#TopTenEntry.where(top_ten_id: self.top_ten_id).order("entry_no desc")
 	end
+
+  def get_attribution_line
+    issue = Issue.find(self.issue_id)
+    "#{issue.get_full_issue_name} - #{issue.get_human_readable_date}"
+  end
 
 	def get_top_ten_tags
 		tags = Array.new()

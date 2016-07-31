@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixins";
+
+form.search {
+  input {
+    border-radius: 1em;
+    border: 2px solid grey;
+    padding: 0.5em;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+form.navbar-search {
+  input {
+    font-family: $serif-headline-font-stack;
+    max-width: 90%;
+    background-color: rgba(255, 255, 255, 0.10);
+
+    &:focus {
+      border-color: white;
+    }
+  }
+
+}
+
+form.large-search {
+  input {
+    width: 100%;
+    &:focus {
+      border-color: #337ab7;
+    }
+  }
+}

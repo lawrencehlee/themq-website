@@ -1,0 +1,10 @@
+<% if ed_pcp.is_ed? %>
+  <h2>Editorial: <%= link_to ed_pcp.headline, ed_pcp %></h2>
+<% elsif ed_pcp.is_point? %>
+  <h2>Point: <%= link_to ed_pcp.headline, ed_pcp %></h2>
+<% else %>
+  <h2>Counterpoint: <%= link_to ed_pcp.headline, ed_pcp.get_counterpoint %></h2>
+<% end %>
+<div class="search-result-subtitle">
+  By <%= "#{ed_pcp.author} in: #{ed_pcp.get_issue.get_long_info}" %>
+</div>

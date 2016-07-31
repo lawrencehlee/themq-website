@@ -7,9 +7,17 @@ class EdPcp < ActiveRecord::Base
 	IMAGE_SUBDIRECTORY = 'ed_pcps'
 	ARTICLE_SUBDIRECTORY = 'articles'
 
+  searchable do
+    text :headline, :author, :author_title
+  end
+
 	def should_generate_new_friendly_id?
 		slug.blank? || self.title_changed?
 	end
+
+  def get_issue
+    Issue.find(self.issue_id)
+  end
 
 	def get_ed_pcp_text
 		filepath = File.join(
@@ -95,7 +103,7 @@ class EdPcp < ActiveRecord::Base
 		if self.counterpoint == 1
 			ed_pcp = EdPcp.find(self.crspnd_point)
 		end
-		render partial: 'ed_pcps/tag_view', locals: {:ed_pcp => ed_pcp}
+		render partial: 'ed_pcps/tag_view', locals: {ed_pcp: ed_pcp}
 	end
 
 	def render_tag_show_view
@@ -103,8 +111,12 @@ class EdPcp < ActiveRecord::Base
 		if self.counterpoint == 1
 			ed_pcp = EdPcp.find(self.crspnd_point)
 		end
-		render partial: 'ed_pcps/tag_show_view', locals: {:ed_pcp => ed_pcp}
+		render partial: 'ed_pcps/tag_show_view', locals: {ed_pcp: ed_pcp}
 	end
+
+  def render_search_view
+    render partial: 'ed_pcps/search_view', locals: {ed_pcp: self}
+  end
 
 	def get_tags
 		tags = Array.new()

@@ -39,3 +39,12 @@ passenger.*
 # article and image stuff
 app/assets/articles
 app/assets/images
+
+solr/data
+solr/test
+solr/development
+solr/default/data
+/log/*.log.lck
+solr/pids
+
+.byebug*

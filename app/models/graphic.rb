@@ -1,5 +1,13 @@
+require 'render_anywhere'
+
 class Graphic < ActiveRecord::Base
+  include RenderAnywhere
+
 	IMAGE_SUBDIRECTORY = 'graphics'
+
+  searchable do
+    text :caption, :default_boost => 0.5
+  end
 
 	def get_relative_image_path
 		issue = Issue.find(self.issue_id)
@@ -12,4 +20,8 @@ class Graphic < ActiveRecord::Base
     article
 	end
 
+  def render_search_view
+    render partial: 'graphics/search_view',
+      locals: {graphic: self, article: get_article_for_graphic}
+  end
 end

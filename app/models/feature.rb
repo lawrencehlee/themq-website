@@ -7,10 +7,17 @@ class Feature < ActiveRecord::Base
 	friendly_id :name, use: :slugged
 	FEATURE_SUBDIRECTORY = 'features'
 
+  searchable do
+    text :title
+  end
+
 	def should_generate_new_friendly_id?
 		slug.blank? || self.name_changed?
 	end
 
+  def get_issue
+    Issue.find(self.issue_id)
+  end
 
 	def get_relative_feature_path
 		issue = Issue.find(self.issue_id)
@@ -76,6 +83,10 @@ class Feature < ActiveRecord::Base
 	def render_tag_show_view
 		render partial: 'features/tag_show_view', locals: {:feature => self}
 	end
+
+  def render_search_view
+    render partial: 'features/search_view', locals: {feature: self}
+  end
 
 	def get_related_content(limit, content_types, filter)
 		related_content = Array.new

@@ -1,25 +1,36 @@
+require 'render_anywhere'
+
 class Person < ActiveRecord::Base
-	extend FriendlyId
-	friendly_id :name, use: :slugged
+  extend FriendlyId
+  include RenderAnywhere
 
-	def should_generate_new_friendly_id?
-		slug.blank? || self.name_changed?
-	end
+  friendly_id :name, use: :slugged
 
+  EDITORS_SUBDIRECTORY = 'editors'
 
-	EDITORS_SUBDIRECTORY = 'editors'
+  searchable do
+    text :name
+  end
 
-	def get_all_articles_for_person
-		Article.where(person_id: self.person_id)
-	end
+  def get_position
+    Position.find(self.position_id)
+  end
+
+  def should_generate_new_friendly_id?
+    slug.blank? || self.name_changed?
+  end
+
+  def get_all_articles_for_person
+    Article.where(person_id: self.person_id)
+  end
 
   def get_all_graphics_for_person
     Graphic.where(person_id: self.person_id)
   end
 
-	def get_relative_image_path
-		"#{EDITORS_SUBDIRECTORY}/#{self.image}"
-	end
+  def get_relative_image_path
+    "#{EDITORS_SUBDIRECTORY}/#{self.image}"
+  end
 
   def split_full_name
     self.name.gsub(/\s+/m, ' ').strip.split(" ")
@@ -45,5 +56,8 @@ class Person < ActiveRecord::Base
     more_content.delete(excluded)
     more_content.sample(limit)
   end
-  
+
+  def render_search_view
+    render partial: 'people/search_view', locals: {person: self}
+  end
 end

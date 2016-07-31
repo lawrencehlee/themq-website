@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'search', to: 'search#index'
 
   # redirecting any unknown route to top ten random
   # it is important that this is at the bottom of this file

@@ -28,6 +28,10 @@ class Issue < ActiveRecord::Base
 	  self.date.to_formatted_s(:long)
 	end
 
+  def get_long_info
+    "#{self.get_full_issue_name} - #{self.get_human_readable_date}"
+  end
+
 	def get_relative_celeb_photo_path
 		"#{self.get_abbreviated_issue_name}/#{IMAGE_SUBDIRECTORY}/#{self.celeb_photo}"
 	end
