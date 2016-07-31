@@ -14,6 +14,11 @@ class TopTensController < ApplicationController
     def index
         @top_tens = TopTen.order('top_ten_id DESC').page(params[:page]).per(5)
         @navbar_item = NAVBAR_ITEM
+
+        @current_issue = Issue.get_latest_issue
+        @top_ten_randomizer = nil
+        @random_self_ad = SelfAd.get_random
+        @brief = Article.get_random_brief_from_issue(@current_issue)
     end
 
     def random

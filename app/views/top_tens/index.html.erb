@@ -3,29 +3,32 @@
 <div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="top-ten-all-content pure-g">
 	<div class="top-tens-content pure-u-1 pure-u-lg-2-3">
-		<h1>All Top Tens</h1>
-		<% @top_tens.each do |top_ten| %>
-
-      <div class="top-ten-box">
-        <hr>
-				<div class="top-ten-tags">
-					<% tags = top_ten.get_top_ten_tags %>
-          <% tags.each do |tag| %>
-            <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-  						<button class="button-small pure-button">
-	  						<i class="fa fa-tag"></i>
-		  					<%= tag.title %>
-			  			</button>
+    <div class="left-bar">
+      <h1>All Top Tens</h1>
+      <% @top_tens.each do |top_ten| %>
+        <div class="top-ten-box">
+          <hr>
+          <div class="top-ten-tags">
+            <% tags = top_ten.get_top_ten_tags %>
+            <% tags.each do |tag| %>
+              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                <button class="button-small pure-button">
+                  <i class="fa fa-tag"></i>
+                  <%= tag.title %>
+                </button>
+              <% end %>
             <% end %>
-					<% end %>
-				</div>
+          </div>
 
-				<%= render 'inline', :top_ten => top_ten %>
-			</div>
-		<% end %>
+          <%= render 'inline', :top_ten => top_ten %>
+        </div>
+      <% end %>
+    </div>
 	</div>
-	<div class="sidebar-content pure-u-1 pure-u-lg-1-3">
-		<p>We're gonna need a bigger whoop</p>
+
+	<div class="sidebar pure-u-1 pure-u-lg-1-3">
+		<%= render 'top_tens/randomizer_sidebar', :top_ten_randomizer => @top_ten_randomizer,
+			:self_ad => @random_self_ad, :brief => @brief %>
 	</div>
 
 	<div class="pagination pure-u-1">

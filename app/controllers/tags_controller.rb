@@ -55,5 +55,9 @@ class TagsController < ApplicationController
 		elsif @tag_id == "5"
 			@navbar_item == "Local News"
 		end
+
+		@random_top_ten = TopTen.get_random
+		@random_self_ad = SelfAd.get_random
+		@brief = Article.get_random_brief
 	end
 end
