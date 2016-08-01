@@ -6,7 +6,8 @@
 					<% # TODO: not every piece of content has a headline
 						# How do we handle this?
 						graphic = Graphic.find(content.graphic_id)
-						person = Person.find(content.person_id)
+            person = Person.find(content.person_id)
+            co_author = content.get_co_author_or_nil
 						issue = Issue.find(content.issue_id)
 					%>
 				<!-- Link to the specified content -->
@@ -20,7 +21,10 @@
 								background-size: cover; background-position: center;">
 						<div class="slideshow-text">
 							<h2 class="slideshow-label headline"><%= content.headline %></h2>
-							<div class="slideshow-details attribution">
+              <div class="slideshow-details attribution">
+                <% if !co_author.nil? %>
+                  <span class="index-person"><%= co_author.name %> -</span>
+                <% end %>
 								<span class="index-person"><%= person.name %> -</span>
 								<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
 								<span class="index-date"><%= issue.get_human_readable_date %></span>
@@ -35,7 +39,8 @@
 				<h2 class="main-section-title">News</h2>
 				<% @news_articles.each do |article| %>
 					<% graphic = Graphic.find(article.graphic_id) %>
-					<% person = Person.find(article.person_id) %>
+          <% person = Person.find(article.person_id) %>
+          <% co_author = article.get_co_author_or_nil %>
 					<% issue = Issue.find(article.issue_id) %>
 					<div class="news-content pure-g">
 						<div class="news-content-image pure-u-1 pure-u-lg-1-3">
@@ -47,8 +52,11 @@
 								<h2 class="regular-headline">
 									<%= link_to article.headline, article %>
 								</h2>
-								<div class="attribution">
-									<span class="index-person"><%= person.name %> -</span>
+                <div class="attribution">
+                  <% if !co_author.nil? %>
+                    <span class="index-person"><%= link_to co_author.name, co_author %> -</span>
+                  <% end %>
+                  <span class="index-person"><%= link_to person.name, person %> -</span>
 									<span class="index-issue"><%= issue.get_full_issue_name %> -</span>
 									<span class="index-date"><%= issue.get_human_readable_date %></span>
 								</div>

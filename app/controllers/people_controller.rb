@@ -23,7 +23,6 @@ class PeopleController < ApplicationController
 		@staff_members = get_all_staff_members
     @staff_members_right = @staff_members.slice(0, @staff_members.length/2)
     @staff_members_left = @staff_members.slice(@staff_members.length/2, @staff_members.length)
-
     @latest_issue = Issue.get_latest_issue
     @staff_photo = @latest_issue.get_abbreviated_issue_name + "/general/" + @latest_issue.staff_photo
     @staff_photo_caption = @latest_issue.staff_photo_caption
@@ -31,7 +30,7 @@ class PeopleController < ApplicationController
 
 	def show
 		@person = Person.friendly.find(params[:id])
-		@position = Position.find(@person.position_id)
+		@position_title = @person.get_title
 		@articles = @person.get_all_articles_for_person
 		@graphics = Array.new()
 		@articles.each do |article|
@@ -48,7 +47,7 @@ class PeopleController < ApplicationController
       @leading_articles = @articles
       @leading_graphics = @graphics
       @second_articles = @articles2
-      @second_graphics = @graphic2
+      @second_graphics = @graphics2
       @leading_articles = Kaminari.paginate_array(@articles).page(params[:page]).per(10)
       @first_column = "articles"
     else

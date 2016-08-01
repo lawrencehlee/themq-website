@@ -57,7 +57,16 @@ class Person < ActiveRecord::Base
     more_content.sample(limit)
   end
 
+  # returns a person's position, or "former" + position name if they're alumni
+  def get_title
+    if self.current == "0"
+      return "Former " + Position.find(self.position_id).title
+    end
+    Position.find(self.position_id).title
+  end
+  
   def render_search_view
     render partial: 'people/search_view', locals: {person: self}
   end
+
 end

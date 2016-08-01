@@ -204,11 +204,9 @@ class Article < ActiveRecord::Base
 
   def get_co_author_or_nil
     if self.co_author
-      co_author = Person.find(self.co_author)
-      return co_author, Position.find(co_author.position_id).title
+      return Person.find(self.co_author)
     end
-
-    return nil, nil
+    nil
   end
 
   def get_graphic_for_article

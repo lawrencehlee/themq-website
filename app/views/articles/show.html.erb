@@ -26,9 +26,9 @@
 			<div class="pure-g">
 				<div class="author-position pure-u-1 pure-u-md-1-2">
 					<% if @co_author %>
-						<p><%= @co_author.name %>, <%= @co_author_position %></p>
+						<p><%= link_to @co_author.name, @co_author %>, <%= @co_author_position %></p>
 				<% end %>
-					<p><%= @author.name %>, <%= @author_position %></p>
+					<p><%= link_to @author.name, @author %>, <%= @author_position %></p>
 				</div>
 				<div class="issue-date pure-u-1 pure-u-md-1-2">
 					<p><%= @issue.get_full_issue_name %> -
@@ -40,7 +40,7 @@
 	  			<%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
 		  	</div>
   			<div class="image-data">
-	  			<p class="designer">Photo by: <%= @graphic_designer.name %></p>
+	  			<p class="designer">Photo by: <%= link_to @graphic_designer.name, @graphic_designer %></p>
 		  		<p class="caption"><%= @graphic.caption %></p>
 			  </div>
       <% end %>

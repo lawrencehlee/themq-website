@@ -65,9 +65,10 @@
 					</div>
 					<div class="date-author">
 						<% if @co_author %>
-							<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %> / <%= @co_author.name %></p>
+              <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %> / 
+                 <%= link_to @co_author.name, @co_author %></p>
 					<% else %>
-							<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
+							<p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %></p>
 					<% end %>
 					</div>
 				</div>

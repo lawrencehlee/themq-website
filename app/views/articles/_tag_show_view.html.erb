@@ -16,7 +16,7 @@
 			  <% end %>
 	  	</div>
 			<% @person = Person.find(article.person_id) %>
-			<% @co_author, @position = article.get_co_author_or_nil %>
+			<% @co_author = article.get_co_author_or_nil %>
 			<% @issue = Issue.find(article.issue_id) %>
 			<div class="article-teaser">
 				<% @article_text_teaser = article.get_article_text_teaser 25 %>
@@ -24,9 +24,10 @@
 			</div>
 			<div class="date-author">
 				<% if @co_author %>
-					<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %> / <%= @co_author.name %></p>
+          <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %> / 
+             <%= link_to @co_author.name, @co_author %></p>
 				<% else %>
-					<p><%= @issue.date.to_formatted_s(:long) %> / <%= @person.name %></p>
+					<p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %></p>
 				<% end %>
 			</div>
 		</div>
