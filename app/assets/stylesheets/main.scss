@@ -2,9 +2,6 @@
 @import "base/mixins";
 
 .main {
-	padding-top: 2em;
-	padding-bottom: 2em;
-
 	.main-content {
 		.slideshow {
 
@@ -67,6 +64,7 @@
 		.more-stories-content {
 			margin-bottom: 1em;
 		}
+
 	}
 
 	.see-more {

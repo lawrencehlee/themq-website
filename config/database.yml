@@ -16,6 +16,7 @@ default: &default
   host: localhost
   username: mqdb-dev
   password: <%= ENV['DEV_DB_PASSWORD'] %>
+  #this socket is not the same as in git
   socket: /var/lib/mysql/mysql.sock
 
 development:

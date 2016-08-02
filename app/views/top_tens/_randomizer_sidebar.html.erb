@@ -1,0 +1,31 @@
+<% content_for :specific_sidebar do %>
+<div class="randomizer-sidebar">
+	<% unless top_ten_randomizer.nil? %>
+	<div class="sidebar-element">
+    Placeholder
+	</div>
+	<% end %>
+
+	<% unless self_ad.nil? %>
+	<div class="sidebar-element">
+		<%= image_tag(self_ad.get_relative_image_path) %>
+	</div>
+	<% end %>
+
+	<% unless brief.nil? %>
+	<div class="sidebar-element">
+		<h3 class="regular-headline">
+			<%= link_to "Brief: " + brief.headline, brief %>
+		</h3>
+		<p class="brief-text-preview">
+		<%= brief.get_article_text_teaser 50 %>
+		</p>
+		<div class="see-more">
+			<%= link_to "Continue reading ›", brief %>
+		</div>
+	</div>
+	<% end %>
+</div>
+<% end %>
+
+<%= render 'layouts/sidebar' %>

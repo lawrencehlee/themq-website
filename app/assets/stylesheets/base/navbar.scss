@@ -1,0 +1,141 @@
+@import "variables";
+@import "mixins";
+
+$navbar-border: 1px solid #000;
+$font-color: white;
+$background-color: #262644;
+
+nav.navbar {
+  font-family: $serif-headline-font-stack;
+  display: block;
+  text-align: center;
+  color: $font-color;
+  font-weight: bold;
+
+  .container {
+    background-color: $background-color;
+  }
+
+  #navbar-content {
+    padding-top: 2em;
+  }
+
+  #navbar-logo {
+    img {
+      max-width: 70%;
+    }
+    #navbar-masthead {
+      font-style: italic;
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+
+    #navbar-celeb {
+      font-style: normal;
+      margin-left: 1em;
+      position: relative;
+      white-space: nowrap;
+
+      span {
+        position: absolute;
+        left: 50%;
+        display: none;
+        z-index: 99;
+
+        img {
+          max-width: 128px;
+        }
+      }
+
+      &:hover span {
+        display: block;
+      }
+    }
+    margin-bottom: 1em;
+  }
+
+  #navbar-nav {
+    border-top: 4px solid grey;
+    border-bottom: 4px solid grey;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    text-align: left;
+
+    #navbar-nav-inner {
+      max-width: 95%;
+      margin: 0 auto;
+    }
+
+    ul {
+      li {
+        padding: 0 1em;
+        display: none;
+        font-size: $font-xs-sm;
+
+        &.caps {
+          text-transform: uppercase;
+        }
+
+        &.priority-primary {
+          display: inline-block;
+        }
+
+        &#show-nav-more, &#show-nav-less {
+          display: inline-block;
+        }
+
+        a {
+          padding: 0.5em 0;
+
+          &.current-page {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $sm-min-width) {
+  nav.navbar {
+    #navbar-logo {
+      img {
+        max-width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg-min-width) {
+  nav.navbar {
+    #navbar-logo {
+      img {
+        max-width: 30%;
+      }
+    }
+
+    #navbar-nav {
+      ul {
+        li {
+          &.priority-secondary {
+            display: inline-block;
+          }
+          &#show-nav-less {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $xl-min-width) {
+  nav.navbar {
+    #navbar-nav {
+      text-align: center;
+      #navbar-nav-inner {
+        max-width: 100%;
+      }
+    }
+  }
+}

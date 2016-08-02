@@ -1,0 +1,141 @@
+@import "base/variables";
+@import "base/mixins";
+
+/* Here is the styling for a person's show page */
+.person-info {
+	margin-top: 2em;
+	margin-bottom: 1em;
+	.editor-info {
+		.bio {
+      display: none;
+			p {
+				margin-right: 1em;
+				margin-left: 1em;
+			}
+		}
+		.image {
+			img {
+				width: 95%;
+				border-radius: 1em;
+			}
+		}
+	}
+}
+
+.paginate {
+  text-align: right;
+  margin-right: 0.5em;
+  margin-bottom: 1em;
+}
+
+.first-column, .second-column {
+  text-align: center;
+}
+
+.leading-article-box, .second-graphic-box {
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	.see-articles{
+		text-align: center;
+		margin-bottom: 1em;
+	}
+
+  .article-box {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  img {
+    width: 95%;
+  }
+
+	.article-data {
+		p {
+			//margin-left: 1em;
+		}
+		h3 {
+			//margin-left: 1em;
+		}
+		.article-tags {
+			//margin-left: 1em;
+			a {
+				&:hover {
+					background-color: $link-hover-background-color;
+				}
+			}
+		}
+		.article-date {
+			color: $light-grey;
+		}
+	}
+}
+
+
+/* Here is the styling for the people index page */
+.person-index-content {
+  margin-top: 2em;
+  .editors-index {
+	  margin-top: 2em;
+    .featured-editor {
+      margin-bottom: 0.5em;
+    }
+
+  	.editor-data {
+      height: 300px;
+      overflow: hidden;
+      .editor-image {
+        height: 200px;
+        overflow: hidden;
+      }
+	  	img {
+		  	width: 95%;
+  		}
+	  	margin-bottom: 0.5em;
+  	}
+  }
+  .staff-members {
+    h2 {
+      text-align: center;
+    }
+    .staff-members-col-1 {
+      margin-right: 1em;
+      float: right;
+    }
+    .staff-members-col-2 {
+      margin-left: 1em;
+    }
+    .staff-photo {
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 1em;
+      margin-bottom: 2em;
+    }
+  }
+}
+
+//pure button sizing
+.button-small {
+	font-size: 85%;
+}
+
+@media screen and (min-width: $md-min-width){
+  body {
+    .person-show-page {
+      .person-show-content {
+        .editor-info {
+          .bio {
+            display: block;
+          }
+        }
+      }
+    }
+    .person-index-content {
+      .staff-members {
+        .staff-photo {
+          width: 60%;
+        }
+      }
+    }
+  }
+}

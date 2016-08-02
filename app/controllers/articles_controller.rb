@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 	RELATED_CONTENT_LIMIT = 2
 	SAME_AUTHOR_CONTENT_LIMIT = 1
-	RELATED_CONTENT_TYPES = [Article]
+	RELATED_CONTENT_TYPES = [Article, EdPcp]
 	SAME_AUTHOR_CONTENT_TYPES = [Article]
-
+	NAVBAR_ITEM = "Articles"
 
 	def show
 		@article = Article.friendly.find(params[:id])
@@ -11,13 +11,18 @@ class ArticlesController < ApplicationController
 		@graphic = Graphic.find(@article.graphic_id)
 		@issue = Issue.find(@article.issue_id)
 		@author = Person.find(@article.person_id)
-		@author_position = Position.find(@author.position_id).title
-		@co_author, @co_author_position = @article.get_co_author_or_nil
+		@author_position = @author.get_title
+    @co_author = @article.get_co_author_or_nil
+    @co_author_position = nil
+    if @co_author
+      @co_author_position = @co_author.get_title
+    end
 		@graphic_designer = Person.find(@graphic.person_id)
 
 		@tags = Array.new()
-		@tags = @article.get_article_tags
+		@tags = @article.get_tags
 
+		# Specific sidebar stuff
 		current_issue_filter = "issue_id = #{@issue.issue_id}"
 		not_current_issue_filter = "issue_id != #{@issue.issue_id}"
 
@@ -32,14 +37,17 @@ class ArticlesController < ApplicationController
 		@same_author_content += @author.get_more_content(
 				SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
 				not_current_issue_filter, @article)
+
+		@navbar_item = NAVBAR_ITEM
 	end
 
 	def index
+		@current_issue = Issue.get_latest_issue
 		@top_story = Article.find(Article.first.get_top_story)
 		@top_story_graphic = Graphic.find(@top_story.graphic_id)
 		@top_story_issue = Issue.find(@top_story.issue_id)
 		@top_story_person = Person.find(@top_story.person_id)
-		@top_story_co_author, @top_story_co_author_positon = @top_story.get_co_author_or_nil
+		@top_story_co_author = @top_story.get_co_author_or_nil
 
 		@more_stories = Array.new()
 		@more_stories_graphics = Array.new()
@@ -49,11 +57,20 @@ class ArticlesController < ApplicationController
 			@more_stories_graphics << Graphic.find(article.graphic_id)
 		end
 
+		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
+		@random_self_ad = SelfAd.get_random
+		@brief = Article.get_random_brief_from_issue(@current_issue)
+
+		@navbar_item = NAVBAR_ITEM
 	end
 
 	def all
+		@current_issue = Issue.get_latest_issue
 		@articles = Article.order('article_id DESC').page(params[:page]).per(10)
-		#@graphics = Graphic.order('article_id DESC').page(params[:page]).per(10)
-	end
+		@random_top_ten = TopTen.get_random
+		@random_self_ad = SelfAd.get_random
+		@brief = Article.get_random_brief
 
+		@navbar_item = NAVBAR_ITEM
+	end
 end

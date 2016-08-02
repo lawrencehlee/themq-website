@@ -2,23 +2,17 @@ class MainController < ApplicationController
   def index
 		@current_issue = Issue.get_latest_issue
 
-		# TODO: In the future, we're going to hand-select the featured
-		# pieces in the slideshow
-		@featured_content = Array.new
-		@featured_content << Article.find(1)
-		@featured_content << Article.find(2)
+    @featured_content = Issue.get_slideshow_content.map { |id| Article.find(id) }
 
-		@news_articles = Array.new
-		@news_articles << Article.find(13)
-		@news_articles << Article.find(14)
+    @news_articles = Issue.get_news_content.map { |id| Article.find(id) }
 
-		@point = EdPcp.where(point: 1).first
-		@counterpoint = EdPcp.where(crspnd_point_id: @point.ed_pcp_id).first
+    @more_stories = Issue.get_more_stories.map { |id| EdPcp.find(id) }
+
+    @features_content = Issue.get_features_content.map { |id| Feature.find(id) } 
 
 		@random_top_ten = TopTen.get_random_from_issue(@current_issue)
 		@random_self_ad = SelfAd.get_random_from_issue(@current_issue)
 
-		@brief = Article.find(5)
-		# @brief = Article.get_random_brief_from_issue(@current_issue)
+		@brief = Article.get_random_brief_from_issue(@current_issue)
   end
 end

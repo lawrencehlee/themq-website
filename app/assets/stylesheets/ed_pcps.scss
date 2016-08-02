@@ -3,250 +3,237 @@
 
 /* Here goes the css for ed_pcp show */
 .social-share {
-	display: none;
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	.social-media-buttons {
-		position: fixed;
-	}
-	font-size: .5em;
+  display: none;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .social-media-buttons {
+    position: fixed;
+  }
+  font-size: .5em;
 }
 .social-share-small {
-	margin-left: 1em;
+  margin-left: 1em;
 }
 
 .ed-pcp-show-content {
-	margin-left: 1em;
-	margin-top: 2em;
-	margin-bottom: 2em;
+  margin-left: 1em;
 
-	.ed-pcp-content {
-		hr {
-			margin-top: 1em;
-			margin-bottom: 1em;
-		}
-		h1 {
-			text-align: left;
-			margin: 0;
-		}
-		.article-tags {
-			margin-top: 1em;
-			margin-bottom: 1em;
-		}
-		.content-text {
-			p {
-				text-align: left;
-				margin-top: 1em;
-				margin-bottom: 1em;
-			}
-		}
-		.ed-pcp-data {
-			margin-top: 1em;
-			p {
-				color: $light-grey;
-			}
-		}
+  .ed-pcp-content {
+    h1 {
+      text-align: left;
+      margin: 0;
+    }
+    .article-tags {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    .content-text {
+      p {
+        text-align: left;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+    }
+    .ed-pcp-data {
+      margin-top: 1em;
+      p {
+        color: $light-grey;
+      }
+    }
 
-		.author-image {
-			margin-top: 1em;
-		}
-	}
+    .author-image {
+      margin-top: 1em;
+    }
+  }
 }
 
 /*Here starts the index page css. I hope*/
 .ed-pcp-index-content {
-	margin-top: 2em;
-	margin-bottom: 2em;
-	.ed-pcp-content {
-		margin: auto;
-	}
-	.ed-pcp-box {
-		p {
-			margin-top: 1em;
-			margin-bottom: 1em;
-		}
-		.date-author {
-			p {
-				color: $light-grey;
-			}
-		}
-	}
-	hr {
-		margin-top: .5em;
-		margin-bottom: 1em;
-	}
+  .ed-pcp-content {
+    margin: auto;
+
+    .ed-pcp-pcps {
+      margin-top: 1em;
+      .pcp-wrapper {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        border-bottom: 1px solid grey;
+
+        &:first-child {
+          padding-top: none;
+        }
+        &:last-child {
+          border: none;
+          padding-bottom: none;
+        }
+      }
+
+      .pcp {
+        .pcp-text-wrapper {
+          margin-left: 1em;
+        }
+
+        .point-box {
+          margin-bottom: 1em;
+        }
+
+        .pcp-tags {
+          a {
+            &:hover {
+              background-color: $link-hover-background-color;
+            }
+          }
+        }
+
+        .date-author {
+          width: 95%;
+          p {
+            color: $light-grey;
+          }
+        }
+      }
+    }
+
+    .ed-pcp-box {
+      p {
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      .date-author {
+        p {
+          color: $light-grey;
+        }
+      }
+    }
+    hr {
+      margin-top: .5em;
+      margin-bottom: 1em;
+    }
+  }
 }
 
 .ed-pcp-editorials {
-	h1 {
-		text-align: center;
-	}
-	.editorial-image {
-		text-align: center;
-		//margin-top: 1em;
-		margin-bottom: .5em;
-		img {
-			width: 95%;
-			position: center;
-		}
-	}
-	.editorial-data {
-		text-align: left;
-		//margin-left: 2.5%;
-		//margin-right: 2.5%;
-		p {
-			color: $light-grey;
-			margin-left: 1.125em; //how many decimal places do you think css supports?
-		}
-		h2 {
-			margin-top: .5em;
-			//margin-bottom: 1em;
-		}
-		.regular-headline {
-			margin-left: .75em;
-		}
-		h3 {
-			margin-left: 1em;
-		}
-		.editorials-tags {
-			margin-left: 1em;
-			a {
-				&:hover {
-					background-color: $link-hover-background-color;
-				}
-			}
-		}
-		.date-author {
-			//margin-left: 1em;
-		}
-	}
-}
+  .editorial-inner {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid grey;
+  }
+  h1 {
+    text-align: center;
+  }
 
-.ed-pcp-pcps {
-	font-size: $font-md-lg;
-	.pcp {
-		text-align: left;
-		margin-bottom: 2em;
-		margin-top: 2em;
-		.point-container, .counterpoint-container {
-      height: 550px; //this is hardcoded right now
-			padding-left: 1em;
-			border-right: 2px solid $bar-border-color;
-		}
-		.pcp-tags {
-			a {
-				&:hover {
-					background-color: $link-hover-background-color;
-				}
-			}
-		}
-		img {
-			width: 95%;
-			height: auto;
-			position: center;
-		}
-		h3 {
-			width: 95%;
-			margin-top: .25em;
-			margin-bottom: .5em;
-		}
-		.date-author {
-			width: 95%;
-			p {
-				color: $light-grey;
-			}
-		}
-	}
+  .editorial-image {
+    text-align: center;
+  }
+
+  .editorial-data {
+    .editorial-data-inner {
+      margin-left: 1em;
+    }
+    text-align: left;
+    p {
+      color: $light-grey;
+    }
+    .editorials-tags {
+      a {
+        &:hover {
+          background-color: $link-hover-background-color;
+        }
+      }
+    }
+  }
 }
 
 .see-more {
-	text-align: center;
-	margin-bottom: 1em;
-	a {
-		&:hover {
-			background-color: $link-hover-background-color;
-		}
-	}
+  text-align: center;
+  margin-bottom: 1em;
+  a {
+    &:hover {
+      background-color: $link-hover-background-color;
+    }
+  }
 }
 
-/* CSS for the all articles page */
+/* CSS for the all ed/pcps page */
 .ed-pcp-content {
-	margin-top: 1em;
-	margin-bottom: 1em;
+  h1 {
+    text-align: center;
+  }
+  .ed-pcp-box {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 
-	h1 {
-		text-align: center;
-	}
-	.ed-pcp-box {
-		margin-top: 1em;
-		margin-bottom: 1em;
-	}
+  .ed-pcp-data {
+    font-size: $font-md-lg;
+    p {
+      margin-left: 1em;
+    }
+    h3 {
+      margin-left: 1em;
+    }
+    .ed-pcp-tags {
+      margin-left: 1em;
+      a {
+        &:hover {
+          background-color: $link-hover-background-color;
+        }
+      }
+    }
+    .ed-pcp-teaser {
+      display: none;
+    }
+    .date-author {
+      color: $light-grey;
+    }
+  }
 
-	.ed-pcp-data {
-		font-size: $font-md-lg;
-		p {
-			margin-left: 1em;
-		}
-		h3 {
-			margin-left: 1em;
-		}
-		.ed-pcp-tags {
-			margin-left: 1em;
-			a {
-				&:hover {
-					background-color: $link-hover-background-color;
-				}
-			}
-		}
-		.ed-pcp-teaser {
-			display: none;
-		}
-		.date-author {
-			color: $light-grey;
-		}
-	}
+  .pagination {
+    text-align: right;
+    margin-right: 0.5em;
+  }
 }
 
 //pure button sizing
 .button-small {
-	font-size: 85%;
+  font-size: 85%;
 }
 
 //Default specified above is for minimum width less than small I guess?
 
 @media screen and (min-width: $md-min-width){
-	body {
-		.ed-pcp-all-content {
-			.ed-pcp-data {
-				font-size: 100%;
-				.ed-pcp-teaser{
-					display: block;
-				}
-			}
-		}
-		.ed-pcp-more-stories {
-			font-size: 100%;
-		}
-		.ed-pcp-show-content {
-			margin-left: 2em;
-			.social-share {
-				display: block;
-			}
-			.social-share-small {
-				display: none;
-			}
-			.ed-pcp-content{
-				.issue-date {
-					p {
-						text-align: right;
-					}
-				}
-			}
-		}
-		.social-share {
-			font-size: 100%;
-		}
-	}
+  body {
+    .ed-pcp-all-content {
+      .ed-pcp-data {
+        font-size: 100%;
+        .ed-pcp-teaser{
+          display: block;
+        }
+      }
+    }
+    .ed-pcp-more-stories {
+      font-size: 100%;
+    }
+    .ed-pcp-show-content {
+      margin-left: 2em;
+      .social-share {
+        display: block;
+      }
+      .social-share-small {
+        display: none;
+      }
+      .ed-pcp-content{
+        .issue-date {
+          p {
+            text-align: right;
+          }
+        }
+      }
+    }
+    .social-share {
+      font-size: 100%;
+    }
+  }
 }

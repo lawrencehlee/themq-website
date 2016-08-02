@@ -9,6 +9,9 @@ gem 'mysql2', '0.3.20'
 gem 'purecss-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use for css random making
+gem 'compass-rails', '~> 3.0', '>= 3.0.2'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -42,9 +45,13 @@ gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
 #for feature lightboxing
 gem 'photoswipe-rails'
-
 # So that we can render stuff in models
 gem 'render_anywhere', :require => false
+#for making names possessive
+gem 'possessive'
+#For search
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -65,7 +72,5 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-	gem 'hirb'
 end
 

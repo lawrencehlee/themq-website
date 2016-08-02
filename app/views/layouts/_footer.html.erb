@@ -9,14 +9,18 @@
 					<div class="footer-links">
 						<span>
 							<%= link_to "Home",
-								{:controller => 'main', :action => 'index'},
+								{controller: 'main', action: 'index'},
 								{:data => {:'no-turbolink' => true}} %>
 						</span>·
 							<span>
-								<%= link_to "About", "#" %>
+                <%= link_to "About",
+                  {controller: 'static_pages', action: 'about' }
+                %>
 							</span>·
-							<span>
-								<%= link_to "Contributors", "#" %>
+              <span>
+                <%= link_to "Contributors",
+                  {controller: 'people', action: 'index'}
+                %>
 							</span>·
 							<span>
 								<%= link_to "Contact", "#" %>

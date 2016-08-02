@@ -17,8 +17,6 @@
 
 .article-show-content {
 	margin-left: 1em;
-	margin-top: 2em;
-	margin-bottom: 2em;
 
 	.article-content {
 		h1 {
@@ -71,8 +69,6 @@
 
 /*Here starts the index page css. I hope*/
 .article-index-content {
-	margin-top: 2em;
-	margin-bottom: 2em;
 	.articles-content {
 		margin: auto;
 	}
@@ -96,23 +92,15 @@
 .articles-top-story {
 	.top-story-image {
 		text-align: center;
-		//margin-top: 1em;
 		margin-bottom: 1em;
-		img {
-			width: 95%;
-			position: center;
-		}
 	}
 	.top-story-data {
 		text-align: left;
-		margin-left: 2.5%;
-		margin-right: 2.5%;
 		p {
 			color: $light-grey;
 		}
 		h2 {
 			margin-top: 1em;
-			//margin-bottom: 1em;
 		}
 		.top-story-tags {
 			a {
@@ -127,26 +115,20 @@
 
 .articles-more-stories {
 	font-size: $font-md-lg;
-	.more-stories {
-		h2 {
-			text-align: center;
-		}
+	h2#more-stories {
+		text-align: center;
+		margin-bottom: 1em;
 	}
 	.sub-story {
 		text-align: left;
-		margin-bottom: 2em;
-		margin-top: 2em;
+		margin-bottom: 1em;
+
 		.sub-story-tags {
 			a {
 				&:hover {
 					background-color: $link-hover-background-color;
 				}
 			}
-		}
-		img {
-			width: 95%;
-			height: 162px;
-			position: center;
 		}
 		h3 {
 			width: 95%;
@@ -216,11 +198,6 @@
   margin-right: 0.5em;
 }
 
-.article-all-content {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
 //pure button sizing
 .button-small {
 	font-size: 85%;
@@ -237,9 +214,6 @@
 					display: block;
 				}
 			}
-		}
-		.articles-more-stories {
-			font-size: 100%;
 		}
 		.article-show-content {
 			margin-left: 2em;
@@ -260,5 +234,21 @@
 		.social-share {
 			font-size: 100%;
 		}
+	}
+
+	.articles-more-stories {
+		font-size: 100%;
+		.sub-story {
+			img {
+				width: 95%;
+				height: 162px;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: $lg-min-width) {
+	.article-top-story {
+		margin-left: 1em;
 	}
 }

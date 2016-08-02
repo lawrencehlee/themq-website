@@ -1,11 +1,25 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<% content_for :title, "About" %>
+<!-- this title is temporary until I think of a joke to go here -->
 
-<div class="container">
-  <div class="row">
-    <div class="pure-g">
-      <div class="pure-u-1-2"><p>pure test</p></div>
-      <div class="pure-u-1-2"><p>pure test2</p></div>
-    </div>
+<div class="about-page-content pure-g">
+	<div class="about-content pure-u-1 pure-u-lg-2-3">
+    <h1 class="regular-headline">About</h1>
+
+		<p>The MQ is UCSD’s premier satirical newspaper. Founded in 1989ish, we strive to offer a critical (read: self-aware, responsibly-grown) perspective on real (read: sorta real) stories that matter to (read: show up on the Facebook feeds of) and affect (read: gently caress) the lives of our readers (read: “humans”).</p>
+		<p><br>You can find us every Tuesday at 6 p.m. in Muir College’s Half Dome Lounge (<a href="http://bit.ly/nyfgWP">here)</a>.</p>
+    <p>There’s always something to do, from writing, editing, and copying to Photoshopping, InDesigning, illustrating, or publicizing. Absolutely no experience required, only the ability to find us. I'll be wearing a red feather in my hat.</p>
+    <p><br>Contact our Web Editor Lawrence Lee at <a href="mailto:web-editor@themq.org">web-editor@themq.org</a><p>
+    <p>Our Editor-in-Chief Barak Tzori is at <a href="mailto:editor@themq.org">editor@themq.org</a>
+		<p>Or find us here: <a href="http://www.facebook.com/UCSDMQ">facebook.com/UCSDMQ</a>.</p>
+
+		<small>
+		<p><br>The MQ is proud to be a Muir College student organization. Printing funds for The MQ are generously provided by the Muir College Council.</p>
+		<p>All content is copyright © 2016 by The MQ unless superseded by previous condition of copyright, license, or trade dress. No portion of this paper may be reproduced, transcribed, or otherwise retransmitted without the express written consent of the Editor-in-Chief of The MQ, or at least a meaningful head nod of the Editor-in-Chief of The MQ.</p>
+		</small>
+
   </div>
+  <div class="sidebar pure-u-1 pure-u-lg-1-3">
+		<%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
+			:self_ad => @random_self_ad, :brief => @brief %>
+	</div>
 </div>
