@@ -1,0 +1,21 @@
+# This page contains data for determining exactly which articles, eds, features will be put on the home page
+# There are 4 sections here, slideshow, news, more, and features
+# The ids are picked up by the line before them, so don't change the sections titles, or else
+
+# first is the slideshow. Put articles ids and those articles will appear in the slideshow on front page.
+# My suggestion would be articles with strong headlines or really instantly funny graphics.
+# Five is plenty for this I wouldn't go over that, but also not under 3
+slideshow-content:
+16, 32, 64, 22, 55
+
+news-content:
+13, 14
+
+# this next section should only contain ids for editorials or points, NOT counterpoints
+# also no more than 2 things, that is 2 eds or 1 ed 1 point, don't do 2 points
+# last thing, if you want a point, put it AFTER the ed
+more-stories:
+5, 9
+
+features-content:
+16

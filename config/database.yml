@@ -51,6 +51,6 @@ test:
 #
 production:
   <<: *default
-  database: mqdb_production
+  database: mqdb_prod
   username: mqdb-prod
   password: <%= ENV['PROD_DB_PASSWORD'] %>
