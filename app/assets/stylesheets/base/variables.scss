@@ -4,7 +4,8 @@
 $serif-headline-font-stack: 'Ledger', serif;
 $serif-text-font-stack: 'Fjord One', serif;
 $sans-serif-font-stack: 'Lato', sans-serif;
-$primary-text-color: #000;
+$primary-text-color: #333;
+$paragraph-text-color: #444;
 $link-hover-background-color: #d3d3d3;
 
 $font-xs: 60%;
@@ -15,7 +16,7 @@ $font-lg: 120%;
 $font-lg-xl: 150%;
 $font-xl: 200%;
 
-// Responsive shit
+// Responsive breakpoints
 $sm-min-width: 35.5em;
 $md-min-width: 48em;
 $lg-min-width: 64em;

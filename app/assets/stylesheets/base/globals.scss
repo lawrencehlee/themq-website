@@ -32,6 +32,11 @@ body {
   color: $primary-text-color;
 	margin: 0 0 $footer-height; // For footer
 	font-size: 1em;
+
+	p {
+		line-height: 1.5;
+		color: $paragraph-text-color;
+	}
 }
 
 @media screen and (min-width: $lg-min-width) {
