@@ -31,9 +31,10 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#index'
 
-  # redirecting any unknown route to top ten random
-  # it is important that this is at the bottom of this file
-  if Rails.env.production?
-    get '*path', :to => 'top_tens#random'
+  # error pages
+  
+  resources :errors
+  %w( 404 422 500 503 ).each do |code|
+    get code, :to => "errors#index", :code => code
   end
 end
