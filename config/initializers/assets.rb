@@ -11,9 +11,9 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 #
 %w( application articles ed_pcps main static_pages top_tens features tags people search errors).each do |controller|
-	  Rails.application.config.assets.precompile +=
-			["#{controller}.coffee", "#{controller}.js",
-			"#{controller}.scss", "#{controller}.css"]
+    Rails.application.config.assets.precompile +=
+      ["#{controller}.coffee", "#{controller}.js",
+      "#{controller}.scss", "#{controller}.css"]
 end
 
 Rails.application.config.assets.precompile += %w( .woff .ttf )

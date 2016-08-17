@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% if yield(:title) != ""%>  
+  <% if yield(:title) != ""%>
     <title><%= yield(:title) %> - The MQ</title>
   <% else %>
     <title>The MQ</title>
   <% end %>
 
-	<%= stylesheet_link_tag 'application', :media => 'all',
-		'data-turbolinks-track' => true %>
-	<%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', :media => 'all',
-		'data-turbolinks-track' => true %>
-	<%= javascript_include_tag params[:controller] %>
+  <%= stylesheet_link_tag 'application', :media => 'all',
+    'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', :media => 'all',
+    'data-turbolinks-track' => true %>
+  <%= javascript_include_tag params[:controller] %>
   <%= csrf_meta_tags %>
-	<meta name="viewport" content="width=device-width", initial-scale="1">
+  <meta name="viewport" content="width=device-width", initial-scale="1">
 
 </head>
 <body>
-	<%= render 'layouts/navbar' %>
-	<div class="container wrapper">
-		<%= yield %>
-	</div>
-	<%= render 'layouts/footer' %>
+  <%= render 'layouts/navbar' %>
+  <div class="container wrapper">
+    <%= yield %>
+  </div>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

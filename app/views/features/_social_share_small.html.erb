@@ -1,8 +1,8 @@
 <span class="social-media-buttons-small">
-	<%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
-				"http://facebook.com/sharer.php?u=#{url_for([feature, {only_path: false}])}", :target => :blank%>
+  <%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
+        "http://facebook.com/sharer.php?u=#{url_for([feature, {only_path: false}])}", :target => :blank%>
 
-	<%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
-			"http://twitter.com/home?status=#{status} #{url_for([feature, {only_path: false}])}",
-			:target => :blank%>
+  <%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
+      "http://twitter.com/home?status=#{status} #{url_for([feature, {only_path: false}])}",
+      :target => :blank%>
 </span>

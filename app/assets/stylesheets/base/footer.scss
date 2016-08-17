@@ -2,63 +2,63 @@
 @import "mixins";
 
 footer {
-	.pure-g [class *= "pure-u"] {
-		font-family: $sans-serif-font-stack;
-	}
+  .pure-g [class *= "pure-u"] {
+    font-family: $sans-serif-font-stack;
+  }
 
-	// Make it sticky
-	position: absolute;
-	left:0;
-	bottom: 0;
-	width: 100%;
-	height: $footer-height;
+  // Make it sticky
+  position: absolute;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
 
-	color: $footer-text-color;
-	background-color: $footer-background-color;
-	font-family: $sans-serif-font-stack;
-	text-align: center;
+  color: $footer-text-color;
+  background-color: $footer-background-color;
+  font-family: $sans-serif-font-stack;
+  text-align: center;
 
-	.footer-main {
-		margin-top: 1em;
-		margin-bottom: 1em;
+  .footer-main {
+    margin-top: 1em;
+    margin-bottom: 1em;
 
-		.footer-links, .footer-social {
-			font-weight: bold;
-		}
+    .footer-links, .footer-social {
+      font-weight: bold;
+    }
 
-		// Links!
-		a {
-			color: $footer-link-color;
+    // Links!
+    a {
+      color: $footer-link-color;
 
-			&:visited {
-				color: $footer-link-color;
-			}
-			&:hover {
-				background-color: inherit;
-				color: #d3d3d3;
-			}
-		}
-	}
+      &:visited {
+        color: $footer-link-color;
+      }
+      &:hover {
+        background-color: inherit;
+        color: #d3d3d3;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $md-min-width) {
-	footer {
-		.footer-main {
-			.footer-links, .footer-social {
-				font-size: $font-md-lg;
-			}
-		}
-	}
+  footer {
+    .footer-main {
+      .footer-links, .footer-social {
+        font-size: $font-md-lg;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $lg-min-width) {
-	footer {
-		height: 8em;
-		text-align: left;
-		.footer-main {
-			.footer-links, .footer-social {
-				font-size: $font-lg;
-			}
-		}
-	}
+  footer {
+    height: 8em;
+    text-align: left;
+    .footer-main {
+      .footer-links, .footer-social {
+        font-size: $font-lg;
+      }
+    }
+  }
 }

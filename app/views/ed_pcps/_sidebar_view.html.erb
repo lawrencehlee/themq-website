@@ -1,13 +1,13 @@
 <% if ed_pcp.is_ed? %>
-	<h3 class="regular-headline">
-		<%= link_to "Editorial: " + ed_pcp.headline, ed_pcp %>
-	</h3>
+  <h3 class="regular-headline">
+    <%= link_to "Editorial: " + ed_pcp.headline, ed_pcp %>
+  </h3>
 <% elsif ed_pcp.is_point? %>
-	<% counterpoint = ed_pcp.get_counterpoint %>
-	<h3 class="regular-headline">
-		<%= link_to "Point: " + ed_pcp.headline, ed_pcp %>
-	</h3>
-	<h3 class="regular-headline">
-		<%= link_to "Counterpoint: " + counterpoint.headline, ed_pcp %>
-	</h3>
+  <% counterpoint = ed_pcp.get_counterpoint %>
+  <h3 class="regular-headline">
+    <%= link_to "Point: " + ed_pcp.headline, ed_pcp %>
+  </h3>
+  <h3 class="regular-headline">
+    <%= link_to "Counterpoint: " + counterpoint.headline, ed_pcp %>
+  </h3>
 <% end %>

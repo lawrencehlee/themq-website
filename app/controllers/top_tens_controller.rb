@@ -34,7 +34,7 @@ class TopTensController < ApplicationController
 
         @random_top_ten = nil
         @random_self_ad = SelfAd.get_random
-    		@brief = nil
+        @brief = nil
 
     end
 end

@@ -15,7 +15,7 @@ class ErrorsController < ApplicationController
      @navbar_item = NAVBAR_ITEM
      @random_top_ten = nil
      @random_self_ad = SelfAd.get_random
-  	@brief = nil
+    @brief = nil
   end
 
 end

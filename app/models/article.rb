@@ -217,7 +217,7 @@ class Article < ActiveRecord::Base
     end
     graphic
   end
-  
+
   # returns the article title w/o the slash. Eg. 22.5/Greenb -> Greenb
   def strip_article_title
     self.title.partition("/")[2..-1].join('')

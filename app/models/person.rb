@@ -64,7 +64,7 @@ class Person < ActiveRecord::Base
     end
     Position.find(self.position_id).title
   end
-  
+
   def render_search_view
     render partial: 'people/search_view', locals: {person: self}
   end

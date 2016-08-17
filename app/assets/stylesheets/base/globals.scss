@@ -3,17 +3,17 @@
 @import "purecss";
 
 * {
-	margin: 0;
+  margin: 0;
 }
 
 html {
-	position: relative;
-	min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 // So that the navbar looks better with all pages with h1 headings
 h1:first-of-type {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 .serif-text, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
@@ -21,33 +21,33 @@ h1:first-of-type {
 }
 
 .serif-headline, h1, h2, h3, h4, h5, h6, .title, .headline {
-	font-family: $serif-headline-font-stack;
+  font-family: $serif-headline-font-stack;
 }
 
 .sans-serif {
-	font-family: $sans-serif-font-stack;
+  font-family: $sans-serif-font-stack;
 }
 
 body {
   color: $primary-text-color;
-	margin: 0 0 $footer-height; // For footer
-	font-size: 1em;
+  margin: 0 0 $footer-height; // For footer
+  font-size: 1em;
 
-	p {
-		line-height: 1.5;
-		color: $paragraph-text-color;
-	}
+  p {
+    line-height: 1.5;
+    color: $paragraph-text-color;
+  }
 }
 
 @media screen and (min-width: $lg-min-width) {
-	body {
-		margin-bottom: 8em;
-	}
+  body {
+    margin-bottom: 8em;
+  }
 }
 
 a {
   text-decoration: none;
-	color: inherit;
+  color: inherit;
 
   &:visited {
     color: inherit;
@@ -55,71 +55,71 @@ a {
 }
 
 .container {
-	max-width: 95%;
+  max-width: 95%;
   margin: 0 auto;
   float: none;
 }
 
 // Responsive media queries for container
 @media screen and (min-width: $sm-min-width) {
-	.container {
-		width: $sm-container-min-width;
-	}
+  .container {
+    width: $sm-container-min-width;
+  }
 }
 @media screen and (min-width: $md-min-width) {
-	.container {
-		width: $md-container-min-width;
-	}
+  .container {
+    width: $md-container-min-width;
+  }
 }
 @media screen and (min-width: $lg-min-width) {
-	.container {
-		width: $lg-container-min-width;
-	}
+  .container {
+    width: $lg-container-min-width;
+  }
 }
 @media screen and (min-width: $xl-min-width) {
-	.container {
-		width: $xl-container-min-width;
-	}
+  .container {
+    width: $xl-container-min-width;
+  }
 }
 
 @media screen and (min-width: $lg-min-width) {
-	.left-bar {
-		padding-right: 1em;
-		border-right: 1px solid $bar-border-color;
-	}
+  .left-bar {
+    padding-right: 1em;
+    border-right: 1px solid $bar-border-color;
+  }
 }
 
 .sidebar-element {
-	&:first-child {
-		padding-bottom: 1em;
-	}
+  &:first-child {
+    padding-bottom: 1em;
+  }
 
-	padding-top: 1em;
-	padding-bottom: 1em;
-	border-top: 1px solid $bar-border-color;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-top: 1px solid $bar-border-color;
 }
 
 .caps {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .bold {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .attribution {
-	font-size: 0.85em;
+  font-size: 0.85em;
 }
 
 .regular-headline {
-	margin-bottom: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 .wrapper {
-	padding-top: 2em;
-	padding-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .navbar-mapper {
-	display: none;
+  display: none;
 }

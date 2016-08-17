@@ -4,70 +4,70 @@
 
 /* Here goes the css for feature show */
 .social-share {
-	display: none;
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	.social-media-buttons {
-		position: fixed;
-	}
-	font-size: .5em;
+  display: none;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .social-media-buttons {
+    position: fixed;
+  }
+  font-size: .5em;
 }
 
 .feature-show-content {
-	margin-left: 1em;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	.feature-content {
-		.feature-tags {
-			margin-top: 1em;
-			margin-bottom: 1em;
-		}
-		.feature-image {
-			img {
-				margin-top: 1em;
-			}
-		}
-	}
+  margin-left: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  .feature-content {
+    .feature-tags {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    .feature-image {
+      img {
+        margin-top: 1em;
+      }
+    }
+  }
 }
 
 /*Here starts the index page css.*/
 .feature-index-content {
-	margin-top: 2em;
-	margin-bottom: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   text-align: center;
-	.feature-content {
-		margin: auto;
-	}
-	.see-more {
-		text-align: center;
+  .feature-content {
+    margin: auto;
+  }
+  .see-more {
+    text-align: center;
     margin-bottom: 2em;
-	}
+  }
 
-	.sidebar {
-		text-align: left;
-	}
+  .sidebar {
+    text-align: left;
+  }
 }
 
 .top-feature {
 }
 
 .column-features {
-	.column-feature {
-		margin-top: 1em;
-		margin-bottom: 1em;
-		height: 400px;
-		overflow: hidden;
-	}
+  .column-feature {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    height: 400px;
+    overflow: hidden;
+  }
 }
 .more-features {
-	.more-feature {
-		margin-top: 1em;
-		margin-bottom: 1em;
-		height: 400px;
-		overflow: hidden;
-	}
+  .more-feature {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    height: 400px;
+    overflow: hidden;
+  }
 }
 
 /*Here is the css for the all page.*/
@@ -112,18 +112,18 @@
 }
 
 @media screen and (min-width: $md-min-width){
-	body {
-		.feature-show-content {
-			margin-left: 2em;
-			.social-share {
-				display: block;
-			}
-			.social-share-small {
-				display: none;
-			}
-		}
-		.social-share {
-			font-size: 100%;
-		}
-	}
+  body {
+    .feature-show-content {
+      margin-left: 2em;
+      .social-share {
+        display: block;
+      }
+      .social-share-small {
+        display: none;
+      }
+    }
+    .social-share {
+      font-size: 100%;
+    }
+  }
 }

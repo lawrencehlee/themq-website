@@ -1,21 +1,21 @@
 <% content_for :title, "Page Not Found" %>
 
 <div class="top-ten-random-content pure-g">
-	<div class="social-share pure-u-1-24">
-		<%= render :partial => "social_share", :locals => {:top_ten =>@top_ten, :status => @top_ten.title} %>
-	</div>
+  <div class="social-share pure-u-1-24">
+    <%= render :partial => "social_share", :locals => {:top_ten =>@top_ten, :status => @top_ten.title} %>
+  </div>
 
-	<div class="top-ten-content pure-u-23-24 pure-u-lg-15-24">
+  <div class="top-ten-content pure-u-23-24 pure-u-lg-15-24">
 
-		<div class="social-share-small">
-			<%= render :partial => "social_share_small", :locals => {:article => @top_ten, :status => @top_ten.title} %>
-		</div>
-		<%= render 'random', :top_ten => @top_ten %>
-		<div class="see-more">
-			<%= link_to "More top tens ›",
+    <div class="social-share-small">
+      <%= render :partial => "social_share_small", :locals => {:article => @top_ten, :status => @top_ten.title} %>
+    </div>
+    <%= render 'random', :top_ten => @top_ten %>
+    <div class="see-more">
+      <%= link_to "More top tens ›",
         {controller: 'top_tens', action: 'index'} %>
-		</div>
-	</div>
+    </div>
+  </div>
 
   <div class="sidebar pure-u-23-24 pure-u-lg-1-3">
 
@@ -23,7 +23,7 @@
     <h3>Looks like the page you tried to reach doesn't exist.</h3>
     <p>But here's a fully random top ten so you don't beat yourself up too hard about it.</p>
     <%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
-			:self_ad => @random_self_ad, :brief => @brief %>
+      :self_ad => @random_self_ad, :brief => @brief %>
 
-	</div>
+  </div>
 </div>

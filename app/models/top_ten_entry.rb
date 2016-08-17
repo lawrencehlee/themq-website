@@ -7,10 +7,10 @@ class TopTenEntry < ActiveRecord::Base
     text :text, :default_boost => 0.5
   end
 
-	# Gets the full text of the top ten like so: 10. This is an entry
-	def get_full_text
-		"#{self.entry_no}. #{self.text}"
-	end
+  # Gets the full text of the top ten like so: 10. This is an entry
+  def get_full_text
+    "#{self.entry_no}. #{self.text}"
+  end
 
   def get_top_ten
     TopTen.find(self.top_ten_id)

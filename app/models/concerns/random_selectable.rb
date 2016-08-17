@@ -1,9 +1,9 @@
 module RandomSelectable
-	extend ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
-	module ClassMethods
-		def random(collection)
-			collection.offset(rand(collection.count)).first
-		end
-	end
+  module ClassMethods
+    def random(collection)
+      collection.offset(rand(collection.count)).first
+    end
+  end
 end
