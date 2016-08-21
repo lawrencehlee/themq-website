@@ -1,5 +1,0 @@
-Archeologists reported that they have made an important discovery in UCSD’s Warren College: an ancient building they claim was used to study “Literature.” The term refers to an ancient major centered around the ritualistic analysis of books — a major which scholars had previously believed never existed at UCSD.
-
-“This ‘Literature’ building represents the best picture we have of the ways in which archaic societies interacted with prose,” said the leader of the expedition, Dr. John Rutledge. “The building is remarkably well preserved — if not for the overgrown garden outside and the primitive architectural style, you could almost imagine these ancient ‘literature’ professors were still right here in this building, studying and worshipping their pagan gods like ‘Moliere’ and ‘Shakespeare.’”
-
-At the time of the last report, none of the archeologists had yet ventured inside of the old, decrepit building. “This was an important and sacred place of study, and you don’t want to barge in without taking proper precaution,” said Rutledge. “Especially if it’s not during office hours.”

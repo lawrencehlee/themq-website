@@ -1,7 +1,0 @@
-UCSD continued its transition from using popular Blackboard clone TED to TritonEd, solving a problem which officials insist “once existed and now does not.” The transition, including costs related to convening a naming committee, acquiring copyright, designing a new logo, setting traditional UCSD IT “booby traps,” and redirecting the entire student body and majority of faculty at UCSD from “ted.ucsd.edu” to the new “tritoned.ucsd.edu” url, cost the student body the equivalent of one out-of-state student tuition, commonly known in academic circles as one “sucker.”
-
-Regardless, UCSD representatives assured students the changes are necessary.
-
-“There were definitely problems with the original TED, which we definitely received emails about from people who are most likely students or the parents of students talking about the problems which existed and now don’t because we solved them,” said official TritonEd hype man Laurent Cools.
-
-For now, students attempting to reach the old, outdated and most likely troublesome TED will be redirected to the new and “better” TritonEd. The transition is expected to end at the start of Fall Quarter 2016, coincidentally on the launch date of Chancellor Pradeep Khosla’s cousin, Teddy Khosla’s, UCSD gossip blog.
