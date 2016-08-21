@@ -20,33 +20,45 @@
         <% end %>
       </div>
       <div id="navbar-nav">
-        <div id="navbar-nav-inner">
+        <div class="pure-menu pure-menu-horizontal" id="navbar-nav-inner">
           <ul>
-            <li class="priority-primary caps">
+            <li class="caps">
               <%= link_to "Articles", controller: 'articles', action: 'index' %>
             </li>
-            <li class="priority-primary caps">
+            <li class="caps">
               <%= link_to "Features", controller: 'features', action: 'index' %>
             </li>
-            <li class="priority-primary caps">
+            <li class="caps">
               <%= link_to "Top Tens", controller: 'top_tens', action: 'index' %>
             </li>
-            <li class="priority-primary caps">
+            <li class="caps">
               <%= link_to "Editorials", controller: 'ed_pcps', action: 'index' %>
             </li>
-            <li class="priority-secondary caps">
-              <%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
+            <li id="navbar-more" class="pure-menu-item pure-menu-has-children pure-menu-allow-hover navbar-parent-list caps">
+              <a data-no-turbolink="true" href="#" onclick="return false">More ▼</a>
+              <ul class="pure-menu-children navbar-sublist">
+                <li class="pure-menu-item caps">
+                  <%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Contributors",
+                    {controller: 'people', action: 'index', class: 'pure-menu-link'}
+                  %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "About",
+                    {controller: 'static_pages', action: 'about', class: 'pure-menu-link'}
+                  %>
+                </li>
+              </ul>
             </li>
-            <li class="priority-secondary caps">
-              <%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
-            </li>
-            <li class="priority-secondary caps">
-              <%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
-            </li>
-            <li id="show-nav-more">
-              <a href="#">More/Less</a>
-            </li>
-            <li class="priority-primary">
+            <li class="priority-primary" id="search-list-element">
               <%= form_tag("/search", method: "get", class: "search navbar-search") do %>
                 <%= text_field_tag :query, nil, { placeholder: "Search" } %>
               <% end %>

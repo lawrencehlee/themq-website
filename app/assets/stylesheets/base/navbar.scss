@@ -64,24 +64,22 @@ nav.navbar {
     #navbar-nav-inner {
       max-width: 95%;
       margin: 0 auto;
+      text-align: center;
+      white-space: normal;
     }
 
     ul {
+      padding-left: 1em;
+      padding-right: 1em;
+
       li {
-        padding: 0 1em;
+        padding: 0.5em 1em;
         display: none;
+        display: inline-block;
         font-size: $font-xs-sm;
 
         &.caps {
           text-transform: uppercase;
-        }
-
-        &.priority-primary {
-          display: inline-block;
-        }
-
-        &#show-nav-more, &#show-nav-less {
-          display: inline-block;
         }
 
         a {
@@ -89,6 +87,40 @@ nav.navbar {
 
           &.current-page {
             text-decoration: underline;
+          }
+        }
+
+        &#search-list-element {
+          padding-top: 0;
+          padding-bottom: 0;
+
+          input#query {
+            width: 16em;
+          }
+        }
+
+        &.navbar-parent-list {
+          vertical-align: baseline;
+        }
+
+        &.navbar-parent-list:hover {
+          background-color: rgba(64, 64, 64, 0.8);
+        }
+
+        .navbar-sublist {
+          background-color: rgba(64, 64, 64, 0.8);
+          margin-top: 0.5em;
+          text-align: left;
+          padding: 0;
+
+          li {
+            padding: 0.5em 1em;;
+            font-size: 1em;
+            display: block;
+
+            &:hover {
+              background: #333;
+            }
           }
         }
       }
@@ -111,30 +143,6 @@ nav.navbar {
     #navbar-logo {
       img {
         max-width: 30%;
-      }
-    }
-
-    #navbar-nav {
-      ul {
-        li {
-          &.priority-secondary {
-            display: inline-block;
-          }
-          &#show-nav-less {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: $xl-min-width) {
-  nav.navbar {
-    #navbar-nav {
-      text-align: center;
-      #navbar-nav-inner {
-        max-width: 100%;
       }
     }
   }
