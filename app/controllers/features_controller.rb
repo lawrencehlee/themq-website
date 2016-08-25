@@ -39,7 +39,7 @@ class FeaturesController < ApplicationController
 
   def show
     @feature = Feature.friendly.find(params[:id])
-    @feature_path = "/assets/" + @feature.get_relative_feature_path
+    @feature_path = @feature.get_relative_feature_path
     @width = @feature.width
     @height = @feature.height
     @tags = Array.new()
