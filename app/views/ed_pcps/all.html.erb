@@ -35,10 +35,10 @@
               <% else %>
                 <h3><%= link_to ed_pcp.headline, ed_pcp %></h3>
               <% end %>
-              <div class="ed-pcp-tags">
+              <div class="ed-pcp-tags tag-row">
                 <% tags = ed_pcp.get_ed_pcp_tags %>
                 <% tags.each do |tag| %>
-                  <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                  <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
                     <button class="button-small pure-button">
                       <i class="fa fa-tag"></i>
                       <%= tag.title %>

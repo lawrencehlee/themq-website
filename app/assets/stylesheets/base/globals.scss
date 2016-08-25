@@ -123,3 +123,29 @@ a {
 .navbar-mapper {
   display: none;
 }
+
+.tag-row {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+  .tag {
+    margin-right: 0.25em;
+  }
+}
+
+.tag {
+  button {
+    border-radius: 1em;
+    padding: 0.25em 0.75em;
+    background-color: $accent-color;
+    color: $accent-text-color;
+
+    &:hover {
+      background-color: $accent-hover-color;
+    }
+  }
+}
+
+a.author-link:hover {
+  text-decoration: underline;
+}

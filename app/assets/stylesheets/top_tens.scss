@@ -9,6 +9,7 @@
     list-style: none;
     padding-left: 0;
     display: table;
+    margin-top: 0.25em;
 
     li {
       counter-increment: reverse -1;
@@ -16,6 +17,7 @@
       position: relative;
       margin-top: 0.5em;
       margin-bottom: 0.5em;
+      line-height: 1.35;
 
       &:before {
         content: counter(reverse) '.';
@@ -41,6 +43,7 @@
     list-style: none;
     padding-left: 0;
     display: table;
+    margin-top: 0.25em;
 
     li {
       counter-increment: reverse -1;
@@ -48,6 +51,7 @@
       position: relative;
       margin-top: 0.5em;
       margin-bottom: 0.5em;
+      line-height: 1.35;
 
       &:before {
         content: counter(reverse) '.';

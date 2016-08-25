@@ -7,9 +7,9 @@
   </div>
   <div class="feature-content pure-u-23-24 pure-u-lg-15-24">
     <div class="left-bar">
-      <span class="feature-tags">
+      <span class="feature-tags tag-row">
         <% @tags.each do |tag| %>
-          <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+          <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
             <button class="pure-button">
               <i class="fa fa-tag"></i>
               <%= tag.title %>

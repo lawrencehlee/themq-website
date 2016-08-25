@@ -2,18 +2,16 @@
 @import "mixins";
 
 $navbar-border: 1px solid #000;
-$font-color: white;
-$background-color: #262644;
 
 nav.navbar {
   font-family: $serif-headline-font-stack;
   display: block;
   text-align: center;
-  color: $font-color;
+  color: $accent-text-color;
   font-weight: bold;
 
   .container {
-    background-color: $background-color;
+    background-color: $accent-color;
   }
 
   #navbar-content {

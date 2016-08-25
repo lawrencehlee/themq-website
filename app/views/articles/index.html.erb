@@ -10,10 +10,10 @@
           @top_story %>
         </div>
         <div class="top-story-data">
-          <div class="top-story-tags">
+          <div class="top-story-tags tag-row">
             <% top_story_tags = @top_story.get_tags %>
             <% top_story_tags.each do |tag| %>
-              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+              <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
                 <button class="button-small pure-button">
                   <i class="fa fa-tag"></i>
                   <%= tag.title %>
@@ -25,9 +25,9 @@
           <div class="date-author">
             <% if @top_story_co_author %>
               <p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= link_to @top_story_person.name, @top_story_person %>
-                 - <%= link_to @top_story_co_author.name, @top_story_co_author %></p>
+              - <%= link_to @top_story_co_author.name, @top_story_co_author, {class: 'author-link'} %></p>
             <% else %>
-              <p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= link_to @top_story_person.name, @top_story_person %></p>
+              <p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= link_to @top_story_person.name, @top_story_person, {class: 'author-link'} %></p>
             <% end %>
           </div>
         </div>
@@ -39,10 +39,10 @@
         <% @more_stories.zip(@more_stories_graphics).each do |article, graphic| %>
           <div class="sub-story pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
             <%= link_to image_tag(graphic.get_relative_image_path, alt:"Sub Story Graphic", width: '100%'), article %>
-            <div class="sub-story-tags">
+            <div class="sub-story-tags tag-row">
               <% tags = article.get_tags %>
               <% tags.each do |tag| %>
-                <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
                   <button class="button-small pure-button">
                     <i class="fa fa-tag"></i>
                     <%= tag.title %>
@@ -55,9 +55,9 @@
               <% @issue = Issue.find(article.issue_id) %>
               <% @person = Person.find(article.person_id) %>
               <% @co_author, @position = article.get_co_author_or_nil %>
-              <p><%= @issue.date.to_formatted_s(:long) %> - <%= link_to @person.name, @person %></p>
+              <p><%= @issue.date.to_formatted_s(:long) %> - <%= link_to @person.name, @person, {class: 'author-link'} %></p>
               <% if @co_author %>
-                <p> - <%= link_to @co_author.name, @co_author %></p>
+                <p> - <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>
               <% end %>
             </div>
           </div>

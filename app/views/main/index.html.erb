@@ -54,9 +54,9 @@
                 </h2>
                 <div class="attribution">
                   <% if !co_author.nil? %>
-                    <span class="index-person"><%= link_to co_author.name, co_author %> -</span>
+                    <span class="index-person"><%= link_to co_author.name, co_author, {class: 'author-link'} %> -</span>
                   <% end %>
-                  <span class="index-person"><%= link_to person.name, person %> -</span>
+                  <span class="index-person"><%= link_to person.name, person, {class: 'author-link'} %> -</span>
                   <span class="index-issue"><%= issue.get_full_issue_name %> -</span>
                   <span class="index-date"><%= issue.get_human_readable_date %></span>
                 </div>

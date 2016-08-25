@@ -7,9 +7,9 @@
   <% @issue = Issue.find(article.issue_id) %>
   <% @person = Person.find(article.person_id) %>
   <% @co_author, @position = article.get_co_author_or_nil %>
-  <span><%= @issue.date.to_formatted_s(:long) %> - <%= link_to @person.name, @person %></span>
+  <span><%= @issue.date.to_formatted_s(:long) %> - <%= link_to @person.name, @person, {class: 'author-link'} %></span>
   <% if @co_author %>
-    <span> / <%= link_to @co_author.name, @co_author %> </span>
+    <span> / <%= link_to @co_author.name, @co_author, {class: 'author-link'} %> </span>
   <% end %>
   </div>
 </div>

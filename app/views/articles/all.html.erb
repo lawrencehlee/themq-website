@@ -15,15 +15,14 @@
         <div class="article-data pure-u-1">
           <h3>Brief</h3>
           <h3><%= link_to article.headline, article %></h3>
-          <div class="article-tags">
+          <div class="article-tags tag-row">
             <% tags = article.get_tags %>
             <% tags.each do |tag| %>
-              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-              <button class="button-small pure-button">
-              <i class="fa fa-tag"></i>
-              <%= tag.title %>
-            </button>
-          <% end %>
+              <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                <button class="button-small pure-button">
+                  <i class="fa fa-tag"></i> <%= tag.title %>
+                </button>
+            <% end %>
           <% end %>
           </div>
           <% @issue = Issue.find(article.issue_id) %>
@@ -45,10 +44,10 @@
         </div>
         <div class="article-data pure-u-1 pure-u-md-2-3">
           <h3><%= link_to article.headline, article %></h3>
-          <div class="article-tags">
+          <div class="article-tags tag-row">
             <% tags = article.get_tags %>
             <% tags.each do |tag| %>
-              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+              <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
               <button class="button-small pure-button">
               <i class="fa fa-tag"></i>
               <%= tag.title %>
@@ -66,9 +65,9 @@
           <div class="date-author">
             <% if @co_author %>
               <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %> /
-                 <%= link_to @co_author.name, @co_author %></p>
+                <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>
           <% else %>
-              <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %></p>
+              <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person, {class: 'author-link'} %></p>
           <% end %>
           </div>
         </div>

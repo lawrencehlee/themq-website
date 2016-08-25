@@ -10,6 +10,19 @@
     <div class="left-bar">
 
       <% @ed_pcps.each do |piece| %>
+        <% if piece.counterpoint == "0" %>
+          <div class="ed-pcp-tags tag-row">
+            <% tags = piece.get_ed_pcp_tags %>
+            <% tags.each do |tag| %>
+              <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                <button class="button-small pure-button">
+                  <i class="fa fa-tag"></i>
+                  <%= tag.title %>
+                </button>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
         <% if piece.point == "1" %>
           <h2>Point</h2>
         <% end %>
@@ -19,19 +32,6 @@
         <% end %>
         <% if piece.ed == "1" %>
           <h2>Editorial</h2>
-        <% end %>
-        <% if piece.counterpoint == "0" %>
-          <div class="ed-pcp-tags">
-            <% tags = piece.get_ed_pcp_tags %>
-            <% tags.each do |tag| %>
-              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-                <button class="button-small pure-button">
-                  <i class="fa fa-tag"></i>
-                  <%= tag.title %>
-                </button>
-              <% end %>
-            <% end %>
-          </div>
         <% end %>
 
         <h1><%= piece.headline %></h1>

@@ -8,17 +8,16 @@
   <div class="article-content pure-u-23-24 pure-u-lg-15-24">
     <div class="left-bar">
       <h1><%= @article.headline %></h1>
-      <span class="article-tags">
+      <div class="article-tags tag-row">
         <% @tags.each do |tag| %>
           <!-- this here link to directs to the tag index page, passing it the specific tag id-->
-          <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+          <%= link_to(tags_path(tag_id: tag.tag_id), {class: "tag"}) do %>
             <button class="pure-button">
-              <i class="fa fa-tag"></i>
-              <%= tag.title %>
+              <i class="fa fa-tag"></i> <%= tag.title %>
             </button>
           <% end %>
         <% end %>
-      </span>
+      </div>
       <span class="social-share-small">
         <%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>
       </span>
@@ -26,9 +25,9 @@
       <div class="pure-g">
         <div class="author-position pure-u-1 pure-u-md-1-2">
           <% if @co_author %>
-            <p><%= link_to @co_author.name, @co_author %>, <%= @co_author_position %></p>
+            <p><%= link_to @co_author.name, @co_author, {class: 'author-link'} %>, <%= @co_author_position %></p>
         <% end %>
-          <p><%= link_to @author.name, @author %>, <%= @author_position %></p>
+        <p><%= link_to @author.name, @author, {class: 'author-link'} %>, <%= @author_position %></p>
         </div>
         <div class="issue-date pure-u-1 pure-u-md-1-2">
           <p><%= @issue.get_full_issue_name %> -

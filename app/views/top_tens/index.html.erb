@@ -8,10 +8,10 @@
       <% @top_tens.each do |top_ten| %>
         <div class="top-ten-box">
           <hr>
-          <div class="top-ten-tags">
+          <div class="top-ten-tags tag-row">
             <% tags = top_ten.get_top_ten_tags %>
             <% tags.each do |tag| %>
-              <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+              <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
                 <button class="button-small pure-button">
                   <i class="fa fa-tag"></i>
                   <%= tag.title %>
