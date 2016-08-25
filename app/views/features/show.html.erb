@@ -1,6 +1,6 @@
 <% content_for :title, @feature.title %>
+<% content_for :features_navbar_class, "current-page" %>
 
-<div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="feature-show-content pure-g">
   <div class="social-share pure-u-1-24">
     <%= render :partial => "social_share", :locals => {:feature => @feature, :status => @feature.title} %>

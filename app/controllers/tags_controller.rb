@@ -13,14 +13,6 @@ class TagsController < ApplicationController
     @top_tens = @tag.get_all_top_tens_with_tag
     @features = @tag.get_all_features_with_tag
 
-    if @tag_id == "4"
-      @navbar_item = "Campus"
-    elsif @tag_id == "2"
-      @navbar_item = "Politics"
-    elsif @tag_id == "5"
-      @navbar_item = "Local News"
-    end
-
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
     @brief = Article.get_random_brief
@@ -47,14 +39,6 @@ class TagsController < ApplicationController
     end
 
     @content_pieces = Kaminari.paginate_array(@content_pieces).page(params[:page]).per(10)
-
-    if @tag_id == "4"
-      @navbar_item = "Campus"
-    elsif @tag_id == "2"
-      @navbar_item = "Politics"
-    elsif @tag_id == "5"
-      @navbar_item == "Local News"
-    end
 
     @random_top_ten = TopTen.get_random
     @random_self_ad = SelfAd.get_random

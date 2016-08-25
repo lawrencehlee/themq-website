@@ -4,7 +4,6 @@ class FeaturesController < ApplicationController
   RELATED_CONTENT_LIMIT = 2
   SAME_AUTHOR_CONTENT_LIMIT = 1
   RELATED_CONTENT_TYPES = [Article, EdPcp]
-  NAVBAR_ITEM = "Features"
 
   def index
     @top_feature = Feature.find(Feature.get_top_feature)
@@ -19,8 +18,6 @@ class FeaturesController < ApplicationController
     end
 
     @all_features = [@top_feature] + @columnFeatures + @moreFeatures
-
-    @navbar_item = NAVBAR_ITEM
   end
 
   def all
@@ -35,7 +32,6 @@ class FeaturesController < ApplicationController
       end
     end
     @feature_sets = @allFeatures[1..-1].reverse
-    @navbar_item = NAVBAR_ITEM
 
     @random_top_ten = TopTen.get_random
     @brief = Article.get_random_brief
@@ -48,7 +44,6 @@ class FeaturesController < ApplicationController
     @height = @feature.height
     @tags = Array.new()
     @tags = @feature.get_tags
-    @navbar_item = NAVBAR_ITEM
 
     # Specific sidebar stuff
     current_issue_filter = "issue_id = #{@issue.issue_id}"

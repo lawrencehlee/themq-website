@@ -2,7 +2,6 @@ class EdPcpsController < ApplicationController
     RELATED_CONTENT_LIMIT = 2
     RELATED_CONTENT_TYPES = [Article, EdPcp]
     SAME_AUTHOR_CONTENT_TYPES = [Article, EdPcp]
-    NAVBAR_ITEM = "Editorials"
 
     def index
         @eds = Array.new
@@ -18,7 +17,6 @@ class EdPcpsController < ApplicationController
         @random_top_ten = TopTen.get_random_from_issue(@current_issue)
         @random_self_ad = SelfAd.get_random
         @brief = Article.get_random_brief_from_issue(@current_issue)
-        @navbar_item = NAVBAR_ITEM
     end
 
     def show
@@ -42,7 +40,6 @@ class EdPcpsController < ApplicationController
             RELATED_CONTENT_LIMIT, RELATED_CONTENT_TYPES, current_issue_filter)
         @related_content += @ed_pcp.get_related_content(
             RELATED_CONTENT_LIMIT, RELATED_CONTENT_TYPES, not_current_issue_filter)
-        @navbar_item = NAVBAR_ITEM
     end
 
     def all
@@ -68,7 +65,6 @@ class EdPcpsController < ApplicationController
         @random_top_ten = TopTen.get_random_from_issue(@current_issue)
         @random_self_ad = SelfAd.get_random
         @brief = Article.get_random_brief
-        @navbar_item = NAVBAR_ITEM
     end
 
 end

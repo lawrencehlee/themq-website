@@ -1,6 +1,6 @@
 <% content_for :title, @article.strip_article_title %>
+<% content_for :articles_navbar_class, "current-page" %>
 
-<div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="article-show-content pure-g">
   <div class="social-share pure-u-1-24">
     <%= render :partial => "social_share", :locals => {:article => @article, :status => @article.headline} %>
