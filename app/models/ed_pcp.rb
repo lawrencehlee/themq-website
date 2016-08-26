@@ -128,13 +128,13 @@ class EdPcp < ActiveRecord::Base
 
   def get_related_content(limit, content_types, filter)
     related_content = Array.new
-    content_types_clone = content_types.clone
 
     # Loop over all combinations of the tags, starting with matching
     # the most tags
     tags = get_tags
     tags.length.downto(1) do |num_tags|
       tag_combinations = tags.combination(num_tags)
+      content_types_clone = content_types.clone
 
       # Do EdPcp first to exclude self
       if content_types_clone.include?(EdPcp)
