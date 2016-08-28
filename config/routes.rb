@@ -32,9 +32,6 @@ Rails.application.routes.draw do
   get 'search', to: 'search#index'
 
   # error pages
-
-  resources :errors
-  %w( 404 422 500 503 ).each do |code|
-    get code, :to => "errors#index", :code => code
-  end
+  get "/404", :to => "errors#not_found"
+  get "/500", :to => "errors#internal_server_error"
 end
