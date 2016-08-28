@@ -25,7 +25,7 @@
       </div>
       <div class="date-author">
         <% if @co_author %>
-          <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person %> /
+          <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person, {class: 'author-link'} %> /
             <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>
         <% else %>
           <p><%= @issue.date.to_formatted_s(:long) %> / <%= link_to @person.name, @person, {class: 'author-link'} %></p>
