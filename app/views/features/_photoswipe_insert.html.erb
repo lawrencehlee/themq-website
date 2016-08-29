@@ -76,9 +76,9 @@
     var items = [
       {
         //need to be able to get this stuff exactly
-        src: "<%= ActionController::Base.helpers.asset_path(feature_path) %>",
+        src: "<%= ActionController::Base.helpers.asset_path(@feature_path) %>",
         w: <%= width %>,
-        h: <%= height %>
+        h: <%= height %>,
         share_url: "<%= share_url %>"
       }
     ];
