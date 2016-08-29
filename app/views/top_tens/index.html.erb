@@ -6,8 +6,8 @@
     <div class="left-bar">
       <h1>All Top Tens</h1>
       <% @top_tens.each do |top_ten| %>
+        <hr>
         <div class="top-ten-box">
-          <hr>
           <div class="top-ten-tags tag-row">
             <% tags = top_ten.get_top_ten_tags %>
             <% tags.each do |tag| %>

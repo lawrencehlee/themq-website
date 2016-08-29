@@ -94,7 +94,7 @@
   margin-bottom: 2em;
 
   .top-ten-box {
-    width: 60%;
+    width: 100%;
   }
   h1 {
     text-align: center;
@@ -110,6 +110,7 @@
   .pagination {
     margin-top: 1em;
     margin-bottom: 1em;
+    text-align: left;
   }
 }
 
@@ -134,6 +135,11 @@
       }
       .social-share-small {
         display: none;
+      }
+    }
+    .top-ten-all-content {
+      .top-ten-box {
+        width: 60%;
       }
     }
   }
