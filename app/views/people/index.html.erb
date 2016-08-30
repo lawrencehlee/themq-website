@@ -53,14 +53,16 @@
         <div class="pure-u-1-2">
           <div class="staff-members-col-1">
             <% @staff_members_right.each do |staff_member| %>
-              <p><%= staff_member.name %></p>
+              <% unless staff_member.name == "Brief" %>
+                <p><%= link_to staff_member.name, staff_member, {class: 'author-link'} %></p>
+              <% end %>
             <% end %>
           </div>
         </div>
         <div class="pure-u-1-2">
           <div class="staff-members-col-2">
             <% @staff_members_left.each do |staff_member| %>
-              <p><%= staff_member.name %></p>
+              <p><%= link_to staff_member.name, staff_member, {class: 'author-link'} %></p>
             <% end %>
           </div>
         </div>
