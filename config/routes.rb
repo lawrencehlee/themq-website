@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get 'about' => 'static_pages#about'
+  get 'contact' => 'static_pages#contact'
   resources :articles do
     collection do
       get 'all'

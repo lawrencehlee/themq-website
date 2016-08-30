@@ -23,7 +23,9 @@
                 %>
               </span>·
               <span>
-                <%= link_to "Contact", "#" %>
+                <%= link_to "Contact",
+                  {controller: 'static_pages', action: 'contact' }
+              %>
               </span>
             </div>
             <div class="footer-social">
