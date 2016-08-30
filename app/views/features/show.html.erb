@@ -18,9 +18,9 @@
         <% end %>
       </span>
 
-      <span class="social-share-small">
+      <div class="social-share-small">
         <%= render :partial => "social_share_small", :locals => {:feature => @feature, :status => @feature.title} %>
-      </span>
+      </div>
 
       <div class="feature-image">
         <% share_url = url_for([@feature, {only_path: false}]) %>

@@ -16,7 +16,7 @@
 }
 
 .article-show-content {
-  margin-left: 1em;
+  margin-left: 0;
 
   .article-content {
     h1 {
@@ -218,13 +218,6 @@
       }
     }
     .article-show-content {
-      margin-left: 2em;
-      .social-share {
-        display: block;
-      }
-      .social-share-small {
-        display: none;
-      }
       .article-content {
         .issue-date {
           p {
@@ -252,5 +245,14 @@
 @media screen and (min-width: $lg-min-width) {
   .article-top-story {
     margin-left: 1em;
+  }
+  body .article-show-content {
+    margin-left: 2em;
+    .social-share {
+      display: block;
+    }
+    .social-share-small {
+      display: none
+    }
   }
 }

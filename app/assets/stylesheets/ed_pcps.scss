@@ -13,21 +13,14 @@
   }
   font-size: .5em;
 }
-.social-share-small {
-  margin-left: 1em;
-}
-
 .ed-pcp-show-content {
-  margin-left: 1em;
-
+  .social-share-small {
+    margin-left: 1em;
+  }
   .ed-pcp-content {
     h1 {
       text-align: left;
       margin: 0;
-    }
-    .article-tags {
-      margin-top: 1em;
-      margin-bottom: 1em;
     }
     .content-text {
       p {
@@ -203,7 +196,7 @@
 
 //Default specified above is for minimum width less than small I guess?
 
-@media screen and (min-width: $md-min-width){
+@media screen and (min-width: $md-min-width) {
   body {
     .ed-pcp-all-content {
       .ed-pcp-data {
@@ -217,13 +210,6 @@
       font-size: 100%;
     }
     .ed-pcp-show-content {
-      margin-left: 2em;
-      .social-share {
-        display: block;
-      }
-      .social-share-small {
-        display: none;
-      }
       .ed-pcp-content{
         .issue-date {
           p {
@@ -232,8 +218,18 @@
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: $lg-min-width) {
+  body .ed-pcp-show-content {
+    margin-left: 2em;
     .social-share {
+      display: block;
       font-size: 100%;
+    }
+    .social-share-small {
+      display: none;
     }
   }
 }

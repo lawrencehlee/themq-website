@@ -64,28 +64,16 @@
 }
 
 .top-ten-show-content {
-  margin-top: 2em;
-  margin-bottom: 2em;
   .see-more {
     margin-top: 1em;
   }
 }
 
 .top-ten-random-content {
-  margin-top: 2em;
   margin-bottom: 2em;
 
   .see-more {
     margin-top: 1em;
-  }
-  .sidebar {
-    h2, h3, p {
-      margin-left: 0;
-      padding-left: 16px;
-    }
-    p {
-      margin-bottom: 0.5em;
-    }
   }
 }
 
@@ -126,7 +114,17 @@
   font-size: .5em;
 }
 
-@media screen and (min-width: $md-min-width){
+@media screen and (min-width: $md-min-width) {
+  body {
+    .top-ten-all-content {
+      .top-ten-box {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg-min-width) {
   body {
     .top-ten-show-content, .top-ten-random-content {
       .social-share {
@@ -135,11 +133,6 @@
       }
       .social-share-small {
         display: none;
-      }
-    }
-    .top-ten-all-content {
-      .top-ten-box {
-        width: 60%;
       }
     }
   }
