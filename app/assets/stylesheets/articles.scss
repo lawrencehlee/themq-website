@@ -173,6 +173,23 @@
       color: $light-grey;
     }
   }
+
+  .brief-data {
+    font-size: $font-md-lg;
+    .article-tags {
+      a {
+        &:hover {
+          background-color: $link-hover-background-color;
+        }
+      }
+    }
+    .article-teaser {
+      display: none;
+    }
+    .date-author {
+      color: $light-grey;
+    }
+  }
 }
 
 .pagination-bottom {
@@ -193,7 +210,7 @@
 @media screen and (min-width: $md-min-width){
   body {
     .article-all-content {
-      .article-data {
+      .article-data, .brief-data {
         font-size: 100%;
         .article-teaser{
           display: block;

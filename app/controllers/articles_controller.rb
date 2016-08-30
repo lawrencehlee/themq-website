@@ -7,7 +7,10 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.friendly.find(params[:id])
     @article_text = @article.get_article_text
-    @graphic = Graphic.find(@article.graphic_id)
+    unless @article.brief == "1"
+      @graphic = Graphic.find(@article.graphic_id)
+      @graphic_designer = Person.find(@graphic.person_id)
+    end
     @issue = Issue.find(@article.issue_id)
     @author = Person.find(@article.person_id)
     @author_position = @author.get_title
@@ -16,7 +19,7 @@ class ArticlesController < ApplicationController
     if @co_author
       @co_author_position = @co_author.get_title
     end
-    @graphic_designer = Person.find(@graphic.person_id)
+
 
     @tags = Array.new()
     @tags = @article.get_tags

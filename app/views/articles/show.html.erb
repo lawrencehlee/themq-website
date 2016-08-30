@@ -26,8 +26,12 @@
         <div class="author-position pure-u-1 pure-u-md-1-2">
           <% if @co_author %>
             <p><%= link_to @co_author.name, @co_author, {class: 'author-link'} %>, <%= @co_author_position %></p>
-        <% end %>
-        <p><%= link_to @author.name, @author, {class: 'author-link'} %>, <%= @author_position %></p>
+          <% end %>
+          <% if @article.brief == "1" %>
+            <p><%= @author.name %></p>
+          <% else %>
+            <p><%= link_to @author.name, @author, {class: 'author-link'} %>, <%= @author_position %></p>
+          <% end %>
         </div>
         <div class="issue-date pure-u-1 pure-u-md-1-2">
           <p><%= @issue.get_full_issue_name %> -
