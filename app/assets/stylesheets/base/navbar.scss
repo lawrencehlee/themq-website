@@ -10,6 +10,16 @@ nav.navbar {
   color: $accent-text-color;
   font-weight: bold;
 
+  .navbar-hideable {
+    display: none;
+  }
+  .navbar-sm {
+    display: inline-block;
+  }
+  .navbar-sm.navbar-block {
+    display: block;
+  }
+
   .container {
     background-color: $accent-color;
   }
@@ -72,8 +82,6 @@ nav.navbar {
 
       li {
         padding: 0.5em 1em;
-        display: none;
-        display: inline-block;
         font-size: $font-xs-sm;
 
         &.caps {
@@ -114,7 +122,6 @@ nav.navbar {
           li {
             padding: 0.5em 1em;;
             font-size: 1em;
-            display: block;
 
             &:hover {
               background: #333;
@@ -136,8 +143,31 @@ nav.navbar {
   }
 }
 
+@media screen and (min-width: $md-min-width) {
+  nav.navbar {
+    .navbar-hideable {
+      display: none;
+    }
+    .navbar-md {
+      display: inline-block;
+    }
+    .navbar-md.navbar-block {
+      display: block;
+    }
+  }
+}
+
 @media screen and (min-width: $lg-min-width) {
   nav.navbar {
+    .navbar-hideable {
+      display: none;
+    }
+    .navbar-lg {
+      display: inline-block;
+    }
+    .navbar-lg.navbar-block {
+      display: block;
+    }
     #navbar-logo {
       img {
         max-width: 30%;
