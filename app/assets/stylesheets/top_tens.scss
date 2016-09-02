@@ -2,135 +2,138 @@
 @import "base/mixins";
 
 .top-ten {
-	// This whole shtick does two things:
-	// 1) Left aligns the numbers of the ol
-	// 2) Reverses the numbers so that they count down from whatever
-	ol {
-		list-style: none;
-		padding-left: 0;
-		display: table;
+  // This whole shtick does two things:
+  // 1) Left aligns the numbers of the ol
+  // 2) Reverses the numbers so that they count down from whatever
+  ol {
+    list-style: none;
+    padding-left: 0;
+    display: table;
+    margin-top: 0.25em;
 
-		li {
-			counter-increment: reverse -1;
-			display: table-row;
-			position: relative;
-			margin-top: 0.5em;
-			margin-bottom: 0.5em;
+    li {
+      counter-increment: reverse -1;
+      display: table-row;
+      position: relative;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      line-height: 1.35;
 
-			&:before {
-				content: counter(reverse) '.';
-				display: table-cell;
-				text-align: left;
-				padding-right: 0.5em;
-			}
-		}
-	}
+      &:before {
+        content: counter(reverse) '.';
+        display: table-cell;
+        text-align: left;
+        padding-right: 0.5em;
+      }
+    }
+  }
 }
 
 .top-ten-bad-css {
-	// This whole shtick does two things:
-	// 1) Left aligns the numbers of the ol
-	// 2) Reverses the numbers so that they count down from whatever
+  // This whole shtick does two things:
+  // 1) Left aligns the numbers of the ol
+  // 2) Reverses the numbers so that they count down from whatever
   // Oh and another thing this shtick does:
   // It makes the top ten looks terrible
 
   .top-ten-entry {
   }
 
-	ol {
-		list-style: none;
-		padding-left: 0;
-		display: table;
+  ol {
+    list-style: none;
+    padding-left: 0;
+    display: table;
+    margin-top: 0.25em;
 
-		li {
-			counter-increment: reverse -1;
-			display: table-row;
-			position: relative;
-			margin-top: 0.5em;
-			margin-bottom: 0.5em;
+    li {
+      counter-increment: reverse -1;
+      display: table-row;
+      position: relative;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      line-height: 1.35;
 
-			&:before {
-				content: counter(reverse) '.';
-				display: table-cell;
-				text-align: left;
-				padding-right: 0.5em;
-			}
-		}
-	}
+      &:before {
+        content: counter(reverse) '.';
+        display: table-cell;
+        text-align: left;
+        padding-right: 0.5em;
+      }
+    }
+  }
 }
 
 .top-ten-show-content {
-	margin-top: 2em;
-	margin-bottom: 2em;
   .see-more {
     margin-top: 1em;
   }
 }
 
 .top-ten-random-content {
-	margin-top: 2em;
-	margin-bottom: 2em;
+  margin-bottom: 2em;
 
   .see-more {
     margin-top: 1em;
   }
-  .sidebar {
-    h2, h3, p {
-      margin-left: 0;
-      padding-left: 16px;
-    }
-    p {
-      margin-bottom: 0.5em;
-    }
-  }
 }
 
 .top-ten-all-content {
-	margin-top: 2em;
-	margin-bottom: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 
   .top-ten-box {
-    width: 60%;
+    width: 100%;
   }
-	h1 {
-		text-align: center;
-	}
-	.top-ten-tags {
-		margin-top: .5em;
-		margin-bottom: .5em;
-	}
-	hr {
-		margin-top: 1em;
-		margin-bottom: .5em;
-	}
-	.pagination {
-		margin-top: 1em;
-		margin-bottom: 1em;
-	}
+  h1 {
+    text-align: center;
+  }
+  .top-ten-tags {
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+  hr {
+    margin-top: 1em;
+    margin-bottom: .5em;
+  }
+  .pagination {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+  }
 }
 
 .social-share {
-	display: none;
-	ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	.social-media-buttons {
-		position: fixed;
-	}
-	font-size: .5em;
+  display: none;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .social-media-buttons {
+    position: fixed;
+  }
+  font-size: .5em;
 }
 
-@media screen and (min-width: $md-min-width){
-	body {
-		.top-ten-show-content, .top-ten-random-content {
-			.social-share {
-				display: block;
-				font-size: 100%;
-			}
-			.social-share-small {
-				display: none;
-			}
-		}
-	}
+@media screen and (min-width: $md-min-width) {
+  body {
+    .top-ten-all-content {
+      .top-ten-box {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg-min-width) {
+  body {
+    .top-ten-show-content, .top-ten-random-content {
+      .social-share {
+        display: block;
+        font-size: 100%;
+      }
+      .social-share-small {
+        display: none;
+      }
+    }
+  }
 }

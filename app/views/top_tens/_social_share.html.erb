@@ -1,11 +1,11 @@
 <ul class="social-media-buttons">
-	<li>
-		<%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
-				"http://facebook.com/sharer.php?u=#{url_for([top_ten, {only_path: false}])}", :target => :blank %>
-	</li>
-	<li>
-		<%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
-			"http://twitter.com/home?status=#{status} #{url_for([top_ten, {only_path: false}])}",
-		  :target => :blank %>
-	</li>
+  <li>
+    <%= link_to '<i class="fa fa-facebook-square fa-2x"></i>'.html_safe,
+        "http://facebook.com/sharer.php?u=#{url_for([top_ten, {only_path: false}])}", :target => :blank %>
+  </li>
+  <li>
+    <%= link_to '<i class="fa fa-twitter-square fa-2x"></i>'.html_safe,
+      "http://twitter.com/home?status=#{status} #{url_for([top_ten, {only_path: false}])}",
+      :target => :blank %>
+  </li>
 </ul>

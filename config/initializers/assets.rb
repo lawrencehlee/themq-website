@@ -10,10 +10,10 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 #
-%w( application articles ed_pcps main static_pages top_tens features tags people search).each do |controller|
-	  Rails.application.config.assets.precompile +=
-			["#{controller}.coffee", "#{controller}.js",
-			"#{controller}.scss", "#{controller}.css"]
+%w( application articles ed_pcps main static_pages top_tens features tags people search errors).each do |controller|
+    Rails.application.config.assets.precompile +=
+      ["#{controller}.coffee", "#{controller}.js",
+      "#{controller}.scss", "#{controller}.css"]
 end
 
 Rails.application.config.assets.precompile += %w( .woff .ttf )

@@ -1,60 +1,63 @@
 <% content_for :title, @article.strip_article_title %>
+<% content_for :articles_navbar_class, "current-page" %>
 
-<div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="article-show-content pure-g">
-	<div class="social-share pure-u-1-24">
-		<%= render :partial => "social_share", :locals => {:article => @article, :status => @article.headline} %>
-	</div>
-	<div class="article-content pure-u-23-24 pure-u-lg-15-24">
-		<div class="left-bar">
-			<h1><%= @article.headline %></h1>
-			<span class="article-tags">
-				<% @tags.each do |tag| %>
-					<!-- this here link to directs to the tag index page, passing it the specific tag id-->
-					<%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-						<button class="pure-button">
-							<i class="fa fa-tag"></i>
-							<%= tag.title %>
-						</button>
-					<% end %>
-				<% end %>
-			</span>
-			<span class="social-share-small">
-				<%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>
-			</span>
+  <div class="social-share pure-u-1-24">
+    <%= render :partial => "social_share", :locals => {:article => @article, :status => @article.headline} %>
+  </div>
+  <div class="article-content pure-u-1 pure-u-lg-15-24">
+    <div class="left-bar">
+      <h1><%= @article.headline %></h1>
+      <div class="article-tags tag-row">
+        <% @tags.each do |tag| %>
+          <!-- this here link to directs to the tag index page, passing it the specific tag id-->
+          <%= link_to(tags_path(tag_id: tag.tag_id), {class: "tag"}) do %>
+            <button class="pure-button">
+              <i class="fa fa-tag"></i> <%= tag.title %>
+            </button>
+          <% end %>
+        <% end %>
+      </div>
+      <span class="social-share-small">
+        <%= render :partial => "social_share_small", :locals => {:article => @article, :status => @article.headline} %>
+      </span>
 
-			<div class="pure-g">
-				<div class="author-position pure-u-1 pure-u-md-1-2">
-					<% if @co_author %>
-						<p><%= link_to @co_author.name, @co_author %>, <%= @co_author_position %></p>
-				<% end %>
-					<p><%= link_to @author.name, @author %>, <%= @author_position %></p>
-				</div>
-				<div class="issue-date pure-u-1 pure-u-md-1-2">
-					<p><%= @issue.get_full_issue_name %> -
-					<%= @issue.get_human_readable_date %></p>
-				</div>
-			</div>
+      <div class="pure-g">
+        <div class="author-position pure-u-1 pure-u-md-1-2">
+          <% if @co_author %>
+            <p><%= link_to @co_author.name, @co_author, {class: 'author-link'} %>, <%= @co_author_position %></p>
+          <% end %>
+          <% if @article.brief == "1" %>
+            <p><%= @author.name %></p>
+          <% else %>
+            <p><%= link_to @author.name, @author, {class: 'author-link'} %>, <%= @author_position %></p>
+          <% end %>
+        </div>
+        <div class="issue-date pure-u-1 pure-u-md-1-2">
+          <p><%= @issue.get_full_issue_name %> -
+          <%= @issue.get_human_readable_date %></p>
+        </div>
+      </div>
       <% if @article.brief == "0" %>
-  			<div class="article-image">
-	  			<%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
-		  	</div>
-  			<div class="image-data">
-	  			<p class="designer">Photo by: <%= link_to @graphic_designer.name, @graphic_designer %></p>
-		  		<p class="caption"><%= @graphic.caption %></p>
-			  </div>
+        <div class="article-image">
+          <%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
+        </div>
+        <div class="image-data">
+          <p class="designer">Photo by: <%= link_to @graphic_designer.name, @graphic_designer %></p>
+          <p class="caption"><%= @graphic.caption %></p>
+        </div>
       <% end %>
-			<div class="content-text"><%= markdown(@article_text) %></div>
-		</div>
-	</div>
+      <div class="content-text"><%= markdown(@article_text) %></div>
+    </div>
+  </div>
 
-	<div class="sidebar pure-u-23-24 pure-u-lg-1-3">
-		<%= render partial: 'articles/article_sidebar',
-			locals: {
-				related_content: @related_content,
-				same_author_content: @same_author_content,
-				author: @author
-			}
-		%>
-	</div>
+  <div class="sidebar pure-u-23-24 pure-u-lg-1-3">
+    <%= render partial: 'articles/article_sidebar',
+      locals: {
+        related_content: @related_content,
+        same_author_content: @same_author_content,
+        author: @author
+      }
+    %>
+  </div>
 </div>

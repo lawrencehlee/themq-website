@@ -1,12 +1,12 @@
 <% content_for :title, "Editorials" %>
+<% content_for :ed_pcps_navbar_class, "current-page" %>
 
-<div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="ed-pcp-index-content pure-g">
-	<div class="ed-pcp-content pure-u-1 pure-u-lg-2-3">
-		<div class="left-bar">
+  <div class="ed-pcp-content pure-u-1 pure-u-lg-2-3">
+    <div class="left-bar">
       <h1>Editorials</h1>
       <div class="ed-pcp-editorials">
-				<% @eds.each do |ed| %>
+        <% @eds.each do |ed| %>
           <div class="editorial pure-g">
             <div class="editorial-inner">
               <div class="editorial-image pure-u-1-4">
@@ -14,10 +14,11 @@
               </div>
               <div class="editorial-data pure-u-3-4">
                 <div class="editorial-data-inner">
-                  <div class="editorial-tags">
+                  <h2 class="regular-headline"><%= link_to ed.headline, ed %></h2>
+                  <div class="editorial-tags tag-row">
                     <% ed_tags = ed.get_ed_pcp_tags %>
                     <% ed_tags.each do |tag| %>
-                      <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                      <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
                       <button class="button-small pure-button">
                         <i class="fa fa-tag"></i>
                         <%= tag.title %>
@@ -25,7 +26,6 @@
                     <% end %>
                   <% end %>
                   </div>
-                  <h2 class="regular-headline"><%= link_to ed.headline, ed %></h2>
                   <div class="date-author">
                     <% ed_issue = Issue.find(ed.issue_id) %>
                     <p><%= ed_issue.get_human_readable_date %> - <%= ed.author %>, <%= ed.author_title %></p>
@@ -34,12 +34,12 @@
               </div>
             </div>
           </div>
-				<% end %>
-			</div>
+        <% end %>
+      </div>
 
       <div class="ed-pcp-pcps">
-				<h1>Point - Counterpoints</h1>
-				<% @pcps.each_slice(2) do |p, cp| %>
+        <h1>Point - Counterpoints</h1>
+        <% @pcps.each_slice(2) do |p, cp| %>
           <div class="pcp-wrapper">
             <div class="pcp pure-g">
               <div class="point-box">
@@ -51,10 +51,10 @@
                   <div class="pcp-text-wrapper">
                     <h3>Point</h3>
                     <h2 class="regular-headline"><%= link_to p.headline, p %></h2>
-                    <div class="pcp-tags">
+                    <div class="pcp-tags tag-row">
                       <% pcp_tags = p.get_ed_pcp_tags %>
                       <% pcp_tags.each do |tag| %>
-                        <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
+                        <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
                         <button class="button-small pure-button">
                           <i class="fa fa-tag"></i>
                           <%= tag.title %>
@@ -100,17 +100,17 @@
               </div>
             </div>
           </div>
-				<% end %>
-			</div>
+        <% end %>
+      </div>
 
-			<div class="see-more">
-				<%= link_to  "See more editorials", :controller => 'ed_pcps', :action => 'all' %>
-			</div>
-		</div>
-	</div>
+      <div class="see-more">
+        <%= link_to  "See more editorials", :controller => 'ed_pcps', :action => 'all' %>
+      </div>
+    </div>
+  </div>
 
-	<div class="sidebar pure-u-1 pure-u-lg-1-3">
-		<%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
-			:self_ad => @random_self_ad, :brief => @brief %>
-	</div>
+  <div class="sidebar pure-u-1 pure-u-lg-1-3">
+    <%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
+      :self_ad => @random_self_ad, :brief => @brief %>
+  </div>
 </div>

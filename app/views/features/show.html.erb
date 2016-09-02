@@ -1,39 +1,39 @@
 <% content_for :title, @feature.title %>
+<% content_for :features_navbar_class, "current-page" %>
 
-<div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="feature-show-content pure-g">
-	<div class="social-share pure-u-1-24">
-		<%= render :partial => "social_share", :locals => {:feature => @feature, :status => @feature.title} %>
-	</div>
-	<div class="feature-content pure-u-23-24 pure-u-lg-15-24">
-		<div class="left-bar">
-			<span class="feature-tags">
-				<% @tags.each do |tag| %>
-					<%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-						<button class="pure-button">
-							<i class="fa fa-tag"></i>
-							<%= tag.title %>
-						</button>
-					<% end %>
-				<% end %>
-			</span>
+  <div class="social-share pure-u-1-24">
+    <%= render :partial => "social_share", :locals => {:feature => @feature, :status => @feature.title} %>
+  </div>
+  <div class="feature-content pure-u-23-24 pure-u-lg-15-24">
+    <div class="left-bar">
+      <span class="feature-tags tag-row">
+        <% @tags.each do |tag| %>
+          <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+            <button class="pure-button">
+              <i class="fa fa-tag"></i>
+              <%= tag.title %>
+            </button>
+          <% end %>
+        <% end %>
+      </span>
 
-			<span class="social-share-small">
-				<%= render :partial => "social_share_small", :locals => {:feature => @feature, :status => @feature.title} %>
-			</span>
+      <div class="social-share-small">
+        <%= render :partial => "social_share_small", :locals => {:feature => @feature, :status => @feature.title} %>
+      </div>
 
-			<div class="feature-image">
-				<% share_url = url_for([@feature, {only_path: false}]) %>
-				<%= render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_path, :width => @width, :height => @height, :share_url => share_url} %>
-			</div>
-		</div>
-	</div>
+      <div class="feature-image">
+        <% share_url = url_for([@feature, {only_path: false}]) %>
+        <%= render :partial => "photoswipe_insert", :locals => {:feature_path => @feature_path, :width => @width, :height => @height, :share_url => share_url} %>
+      </div>
+    </div>
+  </div>
 
-	<div class="sidebar pure-u-23-24 pure-u-lg-1-3">
-		<%= render partial: 'features/features_sidebar',
-			locals: {
-				related_content: @related_content,
-			}
-		%>
-	</div>
+  <div class="sidebar pure-u-23-24 pure-u-lg-1-3">
+    <%= render partial: 'features/features_sidebar',
+      locals: {
+        related_content: @related_content,
+      }
+    %>
+  </div>
 </div

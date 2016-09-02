@@ -2,18 +2,26 @@
 @import "mixins";
 
 $navbar-border: 1px solid #000;
-$font-color: white;
-$background-color: #262644;
 
 nav.navbar {
   font-family: $serif-headline-font-stack;
   display: block;
   text-align: center;
-  color: $font-color;
+  color: $accent-text-color;
   font-weight: bold;
 
+  .navbar-hideable {
+    display: none;
+  }
+  .navbar-sm {
+    display: inline-block;
+  }
+  .navbar-sm.navbar-block {
+    display: block;
+  }
+
   .container {
-    background-color: $background-color;
+    background-color: $accent-color;
   }
 
   #navbar-content {
@@ -64,24 +72,20 @@ nav.navbar {
     #navbar-nav-inner {
       max-width: 95%;
       margin: 0 auto;
+      text-align: center;
+      white-space: normal;
     }
 
     ul {
+      padding-left: 1em;
+      padding-right: 1em;
+
       li {
-        padding: 0 1em;
-        display: none;
+        padding: 0.5em 1em;
         font-size: $font-xs-sm;
 
         &.caps {
           text-transform: uppercase;
-        }
-
-        &.priority-primary {
-          display: inline-block;
-        }
-
-        &#show-nav-more, &#show-nav-less {
-          display: inline-block;
         }
 
         a {
@@ -89,6 +93,39 @@ nav.navbar {
 
           &.current-page {
             text-decoration: underline;
+          }
+        }
+
+        &#search-list-element {
+          padding-top: 0;
+          padding-bottom: 0;
+
+          input#query {
+            width: 16em;
+          }
+        }
+
+        &.navbar-parent-list {
+          vertical-align: baseline;
+        }
+
+        &.navbar-parent-list:hover {
+          background-color: rgba(64, 64, 64, 0.8);
+        }
+
+        .navbar-sublist {
+          background-color: rgba(64, 64, 64, 0.8);
+          margin-top: 0.5em;
+          text-align: left;
+          padding: 0;
+
+          li {
+            padding: 0.5em 1em;;
+            font-size: 1em;
+
+            &:hover {
+              background: #333;
+            }
           }
         }
       }
@@ -106,35 +143,34 @@ nav.navbar {
   }
 }
 
-@media screen and (min-width: $lg-min-width) {
+@media screen and (min-width: $md-min-width) {
   nav.navbar {
-    #navbar-logo {
-      img {
-        max-width: 30%;
-      }
+    .navbar-hideable {
+      display: none;
     }
-
-    #navbar-nav {
-      ul {
-        li {
-          &.priority-secondary {
-            display: inline-block;
-          }
-          &#show-nav-less {
-            display: none;
-          }
-        }
-      }
+    .navbar-md {
+      display: inline-block;
+    }
+    .navbar-md.navbar-block {
+      display: block;
     }
   }
 }
 
-@media screen and (min-width: $xl-min-width) {
+@media screen and (min-width: $lg-min-width) {
   nav.navbar {
-    #navbar-nav {
-      text-align: center;
-      #navbar-nav-inner {
-        max-width: 100%;
+    .navbar-hideable {
+      display: none;
+    }
+    .navbar-lg {
+      display: inline-block;
+    }
+    .navbar-lg.navbar-block {
+      display: block;
+    }
+    #navbar-logo {
+      img {
+        max-width: 30%;
       }
     }
   }

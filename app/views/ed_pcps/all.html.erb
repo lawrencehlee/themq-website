@@ -1,70 +1,70 @@
 <% content_for :title, "All Editorials" %>
+<% content_for :ed_pcps_navbar_class, "current-page" %>
 
-<div class="navbar-mapper"><%= @navbar_item %></div>
 <div class="ed-pcp-all-content pure-g">
   <div class="ed-pcp-content pure-u-1 pure-u-lg-2-3">
-		<div class="left-bar">
-			<div class="pagination pure-u-1">
-				<%= paginate @grouped_ed_pcps %>
-			</div>
-			<h1>All Editorials</h1>
-			<% @grouped_ed_pcps.each do |ed_pcps| %>
-				<hr>
-				<% ed_pcps.each do |ed_pcp| %>
-					<div class="ed-pcp-box pure-g">
-						<div class="author-image pure-u-1 pure-u-md-1-3">
-							<% if ed_pcp.counterpoint == "1" %>
-								<%= link_to image_tag(ed_pcp.get_relative_author_image_path, alt: "Author Graphic", width: '100%'), EdPcp.find(ed_pcp.crspnd_point_id) %>
-							<% else %>
-								<%= link_to image_tag(ed_pcp.get_relative_author_image_path, alt: "Author Graphic", width: '100%'), ed_pcp %>
-							<% end %>
-						</div>
-						<div class="ed-pcp-data pure-u-1 pure-u-md-2-3">
-							<% if ed_pcp.point == "1" %>
-								<h3>Point</h3>
-							<% end %>
-							<% if ed_pcp.counterpoint == "1" %>
-								<h3>Counterpoint</h3>
-							<% end %>
-							<% if ed_pcp.ed == "1" %>
-								<h3>Editorial</h3>
-							<% end %>
+    <div class="left-bar">
+      <div class="pagination pure-u-1">
+        <%= paginate @grouped_ed_pcps %>
+      </div>
+      <h1>All Editorials</h1>
+      <% @grouped_ed_pcps.each do |ed_pcps| %>
+        <hr>
+        <% ed_pcps.each do |ed_pcp| %>
+          <div class="ed-pcp-box pure-g">
+            <div class="author-image pure-u-1 pure-u-md-1-3">
+              <% if ed_pcp.counterpoint == "1" %>
+                <%= link_to image_tag(ed_pcp.get_relative_author_image_path, alt: "Author Graphic", width: '100%'), EdPcp.find(ed_pcp.crspnd_point_id) %>
+              <% else %>
+                <%= link_to image_tag(ed_pcp.get_relative_author_image_path, alt: "Author Graphic", width: '100%'), ed_pcp %>
+              <% end %>
+            </div>
+            <div class="ed-pcp-data pure-u-1 pure-u-md-2-3">
+              <% if ed_pcp.point == "1" %>
+                <h3>Point</h3>
+              <% end %>
+              <% if ed_pcp.counterpoint == "1" %>
+                <h3>Counterpoint</h3>
+              <% end %>
+              <% if ed_pcp.ed == "1" %>
+                <h3>Editorial</h3>
+              <% end %>
 
-							<% if ed_pcp.counterpoint == "1" %>
-								<h3><%= link_to ed_pcp.headline, EdPcp.find(ed_pcp.crspnd_point_id) %></h3>
-							<% else %>
-								<h3><%= link_to ed_pcp.headline, ed_pcp %></h3>
-							<% end %>
-							<div class="ed-pcp-tags">
-								<% tags = ed_pcp.get_ed_pcp_tags %>
-								<% tags.each do |tag| %>
-									<%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-										<button class="button-small pure-button">
-											<i class="fa fa-tag"></i>
-											<%= tag.title %>
-										</button>
-									<% end %>
-								<% end %>
-							</div>
-							<% @issue = Issue.find(ed_pcp.issue_id) %>
-							<div class="ed-pcp-teaser">
-								<% @ed_pcp_text_teaser = ed_pcp.get_ed_pcp_text_teaser %>
-								<p><%= @ed_pcp_text_teaser %></p>
-							</div>
-							<div class="date-author">
-								<p><%= @issue.get_human_readable_date %> / <%= ed_pcp.author %></p>
-							</div>
-						</div>
-					</div>
-				<% end %>
-			<% end %>
-			<div class="pagination pure-u-1">
-				<%= paginate @grouped_ed_pcps %>
-			</div>
-		</div>
-	</div>
-	<div class="sidebar pure-u-1 pure-u-lg-1-3">
-		<%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
-			:self_ad => @random_self_ad, :brief => @brief %>
-	</div>
+              <% if ed_pcp.counterpoint == "1" %>
+                <h3><%= link_to ed_pcp.headline, EdPcp.find(ed_pcp.crspnd_point_id) %></h3>
+              <% else %>
+                <h3><%= link_to ed_pcp.headline, ed_pcp %></h3>
+              <% end %>
+              <div class="ed-pcp-tags tag-row">
+                <% tags = ed_pcp.get_ed_pcp_tags %>
+                <% tags.each do |tag| %>
+                  <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                    <button class="button-small pure-button">
+                      <i class="fa fa-tag"></i>
+                      <%= tag.title %>
+                    </button>
+                  <% end %>
+                <% end %>
+              </div>
+              <% @issue = Issue.find(ed_pcp.issue_id) %>
+              <div class="ed-pcp-teaser">
+                <% @ed_pcp_text_teaser = ed_pcp.get_ed_pcp_text_teaser %>
+                <p><%= @ed_pcp_text_teaser %></p>
+              </div>
+              <div class="date-author">
+                <p><%= @issue.get_human_readable_date %> / <%= ed_pcp.author %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="pagination pure-u-1">
+        <%= paginate @grouped_ed_pcps %>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar pure-u-1 pure-u-lg-1-3">
+    <%= render 'layouts/general_sidebar', :top_ten => @random_top_ten,
+      :self_ad => @random_self_ad, :brief => @brief %>
+  </div>
 </div>

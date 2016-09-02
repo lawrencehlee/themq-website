@@ -3,7 +3,7 @@ class SearchController < ApplicationController
                        Feature, TopTen, TopTenEntry]
 
   def index
-		@query = params[:query]
+    @query = params[:query]
 
     unless @query.blank?
       @search = Sunspot.search(SEARCHABLE_MODELS) do

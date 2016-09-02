@@ -1,59 +1,110 @@
 <nav class="navbar">
-	<div class="container">
-		<div id="navbar-content">
-			<div id="navbar-logo">
-				<%= link_to image_tag(@logo_image, alt: "MQ logo"),
-					{controller: 'main', action: 'index'},
-					{data: {'no-turbolink': true}} %>
-				<% if @masthead.nil? %>
-					<div id="navbar-masthead">
-						<%= @celeb_quote %>
-						<span id="navbar-celeb">
-							— <%= @celeb %>
-							<span>
-								<%= image_tag(@issue.get_relative_celeb_photo_path, alt: "it me") %>
-							</span>
-						</span>
-					</div>
-				<% else %>
-					<div id="navbar-masthead"><%= @masthead %></div>
-				<% end %>
-			</div>
-			<div id="navbar-nav">
-				<div id="navbar-nav-inner">
-					<ul>
-						<li class="priority-primary caps">
-							<%= link_to "Articles", controller: 'articles', action: 'index' %>
-						</li>
-						<li class="priority-primary caps">
-							<%= link_to "Features", controller: 'features', action: 'index' %>
-						</li>
-						<li class="priority-primary caps">
-							<%= link_to "Top Tens", controller: 'top_tens', action: 'index' %>
-						</li>
-						<li class="priority-primary caps">
-							<%= link_to "Editorials", controller: 'ed_pcps', action: 'index' %>
-						</li>
-						<li class="priority-secondary caps">
-							<%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
-						</li>
-						<li class="priority-secondary caps">
-							<%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
-						</li>
-						<li class="priority-secondary caps">
-							<%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
-						</li>
-						<li id="show-nav-more">
-							<a href="#">More/Less</a>
-						</li>
-						<li class="priority-primary">
-							<%= form_tag("/search", method: "get", class: "search navbar-search") do %>
-								<%= text_field_tag :query, nil, { placeholder: "Search" } %>
-							<% end %>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div id="navbar-content">
+      <div id="navbar-logo">
+        <%= link_to image_tag(@logo_image, alt: "MQ logo"),
+          {controller: 'main', action: 'index'},
+          {data: {'no-turbolink': true}} %>
+        <% if @masthead.nil? %>
+            <div class="navbar-hideable navbar-lg navbar-block" id="navbar-masthead">
+            <%= @celeb_quote %>
+            <span id="navbar-celeb">
+              — <%= @celeb %>
+              <span>
+                <%= image_tag(@issue.get_relative_celeb_photo_path, alt: "it me") %>
+              </span>
+            </span>
+          </div>
+        <% else %>
+          <div class="navbar-hideable navbar-lg navbar-block" id="navbar-masthead"><%= @masthead %></div>
+        <% end %>
+      </div>
+      <div id="navbar-nav">
+        <div class="pure-menu pure-menu-horizontal" id="navbar-nav-inner">
+          <ul>
+            <li class="navbar-hideable navbar-md navbar-lg caps">
+              <%= link_to "Articles", {controller: 'articles', action: 'index'},
+                  class: yield(:articles_navbar_class) %>
+            </li>
+            <li class="navbar-hideable navbar-md navbar-lg caps">
+              <%= link_to "Features", {controller: 'features', action: 'index'},
+                  class: yield(:features_navbar_class)%>
+            </li>
+            <li class="navbar-hideable navbar-md navbar-lg caps">
+              <%= link_to "Top Tens", {controller: 'top_tens', action: 'index'},
+                  class: yield(:top_tens_navbar_class)%>
+            </li>
+            <li class="navbar-hideable navbar-md navbar-lg caps">
+              <%= link_to "Editorials", {controller: 'ed_pcps', action: 'index'},
+                  class: yield(:ed_pcps_navbar_class)%>
+            </li>
+            <li id="navbar-more" class="navbar-hideable navbar-md navbar-lg pure-menu-item pure-menu-has-children pure-menu-allow-hover navbar-parent-list caps">
+              <a data-no-turbolink="true" href="#" onclick="return false">More ▼</a>
+              <ul class="pure-menu-children navbar-sublist">
+                <li class="pure-menu-item caps">
+                  <%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Contributors", controller: 'people', action: 'index' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "About", controller: 'static_pages', action: 'about' %>
+                </li>
+                <li class="navbar-hideable navbar-md pure-menu-item caps">
+                  <%= link_to "Search", controller: 'search', action: 'index' %>
+                </li>
+              </ul>
+            </li>
+            <li id="navbar-sections" class="navbar-hideable navbar-sm pure-menu-item pure-menu-has-children pure-menu-allow-hover navbar-parent-list caps">
+              <a data-no-turbolink="true" href="#" onclick="return false">Sections ▼</a>
+              <ul class="pure-menu-children navbar-sublist">
+                <li class="pure-menu-item caps">
+                  <%= link_to "Articles", {controller: 'articles', action: 'index'} %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Features", {controller: 'features', action: 'index'} %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Top Tens", {controller: 'top_tens', action: 'index'} %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Editorials", {controller: 'ed_pcps', action: 'index'} %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Contributors", controller: 'people', action: 'index' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "About", controller: 'static_pages', action: 'about' %>
+                </li>
+                <li class="pure-menu-item caps">
+                  <%= link_to "Search", controller: 'search', action: 'index' %>
+                </li>
+              </ul>
+            </li>
+
+            <li class="navbar-hideable navbar-lg " id="search-list-element">
+              <%= form_tag("/search", method: "get", class: "search navbar-search") do %>
+                <%= text_field_tag :query, nil, { placeholder: "Search" } %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
