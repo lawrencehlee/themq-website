@@ -7,7 +7,7 @@ class TagsController < ApplicationController
     @tag = Tag.find(@tag_id)
 
 
-    @articles = @tag.get_all_articles_with_tag
+    @articles, @briefs = @tag.get_all_articles_with_tag
     @ed_pcps = @tag.get_all_ed_pcps_with_tag
     @features = @tag.get_all_features_with_tag
     @top_tens = @tag.get_all_top_tens_with_tag
@@ -15,7 +15,7 @@ class TagsController < ApplicationController
 
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
-    @brief = Article.get_random_brief
+    @brief = nil
   end
 
   def show
@@ -25,7 +25,8 @@ class TagsController < ApplicationController
 
     case @content_type
     when "article"
-      @content_pieces = @tag.get_all_articles_with_tag
+      articles, briefs = @tag.get_all_articles_with_tag
+      @content_pieces = (articles + briefs).shuffle(random: Random.new(1))
       @type_name = "Articles"
     when "ed_pcp"
       @content_pieces = @tag.get_all_ed_pcps_with_tag
@@ -42,6 +43,6 @@ class TagsController < ApplicationController
 
     @random_top_ten = TopTen.get_random
     @random_self_ad = SelfAd.get_random
-    @brief = Article.get_random_brief
+    @brief = nil
   end
 end

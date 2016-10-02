@@ -11,10 +11,15 @@
           <h1 class="regular-headline"><%= @tag.title %> Content</h1>
         </div>
 
-        <% if @articles.length != 0 %>
+        <% unless @articles.empty? && @briefs.empty? %>
           <% @articles.take(4).each do |article| %>
             <div class="tag-article pure-u-1 pure-u-md-1-2">
               <%= article.render_tag_view %>
+            </div>
+          <% end %>
+          <% @briefs.take(2).each do |brief| %>
+            <div class="tag-brief pure-u-1">
+              <%= brief.render_tag_view %>
             </div>
           <% end %>
           <p class="pure-u-1"><%= link_to "See All Articles Tagged " + @tag.title,

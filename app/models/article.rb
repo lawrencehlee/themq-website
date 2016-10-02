@@ -119,13 +119,21 @@ class Article < ActiveRecord::Base
 
   #want to do the same thing as render_sidebar_view, but for the tag page
   def render_tag_view
-    graphic = Graphic.find(self.graphic_id)
-    render partial: 'articles/tag_view', locals: {:article => self, :graphic => graphic}
+    if self.is_brief?
+      render partial: 'articles/tag_view', locals: {:article => self, :graphic => nil}
+    else
+      graphic = Graphic.find(self.graphic_id)
+      render partial: 'articles/tag_view', locals: {:article => self, :graphic => graphic}
+    end
   end
 
   def render_tag_show_view
-    graphic = Graphic.find(self.graphic_id)
-    render partial: 'articles/tag_show_view', locals: {:article => self, :graphic => graphic}
+    if self.is_brief?
+      render partial: 'articles/tag_show_view', locals: {:article => self, :graphic => nil}
+    else
+      graphic = Graphic.find(self.graphic_id)
+      render partial: 'articles/tag_show_view', locals: {:article => self, :graphic => graphic}
+    end
   end
 
   def render_search_view

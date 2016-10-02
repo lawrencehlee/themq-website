@@ -11,13 +11,11 @@ class Tag < ActiveRecord::Base
   def get_all_articles_with_tag
     article_tags = ArticleTag.where(tag_id: self.tag_id)
     articles = Array.new()
-    article_tags.reverse.each do |article_tag|
-      art = Article.find(article_tag.article_id)
-      if art.brief == "0"
-        articles << art
-      end
-    end
-    articles
+    briefs = Array.new()
+    all_articles = article_tags.map { |article_tag| Article.find(article_tag.article_id) }
+    articles = all_articles.select { |article| not article.is_brief? }
+    briefs = all_articles.select { |article| article.is_brief? }
+    [articles, briefs]
   end
 
   def get_all_ed_pcps_with_tag
