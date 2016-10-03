@@ -7,11 +7,9 @@
     <title>The MQ</title>
   <% end %>
 
-  <%= stylesheet_link_tag 'application', :media => 'all',
-    'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', :media => 'all',
-    'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', :media => 'all' %>
+  <%= stylesheet_link_tag params[:controller] %>
+  <%= javascript_include_tag 'application', :media => 'all' %>
   <%= javascript_include_tag params[:controller] %>
   <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
   <%= csrf_meta_tags %>
