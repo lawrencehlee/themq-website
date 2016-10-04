@@ -1,7 +1,9 @@
 <div class="tag-article">
-  <div class="article-image">
-    <%= link_to image_tag(graphic.get_relative_image_path, alt:"Tag Article Graphic", width: '100%'), article %>
-  </div>
+  <% unless graphic.nil? %>
+    <div class="article-image">
+      <%= link_to image_tag(graphic.get_relative_image_path, alt:"Tag Article Graphic", width: '100%'), article %>
+    </div>
+  <% end %>
   <h3 class="regular-headline"><%= link_to article.headline, article %></h3>
   <div class="date-author">
   <% @issue = Issue.find(article.issue_id) %>

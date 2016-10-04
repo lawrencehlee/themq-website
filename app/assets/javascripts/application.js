@@ -11,11 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require photoswipe
 //
 //= require owl.carousel
 //= require_tree ./base
 //
-//= require turbolinks

@@ -21,6 +21,12 @@
     }
   }
 
+  .tag-brief {
+    .tag-article {
+      margin-bottom: 0.5em;
+    }
+  }
+
   .tag-ed-pcp {
     margin: auto;
     .tag-ed-pcp {
@@ -93,6 +99,11 @@
       }
     }
     .tag-article {
+      .brief-data {
+        h3, div, p {
+          margin-left: 0;
+        }
+      }
       .date-author {
         color: $light-grey;
       }
