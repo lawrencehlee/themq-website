@@ -1,5 +1,4 @@
 class SelfAd < ActiveRecord::Base
-  include RandomSelectable
   IMAGE_SUBDIRECTORY = 'self_ads'
 
   def get_relative_image_path
@@ -14,12 +13,10 @@ class SelfAd < ActiveRecord::Base
 
   # Static method that gets a random self ad from the specified issue
   def self.get_random_from_issue(issue)
-    all_from_issue = SelfAd.get_all_from_issue(issue)
-    SelfAd.random(all_from_issue)
+    SelfAd.get_all_from_issue(issue).sample
   end
 
   def self.get_random
-    all = SelfAd.all
-    SelfAd.random(all)
+    SelfAd.all.sample
   end
 end

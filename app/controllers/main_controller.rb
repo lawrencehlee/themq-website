@@ -14,5 +14,7 @@ class MainController < ApplicationController
     @random_self_ad = SelfAd.get_random_from_issue(@current_issue)
 
     @brief = Article.get_random_brief_from_issue(@current_issue)
+
+    @skybox = Skybox.get_random_from_issue(@current_issue)
   end
 end

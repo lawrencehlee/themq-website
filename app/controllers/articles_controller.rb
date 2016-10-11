@@ -60,6 +60,7 @@ class ArticlesController < ApplicationController
     @random_top_ten = TopTen.get_random_from_issue(@current_issue)
     @random_self_ad = SelfAd.get_random
     @brief = Article.get_random_brief_from_issue(@current_issue)
+    @skybox = nil
   end
 
   def all
@@ -68,5 +69,6 @@ class ArticlesController < ApplicationController
     @random_top_ten = TopTen.get_random
     @random_self_ad = SelfAd.get_random
     @brief = Article.get_random_brief
+    @skybox = nil
   end
 end

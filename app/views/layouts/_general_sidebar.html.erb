@@ -25,6 +25,12 @@
     </div>
   </div>
   <% end %>
+
+  <% unless skybox.nil? %>
+  <div class="sidebar-element">
+    <%= image_tag(skybox.get_relative_image_path) %>
+  </div>
+  <% end %>
 </div>
 <% end %>
 
