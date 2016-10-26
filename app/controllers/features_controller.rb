@@ -18,6 +18,7 @@ class FeaturesController < ApplicationController
     end
 
     @all_features = [@top_feature] + @columnFeatures + @moreFeatures
+    @skybox = nil
   end
 
   def all
@@ -35,6 +36,7 @@ class FeaturesController < ApplicationController
 
     @random_top_ten = TopTen.get_random
     @brief = Article.get_random_brief
+    @skybox = nil
   end
 
   def show

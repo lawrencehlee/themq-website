@@ -16,6 +16,7 @@ class TagsController < ApplicationController
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
     @brief = nil
+    @skybox = nil
   end
 
   def show
@@ -44,5 +45,6 @@ class TagsController < ApplicationController
     @random_top_ten = TopTen.get_random
     @random_self_ad = SelfAd.get_random
     @brief = nil
+    @skybox = nil
   end
 end

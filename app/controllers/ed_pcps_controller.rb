@@ -17,6 +17,7 @@ class EdPcpsController < ApplicationController
         @random_top_ten = TopTen.get_random_from_issue(@current_issue)
         @random_self_ad = SelfAd.get_random
         @brief = Article.get_random_brief_from_issue(@current_issue)
+        @skybox = nil
     end
 
     def show
@@ -65,6 +66,7 @@ class EdPcpsController < ApplicationController
         @random_top_ten = TopTen.get_random_from_issue(@current_issue)
         @random_self_ad = SelfAd.get_random
         @brief = Article.get_random_brief
+        @skybox = nil
     end
 
 end
