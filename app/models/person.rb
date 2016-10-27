@@ -21,11 +21,11 @@ class Person < ActiveRecord::Base
   end
 
   def get_all_articles_for_person
-    Article.where(person_id: self.person_id)
+    Article.order_by_date(Article.where(person_id: self.person_id), true)
   end
 
   def get_all_graphics_for_person
-    Graphic.where(person_id: self.person_id)
+    Graphic.order_by_date(Graphic.where(person_id: self.person_id), true)
   end
 
   def get_relative_image_path

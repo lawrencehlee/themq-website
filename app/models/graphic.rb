@@ -24,4 +24,12 @@ class Graphic < ActiveRecord::Base
     render partial: 'graphics/search_view',
       locals: {graphic: self, article: get_article_for_graphic}
   end
+
+  def self.order_by_date(graphics, descending)
+    sorted = graphics.sort_by {|graphic| Issue.find(graphic.issue_id).date}
+    if descending
+      sorted.reverse!
+    end
+    sorted
+  end
 end
