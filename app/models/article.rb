@@ -232,4 +232,11 @@ class Article < ActiveRecord::Base
     self.title.partition("/")[2..-1].join('')
   end
 
+  def self.order_by_date(articles, descending)
+    sorted = articles.sort_by {|article| Issue.find(article.issue_id).date}
+    if descending
+      sorted.reverse!
+    end
+    sorted
+  end
 end
