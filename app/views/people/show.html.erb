@@ -3,7 +3,7 @@
 <div class="person-show-page pure-g">
   <div class="person-show-content pure-u-1">
     <div class="person-info">
-      <% if @position_title == "Staff Member" %>
+      <% if !@person.is_editor? %>
         <!--person is a staff member here -->
         <h2>Staff Writer <%= @person.name %>
       <% elsif @person.current == "0" %>

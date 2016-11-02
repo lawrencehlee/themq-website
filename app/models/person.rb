@@ -69,4 +69,15 @@ class Person < ActiveRecord::Base
     render partial: 'people/search_view', locals: {person: self}
   end
 
+  def is_editor?
+    Position.find(self.position_id).is_editor?
+  end
+
+  def self.get_editors
+    Person.where(current: 1).select { |person| person.is_editor? }
+  end
+
+  def self.get_staff_members
+    Person.where(current: 1).select { |person| !person.is_editor? }
+  end
 end

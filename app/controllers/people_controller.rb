@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
   def index
-    @editors = get_all_editors
+    @editors = Person.get_editors
 
     @featured_editor = @editors.delete_at(rand(@editors.length))
     @featured_position = Position.find(@featured_editor.position_id)
@@ -20,7 +20,7 @@ class PeopleController < ApplicationController
       @last_positions << Position.find(editor.position_id)
     end
 
-    @staff_members = get_all_staff_members
+    @staff_members = Person.get_staff_members.sort_by { |member| member.get_last_name }
     @staff_members_right = @staff_members.slice(0, @staff_members.length/2)
     @staff_members_left = @staff_members.slice(@staff_members.length/2, @staff_members.length)
     @latest_issue = Issue.get_latest_issue
@@ -59,28 +59,4 @@ class PeopleController < ApplicationController
       @first_column = "graphics"
     end
   end
-
-
-  private
-
-    def get_all_editors
-      editors = Array.new()
-      Person.order(:position_id).each do |person|
-        if Position.find(person.position_id).title != "Staff Member" and person.current == "1"
-          editors << person
-        end
-      end
-      editors
-
-    end
-
-    def get_all_staff_members
-      staff = Array.new()
-      Person.all.each do |person|
-        if Position.find(person.position_id).title == "Staff Member"
-          staff << person
-        end
-      end
-      staff.sort_by { |member| member.split_full_name.last }
-    end
 end
