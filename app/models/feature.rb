@@ -90,58 +90,28 @@ class Feature < ActiveRecord::Base
 
   def get_related_content(limit, content_types, filter)
     related_content = Array.new
-
-    # Loop over all combinations of the tags, starting with matching
-    # the most tags
     tags = get_tags
-    tags.length.downto(1) do |num_tags|
-      tag_combinations = tags.combination(num_tags)
-      content_types_clone = content_types.clone
+    rest_of_content_types = content_types
 
-      # Do Feature first to exclude self
-      if content_types_clone.include?(Feature)
-        content_types_clone.delete(Feature)
-        prevent_duplicate_filter = "feature_id != #{self.feature_id}"
-        new_filter = [filter, prevent_duplicate_filter].join(" AND ")
-        tag_combinations.to_a.each do |tag_combination|
-          related_content +=
-            Feature.find_with_tags(tag_combination, new_filter)
-        end
-      end
-
-      # Loop through each of the content pieces and query
-      content_types_clone.each do |content_type|
-        tag_combinations.to_a.each do |tag_combination|
-          related_content +=
-            content_type.find_with_tags(tag_combination, filter)
-        end
-      end
+    if content_types.include?(Feature)
+      rest_of_content_types = content_types - [Feature]
+      prevent_duplicate_filter = "feature_id != #{self.feature_id}"
+      new_filter = [filter, prevent_duplicate_filter].join(" AND ")
+      related_content += Feature.find_with_tags(tags, new_filter)
     end
+    rest_of_content_types.each do |content_type|
+        related_content += content_type.find_with_tags(tags, filter)
+    end
+
+    # Get limit random items from the content
     related_content.uniq.sample(limit)
   end
 
   def self.find_with_tags(tags, filter)
-    actual_results = Array.new
-    potential_results = Feature.where(filter)
-
-    # Loop over potential results
-    potential_results.each do |result|
-      result_valid = true
-
-      # Check if they match all the provided tags
-      tags.each do |tag|
-        if FeatureTag.where(
-          {feature_id: result.feature_id, tag_id: tag.tag_id}).empty?
-          result_valid = false
-          break
-        end
-      end
-
-      # If so, add them to the return array
-      if result_valid
-        actual_results << result
-      end
-    end
-    actual_results
+    # Getting all the ids and querying like so is much faster than individually
+    # querying for each id
+    feature_tags = tags.collect { |tag| FeatureTag.where({tag_id: tag.tag_id}) }.flatten
+    feature_ids = feature_tags.collect { |feature_tag| feature_tag.feature_id }
+    Feature.(feature_id: feature_ids.uniq).where(filter)
   end
 end
