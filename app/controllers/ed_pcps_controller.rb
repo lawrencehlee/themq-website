@@ -29,7 +29,7 @@ class EdPcpsController < ApplicationController
         @tags = @ed_pcp.get_tags
 
         if @ed_pcp.point == "1"
-            @cp = EdPcp.find(@ed_pcp.crspnd_point_id)
+            @cp = @ed_pcp.get_counterpoint
             @ed_pcps << @cp
         end
 

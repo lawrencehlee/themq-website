@@ -140,8 +140,6 @@ class Article < ActiveRecord::Base
     render partial: 'articles/search_view', locals: {article: self}
   end
 
-  # This method is a bit complex so I guess it deserves a header
-  # get_related_content(limit, content_types, filter)
   # Returns an array of content models that are "related" by tag to
   # this article. It will find up to limit results that are of the
   # classes specified in the content_types parameter.
@@ -149,66 +147,32 @@ class Article < ActiveRecord::Base
   # criteria in querying for models.
   def get_related_content(limit, content_types, filter)
     related_content = Array.new
-
-    # Loop over all combinations of the tags, starting with matching
-    # the most tags
     tags = get_tags
-    tags.length.downto(1) do |num_tags|
-      tag_combinations = tags.combination(num_tags)
-      content_types_clone = content_types.clone
+    rest_of_content_types = content_types
 
-      # Do Article first to exclude self
-      if content_types_clone.include?(Article)
-        content_types_clone.delete(Article)
-        prevent_duplicate_filter = "article_id != #{self.article_id}"
-        new_filter = [filter, prevent_duplicate_filter].join(" AND ")
-        tag_combinations.to_a.each do |tag_combination|
-          related_content +=
-            Article.find_with_tags(tag_combination, new_filter)
-        end
-      end
-
-      # Loop through each of the content pieces and query
-      content_types_clone.each do |content_type|
-        tag_combinations.to_a.each do |tag_combination|
-          related_content +=
-            content_type.find_with_tags(tag_combination, filter)
-        end
-      end
+    # Do Article first to exclude self
+    if content_types.include?(Article)
+      rest_of_content_types = content_types - [Article]
+      prevent_duplicate_filter = "article_id != #{self.article_id}"
+      new_filter = [filter, prevent_duplicate_filter].join(" AND ")
+      related_content += Article.find_with_tags(tags, new_filter)
+    end
+    rest_of_content_types.each do |content_type|
+        related_content += content_type.find_with_tags(tags, filter)
     end
 
     # Get limit random items from the content
     related_content.uniq.sample(limit)
   end
 
-  # This static method also deserves some explaining and maybe a header
-  # self.find_with_tags(tags, filter)
   # Returns an array of articles that are filtered by filter
-  # and that have all the tags specified in tags
+  # and that have any of the tags specified in tags
   def self.find_with_tags(tags, filter)
-    actual_results = Array.new
-    potential_results = Article.where(filter)
-
-    # Loop over potential results
-    potential_results.each do |result|
-      result_valid = true
-
-      # Check if they match all the provided tags
-      tags.each do |tag|
-        if ArticleTag.where(
-          {article_id: result.article_id, tag_id: tag.tag_id}).empty?
-          result_valid = false
-          break
-        end
-      end
-
-      # If so, add them to the return array
-      if result_valid
-        actual_results << result
-      end
-
-    end
-    actual_results
+    # Getting all the ids and querying like so is much faster than individually
+    # querying for each id
+    article_tags = tags.collect { |tag| ArticleTag.where({tag_id: tag.tag_id}) }.flatten
+    article_ids = article_tags.collect { |article_tag| article_tag.article_id }
+    Article.where(article_id: article_ids.uniq).where(filter)
   end
 
   def get_co_author_or_nil
