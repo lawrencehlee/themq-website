@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
     @brief = nil
+    @skybox = nil
   end
 
   def contact
@@ -13,6 +14,7 @@ class StaticPagesController < ApplicationController
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
     @brief = nil
+    @skybox = nil
   end
 
 end

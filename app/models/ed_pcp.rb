@@ -3,6 +3,8 @@ require 'render_anywhere'
 class EdPcp < ActiveRecord::Base
   extend FriendlyId
   include RenderAnywhere
+
+  belongs_to :issue
   friendly_id :title, use: :slugged
   IMAGE_SUBDIRECTORY = 'ed_pcps'
   ARTICLE_SUBDIRECTORY = 'articles'
@@ -38,11 +40,7 @@ class EdPcp < ActiveRecord::Base
   end
 
   def self.group_point_counterpoint(point)
-    retArray = Array.new
-    counterpoint = EdPcp.find(point.crspnd_point_id)
-    retArray << point
-    retArray << counterpoint
-    retArray
+    [point, point.get_counterpoint]
   end
 
   def get_ed_pcp_tags
@@ -170,5 +168,13 @@ class EdPcp < ActiveRecord::Base
 
   def render_sidebar_view
     render partial: 'ed_pcps/sidebar_view', locals: {ed_pcp: self}
+  end
+
+  def self.order_by_issue_date(ed_pcps, descending)
+    if descending
+      ed_pcps.joins(:issue).order('issues.date DESC')
+    else
+      ed_pcps.joins(:issue).order('issues.date')
+    end
   end
 end

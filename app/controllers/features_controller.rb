@@ -28,7 +28,7 @@ class FeaturesController < ApplicationController
     @allFeatures = Array.new()
     Issue.order("volume_no, issue_no").each do |issue|
       feature_set = Feature.where(issue_id: issue.issue_id)
-      if feature_set != nil
+      if !feature_set.blank?
         @allFeatures << Feature.where(issue_id: issue.issue_id)
       end
     end

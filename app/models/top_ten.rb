@@ -3,6 +3,8 @@ require 'render_anywhere'
 class TopTen < ActiveRecord::Base
   include RenderAnywhere, RandomSelectable
   extend FriendlyId
+
+  belongs_to :issue
   friendly_id :name, use: :slugged
 
   searchable do
@@ -72,4 +74,11 @@ class TopTen < ActiveRecord::Base
     tags
   end
 
+  def self.order_by_issue_date(top_tens, descending)
+    if descending
+      top_tens.joins(:issue).order('issues.date DESC')
+    else
+      top_tens.joins(:issue).order('issues.date')
+    end
+  end
 end
