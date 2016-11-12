@@ -36,7 +36,7 @@ class Feature < ActiveRecord::Base
 
 
   def self.get_top_feature
-    issue = Issue.last
+    issue = Issue.get_latest_issue
     issue_string = issue.get_abbreviated_issue_name
     filepath = File.join(
       Rails.root, 'app', 'assets', 'images', "#{issue_string}", 'features', 'topFeatures.txt')
@@ -50,7 +50,7 @@ class Feature < ActiveRecord::Base
   end
 
   def self.get_column_features
-    issue = Issue.last
+    issue = Issue.get_latest_issue
     issue_string = issue.get_abbreviated_issue_name
     filepath = File.join(
       Rails.root, 'app', 'assets', 'images', "#{issue_string}", 'features', 'topFeatures.txt')
@@ -64,7 +64,7 @@ class Feature < ActiveRecord::Base
   end
 
   def self.get_more_features
-    issue = Issue.last
+    issue = Issue.get_latest_issue
     issue_string = issue.get_abbreviated_issue_name
     filepath = File.join(
       Rails.root, 'app', 'assets', 'images', "#{issue_string}", 'features', 'topFeatures.txt')
