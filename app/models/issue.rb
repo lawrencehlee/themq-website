@@ -1,8 +1,13 @@
 class Issue < ActiveRecord::Base
-  IMAGE_SUBDIRECTORY = 'general'
-
   extend FriendlyId
+
+  has_many :articles
+  has_many :graphics
+  has_many :features
+  has_many :top_tens
+  has_many :ed_pcps
   friendly_id :name, use: :slugged
+  IMAGE_SUBDIRECTORY = 'general'
 
   def should_generate_new_friendly_id?
     slug.blank? || self.name_changed?

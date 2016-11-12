@@ -3,6 +3,8 @@ require 'render_anywhere'
 class Graphic < ActiveRecord::Base
   include RenderAnywhere
 
+  belongs_to :article
+  belongs_to :issue
   IMAGE_SUBDIRECTORY = 'graphics'
 
   searchable do
@@ -25,11 +27,12 @@ class Graphic < ActiveRecord::Base
       locals: {graphic: self, article: get_article_for_graphic}
   end
 
-  def self.order_by_date(graphics, descending)
-    sorted = graphics.sort_by {|graphic| Issue.find(graphic.issue_id).date}
+  def self.order_by_issue_date(graphics, descending)
+    #= graphics.sort_by {|graphic| Issue.find(graphic.issue_id).date}
     if descending
-      sorted.reverse!
+      graphics.joins(:issue).order('issues.date DESC')
+    else
+      graphics.joins(:issue).order('issues.date')
     end
-    sorted
   end
 end

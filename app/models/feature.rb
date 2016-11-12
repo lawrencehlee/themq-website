@@ -4,6 +4,7 @@ class Feature < ActiveRecord::Base
   extend FriendlyId
   include RenderAnywhere
 
+  belongs_to :issue
   friendly_id :name, use: :slugged
   FEATURE_SUBDIRECTORY = 'features'
 

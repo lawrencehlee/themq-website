@@ -4,6 +4,8 @@ class Article < ActiveRecord::Base
   extend FriendlyId
   include RenderAnywhere, RandomSelectable
 
+  belongs_to :issue
+  has_one :graphic
   friendly_id :title, use: :slugged
   ARTICLE_SUBDIRECTORY = 'articles'
 
@@ -196,11 +198,11 @@ class Article < ActiveRecord::Base
     self.title.partition("/")[2..-1].join('')
   end
 
-  def self.order_by_date(articles, descending)
-    sorted = articles.sort_by {|article| Issue.find(article.issue_id).date}
+  def self.order_by_issue_date(articles, descending)
     if descending
-      sorted.reverse!
+      articles.joins(:issue).order('issues.date DESC')
+    else
+      articles.joins(:issue).order('issues.date')
     end
-    sorted
   end
 end
