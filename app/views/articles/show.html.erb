@@ -4,7 +4,7 @@
   <meta property="og:title" content="<%= @article.headline %>" />
   <meta property="og:description" content="<%= raw @article.get_article_text_teaser(50) %>" />
   <% if !@article.is_brief? %>
-  <meta property="og:image" content="<%= image_path(@graphic.get_relative_image_path) %>" />
+  <meta property="og:image" content="<%= image_url(@graphic.get_relative_image_path) %>" />
   <% end %>
 <% end %>
 
