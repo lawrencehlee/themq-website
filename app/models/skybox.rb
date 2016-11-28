@@ -1,8 +1,9 @@
 class Skybox < ActiveRecord::Base
+  belongs_to :issue
+
   IMAGE_SUBDIRECTORY = 'skyboxes'
 
   def get_relative_image_path
-    issue = Issue.find(self.issue_id)
     issue_string = "#{issue.volume_no}.#{issue.issue_no}"
     "#{issue_string}/#{IMAGE_SUBDIRECTORY}/#{self.image}"
   end

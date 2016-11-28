@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   extend FriendlyId
   include RenderAnywhere
 
+  belongs_to :position
+
   friendly_id :name, use: :slugged
 
   EDITORS_SUBDIRECTORY = 'editors'
@@ -21,7 +23,8 @@ class Person < ActiveRecord::Base
   end
 
   def get_all_articles_for_person
-    Article.order_by_issue_date(Article.where(person_id: self.person_id), true)
+    Article.order_by_issue_date(
+      Article.where("author_id = ? OR co_author_id = ?", self.person_id, self.person_id), true)
   end
 
   def get_all_graphics_for_person
@@ -46,7 +49,7 @@ class Person < ActiveRecord::Base
 
   def get_more_content(limit, content_types, filter, excluded)
     more_content = Array.new
-    this_author_filter = "person_id = #{self.person_id}"
+    this_author_filter = "author_id = #{self.person_id} OR co_author_id = #{self.person_id}"
     new_filter = [filter, this_author_filter].join(' AND ')
 
     content_types.each do |content_type|

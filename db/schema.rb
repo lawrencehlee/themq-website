@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112062520) do
+ActiveRecord::Schema.define(version: 20161127221543) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -55,21 +55,21 @@ ActiveRecord::Schema.define(version: 20161112062520) do
   add_index "article_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "articles", primary_key: "article_id", force: :cascade do |t|
-    t.integer "person_id",  limit: 4,   null: false
-    t.integer "graphic_id", limit: 4
-    t.integer "issue_id",   limit: 4,   null: false
-    t.string  "headline",   limit: 200
-    t.string  "text",       limit: 255, null: false
-    t.binary  "brief",      limit: 1
-    t.string  "slug",       limit: 255
-    t.string  "title",      limit: 255
-    t.integer "co_author",  limit: 4
+    t.integer "author_id",    limit: 4,   null: false
+    t.integer "graphic_id",   limit: 4
+    t.integer "issue_id",     limit: 4,   null: false
+    t.string  "headline",     limit: 200
+    t.string  "text",         limit: 255, null: false
+    t.binary  "brief",        limit: 1
+    t.string  "slug",         limit: 255
+    t.string  "title",        limit: 255
+    t.integer "co_author_id", limit: 4
   end
 
-  add_index "articles", ["co_author"], name: "co_author", using: :btree
+  add_index "articles", ["author_id"], name: "person_id", using: :btree
+  add_index "articles", ["co_author_id"], name: "co_author", using: :btree
   add_index "articles", ["graphic_id"], name: "graphic_id", using: :btree
   add_index "articles", ["issue_id"], name: "issue_id", using: :btree
-  add_index "articles", ["person_id"], name: "person_id", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "ed_pcp_tags", primary_key: "ed_pcp_tag_id", force: :cascade do |t|
@@ -223,8 +223,8 @@ ActiveRecord::Schema.define(version: 20161112062520) do
 
   add_foreign_key "articles", "graphics", primary_key: "graphic_id", name: "articles_ibfk_3"
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
-  add_foreign_key "articles", "people", column: "co_author", primary_key: "person_id", name: "articles_ibfk_4"
-  add_foreign_key "articles", "people", primary_key: "person_id", name: "articles_ibfk_1"
+  add_foreign_key "articles", "people", column: "author_id", primary_key: "person_id", name: "articles_ibfk_1"
+  add_foreign_key "articles", "people", column: "co_author_id", primary_key: "person_id", name: "articles_ibfk_4"
   add_foreign_key "ed_pcp_tags", "ed_pcps", primary_key: "ed_pcp_id", name: "ed_pcp_tags_ibfk_1"
   add_foreign_key "ed_pcp_tags", "tags", primary_key: "tag_id", name: "ed_pcp_tags_ibfk_2"
   add_foreign_key "ed_pcps", "issues", primary_key: "issue_id", name: "ed_pcps_ibfk_1"

@@ -52,9 +52,9 @@
             </div>
             <h3 class="regular-headline"><%= link_to article.headline, article %></h3>
             <div class="date-author">
-              <% @issue = Issue.find(article.issue_id) %>
-              <% @person = Person.find(article.person_id) %>
-              <% @co_author, @position = article.get_co_author_or_nil %>
+              <% @issue = article.issue %>
+              <% @person = article.author %>
+              <% @co_author = article.co_author %>
               <p><%= @issue.date.to_formatted_s(:long) %> - <%= link_to @person.name, @person, {class: 'author-link'} %></p>
               <% if @co_author %>
                 <p> - <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>

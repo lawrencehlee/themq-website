@@ -2,7 +2,7 @@ class TopTensController < ApplicationController
 
   def show
     @top_ten = TopTen.friendly.find(params[:id])
-    @issue = Issue.find(@top_ten.issue_id)
+    @issue = @top_ten.issue
     @top_ten_entries = @top_ten.get_entries
 
     @current_issue = Issue.get_latest_issue
@@ -34,6 +34,6 @@ class TopTensController < ApplicationController
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
     @brief = nil
-
+    @skybox = nil
   end
 end
