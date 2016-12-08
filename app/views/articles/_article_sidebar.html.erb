@@ -17,6 +17,16 @@
       </div>
     <% end %>
   <% end %>
+
+  <% if not same_co_author_content.empty? %>
+    <h2>More by <%= co_author.get_first_name %></h2>
+    <% same_co_author_content.each do |content_piece| %>
+      <div class="sidebar-element">
+        <%= content_piece.render_sidebar_view %>
+      </div>
+    <% end %>
+  <% end %>
+
 </div>
 <% end %>
 

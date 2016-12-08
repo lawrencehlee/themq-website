@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
       @co_author_position = @co_author.get_title
     end
 
-    @tags = Array.new()
     @tags = @article.get_tags
 
     # Specific sidebar stuff
@@ -38,6 +37,16 @@ class ArticlesController < ApplicationController
     @same_author_content += @author.get_more_content(
         SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
         not_current_issue_filter, @article)
+
+    @same_co_author_content = Array.new
+    if @co_author
+      @same_co_author_content = @co_author.get_more_content(
+          SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
+          current_issue_filter, @article)
+      @same_co_author_content += @co_author.get_more_content(
+          SAME_AUTHOR_CONTENT_LIMIT, SAME_AUTHOR_CONTENT_TYPES,
+          not_current_issue_filter, @article)
+    end
   end
 
   def index

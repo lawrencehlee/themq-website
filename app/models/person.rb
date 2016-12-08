@@ -49,7 +49,7 @@ class Person < ActiveRecord::Base
 
   def get_more_content(limit, content_types, filter, excluded)
     more_content = Array.new
-    this_author_filter = "author_id = #{self.person_id} OR co_author_id = #{self.person_id}"
+    this_author_filter = "(author_id = #{self.person_id} OR co_author_id = #{self.person_id})"
     new_filter = [filter, this_author_filter].join(' AND ')
 
     content_types.each do |content_type|

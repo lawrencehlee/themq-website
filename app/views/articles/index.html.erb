@@ -24,7 +24,7 @@
           <h2 class="regular-headline"><%= link_to @top_story.headline, @top_story %></h2>
           <div class="date-author">
             <% if @top_story_co_author %>
-              <p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= link_to @top_story_person.name, @top_story_person %>
+              <p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= link_to @top_story_person.name, @top_story_person, {class: 'author-link'} %>
               - <%= link_to @top_story_co_author.name, @top_story_co_author, {class: 'author-link'} %></p>
             <% else %>
               <p><%= @top_story_issue.date.to_formatted_s(:long) %> - <%= link_to @top_story_person.name, @top_story_person, {class: 'author-link'} %></p>
