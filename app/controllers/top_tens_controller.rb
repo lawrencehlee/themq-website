@@ -8,7 +8,7 @@ class TopTensController < ApplicationController
     @current_issue = Issue.get_latest_issue
     @random_top_ten = nil
     @random_self_ad = SelfAd.get_random
-    @brief = Article.get_random_brief_from_issue(@current_issue)
+    @brief = nil
     @skybox = nil
   end
 

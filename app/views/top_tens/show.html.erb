@@ -11,10 +11,12 @@
     <div class="social-share-small">
       <%= render :partial => "social_share_small", :locals => {:article => @top_ten, :status => @top_ten.title} %>
     </div>
-    <%= render 'inline_bad_css', :top_ten => @top_ten %>
-    <div class="see-more">
-      <%= link_to "More top tens ›",
-        {controller: 'top_tens', action: 'index'} %>
+    <div class="left-bar">
+      <%= render 'inline_bad_css', :top_ten => @top_ten %>
+      <div class="see-more">
+        <%= link_to "More top tens ›",
+          {controller: 'top_tens', action: 'index'} %>
+      </div>
     </div>
   </div>
 
