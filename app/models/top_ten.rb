@@ -62,16 +62,11 @@ class TopTen < ActiveRecord::Base
   end
 
   def get_attribution_line
-    issue = Issue.find(self.issue_id)
     "#{issue.get_full_issue_name} - #{issue.get_human_readable_date}"
   end
 
   def get_top_ten_tags
-    tags = Array.new()
-    TopTenTag.where(top_ten_id: self.top_ten_id).each do |top_ten_tag|
-      tags << Tag.find(top_ten_tag.tag_id)
-    end
-    tags
+    TopTenTag.where(top_ten_id: self.top_ten_id).collect { |top_ten_tag| top_ten_tag.tag }
   end
 
   def self.order_by_issue_date(top_tens, descending)

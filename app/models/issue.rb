@@ -1,11 +1,6 @@
 class Issue < ActiveRecord::Base
   extend FriendlyId
 
-  has_many :articles
-  has_many :graphics
-  has_many :features
-  has_many :top_tens
-  has_many :ed_pcps
   friendly_id :name, use: :slugged
   IMAGE_SUBDIRECTORY = 'general'
 

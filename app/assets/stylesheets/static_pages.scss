@@ -1,6 +1,10 @@
 @import "base/variables";
 @import "base/mixins";
 
+.paragraph-header {
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
 p.actual-paragraph {
   margin-top: 0.5em;
   margin-bottom: 0.5em;

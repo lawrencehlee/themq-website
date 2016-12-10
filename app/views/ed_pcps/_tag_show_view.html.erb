@@ -14,14 +14,14 @@
     <% end %>
 
     <h3 class="regular-headline"><%= link_to ed_pcp.headline, ed_pcp %></h3>
-    <% @issue = Issue.find(ed_pcp.issue_id) %>
+    <% @issue = ed_pcp.issue %>
     <div class="date-author">
       <p><%= @issue.get_human_readable_date %> / <%= ed_pcp.author %></p>
     </div>
   </div>
 
   <% if ed_pcp.point == "1" %>
-    <% cp = EdPcp.find(ed_pcp.crspnd_point_id) %>
+    <% cp = ed_pcp.get_counterpoint %>
     <div class="author-image pure-u-1 pure-u-md-1-4">
       <%= link_to image_tag(cp.get_relative_author_image_path, alt: "Author Graphic", width: '100%'), ed_pcp %>
     </div>

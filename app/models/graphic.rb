@@ -3,8 +3,10 @@ require 'render_anywhere'
 class Graphic < ActiveRecord::Base
   include RenderAnywhere
 
-  belongs_to :article
+  has_one :article
   belongs_to :issue
+  belongs_to :person
+
   IMAGE_SUBDIRECTORY = 'graphics'
 
   searchable do

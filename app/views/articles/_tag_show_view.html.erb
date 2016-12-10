@@ -15,9 +15,9 @@
             <% end %>
           <% end %>
         </div>
-        <% person = Person.find(article.person_id) %>
-        <% co_author = article.get_co_author_or_nil %>
-        <% issue = Issue.find(article.issue_id) %>
+        <% person = article.author %>
+        <% co_author = article.co_author %>
+        <% issue = article.issue %>
         <div class="article-teaser">
           <% article_text_teaser = article.get_article_text_teaser 25 %>
           <p><%= article_text_teaser %></p>
@@ -49,9 +49,9 @@
           <% end %>
         <% end %>
       </div>
-      <% person = Person.find(article.person_id) %>
-      <% co_author = article.get_co_author_or_nil %>
-      <% issue = Issue.find(article.issue_id) %>
+      <% person = article.author %>
+      <% co_author = article.co_author %>
+      <% issue = article.issue %>
       <div class="article-teaser">
         <% article_text_teaser = article.get_article_text_teaser 25 %>
         <p><%= article_text_teaser %></p>

@@ -149,3 +149,10 @@ a {
 a.author-link:hover {
   text-decoration: underline;
 }
+
+a.highlight-link {
+  &:hover {
+    text-decoration: underline;
+  }
+  color: #38b3e6;
+}

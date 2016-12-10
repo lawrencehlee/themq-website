@@ -3,12 +3,11 @@
     <div class="left-bar">
       <div class="owl-carousel slideshow">
         <% @featured_content.each do |content| %>
-          <% # TODO: not every piece of content has a headline
-            # How do we handle this?
-            graphic = Graphic.find(content.graphic_id)
-            person = Person.find(content.person_id)
-            co_author = content.get_co_author_or_nil
-            issue = Issue.find(content.issue_id)
+          <%
+            graphic = content.graphic
+            author = content.author
+            co_author = content.co_author
+            issue = content.issue
           %>
         <!-- Link to the specified content -->
         <a href="<%= url_for(content) %>">
@@ -25,7 +24,7 @@
                 <% if !co_author.nil? %>
                   <span class="index-person"><%= co_author.name %> -</span>
                 <% end %>
-                <span class="index-person"><%= person.name %> -</span>
+                <span class="index-person"><%= author.name %> -</span>
                 <span class="index-issue"><%= issue.get_full_issue_name %> -</span>
                 <span class="index-date"><%= issue.get_human_readable_date %></span>
               </div>
@@ -38,10 +37,10 @@
       <div id="news" class="main-section">
         <h2 class="main-section-title">News</h2>
         <% @news_articles.each do |article| %>
-          <% graphic = Graphic.find(article.graphic_id) %>
-          <% person = Person.find(article.person_id) %>
-          <% co_author = article.get_co_author_or_nil %>
-          <% issue = Issue.find(article.issue_id) %>
+          <% graphic = article.graphic %>
+          <% author = article.author %>
+          <% co_author = article.co_author %>
+          <% issue = article.issue %>
           <div class="news-content pure-g">
             <div class="news-content-image pure-u-1 pure-u-lg-1-3">
               <%= link_to image_tag(graphic.get_relative_image_path),
@@ -56,7 +55,7 @@
                   <% if !co_author.nil? %>
                     <span class="index-person"><%= link_to co_author.name, co_author, {class: 'author-link'} %> -</span>
                   <% end %>
-                  <span class="index-person"><%= link_to person.name, person, {class: 'author-link'} %> -</span>
+                  <span class="index-person"><%= link_to author.name, author, {class: 'author-link'} %> -</span>
                   <span class="index-issue"><%= issue.get_full_issue_name %> -</span>
                   <span class="index-date"><%= issue.get_human_readable_date %></span>
                 </div>

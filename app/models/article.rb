@@ -6,6 +6,9 @@ class Article < ActiveRecord::Base
 
   belongs_to :issue
   has_one :graphic
+  belongs_to :author, class_name: "Person"
+  belongs_to :co_author, class_name: "Person"
+
   friendly_id :title, use: :slugged
   ARTICLE_SUBDIRECTORY = 'articles'
 
@@ -28,17 +31,7 @@ class Article < ActiveRecord::Base
   end
 
   def get_attribution_line
-    person = Person.find(self.person_id)
-    issue = Issue.find(self.issue_id)
     "#{person.name} - #{issue.get_long_info}"
-  end
-
-  def get_author
-    Person.find(self.person_id)
-  end
-
-  def get_issue
-    Issue.find(self.issue_id)
   end
 
   def get_article_text_teaser(words)
@@ -58,12 +51,11 @@ class Article < ActiveRecord::Base
   end
 
   def get_relative_article_path
-    issue = Issue.find(self.issue_id)
     issue_string = "#{issue.volume_no}.#{issue.issue_no}"
     "#{issue_string}/#{ARTICLE_SUBDIRECTORY}/#{self.text}"
   end
 
-  def get_top_story
+  def self.get_top_story
     issue = Issue.get_latest_issue
     issue_string = "#{issue.volume_no}.#{issue.issue_no}"
     filepath = File.join(
@@ -77,7 +69,7 @@ class Article < ActiveRecord::Base
     end
   end
 
-  def get_more_stories
+  def self.get_more_stories
     issue = Issue.get_latest_issue
     issue_string = "#{issue.volume_no}.#{issue.issue_no}"
     filepath = File.join(

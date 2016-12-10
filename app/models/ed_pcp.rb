@@ -5,6 +5,8 @@ class EdPcp < ActiveRecord::Base
   include RenderAnywhere
 
   belongs_to :issue
+  belongs_to :crspnd_point, class_name: "EdPcp"
+
   friendly_id :title, use: :slugged
   IMAGE_SUBDIRECTORY = 'ed_pcps'
   ARTICLE_SUBDIRECTORY = 'articles'
@@ -17,10 +19,6 @@ class EdPcp < ActiveRecord::Base
     slug.blank? || self.title_changed?
   end
 
-  def get_issue
-    Issue.find(self.issue_id)
-  end
-
   def get_ed_pcp_text
     filepath = File.join(
       Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
@@ -28,27 +26,17 @@ class EdPcp < ActiveRecord::Base
   end
 
   def get_relative_article_path
-    issue = Issue.find(self.issue_id)
     issue_string = "#{issue.volume_no}.#{issue.issue_no}"
     "#{issue_string}/#{ARTICLE_SUBDIRECTORY}/#{self.text}"
   end
 
   def get_relative_author_image_path
-    issue = Issue.find(self.issue_id)
     issue_string = "#{issue.volume_no}.#{issue.issue_no}"
     "#{issue_string}/#{IMAGE_SUBDIRECTORY}/#{self.author_image}"
   end
 
   def self.group_point_counterpoint(point)
     [point, point.get_counterpoint]
-  end
-
-  def get_ed_pcp_tags
-    tags = Array.new
-    EdPcpTag.where(ed_pcp_id: self.ed_pcp_id).each do |ed_pcp_tag|
-      tags << Tag.find(ed_pcp_tag.tag_id)
-    end
-    tags
   end
 
   def self.get_top_editorials
@@ -99,7 +87,7 @@ class EdPcp < ActiveRecord::Base
   def render_tag_view
     ed_pcp = self
     if self.counterpoint == 1
-      ed_pcp = EdPcp.find(self.crspnd_point)
+      ed_pcp = crspnd_point
     end
     render partial: 'ed_pcps/tag_view', locals: {ed_pcp: ed_pcp}
   end
@@ -107,7 +95,7 @@ class EdPcp < ActiveRecord::Base
   def render_tag_show_view
     ed_pcp = self
     if self.counterpoint == 1
-      ed_pcp = EdPcp.find(self.crspnd_point)
+      ed_pcp = crspnd_point
     end
     render partial: 'ed_pcps/tag_show_view', locals: {ed_pcp: ed_pcp}
   end
@@ -117,11 +105,7 @@ class EdPcp < ActiveRecord::Base
   end
 
   def get_tags
-    tags = Array.new()
-    EdPcpTag.where(ed_pcp_id: self.ed_pcp_id).each do |ed_pcp_tag|
-      tags << Tag.find(ed_pcp_tag.tag_id)
-    end
-    tags
+    EdPcpTag.where(ed_pcp_id: self.ed_pcp_id).collect { |ed_pcp_tag| ed_pcp_tag.tag }
   end
 
   def get_related_content(limit, content_types, filter)

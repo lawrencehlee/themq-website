@@ -5,7 +5,7 @@
   <div class="feature-all-content pure-u-1 pure-u-lg-2-3">
     <div class="left-bar">
       <% @feature_sets.each do |feature_set| %>
-        <% issue_name = Issue.find(feature_set[0].issue_id).get_abbreviated_issue_name %>
+        <% issue_name = feature_set[0].issue.get_abbreviated_issue_name %>
         <h2>Features for Issue <%= issue_name %>:</h2>
         <div class="my-gallery pure-g" itemscope itemtype="http://schema.org/ImageGallery">
           <% feature_set.each do |feature| %>
