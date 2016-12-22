@@ -107,8 +107,8 @@ class Issue < ActiveRecord::Base
   end
 
   # Returns the article indices for the highlighted articles on the issue show page
-  def self.get_top_articles
-    f_lines = self.get_issue_txt_file
+  def self.get_top_articles(issue)
+    f_lines = self.get_issue_txt_file(issue)
     f_lines.each_with_index do |line, index|
       if line.include? "top-articles"
         return f_lines[index + 1].split(",")

@@ -96,7 +96,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.get_all_articles_from_issue(issue)
-    Article.where(issues_id: issue.issue_id)
+    Article.where(issue_id: issue.issue_id)
   end
 
   def self.get_random_brief_from_issue(issue)
