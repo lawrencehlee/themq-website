@@ -30,6 +30,13 @@ Rails.application.routes.draw do
     end
   end
 
+  #add routes for issue show and issue all pages
+  resources :issues do
+    collection do
+      get 'all'
+    end
+  end
+
   get 'search', to: 'search#index'
 
   # error pages

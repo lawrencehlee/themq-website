@@ -96,4 +96,32 @@ class Issue < ActiveRecord::Base
     end
   end
 
+  # Similar to get_index_text_file, this returns the issue.txt in images/xy.z/general for issue page info
+  # Get the issue txt file for a specific issue, returns an array of lines
+  def self.get_issue_txt_file(issue)
+    issue_string = issue.get_abbreviated_issue_name
+    filepath = File.join(
+      Rails.root, 'app', 'assets', 'images', "#{issue_string}/#{IMAGE_SUBDIRECTORY}", 'issue.txt')
+
+    File.open(filepath).read.split("\n")
+  end
+
+  # Returns the article indices for the highlighted articles on the issue show page
+  def self.get_top_articles
+    f_lines = self.get_issue_txt_file
+    f_lines.each_with_index do |line, index|
+      if line.include? "top-articles"
+        return f_lines[index + 1].split(",")
+      end
+    end
+  end
+
+  def self.order_by_date(issues, descending)
+    if descending
+      issues.order('date DESC')
+    else
+      issues.order('date')
+    end
+  end
+
 end

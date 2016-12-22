@@ -1,6 +1,17 @@
 class IssuesController < ApplicationController
 
   def show
-    #nothing here yet, but know to use friendly ids when finding issues
+    @issue = Issue.friendly.find(params[:id])
+  end
+
+  def index
+    @issues = Issue.order_by_date(Issue.all, true)
+    @articles = Article.all
+    @issues = Issue.all
+  end
+
+  def all
+    @issues = Issue.order_by_date(Issue.all, true)
+    @issues = Issue.all
   end
 end
