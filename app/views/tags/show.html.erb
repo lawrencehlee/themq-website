@@ -1,4 +1,9 @@
 <% content_for :title, @tag.title + " " + @type_name %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="<%= "#{@tag.title} #{@type_name}" %> | The MQ" />
+  <meta property="og:description" content="Content of that type related to that thing." />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
 <% unless @navbar_item.nil? %>
     <div class="navbar-mapper"><%= @navbar_item %></div>

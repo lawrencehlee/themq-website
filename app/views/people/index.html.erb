@@ -1,4 +1,9 @@
 <% content_for :title, "Contributors" %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="Contributors | The MQ" />
+  <meta property="og:description" content="Are you Facebook friends with any of the people on this page?" />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
 <div class="person-index-page">
   <div class="person-index-content">

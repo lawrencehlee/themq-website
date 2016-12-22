@@ -1,4 +1,13 @@
 <% content_for :title, @person.name %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="<%= "#{@person.name}, #{@position_title}" %> | The MQ" />
+  <meta property="og:description" content="Are you Facebook friends with <%= @person.split_full_name.first %>?" />
+  <% if @person.is_editor? %>
+  <meta property="og:image" content="<%= image_url(@person.get_relative_image_path) %>" />
+  <% else %>
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+  <% end %>
+<% end %>
 
 <div class="person-show-page pure-g">
   <div class="person-show-content pure-u-1">

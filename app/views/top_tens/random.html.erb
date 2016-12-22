@@ -1,5 +1,10 @@
 <% content_for :title, "Page Not Found" %>
 <% content_for :top_tens_navbar_class, "current-page" %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="Randomized Top Ten | The MQ" />
+  <meta property="og:description" content="You honestly weren't supposed to figure out this page existed." />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
 <div class="top-ten-random-content pure-g">
   <div class="social-share pure-u-1-24">

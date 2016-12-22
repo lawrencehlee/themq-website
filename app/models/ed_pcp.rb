@@ -67,8 +67,7 @@ class EdPcp < ActiveRecord::Base
     end
   end
 
-
-  def get_ed_pcp_text_teaser
+  def get_text_teaser(words)
     filepath = File.join(
       Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
     n = 1;
@@ -79,8 +78,7 @@ class EdPcp < ActiveRecord::Base
         lines << line
       end
       first_line = lines.first
-      first_line.split(' ')[0, 25].join(' ') + "...";
-
+      first_line.split(' ')[0, words].join(' ') + "...";
     end
   end
 
