@@ -106,4 +106,8 @@ class Feature < ActiveRecord::Base
     feature_ids = feature_tags.collect { |feature_tag| feature_tag.feature_id }
     Feature.(feature_id: feature_ids.uniq).where(filter)
   end
+
+  def self.get_all_from_issue(issue)
+    Feature.where(issue_id: issue.issue_id)
+  end
 end

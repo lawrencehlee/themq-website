@@ -161,4 +161,8 @@ class EdPcp < ActiveRecord::Base
       ed_pcps.joins(:issue).order('issues.date')
     end
   end
+
+  def self.get_all_from_issue(issue)
+    EdPcp.where(issue_id: issue.issue_id)
+  end
 end

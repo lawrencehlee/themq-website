@@ -116,6 +116,33 @@ class Issue < ActiveRecord::Base
     end
   end
 
+  def self.get_top_features(issue)
+    f_lines = self.get_issue_txt_file(issue)
+    f_lines.each_with_index do |line, index|
+      if line.include? "top-features"
+        return f_lines[index + 1].split(",")
+      end
+    end
+  end
+  
+  def self.get_top_ed_pcps(issue)
+    f_lines = self.get_issue_txt_file(issue)
+    f_lines.each_with_index do |line, index|
+      if line.include? "top-ed-pcps"
+        return f_lines[index + 1].split(",")
+      end
+    end
+  end
+
+  def self.get_top_top_tens(issue)
+    f_lines = self.get_issue_txt_file(issue)
+    f_lines.each_with_index do |line, index|
+      if line.include? "top-top-tens"
+        return f_lines[index + 1].split(",")
+      end
+    end
+  end
+
   def self.order_by_date(issues, descending)
     if descending
       issues.order('date DESC')

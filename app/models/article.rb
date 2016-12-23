@@ -95,7 +95,7 @@ class Article < ActiveRecord::Base
     Article.get_all_briefs.where(issue_id: issue.issue_id)
   end
 
-  def self.get_all_articles_from_issue(issue)
+  def self.get_all_from_issue(issue)
     Article.where(issue_id: issue.issue_id)
   end
 
