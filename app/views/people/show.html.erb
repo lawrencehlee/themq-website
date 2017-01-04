@@ -57,12 +57,15 @@
       <% @leading_articles.each_with_index do |lead_article, idx| %>
         <% # this next line is for updating the index with the pagination %>
         <% idx = idx + (@leading_articles.current_page - 1)*10 %>
-        <% @issue = Issue.find(lead_article.issue_id) %>
         <div class="pure-u-1-2">
           <div class="leading-article-box">
-            <div class="article-image">
-              <%= link_to image_tag(@leading_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), lead_article %>
-            </div>
+            <% if lead_article.is_brief? %>
+              <h2>Brief</h2>
+            <% else %>
+              <div class="article-image">
+                <%= link_to image_tag(@leading_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), lead_article %>
+              </div>
+            <% end %>
             <div class="article-data">
               <h3><%= link_to lead_article.headline, lead_article %></h3>
               <div class="article-tags tag-row">
@@ -77,18 +80,26 @@
                 <% end %>
               </div>
               <div class="article-date">
-                <p><%= @issue.get_human_readable_date %></p>
+                <p><%= lead_article.issue.get_human_readable_date %></p>
               </div>
+              <% if lead_article.is_brief? %>
+                <div class="article-teaser">
+                  <p><%= lead_article.get_article_text_teaser 40 %></p>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
         <div class="pure-u-1-2">
           <% if second_article = @second_articles[idx] %>
-            <% @issue = Issue.find(second_article.issue_id) %>
             <div class="leading-article-box">
-              <div class="article-image">
-                <%= link_to image_tag(@second_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), second_article %>
-              </div>
+              <% if second_article.is_brief? %>
+                <h2>Brief</h2>
+              <% else %>
+                <div class="article-image">
+                  <%= link_to image_tag(@second_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), second_article %>
+                </div>
+              <% end %>
               <div class="article-data">
                 <h3><%= link_to second_article.headline, second_article %></h3>
                 <div class="article-tags tag-row">
@@ -103,8 +114,13 @@
                   <% end %>
                 </div>
                 <div class="article-date">
-                  <p><%= @issue.get_human_readable_date %></p>
+                  <p><%= second_article.issue.get_human_readable_date %></p>
                 </div>
+                <% if second_article.is_brief? %>
+                  <div class="article-teaser">
+                    <p><%= second_article.get_article_text_teaser 40 %></p>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>
