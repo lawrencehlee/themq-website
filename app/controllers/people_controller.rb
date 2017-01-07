@@ -1,24 +1,13 @@
 class PeopleController < ApplicationController
 
   def index
-    @editors = Person.get_editors
+    @editors = Person.get_editors_in_position_order
 
     @featured_editor = @editors.delete_at(rand(@editors.length))
-    @featured_position = Position.find(@featured_editor.position_id)
+    @featured_position = @featured_editor.position
 
     @first_editors = @editors[0..5] #gets the first six editors
     @last_editors = @editors[6..-1] #gets the rest of the editors
-
-    @first_positions = Array.new()
-    @last_positions = Array.new()
-
-    @first_editors.each do |editor|
-      @first_positions << Position.find(editor.position_id)
-    end
-
-    @last_editors.each do |editor|
-      @last_positions << Position.find(editor.position_id)
-    end
 
     @staff_members = Person.get_staff_members.sort_by { |member| member.get_last_name }
     @staff_members_right = @staff_members.slice(0, @staff_members.length/2)
