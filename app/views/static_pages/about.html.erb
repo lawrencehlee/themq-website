@@ -1,6 +1,12 @@
 <% content_for :title, "About" %>
 <!-- this title is temporary until I think of a joke to go here -->
 
+<% content_for :meta_info do %>
+  <meta property="og:title" content="About | The MQ" />
+  <meta property="og:description" content="Learn all about The MQ, maybe have a nice dinner, who knows?" />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
+
 <div class="about-page-content pure-g">
   <div class="about-content pure-u-1 pure-u-lg-2-3">
     <div class="left-bar">
@@ -38,7 +44,7 @@
       <h3 class="paragraph-header">Donors</h3>
       <p class="actual-paragraph">A huge, huge, we love you thank you to all the following wonderful folks,
       but we duped ya! All you get in return is your name here and a small amount of gratification. <br>
-      Riley Mallory, Dr. Sean T. Powell MD, Phillip Hodgson, Daniel Jackson, Hilary Morefield, Kristin Muench, Geoffrey Moss, Kevin Chu, Colin Parent, Sora Chee, Adam Armstead, Andrew Deneris
+      Riley Mallory, Dr. Sean T. Powell MD, Phillip Hodgson, Daniel Jackson, Hilary Morefield, Kristin Muench, Geoffrey Moss, Kevin Chu, Colin Parent, Sora Chee, Adam Armstead, Andrew Deneris, Nicole Teixeira
       </p>
     </div>
   </div>

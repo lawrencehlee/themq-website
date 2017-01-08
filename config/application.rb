@@ -23,5 +23,6 @@ module MqWebsite
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.exceptions_app = self.routes
+    config.x.relative_lws_path = "logo_white_square.png"
   end
 end

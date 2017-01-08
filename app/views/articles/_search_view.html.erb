@@ -1,12 +1,17 @@
 <% if article.is_brief? %>
   <h2><%= link_to "Brief: #{article.headline}", article %></h2>
   <div class="search-result-subtitle">
-    Brief in: <%= "#{article.get_issue.get_long_info}" %>
+    Brief in: <%= "#{article.issue.get_long_info}" %>
   </div>
 <% else %>
   <h2><%= link_to article.headline, article %></h2>
   <div class="search-result-subtitle">
+    <% if article.co_author %>
     Article by
-    <%= "#{article.get_author.name} in: #{article.get_issue.get_long_info}" %>
+    <%= "#{article.author.name} & #{article.co_author.name} in: #{article.issue.get_long_info}" %>
+    <% else %>
+    Article by
+    <%= "#{article.author.name} in: #{article.issue.get_long_info}" %>
+    <% end %>
   </div>
 <% end %>

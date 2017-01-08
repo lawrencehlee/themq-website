@@ -14,10 +14,6 @@ class Person < ActiveRecord::Base
     text :name
   end
 
-  def get_position
-    Position.find(self.position_id)
-  end
-
   def should_generate_new_friendly_id?
     slug.blank? || self.name_changed?
   end
@@ -63,9 +59,9 @@ class Person < ActiveRecord::Base
   # returns a person's position, or "former" + position name if they're alumni
   def get_title
     if self.current == "0"
-      return "Former " + Position.find(self.position_id).title
+      return "Former " + position.title
     end
-    Position.find(self.position_id).title
+    position.title
   end
 
   def render_search_view
@@ -73,14 +69,24 @@ class Person < ActiveRecord::Base
   end
 
   def is_editor?
-    Position.find(self.position_id).is_editor?
+    position.editor
   end
 
   def self.get_editors
-    Person.where(current: 1).select { |person| person.is_editor? }
+    Person.where(current: 1).joins(:position).where('positions.editor = true')
+  end
+
+  def self.get_editors_in_position_order
+    editors = []
+    Settings.editors.each do |group|
+      group[1].each do |position_id|
+        editors += Person.where(current: 1, position_id: position_id)
+      end
+    end
+    editors
   end
 
   def self.get_staff_members
-    Person.where(current: 1).select { |person| !person.is_editor? }
+    Person.where(current: 1).joins(:position).where('positions.editor = false')
   end
 end
