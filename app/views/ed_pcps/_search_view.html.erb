@@ -1,9 +1,13 @@
 <% if ed_pcp.is_ed? %>
   <h2>Editorial: <%= link_to ed_pcp.headline, ed_pcp %></h2>
 <% elsif ed_pcp.is_point? %>
+  <% counterpoint = ed_pcp.get_counterpoint %>
   <h2>Point: <%= link_to ed_pcp.headline, ed_pcp %></h2>
+  <h2>Counterpoint: <%= link_to counterpoint.headline, ed_pcp %></h2>
 <% else %>
-  <h2>Counterpoint: <%= link_to ed_pcp.headline, ed_pcp.get_counterpoint %></h2>
+  <% point = ed_pcp.crspnd_point %>
+  <h2>Point: <%= link_to point.headline, point %></h2>
+  <h2>Counterpoint: <%= link_to ed_pcp.headline, point %></h2>
 <% end %>
 <div class="search-result-subtitle">
   By <%= "#{ed_pcp.author} in: #{ed_pcp.issue.get_long_info}" %>
