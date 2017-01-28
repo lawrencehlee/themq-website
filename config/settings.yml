@@ -20,10 +20,10 @@ articles:
   more_stories: [212, 215, 203, 197, 196, 211]
 
 # Eds should be eds for sure
-# Make sure to put points and then counterpoints in pcps
+# Make sure to put only points in pcps
 ed_pcps:
   eds: [29, 20]
-  pcps: [25, 26, 27, 28]
+  pcps: [25, 27]
 
 # This page contains data for determining exactly which articles, eds, features will be put on the home page
 # There are 4 sections here, slideshow, news, more, and features
