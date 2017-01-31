@@ -57,43 +57,4 @@ class Issue < ActiveRecord::Base
 
     File.open(filepath).read.split("\n")
   end
-
-  # This is accessing the index file in assets/images/general to pull info for the main_controller
-  def self.get_slideshow_content
-    f_lines = self.get_index_txt_file
-    f_lines.each_with_index do |line, index|
-      if line.include? "slideshow-content"
-        return f_lines[index + 1].split(",")
-      end
-    end
-  end
-
-  # Returns a list of article indices that will go in the News section of main page
-  def self.get_news_content
-    f_lines = self.get_index_txt_file
-    f_lines.each_with_index do |line, index|
-      if line.include? "news-content"
-        return f_lines[index + 1].split(",")
-      end
-    end
-  end
-
-  def self.get_more_stories
-    f_lines = self.get_index_txt_file
-    f_lines.each_with_index do |line, index|
-      if line.include? "more-stories"
-        return f_lines[index + 1].split(",")
-      end
-    end
-  end
-
-  def self.get_features_content
-    f_lines = self.get_index_txt_file
-    f_lines.each_with_index do |line, index|
-      if line.include? "features-content"
-        return f_lines[index + 1].split(",")
-      end
-    end
-  end
-
 end
