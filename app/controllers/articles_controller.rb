@@ -51,20 +51,12 @@ class ArticlesController < ApplicationController
 
   def index
     @current_issue = Issue.get_latest_issue
-    @top_story = Article.find(Article.get_top_story)
+    @top_story = Article.get_top_story
     @top_story_graphic = @top_story.graphic
     @top_story_issue = @top_story.issue
     @top_story_person = @top_story.author
     @top_story_co_author = @top_story.co_author
-
-    @more_stories = Array.new()
-    @more_stories_graphics = Array.new()
-    Article.get_more_stories.each do |article_id|
-      article = Article.find(article_id)
-      @more_stories << article
-      @more_stories_graphics << article.graphic
-    end
-
+    @more_stories = Article.get_more_stories
     @random_top_ten = TopTen.get_random_from_issue(@current_issue)
     @random_self_ad = SelfAd.get_random
     @brief = Article.get_random_brief_from_issue(@current_issue)
