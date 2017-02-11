@@ -40,31 +40,11 @@ class EdPcp < ActiveRecord::Base
   end
 
   def self.get_top_editorials
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topEd_pcps.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "editorials"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.ed_pcps.eds.collect { |id| EdPcp.find(id) }
   end
 
   def self.get_top_pcps
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topEd_pcps.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "point_counterpoints"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.ed_pcps.pcps.collect { |id| EdPcp.find(id) }
   end
 
   def get_text_teaser(words)

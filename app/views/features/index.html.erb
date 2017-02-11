@@ -20,15 +20,15 @@
         </div>
         <div class="column-features pure-u-1">
           <div class="pure-g">
-            <% @columnFeatures.each do |columnFeature| %>
+            <% @column_features.each do |column_feature| %>
               <div class="column-feature photoswipe-gallery pure-u-1 pure-u-md-1-2">
-                <%= image_tag(columnFeature.get_relative_feature_path, alt: "Feature Image", width: '100%') %>
+                <%= image_tag(column_feature.get_relative_feature_path, alt: "Feature Image", width: '100%') %>
               </div>
             <% end %>
           </div>
         </div>
         <div class="more-features pure-u-1">
-          <% @moreFeatures.each do |feature| %>
+          <% @more_features.each do |feature| %>
             <div class="more-feature photoswipe-gallery">
               <% @feature_path = "/assets/" + feature.get_relative_feature_path %>
               <%= image_tag(feature.get_relative_feature_path, alt: "Feature Image", width: '100%') %>

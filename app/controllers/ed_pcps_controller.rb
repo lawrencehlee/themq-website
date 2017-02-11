@@ -4,14 +4,8 @@ class EdPcpsController < ApplicationController
   SAME_AUTHOR_CONTENT_TYPES = [Article, EdPcp]
 
   def index
-    @eds = Array.new
-    @pcps = Array.new
-    EdPcp.get_top_editorials.each do |ed_pcp_id|
-      @eds << EdPcp.find(ed_pcp_id)
-    end
-    EdPcp.get_top_pcps.each do |ed_pcp_id|
-      @pcps << EdPcp.find(ed_pcp_id)
-    end
+    @eds = EdPcp.get_top_editorials
+    @pcps = EdPcp.get_top_pcps
 
     @current_issue = Issue.get_latest_issue
     @random_top_ten = TopTen.get_random_from_issue(@current_issue)

@@ -56,31 +56,11 @@ class Article < ActiveRecord::Base
   end
 
   def self.get_top_story
-    issue = Issue.get_latest_issue
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topStories.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "top story"
-        return f_lines[index + 1]
-      end
-    end
+    Article.find(Settings.articles.top_story)
   end
 
   def self.get_more_stories
-    issue = Issue.get_latest_issue
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topStories.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "more"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.articles.more_stories.collect { |id| Article.find(id) }
   end
 
   def get_tags
