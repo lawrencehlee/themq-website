@@ -1,0 +1,8 @@
+# here each group will designate the top articles, ed_pcps, features, etc, of each issue
+# issues can be referenced by its abreviated name
+
+issue_22_1:
+  top_articles: [30, 22]
+  top_ed_pcps: [5]
+  top_features: [8]
+  top_top_tens: [10]

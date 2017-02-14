@@ -3,7 +3,7 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.friendly.find(params[:id])
 
-    @top_articles = Issue.get_top_articles(@issue).map { |id| Article.find(id) }
+    @top_articles = Issue.get_top_articles(@issue)
     @all_headlines = Article.get_all_from_issue(@issue)
     @article_headlines = @all_headlines.reject { |article| @top_articles.include? article }
 
