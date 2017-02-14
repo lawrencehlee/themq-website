@@ -6,18 +6,11 @@ class FeaturesController < ApplicationController
   RELATED_CONTENT_TYPES = [Article, EdPcp]
 
   def index
-    @top_feature = Feature.find(Feature.get_top_feature)
-    @columnFeatures = Array.new()
-    Feature.get_column_features.each do |feat_id|
-      @columnFeatures << Feature.find(feat_id)
-    end
-    @moreFeatures = Feature.get_more_features
-    @moreFeatures = Array.new()
-    Feature.get_more_features.each do |feat_id|
-      @moreFeatures << Feature.find(feat_id)
-    end
+    @top_feature = Feature.get_top_feature
+    @column_features = Feature.get_column_features
+    @more_features = Feature.get_more_features
 
-    @all_features = [@top_feature] + @columnFeatures + @moreFeatures
+    @all_features = [@top_feature] + @column_features + @more_features
     @skybox = nil
   end
 

@@ -40,35 +40,14 @@ class EdPcp < ActiveRecord::Base
   end
 
   def self.get_top_editorials
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topEd_pcps.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "editorials"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.ed_pcps.eds.collect { |id| EdPcp.find(id) }
   end
 
   def self.get_top_pcps
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', "#{issue_string}", 'topEd_pcps.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "point_counterpoints"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.ed_pcps.pcps.collect { |id| EdPcp.find(id) }
   end
 
-
-  def get_ed_pcp_text_teaser
+  def get_text_teaser(words)
     filepath = File.join(
       Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
     n = 1;
@@ -79,8 +58,7 @@ class EdPcp < ActiveRecord::Base
         lines << line
       end
       first_line = lines.first
-      first_line.split(' ')[0, 25].join(' ') + "...";
-
+      first_line.split(' ')[0, words].join(' ') + "...";
     end
   end
 

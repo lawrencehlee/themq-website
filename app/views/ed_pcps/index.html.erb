@@ -1,5 +1,10 @@
-<% content_for :title, "Editorials" %>
+<% content_for :title, "Editorials & Point-Counterpoints" %>
 <% content_for :ed_pcps_navbar_class, "current-page" %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="Editorials & Point-Counterpoints | The MQ" />
+  <meta property="og:description" content="Our finest collection of highly valued opinions." />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
 <div class="ed-pcp-index-content pure-g">
   <div class="ed-pcp-content pure-u-1 pure-u-lg-2-3">
@@ -38,8 +43,9 @@
       </div>
 
       <div class="ed-pcp-pcps">
-        <h1>Point - Counterpoints</h1>
-        <% @pcps.each_slice(2) do |p, cp| %>
+        <h1>Point-Counterpoints</h1>
+        <% @pcps.each do |p| %>
+          <% cp = p.get_counterpoint %>
           <div class="pcp-wrapper">
             <div class="pcp pure-g">
               <div class="point-box">

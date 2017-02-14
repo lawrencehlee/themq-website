@@ -1,5 +1,10 @@
 <% content_for :title, "Top Tens" %>
 <% content_for :top_tens_navbar_class, "current-page" %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="Top Tens | The MQ" />
+  <meta property="og:description" content="Probably the only things in this paper you read." />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
 <div class="top-ten-all-content pure-g">
   <div class="top-tens-content pure-u-1 pure-u-lg-2-3">

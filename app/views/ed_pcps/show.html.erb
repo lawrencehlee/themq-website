@@ -1,5 +1,11 @@
 <% content_for :title, @ed_pcps[0].headline %>
 <% content_for :ed_pcps_navbar_class, "current-page" %>
+<% content_for :meta_info do %>
+  <% content = @ed_pcps[0] %>
+  <meta property="og:title" content="<%= content.headline %> | The MQ" />
+  <meta property="og:description" content="<%= raw content.get_text_teaser(50) %>" />
+  <meta property="og:image" content="<%= image_url(content.get_relative_author_image_path) %>" />
+<% end %>
 
 <div class="ed-pcp-show-content pure-g">
   <div class="social-share pure-u-1-24">

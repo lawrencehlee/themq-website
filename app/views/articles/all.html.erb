@@ -1,5 +1,10 @@
 <% content_for :title, "All Articles" %>
 <% content_for :articles_navbar_class, "current-page" %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="All Articles | The MQ" />
+  <meta property="og:description" content="a an the" />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
 <div class="article-all-content pure-g">
   <div class="articles-content pure-u-1 pure-u-lg-2-3">

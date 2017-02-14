@@ -27,45 +27,15 @@ class Feature < ActiveRecord::Base
 
 
   def self.get_top_feature
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'images', "#{issue_string}", 'features', 'topFeatures.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "top feature"
-        return f_lines[index + 1]
-      end
-    end
+    Feature.find(Settings.features.top_feature)
   end
 
   def self.get_column_features
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'images', "#{issue_string}", 'features', 'topFeatures.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "column features"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.features.column_features.collect { |id| Feature.find(id) }
   end
 
   def self.get_more_features
-    issue = Issue.get_latest_issue
-    issue_string = issue.get_abbreviated_issue_name
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'images', "#{issue_string}", 'features', 'topFeatures.txt')
-
-    f_lines = File.open(filepath).read.split("\n")
-    f_lines.each_with_index do |line, index|
-      if line.include? "more features"
-        return f_lines[index + 1].split(",")
-      end
-    end
+    Settings.features.more_features.collect { |id| Feature.find(id) }
   end
 
   def render_tag_view

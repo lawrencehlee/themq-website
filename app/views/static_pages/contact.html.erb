@@ -1,5 +1,11 @@
 <% content_for :title, "Contact" %>
 
+<% content_for :meta_info do %>
+  <meta property="og:title" content="Contact | The MQ" />
+  <meta property="og:description" content="So you wanna talk, huh? We'll be the one asking the questions." />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
+
 <div class="about-page-content pure-g">
   <div class="contact-content pure-u-1 pure-u-lg-2-3">
     <div class="left-bar">
