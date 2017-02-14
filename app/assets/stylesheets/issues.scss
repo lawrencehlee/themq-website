@@ -1,0 +1,40 @@
+@import "base/variables";
+@import "base/mixins";
+
+
+.issue-articles{
+  font-size: $font-md-lg;
+  h2#issue-articles {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .top-article {
+    text-align: left;
+    margin-bottom: 1em;
+
+    .top-article-tags {
+      a {
+        &:hover {
+          background-color: $link-hover-background-color;
+        }
+      }
+    }
+    h3 {
+      width: 95%;
+      margin-top: .5em;
+      margin-bottom: .5em;
+    }
+    .date-author {
+      width: 95%;
+      p {
+        color: $light-grey;
+      }
+    }
+  }
+}
+
+.article-headlines {
+  .article-headline {
+    margin-left: .5em;
+  }
+}

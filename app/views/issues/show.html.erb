@@ -1,18 +1,57 @@
 <% content_for :title, @issue.issue_no %>
+<% content_for :meta_info do %>
+  <meta property="og:title" content="Volume <%= @issue.volume_no %> Issue <%= @issue.issue_no %> | The MQ" />
+  <meta property="og:description" content="At least two jokes per issue or your money back." />
+  <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
+<% end %>
 
-
-<div class="issue-show-content">
-  <h1><%= @issue.issue_no %></h1>
-  <p><%= @top_articles %></p>
-  <p><%= @article_headlines %></p>
-  <hr>
-  <p><%= @top_ed_pcps %></p>
-  <p><%= @ed_pcp_headlines %></p>
-  <hr>
-  <p><%= @top_features %></p>
-  <p><%= @feature_titles %><p>
-  <hr>
-  <p><%= @top_top_tens%></p>
-  <p><%= @top_ten_titles %></p>
+<div class="full-issue-show-content pure-g">
+  <div class="full-issue-content pure-u-1">
+    <div class="issue-articles pure-g">
+      <h2 id="issue-articles" class="pure-u-1">Articles In This Issue</h2>
+      <div class="top-articles pure-u-1 pure-u-lg-1-3">
+        <% @top_articles.each do |article| %>
+          <div class="top-article">
+            <%= link_to image_tag(article.graphic.get_relative_image_path, alt:"Top Article Graphic", width: '100%'), article %>
+            <div class="top-article-tags tag-row">
+              <% tags = article.get_tags %>
+              <% tags.each do |tag| %>
+                <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                  <button class="button-small pure-button">
+                    <i class="fa fa-tag"></i>
+                    <%= tag.title %>
+                  </button>
+                <% end %>
+              <% end %>
+            </div>
+            <h3 class="regular-headline"><%= link_to article.headline, article %></h3>
+            <div class="date-author">
+              <% @person = article.author %>
+              <% @co_author = article.co_author %>
+              <p><%= link_to @person.name, @person, {class: 'author-link'} %></p>
+              <% if @co_author %>
+                <p> - <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="article-headlines pure-u-1 pure-u-lg-2-3">
+        <% @article_headlines.each do |article| %>
+          <div class="article-headline">
+            <% @person = article.author %>
+            <% @co_author = article.co_author %>
+            <p><i class="fa fa-caret-right"></i>
+              <%= link_to article.headline, article %>
+              - <%= link_to @person.name, @person, {class: 'author-link'} %>
+              <% if @co_author %>
+                , <%= link_to @co_author.name, @co_author, {class: 'author-link'} %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+      </div>
+  </div>
 
 </div>
