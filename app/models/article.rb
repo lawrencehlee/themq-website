@@ -60,7 +60,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.get_more_stories
-    Article.find(Settings.articles.more_stories)
+    Settings.articles.more_stories.collect { |id| Article.find(id) }
   end
 
   def get_tags

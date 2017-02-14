@@ -1,15 +1,15 @@
 class MainController
   class Main
     def self.get_slideshow_content
-      Article.find(Settings.main.slideshow_content)
+      Settings.main.slideshow_content.collect { |id| Article.find(id) }
     end
 
     def self.get_news_content
-      Article.find(Settings.main.news_content)
+      Settings.main.news_content.collect { |id| Article.find(id) }
     end
 
     def self.get_more_stories
-      EdPcp.find(Settings.main.more_stories)
+      Settings.main.more_stories.collect { |id| EdPcp.find(id) }
     end
 
     def self.get_features_content

@@ -40,11 +40,11 @@ class EdPcp < ActiveRecord::Base
   end
 
   def self.get_top_editorials
-    EdPcp.find(Settings.ed_pcps.eds)
+    Settings.ed_pcps.eds.collect { |id| EdPcp.find(id) }
   end
 
   def self.get_top_pcps
-    EdPcp.find(Settings.ed_pcps.pcps)
+    Settings.ed_pcps.pcps.collect { |id| EdPcp.find(id) }
   end
 
   def get_text_teaser(words)

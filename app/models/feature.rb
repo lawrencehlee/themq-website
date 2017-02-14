@@ -31,11 +31,11 @@ class Feature < ActiveRecord::Base
   end
 
   def self.get_column_features
-    Feature.find(Settings.features.column_features)
+    Settings.features.column_features.collect { |id| Feature.find(id) }
   end
 
   def self.get_more_features
-    Feature.find(Settings.features.more_features)
+    Settings.features.more_features.collect { |id| Feature.find(id) }
   end
 
   def render_tag_view
