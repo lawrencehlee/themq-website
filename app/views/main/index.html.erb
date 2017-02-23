@@ -79,10 +79,10 @@
         <div class="more-stories-content">
           <% @more_stories.each do |story| %>
             <a href="<%= url_for(story) %>">
-              <% header = (story.ed == "1" ? "Editorial" : "Point") %>
+              <% header = story.ed ? "Editorial" : "Point" %>
               <h2 class="regular-headline"><%="#{header}: #{story.headline}" %> </h2>
               <span class="attribution"><%= "#{story.author}, #{story.author_title}" %></span>
-              <% if header == "Point" %>
+              <% if story.point %>
                 <% cp = story.get_counterpoint %>
                 <h2 class="regular-headline">Counterpoint: <%="#{cp.headline}" %> </h2>
                 <span class="attribution"><%= "#{cp.author}, #{story.author_title}" %></span>

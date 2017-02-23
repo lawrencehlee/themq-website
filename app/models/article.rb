@@ -16,10 +16,6 @@ class Article < ActiveRecord::Base
     text :headline, :default_boost => 1.5
   end
 
-  def is_brief?
-    brief == "1"
-  end
-
   def should_generate_new_friendly_id?
     slug.blank? || self.title_changed?
   end
@@ -97,7 +93,7 @@ class Article < ActiveRecord::Base
 
   #want to do the same thing as render_sidebar_view, but for the tag page
   def render_tag_view
-    if self.is_brief?
+    if brief
       render partial: 'articles/tag_view', locals: {:article => self, :graphic => nil}
     else
       graphic = Graphic.find(self.graphic_id)
@@ -106,7 +102,7 @@ class Article < ActiveRecord::Base
   end
 
   def render_tag_show_view
-    if self.is_brief?
+    if brief
       render partial: 'articles/tag_show_view', locals: {:article => self, :graphic => nil}
     else
       graphic = Graphic.find(self.graphic_id)

@@ -10,7 +10,7 @@ class Issue < ActiveRecord::Base
 
   # Static method that gets the latest issue by date
   def self.get_latest_issue
-    Issue.where(current: "1").first
+    Issue.where(current: true).first
   end
 
   # Returns the full issue name in the form Volume x Issue y
