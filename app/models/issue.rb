@@ -59,26 +59,18 @@ class Issue < ActiveRecord::Base
   end
 
   def self.get_top_articles(issue)
-    name = "issue_#{issue.get_abbreviated_issue_name.gsub('.', '_')}"
-    name = "issue_22_1" #TODO: fix this name issue
-    Settings[name].top_articles.collect { |id| Article.find(id) }
+    Settings.issues[(issue.volume_no)][(issue.issue_no)].top_articles.collect { |id| Article.find(id) }
   end
 
   def self.get_top_ed_pcps(issue)
-    name = "issue_#{issue.get_abbreviated_issue_name.gsub('.', '_')}"
-    name = "issue_22_1" #TODO: fix this name issue
-    Settings[name].top_ed_pcps.collect { |id| EdPcp.find(id) }
+    Settings.issues[(issue.volume_no)][(issue.issue_no)].top_ed_pcps.collect { |id| EdPcp.find(id) }
   end
 
   def self.get_top_features(issue)
-    name = "issue_#{issue.get_abbreviated_issue_name.gsub('.', '_')}"
-    name = "issue_22_1" #TODO: fix this name issue
-    Settings[name].top_features.collect { |id| EdPcp.find(id) }
+    Settings.issues[(issue.volume_no)][(issue.issue_no)].top_features.collect { |id| Feature.find(id) }
   end
 
   def self.get_top_top_tens(issue)
-    name = "issue_#{issue.get_abbreviated_issue_name.gsub('.', '_')}"
-    name = "issue_22_1" #TODO: fix this name issue
-    Settings[name].top_top_tens.collect { |id| EdPcp.find(id) }
+    Settings.issues[(issue.volume_no)][(issue.issue_no)].top_top_tens.collect { |id| TopTen.find(id) }
   end
 end

@@ -38,16 +38,17 @@
       </div>
       <div class="article-headlines pure-u-1 pure-u-lg-2-3">
         <% @article_headlines.each do |article| %>
-          <div class="article-headline">
+          <div class="article-headline regular-headline">
             <% @person = article.author %>
             <% @co_author = article.co_author %>
-            <p><i class="fa fa-caret-right"></i>
+            <h4><i class="fa fa-caret-right"></i>
               <%= link_to article.headline, article %>
               - <%= link_to @person.name, @person, {class: 'author-link'} %>
               <% if @co_author %>
                 , <%= link_to @co_author.name, @co_author, {class: 'author-link'} %>
               <% end %>
-            </p>
+            </h4>
+            <hr>
           </div>
         <% end %>
       </div>

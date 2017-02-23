@@ -1,8 +1,35 @@
 # here each group will designate the top articles, ed_pcps, features, etc, of each issue
 # issues can be referenced by its abreviated name
 
-issue_22_1:
-  top_articles: [30, 22]
-  top_ed_pcps: [5]
-  top_features: [8]
-  top_top_tens: [10]
+issues:
+  22:
+    1:
+      top_articles: [21, 22, 26]
+      top_ed_pcps: []
+      top_features: [7]
+      top_top_tens: [10]
+    2:
+      top_articles: [46, 51]
+      top_ed_pcps: [5]
+      top_features: [9]
+      top_top_tens: [14]
+    3:
+      top_articles: [75, 76]
+      top_ed_pcps: [9]
+      top_features: [19]
+      top_top_tens: [19]
+    4:
+      top_articles: [96, 97]
+      top_ed_pcps: [15]
+      top_features: [23]
+      top_top_tens: [27]
+    5:
+      top_articles: [15, 5]
+      top_ed_pcps: []
+      top_features: [1]
+      top_top_tens: [5]
+    7:
+      top_articles: [142, 143]
+      top_ed_pcps: [20]
+      top_features: [34]
+      top_top_tens: [35]
