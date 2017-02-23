@@ -13,8 +13,8 @@ class Tag < ActiveRecord::Base
     articles = Array.new()
     briefs = Array.new()
     all_articles = article_tags.map { |article_tag| Article.find(article_tag.article_id) }
-    articles = all_articles.select { |article| not article.is_brief? }
-    briefs = all_articles.select { |article| article.is_brief? }
+    articles = all_articles.select { |article| not article.brief }
+    briefs = all_articles.select { |article| article.brief }
     [articles, briefs]
   end
 

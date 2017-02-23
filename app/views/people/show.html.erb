@@ -15,7 +15,7 @@
       <% if !@person.is_editor? %>
         <!--person is a staff member here -->
         <h2>Staff Writer <%= @person.name %>
-      <% elsif @person.current == "0" %>
+      <% elsif not @person.current %>
         <!-- person is no longer in the mq -->
         <h2>MQ Alumni <%= @person.name %></h2>
       <% else %>
@@ -59,7 +59,7 @@
         <% idx = idx + (@leading_articles.current_page - 1)*10 %>
         <div class="pure-u-1-2">
           <div class="leading-article-box">
-            <% if lead_article.is_brief? %>
+            <% if lead_article.brief %>
               <h2>Brief</h2>
             <% else %>
               <div class="article-image">
@@ -82,7 +82,7 @@
               <div class="article-date">
                 <p><%= lead_article.issue.get_human_readable_date %></p>
               </div>
-              <% if lead_article.is_brief? %>
+              <% if lead_article.brief %>
                 <div class="article-teaser">
                   <p><%= lead_article.get_article_text_teaser 40 %></p>
                 </div>
@@ -93,7 +93,7 @@
         <div class="pure-u-1-2">
           <% if second_article = @second_articles[idx] %>
             <div class="leading-article-box">
-              <% if second_article.is_brief? %>
+              <% if second_article.brief %>
                 <h2>Brief</h2>
               <% else %>
                 <div class="article-image">
@@ -116,7 +116,7 @@
                 <div class="article-date">
                   <p><%= second_article.issue.get_human_readable_date %></p>
                 </div>
-                <% if second_article.is_brief? %>
+                <% if second_article.brief %>
                   <div class="article-teaser">
                     <p><%= second_article.get_article_text_teaser 40 %></p>
                   </div>
