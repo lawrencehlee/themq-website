@@ -1,4 +1,4 @@
-<% if article.is_brief? %>
+<% if article.brief %>
   <h2><%= link_to "Brief: #{article.headline}", article %></h2>
   <div class="search-result-subtitle">
     Brief in: <%= "#{article.issue.get_long_info}" %>

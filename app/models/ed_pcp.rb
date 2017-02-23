@@ -116,14 +116,6 @@ class EdPcp < ActiveRecord::Base
     EdPcp.where(ed_pcp_id: ed_pcp_ids.uniq).where(filter)
   end
 
-  def is_ed?
-    return self.ed == "1"
-  end
-
-  def is_point?
-    return self.point == "1"
-  end
-
   def get_counterpoint
     EdPcp.where(crspnd_point_id: self.ed_pcp_id).first
   end
