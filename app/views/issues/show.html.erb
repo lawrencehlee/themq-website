@@ -44,15 +44,73 @@
             <h4><i class="fa fa-caret-right"></i>
               <%= link_to article.headline, article %>
               - <%= link_to @person.name, @person, {class: 'author-link'} %>
-              <% if @co_author %>
-                , <%= link_to @co_author.name, @co_author, {class: 'author-link'} %>
-              <% end %>
+            <% if @co_author %>
+              , <%= link_to @co_author.name, @co_author, {class: 'author-link'} %>
+          <% end %>
             </h4>
             <hr>
           </div>
         <% end %>
       </div>
-      </div>
+    </div>
+
+    <div class="issue-ed-pcps pure-g">
+      <h2 id="issue-ed-pcps" class="pure-u-1">Editorials In This Issue</h2>
+      <% @ed_pcps.each do |ed_pcp| %>
+        <div class="top-ed-pcps pure-u-1-2">
+          <div class="ed-pcp pure-g">
+            <div class="ed-pcp-inner">
+              <div class="ed-pcp-image pure-u-1-4">
+                <%= link_to image_tag(ed_pcp.get_relative_author_image_path, alt:"Ed-Pcp Graphic", width: '100%'), ed_pcp %>
+              </div>
+              <div class="ed-pcp-data pure-u-3-4">
+                <div class="ed-pcp-data-text-wrapper">
+                  <% if ed_pcp.point %>
+                    <h3>Point</h3>
+                  <% end %>
+                  <h2 class="regular-headline"><%= link_to ed_pcp.headline, ed_pcp %></h2>
+                  <div class="ed-pcp-tags tag-row">
+                    <% ed_pcp_tags = ed_pcp.get_tags %>
+                    <% ed_pcp_tags.each do |tag| %>
+                      <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                        <button class="button-small pure-button">
+                          <i class="fa fa-tag"></i>
+                          <%= tag.title %>
+                        </button>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="author">
+                    <p><%= ed_pcp.author %>, <%= ed_pcp.author_title %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- now comes the counterpoint stuff, which is optional -->
+            <% if ed_pcp.point %>
+              <% cp = ed_pcp.get_counterpoint %>
+              <div class="counterpoint-box">
+                <div class="author-image pure-u-1-4">
+                  <%= link_to image_tag(cp.get_relative_author_image_path, alt:"Counterpoint Graphic", width: '100%'),
+                    p %>
+                </div>
+                <div class="cp-text pure-u-3-4">
+                  <div class="cp-text-wrapper">
+                    <h3>Counterpoint</h3>
+                    <h2 class="regular-headline"><%= link_to cp.headline, p %></h2>
+                    <div class="date-author">
+                      <p><%= cp.author %>, <%= cp.author_title %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <% end %>
+          </div>
+         </div>
+        <% end %>
+    </div>
   </div>
 
 </div>

@@ -133,6 +133,6 @@ class EdPcp < ActiveRecord::Base
   end
 
   def self.get_all_from_issue(issue)
-    EdPcp.where(issue_id: issue.issue_id)
+    EdPcp.where(issue_id: issue.issue_id, counterpoint: false)
   end
 end
