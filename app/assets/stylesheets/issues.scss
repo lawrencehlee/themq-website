@@ -38,3 +38,34 @@
     margin-left: 1em;
   }
 }
+
+.issue-features {
+  .my-gallery {
+    width: 100%;
+    float: left;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    .feature-data {
+      margin-left: 0;
+      margin-right: 1em;
+      margin-top: 0;
+      margin-bottom: 1em;;
+      height: 125px;
+      overflow-y: hidden;
+      overflow-x: visible;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      figure {
+        display: block;
+        float: left;
+        width: 100%;
+      }
+      figcaption {
+        display: none;
+      }
+    }
+  }
+}

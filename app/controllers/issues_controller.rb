@@ -11,6 +11,7 @@ class IssuesController < ApplicationController
 
     @top_features = Issue.get_top_features(@issue).map { |id| Feature.find(id) }
     @feature_titles = Feature.get_all_from_issue(@issue).reject { |ft| @top_features.include? ft }
+    @features = Feature.get_all_from_issue(@issue)
 
     @top_top_tens = Issue.get_top_top_tens(@issue).map { |id| TopTen.find(id) }
     @top_ten_titles = TopTen.get_all_from_issue(@issue).reject { |tt| @top_top_tens.include? tt }
