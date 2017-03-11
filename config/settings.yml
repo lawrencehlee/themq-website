@@ -32,7 +32,7 @@ main:
   # first is the slideshow. Put articles ids and those articles will appear in the slideshow on front page.
   # My suggestion would be articles with strong headlines or really instantly funny graphics.
   # Five is plenty for this I wouldn't go over that, but also not under 3
-  slideshow_content: [227, 238, 224]
+  slideshow_content: [250, 227, 238]
   news_content: [223, 233]
 
   # this next section should only contain ids for editorials or points, NOT counterpoints

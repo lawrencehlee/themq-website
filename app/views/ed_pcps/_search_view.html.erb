@@ -1,6 +1,6 @@
-<% if ed_pcp.is_ed? %>
+<% if ed_pcp.ed %>
   <h2>Editorial: <%= link_to ed_pcp.headline, ed_pcp %></h2>
-<% elsif ed_pcp.is_point? %>
+<% elsif ed_pcp.point %>
   <% counterpoint = ed_pcp.get_counterpoint %>
   <h2>Point: <%= link_to ed_pcp.headline, ed_pcp %></h2>
   <h2>Counterpoint: <%= link_to counterpoint.headline, ed_pcp %></h2>

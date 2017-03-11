@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104064457) do
+ActiveRecord::Schema.define(version: 20170222084743) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -55,12 +55,12 @@ ActiveRecord::Schema.define(version: 20170104064457) do
   add_index "article_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "articles", primary_key: "article_id", force: :cascade do |t|
-    t.integer "author_id",    limit: 4,   null: false
+    t.integer "author_id",    limit: 4,                   null: false
     t.integer "graphic_id",   limit: 4
-    t.integer "issue_id",     limit: 4,   null: false
+    t.integer "issue_id",     limit: 4,                   null: false
     t.string  "headline",     limit: 200
-    t.string  "text",         limit: 255, null: false
-    t.binary  "brief",        limit: 1
+    t.string  "text",         limit: 255,                 null: false
+    t.boolean "brief",        limit: 1,   default: false, null: false
     t.string  "slug",         limit: 255
     t.string  "title",        limit: 255
     t.integer "co_author_id", limit: 4
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 20170104064457) do
 
   create_table "ed_pcps", primary_key: "ed_pcp_id", force: :cascade do |t|
     t.integer "issue_id",        limit: 4,   null: false
-    t.binary  "ed",              limit: 1
-    t.binary  "point",           limit: 1
-    t.binary  "counterpoint",    limit: 1
+    t.boolean "ed",              limit: 1
+    t.boolean "point",           limit: 1
+    t.boolean "counterpoint",    limit: 1
     t.integer "crspnd_point_id", limit: 4
     t.string  "headline",        limit: 200
     t.string  "author",          limit: 200
@@ -107,10 +107,10 @@ ActiveRecord::Schema.define(version: 20170104064457) do
   add_index "feature_tags", ["tag_id"], name: "tag_id", using: :btree
 
   create_table "features", primary_key: "feature_id", force: :cascade do |t|
-    t.integer "issue_id", limit: 4,   null: false
+    t.integer "issue_id", limit: 4,                   null: false
     t.string  "title",    limit: 200
     t.string  "image",    limit: 255
-    t.binary  "spread",   limit: 1
+    t.boolean "spread",   limit: 1,   default: false, null: false
     t.integer "height",   limit: 4
     t.integer "width",    limit: 4
     t.string  "slug",     limit: 255
@@ -149,17 +149,17 @@ ActiveRecord::Schema.define(version: 20170104064457) do
     t.string  "slug",                limit: 255
     t.string  "name",                limit: 255
     t.integer "sub_issue_no",        limit: 4
-    t.binary  "current",             limit: 65535, null: false
+    t.boolean "current",             limit: 1,     default: false, null: false
   end
 
   add_index "issues", ["slug"], name: "index_issues_on_slug", using: :btree
 
   create_table "people", primary_key: "person_id", force: :cascade do |t|
-    t.integer "position_id", limit: 4,     null: false
+    t.integer "position_id", limit: 4,                     null: false
     t.string  "name",        limit: 200
     t.text    "bio",         limit: 65535
     t.string  "image",       limit: 255
-    t.binary  "current",     limit: 1
+    t.boolean "current",     limit: 1,     default: false
     t.string  "quote",       limit: 255
     t.string  "slug",        limit: 255
   end

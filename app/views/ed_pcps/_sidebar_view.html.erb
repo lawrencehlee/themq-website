@@ -1,8 +1,8 @@
-<% if ed_pcp.is_ed? %>
+<% if ed_pcp.ed %>
   <h3 class="regular-headline">
     <%= link_to "Editorial: " + ed_pcp.headline, ed_pcp %>
   </h3>
-<% elsif ed_pcp.is_point? %>
+<% elsif ed_pcp.point %>
   <% counterpoint = ed_pcp.get_counterpoint %>
   <h3 class="regular-headline">
     <%= link_to "Point: " + ed_pcp.headline, ed_pcp %>
