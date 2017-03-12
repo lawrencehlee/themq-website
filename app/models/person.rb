@@ -59,9 +59,10 @@ class Person < ActiveRecord::Base
   # returns a person's position, or "former" + position name if they're alumni
   def get_title
     if current
-      return "Former " + position.title
+      position.title
+    else
+      "Former " + position.title
     end
-    position.title
   end
 
   def render_search_view
