@@ -16,7 +16,7 @@
     <div class="left-bar">
 
       <% @ed_pcps.each do |piece| %>
-        <% if piece.counterpoint == "0" %>
+        <% if piece.counterpoint %>
           <div class="ed-pcp-tags tag-row">
             <% tags = piece.get_tags%>
             <% tags.each do |tag| %>
@@ -29,14 +29,14 @@
             <% end %>
           </div>
         <% end %>
-        <% if piece.point == "1" %>
+        <% if piece.point %>
           <h2>Point</h2>
         <% end %>
-        <% if piece.counterpoint == "1" %>
+        <% if piece.counterpoint %>
           <hr>
           <h2>Counterpoint</h2>
         <% end %>
-        <% if piece.ed == "1" %>
+        <% if piece.ed %>
           <h2>Editorial</h2>
         <% end %>
 

@@ -14,7 +14,7 @@
       </div>
       <h1>All Articles</h1>
       <% @articles.each do |article| %>
-        <% if article.brief == "1" %>
+        <% if article.brief %>
         <hr>
         <div class="article-box pure-g">
           <div class="brief-data pure-u-1">

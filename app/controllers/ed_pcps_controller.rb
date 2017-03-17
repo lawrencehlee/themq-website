@@ -22,7 +22,7 @@ class EdPcpsController < ApplicationController
     @ed_pcps << @ed_pcp
     @tags = @ed_pcp.get_tags
 
-    if @ed_pcp.point == "1"
+    if @ed_pcp.point
       @cp = @ed_pcp.get_counterpoint
       @ed_pcps << @cp
     end
@@ -46,10 +46,10 @@ class EdPcpsController < ApplicationController
     @ed_pcps = EdPcp.order_by_issue_date(EdPcp.all, true)
     @grouped_ed_pcps = Array.new
     @ed_pcps.each do |ed_pcp|
-      if ed_pcp.ed == "1"
+      if ed_pcp.ed
         @grouped_ed_pcps << [ed_pcp]
       end
-      if ed_pcp.point == "1"
+      if ed_pcp.point
         @grouped_ed_pcps << EdPcp.group_point_counterpoint(ed_pcp)
       end
     end
