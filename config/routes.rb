@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root 'main#index'
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+
+  if Rails.env.development?
+    devise_for :admin_users, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+  end
+
   get 'about' => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   resources :articles do
