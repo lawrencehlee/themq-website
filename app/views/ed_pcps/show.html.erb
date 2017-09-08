@@ -4,7 +4,7 @@
   <% content = @ed_pcps[0] %>
   <meta property="og:title" content="<%= content.headline %> | The MQ" />
   <meta property="og:description" content="<%= raw content.get_text_teaser(50) %>" />
-  <meta property="og:image" content="<%= image_url(content.get_relative_author_image_path) %>" />
+  <meta property="og:image" content="<%= image_url(content.get_full_author_image_path) %>" />
 <% end %>
 
 <div class="ed-pcp-show-content pure-g">
@@ -43,7 +43,7 @@
         <h1><%= piece.headline %></h1>
         <div class="image-data pure-g">
           <div class="author-image pure-u-1-4">
-            <%= image_tag(piece.get_relative_author_image_path, alt: "Author Image", width: '100%') %>
+            <%= image_tag(piece.get_full_author_image_path, alt: "Author Image", width: '100%') %>
           </div>
           <div class="ed-pcp-data pure-u-3-4">
             <p><%= piece.author %>, <%= piece.author_title %></p>
@@ -55,7 +55,7 @@
           </div>
         </div>
 
-        <div class="content-text"><%= markdown(piece.get_ed_pcp_text) %></div>
+        <div class="content-text"><%= markdown(piece.get_full_text) %></div>
       <% end %>
     </div>
   </div>

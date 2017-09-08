@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.friendly.find(params[:id])
-    @article_text = @article.get_article_text
+    @article_text = @article.get_full_text
     unless @article.brief
       @graphic = @article.graphic
       @graphic_designer = @graphic.person

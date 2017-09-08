@@ -23,13 +23,13 @@ class PeopleController < ApplicationController
     @articles = @person.get_all_articles_for_person
     @graphics = Array.new()
     @articles.each do |article|
-      @graphics << article.get_graphic_for_article
+      @graphics << article.graphic
     end
 
     @graphics2 = @person.get_all_graphics_for_person
     @articles2 = Array.new()
     @graphics2.each do |graphic|
-      @articles2 << graphic.get_article_for_graphic
+      @articles2 << graphic.article
     end
 
     if @articles.count > @articles2.count

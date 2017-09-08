@@ -14,13 +14,13 @@
         <h2>Features for Issue <%= issue_name %>:</h2>
         <div class="my-gallery pure-g" itemscope itemtype="http://schema.org/ImageGallery">
           <% feature_set.each do |feature| %>
-            <% feature_path = feature.get_relative_feature_path %>
+            <% feature_path = feature.get_full_image_path %>
             <% data_size = feature.width.to_s + "x" + feature.height.to_s %>
             <% feature_title = feature.title %>
             <% share_url =  url_for([feature, {only_path: false}]) %>
             <figure class="feature-data pure-u-1 pure-u-lg-1-4" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-              <a href="<%= ActionController::Base.helpers.asset_path(feature_path) %>" itemprop="contentUrl" data-size="<%= data_size %>" share-url="<%= share_url %>">
-                <img src="<%= ActionController::Base.helpers.asset_path(feature_path) %>" itemprop="thumbnail" alt="Image description" />
+              <a href="<%= feature_path %>" itemprop="contentUrl" data-size="<%= data_size %>" share-url="<%= share_url %>">
+                <img src="<%= feature_path %>" itemprop="thumbnail" alt="Image description" />
               </a>
               <figcaption itemprop="caption description"><%= feature_title %></figcaption>
             </figure>

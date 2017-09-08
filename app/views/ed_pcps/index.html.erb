@@ -15,7 +15,7 @@
           <div class="editorial pure-g">
             <div class="editorial-inner">
               <div class="editorial-image pure-u-1-4">
-                <%= link_to image_tag(ed.get_relative_author_image_path, alt:"Editorial Graphic", width: '100%'), ed %>
+                <%= link_to image_tag(ed.get_full_author_image_path, alt:"Editorial Graphic", width: '100%'), ed %>
               </div>
               <div class="editorial-data pure-u-3-4">
                 <div class="editorial-data-inner">
@@ -50,7 +50,7 @@
             <div class="pcp pure-g">
               <div class="point-box">
                 <div class="author-image pure-u-1-4">
-                  <%= link_to image_tag(p.get_relative_author_image_path, alt:"Point Graphic", width: '100%'),
+                  <%= link_to image_tag(p.get_full_author_image_path, alt:"Point Graphic", width: '100%'),
                     p %>
                 </div>
                 <div class="pcp-text pure-u-3-4">
@@ -79,7 +79,7 @@
               <!-- here is the stuff for the counterpoint -->
               <div class="counterpoint-box">
                 <div class="author-image pure-u-1-4">
-                  <%= link_to image_tag(cp.get_relative_author_image_path, alt:"Counterpoint Graphic", width: '100%'),
+                  <%= link_to image_tag(cp.get_full_author_image_path, alt:"Counterpoint Graphic", width: '100%'),
                     p %>
                 </div>
                 <div class="pcp-text pure-u-3-4">

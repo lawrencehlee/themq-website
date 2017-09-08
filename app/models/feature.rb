@@ -6,7 +6,7 @@ class Feature < ActiveRecord::Base
 
   belongs_to :issue
   friendly_id :name, use: :slugged
-  FEATURE_SUBDIRECTORY = 'features'
+  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/features/%s"
 
   searchable do
     text :title
@@ -16,9 +16,8 @@ class Feature < ActiveRecord::Base
     slug.blank? || self.name_changed?
   end
 
-  def get_relative_feature_path
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    "#{issue_string}/#{FEATURE_SUBDIRECTORY}/#{self.image}"
+  def get_full_image_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
   end
 
   def get_tags

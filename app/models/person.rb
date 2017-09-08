@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  EDITORS_SUBDIRECTORY = 'editors'
+  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/editors/%s"
 
   searchable do
     text :name
@@ -27,8 +27,8 @@ class Person < ActiveRecord::Base
     Graphic.order_by_issue_date(Graphic.where(person_id: self.person_id), true)
   end
 
-  def get_relative_image_path
-    "#{EDITORS_SUBDIRECTORY}/#{self.image}"
+  def get_full_image_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [self.image]
   end
 
   def split_full_name

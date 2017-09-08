@@ -16,7 +16,7 @@
             <% @first_editors.each do |editor| %>
               <div class="editor-data pure-u-1-2 pure-u-md-1-3">
                 <div class="editor-image">
-                  <%= link_to image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%'), editor %>
+                  <%= link_to image_tag(editor.get_full_image_path, alt: 'Editor Image', width: '100%'), editor %>
                 </div>
                 <h3><%= link_to editor.name, editor %></h3>
                 <small><%= editor.position.title %></small>
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="pure-u-1-2">
-              <%= link_to image_tag(@featured_editor.get_relative_image_path, alt: 'Editor Image', width: '100%'), @featured_editor %>
+              <%= link_to image_tag(@featured_editor.get_full_image_path, alt: 'Editor Image', width: '100%'), @featured_editor %>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
         <% @last_editors.each do |editor| %>
           <div class="editor-data pure-u-1-2 pure-u-md-1-3 pure-u-lg-1-5">
             <div class="editor-image">
-              <%= link_to image_tag(editor.get_relative_image_path, alt: 'Editor Image', width: '100%'), editor %>
+              <%= link_to image_tag(editor.get_full_image_path, alt: 'Editor Image', width: '100%'), editor %>
             </div>
             <h3><%= link_to editor.name, editor %></h3>
             <small><%= editor.position.title %></small>

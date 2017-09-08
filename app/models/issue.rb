@@ -35,6 +35,10 @@ class Issue < ActiveRecord::Base
     end
   end
 
+  def get_abbreviated_issue_name_without_sub_issue
+      "#{self.volume_no}.#{self.issue_no}"
+  end
+
   # Returns the issue date in the form January 5, 2025
   def get_human_readable_date
     self.date.to_formatted_s(:long)

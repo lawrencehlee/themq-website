@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222084743) do
+ActiveRecord::Schema.define(version: 20170716194114) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20170222084743) do
 
   create_table "articles", primary_key: "article_id", force: :cascade do |t|
     t.integer "author_id",    limit: 4,                   null: false
-    t.integer "graphic_id",   limit: 4
     t.integer "issue_id",     limit: 4,                   null: false
     t.string  "headline",     limit: 200
     t.string  "text",         limit: 255,                 null: false
@@ -68,7 +67,6 @@ ActiveRecord::Schema.define(version: 20170222084743) do
 
   add_index "articles", ["author_id"], name: "person_id", using: :btree
   add_index "articles", ["co_author_id"], name: "co_author", using: :btree
-  add_index "articles", ["graphic_id"], name: "graphic_id", using: :btree
   add_index "articles", ["issue_id"], name: "issue_id", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
@@ -121,7 +119,7 @@ ActiveRecord::Schema.define(version: 20170222084743) do
   add_index "features", ["slug"], name: "index_features_on_slug", using: :btree
 
   create_table "graphics", primary_key: "graphic_id", force: :cascade do |t|
-    t.integer "article_id", limit: 4
+    t.integer "article_id", limit: 4,     null: false
     t.integer "person_id",  limit: 4,     null: false
     t.integer "issue_id",   limit: 4,     null: false
     t.string  "image",      limit: 200
@@ -166,6 +164,11 @@ ActiveRecord::Schema.define(version: 20170222084743) do
 
   add_index "people", ["position_id"], name: "position_id", using: :btree
   add_index "people", ["slug"], name: "index_people_on_slug", using: :btree
+
+  create_table "personal_tests", primary_key: "keyName", force: :cascade do |t|
+    t.text     "value",        limit: 65535
+    t.datetime "lastModified",               null: false
+  end
 
   create_table "positions", primary_key: "position_id", force: :cascade do |t|
     t.string  "title",  limit: 200
@@ -222,7 +225,6 @@ ActiveRecord::Schema.define(version: 20170222084743) do
   add_index "top_tens", ["issue_id"], name: "issue_id", using: :btree
   add_index "top_tens", ["slug"], name: "index_top_tens_on_slug", using: :btree
 
-  add_foreign_key "articles", "graphics", primary_key: "graphic_id", name: "articles_ibfk_3"
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
   add_foreign_key "articles", "people", column: "author_id", primary_key: "person_id", name: "articles_ibfk_1"
   add_foreign_key "articles", "people", column: "co_author_id", primary_key: "person_id", name: "articles_ibfk_4"

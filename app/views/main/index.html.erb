@@ -22,7 +22,7 @@
           <div class="slideshow-element"
               style="background:
                 linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
-                url(<%= asset_path graphic.get_relative_image_path %>);
+                url(<%= graphic.get_full_image_path %>);
                 background-size: cover; background-position: center;">
             <div class="slideshow-text">
               <h2 class="slideshow-label headline"><%= content.headline %></h2>
@@ -49,7 +49,7 @@
           <% issue = article.issue %>
           <div class="news-content pure-g">
             <div class="news-content-image pure-u-1 pure-u-lg-1-3">
-              <%= link_to image_tag(graphic.get_relative_image_path),
+              <%= link_to image_tag(graphic.get_full_image_path),
                 article %>
             </div>
             <div class="pure-u-1 pure-u-lg-2-3">
@@ -100,7 +100,7 @@
           <% @features_content.each do |feature| %>
             <a href="<%= url_for(feature) %>">
               <div class="feature-content-image">
-                <%= link_to image_tag(feature.get_relative_feature_path, alt: 'Feature', width: '100%'), feature %>
+                <%= link_to image_tag(feature.get_full_image_path, alt: feature.title, width: '100%'), feature %>
               </div>
             </a>
           <% end %>

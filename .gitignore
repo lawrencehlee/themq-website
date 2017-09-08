@@ -37,16 +37,13 @@ bower.json
 # Passenger stuff
 passenger.*
 
-# article and image stuff
-app/assets/articles
-app/assets/images
-
+solr/
 solr/data
 solr/test
 solr/development
 solr/default/data
-/log/*.log.lck
 solr/pids
+/log/*.log.lck
 
 .byebug*
 

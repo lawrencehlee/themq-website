@@ -2,9 +2,9 @@
 <% content_for :articles_navbar_class, "current-page" %>
 <% content_for :meta_info do %>
   <meta property="og:title" content="<%= @article.headline %> | The MQ" />
-  <meta property="og:description" content="<%= raw @article.get_article_text_teaser(50) %>" />
+  <meta property="og:description" content="<%= raw @article.get_text_teaser(50) %>" />
   <% if !@article.brief %>
-  <meta property="og:image" content="<%= image_url(@graphic.get_relative_image_path) %>" />
+  <meta property="og:image" content="<%= @graphic.get_full_image_path %>" />
   <% end %>
 <% end %>
 
@@ -47,7 +47,7 @@
       </div>
       <% if !@article.brief %>
         <div class="article-image">
-          <%= image_tag(@graphic.get_relative_image_path, alt:"Article Graphic", width: '100%') %>
+          <%= image_tag(@graphic.get_full_image_path, alt:"Article Graphic", width: '100%') %>
         </div>
         <div class="image-data">
           <p class="designer">Photo by: <%= link_to @graphic_designer.name, @graphic_designer %></p>

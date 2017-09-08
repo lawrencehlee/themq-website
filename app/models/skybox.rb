@@ -1,11 +1,10 @@
 class Skybox < ActiveRecord::Base
   belongs_to :issue
 
-  IMAGE_SUBDIRECTORY = 'skyboxes'
+  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/skyboxes/%s"
 
-  def get_relative_image_path
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    "#{issue_string}/#{IMAGE_SUBDIRECTORY}/#{self.image}"
+  def get_full_image_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
   end
 
   def self.get_all_from_issue(issue)

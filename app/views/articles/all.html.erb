@@ -32,7 +32,7 @@
             </div>
             <% @issue = article.issue %>
             <div class="article-teaser">
-              <% @article_text_teaser = article.get_article_text_teaser 25 %>
+              <% @article_text_teaser = article.get_text_teaser 25 %>
               <p><%= @article_text_teaser %></p>
             </div>
             <div class="date-author">
@@ -41,11 +41,11 @@
           </div>
         </div>
       <% else %>
-        <% graphic = article.get_graphic_for_article %>
+        <% graphic = article.graphic %>
         <hr>
         <div class="article-box pure-g">
           <div class="article-image pure-u-1 pure-u-md-1-3">
-            <%= link_to image_tag(graphic.get_relative_image_path, alt: "Article Graphic", width: '100%'), article %>
+            <%= link_to image_tag(graphic.get_full_image_path, alt: "Article Graphic", width: '100%'), article %>
           </div>
           <div class="article-data pure-u-1 pure-u-md-2-3">
             <h3><%= link_to article.headline, article %></h3>
@@ -64,7 +64,7 @@
             <% @co_author = article.co_author %>
             <% @issue = article.issue %>
             <div class="article-teaser">
-              <% @article_text_teaser = article.get_article_text_teaser 25 %>
+              <% @article_text_teaser = article.get_text_teaser 25 %>
               <p><%= @article_text_teaser %></p>
             </div>
             <div class="date-author">

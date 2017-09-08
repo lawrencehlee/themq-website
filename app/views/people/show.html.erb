@@ -3,7 +3,7 @@
   <meta property="og:title" content="<%= "#{@person.name}, #{@position_title}" %> | The MQ" />
   <meta property="og:description" content="Are you Facebook friends with <%= @person.split_full_name.first %>?" />
   <% if @person.is_editor? %>
-  <meta property="og:image" content="<%= image_url(@person.get_relative_image_path) %>" />
+  <meta property="og:image" content="<%= image_url(@person.get_full_image_path) %>" />
   <% else %>
   <meta property="og:image" content="<%= image_url(Rails.configuration.x.relative_lws_path) %>" />
   <% end %>
@@ -29,7 +29,7 @@
             <p><%= @person.bio %></p>
           </div>
           <div class="image pure-u-1-2 pure-u-md-1-3">
-            <%= image_tag(@person.get_relative_image_path, alt: 'Editor Image', width: '100%') %>
+            <%= image_tag(@person.get_full_image_path, alt: 'Editor Image', width: '100%') %>
           </div>
         </div>
       <% end %>
@@ -63,7 +63,7 @@
               <h2>Brief</h2>
             <% else %>
               <div class="article-image">
-                <%= link_to image_tag(@leading_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), lead_article %>
+                <%= link_to image_tag(@leading_graphics[idx].get_full_image_path, alt: "Article Graphic", width: '100%'), lead_article %>
               </div>
             <% end %>
             <div class="article-data">
@@ -84,7 +84,7 @@
               </div>
               <% if lead_article.brief %>
                 <div class="article-teaser">
-                  <p><%= lead_article.get_article_text_teaser 40 %></p>
+                  <p><%= lead_article.get_text_teaser 40 %></p>
                 </div>
               <% end %>
             </div>
@@ -97,7 +97,7 @@
                 <h2>Brief</h2>
               <% else %>
                 <div class="article-image">
-                  <%= link_to image_tag(@second_graphics[idx].get_relative_image_path, alt: "Article Graphic", width: '100%'), second_article %>
+                  <%= link_to image_tag(@second_graphics[idx].get_full_image_path, alt: "Article Graphic", width: '100%'), second_article %>
                 </div>
               <% end %>
               <div class="article-data">
@@ -118,7 +118,7 @@
                 </div>
                 <% if second_article.brief %>
                   <div class="article-teaser">
-                    <p><%= second_article.get_article_text_teaser 40 %></p>
+                    <p><%= second_article.get_text_teaser 40 %></p>
                   </div>
                 <% end %>
               </div>

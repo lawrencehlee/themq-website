@@ -8,31 +8,41 @@ class EdPcp < ActiveRecord::Base
   belongs_to :crspnd_point, class_name: "EdPcp"
 
   friendly_id :title, use: :slugged
-  IMAGE_SUBDIRECTORY = 'ed_pcps'
-  ARTICLE_SUBDIRECTORY = 'articles'
+  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/ed_pcps/%s"
+  ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
 
   searchable do
     text :headline, :author, :author_title
+  end
+
+  def initialize
+    @full_text = nil
   end
 
   def should_generate_new_friendly_id?
     slug.blank? || self.title_changed?
   end
 
-  def get_ed_pcp_text
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
-    File.read(filepath).encode("UTF-8", :invalid=>:replace)
+  def get_text_location
+    Settings.assets.uri_base + ARTICLE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.text]
   end
 
-  def get_relative_article_path
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    "#{issue_string}/#{ARTICLE_SUBDIRECTORY}/#{self.text}"
+  # Used to cache the text so that a request isn't made for this object every single time
+  def get_full_text
+    if @full_text.nil?
+      @full_text = ApplicationController.helpers.get(self.get_text_location)
+    end
+    @full_text
   end
 
-  def get_relative_author_image_path
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    "#{issue_string}/#{IMAGE_SUBDIRECTORY}/#{self.author_image}"
+  def get_text_teaser(words)
+    text = self.get_full_text
+    first_line_words = text.split("\n")[0].split()
+    first_line_words[0..words].join(' ') + "..."
+  end
+
+  def get_full_author_image_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.author_image]
   end
 
   def self.group_point_counterpoint(point)
@@ -45,21 +55,6 @@ class EdPcp < ActiveRecord::Base
 
   def self.get_top_pcps
     Settings.ed_pcps.pcps.collect { |id| EdPcp.find(id) }
-  end
-
-  def get_text_teaser(words)
-    filepath = File.join(
-      Rails.root, 'app', 'assets', 'articles', self.get_relative_article_path)
-    n = 1;
-    open(filepath) do |f|
-      lines = []
-      n.times do
-        line = f.gets || break
-        lines << line
-      end
-      first_line = lines.first
-      first_line.split(' ')[0, words].join(' ') + "...";
-    end
   end
 
   def render_tag_view

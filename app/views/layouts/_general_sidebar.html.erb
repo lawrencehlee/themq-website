@@ -8,7 +8,7 @@
 
   <% unless self_ad.nil? %>
   <div class="sidebar-element">
-    <%= image_tag(self_ad.get_relative_image_path) %>
+    <%= image_tag(self_ad.get_full_image_path) %>
   </div>
   <% end %>
 
@@ -18,7 +18,7 @@
       <%= link_to "Brief: " + brief.headline, brief %>
     </h3>
     <p class="brief-text-preview">
-    <%= brief.get_article_text_teaser 50 %>
+    <%= brief.get_text_teaser 50 %>
     </p>
     <div class="see-more">
       <%= link_to "Continue reading ›", brief %>
@@ -28,7 +28,7 @@
 
   <% unless skybox.nil? %>
   <div class="sidebar-element">
-    <%= image_tag(skybox.get_relative_image_path) %>
+    <%= image_tag(skybox.get_full_image_path) %>
   </div>
   <% end %>
 </div>

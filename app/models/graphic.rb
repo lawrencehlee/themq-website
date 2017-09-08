@@ -3,25 +3,18 @@ require 'render_anywhere'
 class Graphic < ActiveRecord::Base
   include RenderAnywhere
 
-  has_one :article
+  belongs_to :article
   belongs_to :issue
   belongs_to :person
 
-  IMAGE_SUBDIRECTORY = 'graphics'
+  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/graphics/%s"
 
   searchable do
     text :caption, :default_boost => 0.5
   end
 
-  def get_relative_image_path
-    issue = Issue.find(self.issue_id)
-    issue_string = "#{issue.volume_no}.#{issue.issue_no}"
-    "#{issue_string}/#{IMAGE_SUBDIRECTORY}/#{self.image}"
-  end
-
-  def get_article_for_graphic
-    article = Article.find(self.article_id)
-    article
+  def get_full_image_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
   end
 
   def render_search_view
