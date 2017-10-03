@@ -4,11 +4,11 @@ editors:
   design: [5, 6]
   graphics: [7, 8]
   copy: [9, 10]
-  pub-soc: [11, 23, 24, 12, 13, 26]
+  pub-soc: [11, 28, 23, 24, 12, 13, 26]
   distro: [14, 15]
   web: [22]
   business: [16]
-  relatives: [17, 18, 21]
+  relatives: [17, 18, 21, 27, 29]
   muir: [19]
 
 # This here file is to manually enter which articles will appear on the article index page
@@ -16,13 +16,13 @@ editors:
 # I'm going to try to make it as least based on line numbers and stuff like that
 # Putting article_ids here, which will be used to find the active record
 articles:
-  top_story: 284
-  more_stories: [285, 282, 278, 289, 292, 280]
+  top_story: 317
+  more_stories: [312, 322, 328, 326, 333, 329]
 
 # Eds should be eds for sure
 # Make sure to put only points in pcps
 ed_pcps:
-  eds: [36, 30]
+  eds: [39, 36]
   pcps: [34, 37]
 
 # This page contains data for determining exactly which articles, eds, features will be put on the home page
@@ -32,14 +32,14 @@ main:
   # first is the slideshow. Put articles ids and those articles will appear in the slideshow on front page.
   # My suggestion would be articles with strong headlines or really instantly funny graphics.
   # Five is plenty for this I wouldn't go over that, but also not under 3
-  slideshow_content: [277, 275, 276, 290]
-  news_content: [279, 288]
+  slideshow_content: [311, 314, 332]
+  news_content: [319, 325]
 
   # this next section should only contain ids for editorials or points, NOT counterpoints
   # also no more than 2 things, that is 2 eds or 1 ed 1 point, don't do 2 points
   # last thing, if you want a point, put it AFTER the ed
-  more_stories: [36]
-  features_content: [58]
+  more_stories: [39]
+  features_content: [64]
 
 # This here file is to manually enter which features will appear on the feature index page
 # Putting feature_ids here, which will be used to find the active record
@@ -47,6 +47,6 @@ main:
 # The second will be two column features (word misspelled to avoid codefusion), they will be next to each other
 # The third will be one or two horizontal features. Wouldn't recommend putting more than 2 things there. A BP would be nice for extra color
 features:
-  top_feature: 62
-  column_features: [59, 60]
-  more_features: [61, 58]
+  top_feature: 64
+  column_features: [65, 67]
+  more_features: [66, 63]

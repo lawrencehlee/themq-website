@@ -13,10 +13,6 @@ class Article < ActiveRecord::Base
 
   ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
 
-  def initialize
-    @full_text = nil
-  end
-
   searchable do
     text :headline, :default_boost => 1.5
   end

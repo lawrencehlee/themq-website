@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
     @staff_members_right = @staff_members.slice(0, @staff_members.length/2)
     @staff_members_left = @staff_members.slice(@staff_members.length/2, @staff_members.length)
     @latest_issue = Issue.get_latest_issue
-    @staff_photo = @latest_issue.get_abbreviated_issue_name + "/general/" + @latest_issue.staff_photo
+    @staff_photo = @latest_issue.get_full_staff_photo_path
     @staff_photo_caption = @latest_issue.staff_photo_caption
   end
 

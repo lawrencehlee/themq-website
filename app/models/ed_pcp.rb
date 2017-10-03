@@ -15,10 +15,6 @@ class EdPcp < ActiveRecord::Base
     text :headline, :author, :author_title
   end
 
-  def initialize
-    @full_text = nil
-  end
-
   def should_generate_new_friendly_id?
     slug.blank? || self.title_changed?
   end

@@ -3,6 +3,7 @@ class Issue < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
   IMAGE_SUBDIRECTORY = 'general'
+  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/general/%s"
 
   def should_generate_new_friendly_id?
     slug.blank? || self.name_changed?
@@ -48,8 +49,12 @@ class Issue < ActiveRecord::Base
     "#{self.get_full_issue_name} - #{self.get_human_readable_date}"
   end
 
-  def get_relative_celeb_photo_path
-    "#{self.get_abbreviated_issue_name}/#{IMAGE_SUBDIRECTORY}/#{self.celeb_photo}"
+  def get_full_celeb_photo_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [self.get_abbreviated_issue_name_without_sub_issue, self.celeb_photo]
+  end
+
+  def get_full_staff_photo_path
+    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [self.get_abbreviated_issue_name_without_sub_issue, self.staff_photo]
   end
 
   # Returns the index.txt file in the latest issue, as an array of lines

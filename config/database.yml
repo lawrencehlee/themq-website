@@ -13,12 +13,12 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  host: themq.org
   #this socket is not the same as in git
   socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
+  host: <%= ENV['MQDB'] %>
   database: mqdb_dev
   username: mqdb-dev
   password: <%= ENV['DEV_DB_PASSWORD'] %>
@@ -55,7 +55,7 @@ test:
 #
 production:
   <<: *default
-  host: localhost
+  host: <%= ENV['MQDB'] %>
   database: mqdb_prod
   username: mqdb-prod
   password: <%= ENV['PROD_DB_PASSWORD'] %>
