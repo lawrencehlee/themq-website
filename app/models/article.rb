@@ -39,8 +39,8 @@ class Article < ActiveRecord::Base
 
   def get_text_teaser(words)
     text = self.get_full_text
-    first_line_words = text.split("\n")[0].split()
-    first_line_words[0..words].join(' ') + "..."
+    first_paragraph_words = text.split("\n\n")[0].split()
+    first_paragraph_words[0..words].join(' ') + "..."
   end
 
   def self.get_top_story
