@@ -1,19 +1,13 @@
 require 'render_anywhere'
 
 class Feature < ActiveRecord::Base
-  extend FriendlyId
   include RenderAnywhere
 
   belongs_to :issue
-  friendly_id :name, use: :slugged
   IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/features/%s"
 
   searchable do
     text :title
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.name_changed?
   end
 
   def get_full_image_path

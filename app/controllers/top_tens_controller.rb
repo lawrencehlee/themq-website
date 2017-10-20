@@ -1,7 +1,7 @@
 class TopTensController < ApplicationController
 
   def show
-    @top_ten = TopTen.friendly.find(params[:id])
+    @top_ten = TopTen.find(params[:id])
     @issue = @top_ten.issue
     @top_ten_entries = @top_ten.get_entries
 

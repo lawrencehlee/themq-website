@@ -2,18 +2,6 @@ ActiveAdmin.register Article do
 
   remove_filter :graphic
 
-	# find record with slug (friendly id)
-	controller do
-		def find_resource
-			begin
-				scoped_collection.where(slug: params[:id]).first!
-			rescue ActiveRecord::RecordNotFound
-				scoped_collection.find(params[:id])
-			end
-		end
-	end
-
-
 	permit_params :article_id, :author_id, :issue_id, :headline, :text, :brief, :title, :co_author_id
 
 	index do

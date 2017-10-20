@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716194114) do
+ActiveRecord::Schema.define(version: 20171020025240) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20170716194114) do
     t.string  "headline",     limit: 200
     t.string  "text",         limit: 255,                 null: false
     t.boolean "brief",        limit: 1,   default: false, null: false
-    t.string  "slug",         limit: 255
     t.string  "title",        limit: 255
     t.integer "co_author_id", limit: 4
   end
@@ -68,7 +67,6 @@ ActiveRecord::Schema.define(version: 20170716194114) do
   add_index "articles", ["author_id"], name: "person_id", using: :btree
   add_index "articles", ["co_author_id"], name: "co_author", using: :btree
   add_index "articles", ["issue_id"], name: "issue_id", using: :btree
-  add_index "articles", ["slug"], name: "index_articles_on_slug", using: :btree
 
   create_table "ed_pcp_tags", primary_key: "ed_pcp_tag_id", force: :cascade do |t|
     t.integer "ed_pcp_id", limit: 4, null: false
@@ -90,11 +88,9 @@ ActiveRecord::Schema.define(version: 20170716194114) do
     t.string  "author_image",    limit: 255
     t.string  "text",            limit: 255
     t.string  "title",           limit: 255
-    t.string  "slug",            limit: 255
   end
 
   add_index "ed_pcps", ["issue_id"], name: "issue_id", using: :btree
-  add_index "ed_pcps", ["slug"], name: "index_ed_pcps_on_slug", using: :btree
 
   create_table "feature_tags", primary_key: "feature_tag_id", force: :cascade do |t|
     t.integer "feature_id", limit: 4, null: false
@@ -111,12 +107,10 @@ ActiveRecord::Schema.define(version: 20170716194114) do
     t.boolean "spread",   limit: 1,   default: false, null: false
     t.integer "height",   limit: 4
     t.integer "width",    limit: 4
-    t.string  "slug",     limit: 255
     t.string  "name",     limit: 255
   end
 
   add_index "features", ["issue_id"], name: "issue_id", using: :btree
-  add_index "features", ["slug"], name: "index_features_on_slug", using: :btree
 
   create_table "graphics", primary_key: "graphic_id", force: :cascade do |t|
     t.integer "article_id", limit: 4,     null: false
@@ -144,13 +138,10 @@ ActiveRecord::Schema.define(version: 20170716194114) do
     t.string  "celeb",               limit: 200
     t.string  "celeb_photo",         limit: 255
     t.string  "issuu_link",          limit: 255
-    t.string  "slug",                limit: 255
     t.string  "name",                limit: 255
     t.integer "sub_issue_no",        limit: 4
     t.boolean "current",             limit: 1,     default: false, null: false
   end
-
-  add_index "issues", ["slug"], name: "index_issues_on_slug", using: :btree
 
   create_table "people", primary_key: "person_id", force: :cascade do |t|
     t.integer "position_id", limit: 4,                     null: false
@@ -218,12 +209,10 @@ ActiveRecord::Schema.define(version: 20170716194114) do
     t.integer "issue_id",      limit: 4,   null: false
     t.string  "title",         limit: 200, null: false
     t.integer "no_of_entries", limit: 4,   null: false
-    t.string  "slug",          limit: 255
     t.string  "name",          limit: 255
   end
 
   add_index "top_tens", ["issue_id"], name: "issue_id", using: :btree
-  add_index "top_tens", ["slug"], name: "index_top_tens_on_slug", using: :btree
 
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
   add_foreign_key "articles", "people", column: "author_id", primary_key: "person_id", name: "articles_ibfk_1"
