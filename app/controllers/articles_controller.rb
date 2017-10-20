@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   SAME_AUTHOR_CONTENT_TYPES = [Article]
 
   def show
-    @article = Article.friendly.find(params[:id])
+    @article = Article.find(params[:id])
     @article_text = @article.get_full_text
     unless @article.brief
       @graphic = @article.graphic

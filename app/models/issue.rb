@@ -1,13 +1,8 @@
 class Issue < ActiveRecord::Base
   extend FriendlyId
 
-  friendly_id :name, use: :slugged
   IMAGE_SUBDIRECTORY = 'general'
   IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/general/%s"
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.name_changed?
-  end
 
   # Static method that gets the latest issue by date
   def self.get_latest_issue

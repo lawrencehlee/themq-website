@@ -33,7 +33,7 @@ class FeaturesController < ApplicationController
   end
 
   def show
-    @feature = Feature.friendly.find(params[:id])
+    @feature = Feature.find(params[:id])
     @feature_path = @feature.get_full_image_path
     @width = @feature.width
     @height = @feature.height

@@ -2,17 +2,11 @@ require 'render_anywhere'
 
 class TopTen < ActiveRecord::Base
   include RenderAnywhere, RandomSelectable
-  extend FriendlyId
 
   belongs_to :issue
-  friendly_id :name, use: :slugged
 
   searchable do
     text :title
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.name_changed?
   end
 
   # Static method that gets all top tens from the specified issue

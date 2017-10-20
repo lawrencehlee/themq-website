@@ -1,7 +1,6 @@
 require 'render_anywhere'
 
 class Article < ActiveRecord::Base
-  extend FriendlyId
   include RenderAnywhere, RandomSelectable
 
   belongs_to :issue
@@ -9,16 +8,10 @@ class Article < ActiveRecord::Base
   belongs_to :author, class_name: "Person"
   belongs_to :co_author, class_name: "Person"
 
-  friendly_id :title, use: :slugged
-
   ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
 
   searchable do
     text :headline, :default_boost => 1.5
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.title_changed?
   end
 
   def get_text_location

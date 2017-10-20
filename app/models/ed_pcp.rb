@@ -1,22 +1,16 @@
 require 'render_anywhere'
 
 class EdPcp < ActiveRecord::Base
-  extend FriendlyId
   include RenderAnywhere
 
   belongs_to :issue
   belongs_to :crspnd_point, class_name: "EdPcp"
 
-  friendly_id :title, use: :slugged
   IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/ed_pcps/%s"
   ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
 
   searchable do
     text :headline, :author, :author_title
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.title_changed?
   end
 
   def get_text_location

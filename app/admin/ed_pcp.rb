@@ -1,16 +1,5 @@
 ActiveAdmin.register EdPcp do
 
-	# find record with slug (friendly id)
-	controller do
-		def find_resource
-			begin
-				scoped_collection.where(slug: params[:id]).first!
-			rescue ActiveRecord::RecordNotFound
-				scoped_collection.find(params[:id])
-			end
-		end
-	end
-
 	permit_params :ed_pcp_id, :issue_id, :ed, :point, :counterpoint, :crspnd_point_id,
 		:headline, :author, :author_title, :author_image, :text, :title
 
