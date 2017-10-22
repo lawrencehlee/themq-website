@@ -4,6 +4,9 @@ class TopTen < ActiveRecord::Base
   include RenderAnywhere, RandomSelectable
 
   belongs_to :issue
+  has_many :top_ten_entries
+
+  accepts_nested_attributes_for :top_ten_entries
 
   searchable do
     text :title

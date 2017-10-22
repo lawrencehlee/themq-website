@@ -1,15 +1,4 @@
 ActiveAdmin.register Person do
-  # find record with slug (friendly id)
-	controller do
-		def find_resource
-			begin
-				scoped_collection.where(slug: params[:id]).first!
-			rescue ActiveRecord::RecordNotFound
-				scoped_collection.find(params[:id])
-			end
-		end
-	end
-
 	permit_params :person_id, :position_id, :name, :bio, :image, :current, :quote
 
 	index do

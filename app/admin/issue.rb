@@ -36,7 +36,7 @@ ActiveAdmin.register Issue do
       f.input :celeb_quote
       f.input :celeb
       f.input :celeb_photo
-      f.input :current, as: :string
+      f.input :current
     end
     f.actions
   end
