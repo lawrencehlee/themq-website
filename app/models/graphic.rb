@@ -7,14 +7,13 @@ class Graphic < ActiveRecord::Base
   belongs_to :issue
   belongs_to :person
 
-  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/graphics/%s"
-
   searchable do
     text :caption, :default_boost => 0.5
   end
 
   def get_full_image_path
-    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
+    path_structure = "/" + GraphicsStorageAdapter::IMAGE_SUBDIRECTORY_STRUCTURE
+    Settings.assets.uri_base + path_structure % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
   end
 
   def render_search_view
