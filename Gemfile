@@ -48,7 +48,11 @@ gem 'possessive'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+# For yaml config files
 gem 'config'
+
+# For GCP access
+gem 'google-cloud'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

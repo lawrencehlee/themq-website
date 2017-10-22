@@ -50,3 +50,6 @@ features:
   top_feature: 64
   column_features: [65, 67]
   more_features: [66, 63]
+
+assets:
+  project: "themq-website"
