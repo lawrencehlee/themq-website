@@ -5,8 +5,12 @@ class Article < ActiveRecord::Base
 
   belongs_to :issue
   has_one :graphic
+  has_many :article_tags
+  has_many :tags, through: :article_tags
   belongs_to :author, class_name: "Person"
   belongs_to :co_author, class_name: "Person"
+
+  accepts_nested_attributes_for :graphic
 
   ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
 
