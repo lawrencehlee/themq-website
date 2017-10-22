@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022020401) do
+ActiveRecord::Schema.define(version: 20171022050515) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -115,13 +115,11 @@ ActiveRecord::Schema.define(version: 20171022020401) do
   create_table "graphics", primary_key: "graphic_id", force: :cascade do |t|
     t.integer "article_id", limit: 4,     null: false
     t.integer "person_id",  limit: 4,     null: false
-    t.integer "issue_id",   limit: 4,     null: false
     t.string  "image",      limit: 200
     t.text    "caption",    limit: 65535
   end
 
   add_index "graphics", ["article_id"], name: "article_id", using: :btree
-  add_index "graphics", ["issue_id"], name: "issue_id", using: :btree
   add_index "graphics", ["person_id"], name: "person_id", using: :btree
 
   create_table "issues", primary_key: "issue_id", force: :cascade do |t|
@@ -214,7 +212,6 @@ ActiveRecord::Schema.define(version: 20171022020401) do
   add_foreign_key "feature_tags", "tags", primary_key: "tag_id", name: "feature_tags_ibfk_2"
   add_foreign_key "features", "issues", primary_key: "issue_id", name: "features_ibfk_1"
   add_foreign_key "graphics", "articles", primary_key: "article_id", name: "fk_graphics_articles", on_delete: :cascade
-  add_foreign_key "graphics", "issues", primary_key: "issue_id", name: "graphics_ibfk_3"
   add_foreign_key "graphics", "people", primary_key: "person_id", name: "graphics_ibfk_2"
   add_foreign_key "people", "positions", primary_key: "position_id", name: "people_ibfk_1"
   add_foreign_key "self_ads", "issues", primary_key: "issue_id", name: "self_ads_ibfk_1"
