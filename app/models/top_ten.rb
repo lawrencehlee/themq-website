@@ -6,7 +6,7 @@ class TopTen < ActiveRecord::Base
   belongs_to :issue
   has_many :top_ten_entries
 
-  accepts_nested_attributes_for :top_ten_entries
+  accepts_nested_attributes_for :top_ten_entries, update_only: true, allow_destroy: true
 
   searchable do
     text :title

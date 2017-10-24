@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022050515) do
+ActiveRecord::Schema.define(version: 20171024022452) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -216,7 +216,7 @@ ActiveRecord::Schema.define(version: 20171022050515) do
   add_foreign_key "people", "positions", primary_key: "position_id", name: "people_ibfk_1"
   add_foreign_key "self_ads", "issues", primary_key: "issue_id", name: "self_ads_ibfk_1"
   add_foreign_key "skyboxes", "issues", primary_key: "issue_id", name: "skyboxes_ibfk_1"
-  add_foreign_key "top_ten_entries", "top_tens", primary_key: "top_ten_id", name: "top_ten_entries_ibfk_1"
+  add_foreign_key "top_ten_entries", "top_tens", primary_key: "top_ten_id", name: "fk_top_ten_entries_top_ten", on_delete: :cascade
   add_foreign_key "top_ten_tags", "tags", primary_key: "tag_id", name: "top_ten_tags_ibfk_2"
   add_foreign_key "top_ten_tags", "top_tens", primary_key: "top_ten_id", name: "top_ten_tags_ibfk_1"
   add_foreign_key "top_tens", "issues", primary_key: "issue_id", name: "top_tens_ibfk_1"

@@ -1,7 +1,7 @@
 ActiveAdmin.register TopTen do
   remove_filter :top_ten_entries
 
-	permit_params :top_ten_id, :issue_id, :title, :no_of_entries
+	permit_params :top_ten_id, :issue_id, :title, :no_of_entries, top_ten_entries_attributes: [:id, :text, :entry_no, :_destroy]
 
 	index do
 		selectable_column
@@ -17,6 +17,13 @@ ActiveAdmin.register TopTen do
 			f.input :issue_id
 			f.input :title
 			f.input :no_of_entries
+
+      f.inputs "Entries" do
+        f.has_many :top_ten_entries, allow_destroy: true, new_record: true do |t|
+          t.input :entry_no
+          t.input :text
+        end
+      end
 		end
 		f.actions
 	end
