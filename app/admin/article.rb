@@ -1,7 +1,9 @@
 ActiveAdmin.register Article do
 
   remove_filter :graphic, :article_tags
-	permit_params :article_id, :author_id, :issue_id, :headline, :text, :title, :brief, :co_author_id, graphic_attributes: [:id, :person_id, :caption, :image, :_destroy]
+	permit_params :article_id, :author_id, :issue_id, :headline, :text, :title, :brief, :co_author_id,
+    graphic_attributes: [:id, :person_id, :caption, :image, :_destroy], # Needs :_destroy to allow deletion
+    article_tags_attributes: [:id, :tag_id, :_destroy]
 
 	index do
 		selectable_column
@@ -29,6 +31,12 @@ ActiveAdmin.register Article do
           g.input :person_id
           g.input :caption
           g.input :image, as: :file
+        end
+      end
+
+      f.inputs "Article Tags" do
+        f.has_many :article_tags, allow_destroy: true, new_record: true do |t|
+          t.input :tag
         end
       end
 		end

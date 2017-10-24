@@ -11,6 +11,7 @@ class Article < ActiveRecord::Base
   belongs_to :co_author, class_name: "Person"
 
   accepts_nested_attributes_for :graphic, update_only: true, allow_destroy: true
+  accepts_nested_attributes_for :article_tags, update_only: true, allow_destroy: true
 
   searchable do
     text :headline, :default_boost => 1.5
