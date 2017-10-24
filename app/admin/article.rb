@@ -1,7 +1,7 @@
 ActiveAdmin.register Article do
 
-  remove_filter :graphic
-	permit_params :article_id, :author_id, :issue_id, :headline, :text, :brief, :co_author_id, graphic_attributes: [:person_id, :caption, :image]
+  remove_filter :graphic, :article_tags
+	permit_params :article_id, :author_id, :issue_id, :headline, :text, :brief, :co_author_id, graphic_attributes: [:graphic_id, :person_id, :caption, :image]
 
 	index do
 		selectable_column
@@ -49,7 +49,7 @@ ActiveAdmin.register Article do
       end
 
       # Save both article and graphic
-      @article.save
+      @article.save!
 
       # Don't upload image until article saves successfully
       unless image.nil?
@@ -61,10 +61,24 @@ ActiveAdmin.register Article do
       redirect_to resource_url
     end
 
+    # Custom update method to upload images to cloud storage
     def update
-      byebug
+      attrs = permitted_params[:article]
       @article = Article.find(resource.article_id)
-      @article.update(permitted_params[:article])
+      image = permitted_params[:article][:graphic_attributes][:image]
+
+      # If there's an uploaded image, it's probably new, so update the name
+      unless image.nil?
+        attrs[:graphic_attributes][:image] = image.original_filename
+      end
+
+      @article.update!(attrs)
+
+      # Don't upload image until article updates successfully
+      unless image.nil?
+        # Takes the StringIO version of the image, which is why we call image.open
+        GraphicStorageAdapter.upload_graphic(@article.issue.volume_no, @article.issue.issue_no, image.original_filename, image.open)
+      end
 
       redirect_to resource_url
     end

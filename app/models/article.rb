@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
   belongs_to :author, class_name: "Person"
   belongs_to :co_author, class_name: "Person"
 
-  accepts_nested_attributes_for :graphic
+  accepts_nested_attributes_for :graphic, update_only: true, allow_destroy: true
 
   ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
 
