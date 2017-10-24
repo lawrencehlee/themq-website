@@ -1,7 +1,7 @@
 ActiveAdmin.register Article do
 
   remove_filter :graphic, :article_tags
-	permit_params :article_id, :author_id, :issue_id, :headline, :text, :brief, :co_author_id, graphic_attributes: [:graphic_id, :person_id, :caption, :image]
+	permit_params :article_id, :author_id, :issue_id, :headline, :text, :brief, :co_author_id, graphic_attributes: [:id, :person_id, :caption, :image, :_destroy]
 
 	index do
 		selectable_column
