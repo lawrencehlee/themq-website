@@ -4,14 +4,14 @@ class Feature < ActiveRecord::Base
   include RenderAnywhere
 
   belongs_to :issue
-  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/features/%s"
 
   searchable do
     text :title
   end
 
   def get_full_image_path
-    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
+    path_structure = "/" + FeatureStorageAdapter::IMAGE_SUBDIRECTORY_STRUCTURE
+    Settings.assets.uri_base + path_structure % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
   end
 
   def get_tags
