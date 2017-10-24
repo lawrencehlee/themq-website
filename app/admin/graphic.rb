@@ -5,8 +5,8 @@ ActiveAdmin.register Graphic do
 	index do
 		selectable_column
 		column :graphic_id
-		column :article_id
-		column :person_id
+		column :article
+		column :person
 		column :image
 		column :caption
 		actions
@@ -15,7 +15,7 @@ ActiveAdmin.register Graphic do
 	form do |f|
 		f.inputs "Graphics Details" do
 			f.input :article_id
-			f.input :person_id
+			f.input :person
 			f.input :image, as: :file
 			f.input :caption
 		end
