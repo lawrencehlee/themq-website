@@ -6,7 +6,7 @@ ActiveAdmin.register TopTen do
 	index do
 		selectable_column
 		column :top_ten_id
-		column :issue_id
+		column :issue
 		column :title
 		column :no_of_entries
 		actions
@@ -14,7 +14,7 @@ ActiveAdmin.register TopTen do
 
 	form do |f|
 		f.inputs "Top Ten Details" do
-			f.input :issue_id
+			f.input :issue
 			f.input :title
 			f.input :no_of_entries
 
