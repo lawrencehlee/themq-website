@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024022452) do
+ActiveRecord::Schema.define(version: 20171024024048) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -202,13 +202,14 @@ ActiveRecord::Schema.define(version: 20171024022452) do
 
   add_index "top_tens", ["issue_id"], name: "issue_id", using: :btree
 
+  add_foreign_key "article_tags", "articles", primary_key: "article_id", name: "fk_article_tags_article", on_delete: :cascade
   add_foreign_key "articles", "issues", primary_key: "issue_id", name: "articles_ibfk_2"
   add_foreign_key "articles", "people", column: "author_id", primary_key: "person_id", name: "articles_ibfk_1"
   add_foreign_key "articles", "people", column: "co_author_id", primary_key: "person_id", name: "articles_ibfk_4"
-  add_foreign_key "ed_pcp_tags", "ed_pcps", primary_key: "ed_pcp_id", name: "ed_pcp_tags_ibfk_1"
+  add_foreign_key "ed_pcp_tags", "ed_pcps", primary_key: "ed_pcp_id", name: "fk_ed_pcp_tags_ed_pcp", on_delete: :cascade
   add_foreign_key "ed_pcp_tags", "tags", primary_key: "tag_id", name: "ed_pcp_tags_ibfk_2"
   add_foreign_key "ed_pcps", "issues", primary_key: "issue_id", name: "ed_pcps_ibfk_1"
-  add_foreign_key "feature_tags", "features", primary_key: "feature_id", name: "feature_tags_ibfk_1"
+  add_foreign_key "feature_tags", "features", primary_key: "feature_id", name: "fk_feature_tags_feature", on_delete: :cascade
   add_foreign_key "feature_tags", "tags", primary_key: "tag_id", name: "feature_tags_ibfk_2"
   add_foreign_key "features", "issues", primary_key: "issue_id", name: "features_ibfk_1"
   add_foreign_key "graphics", "articles", primary_key: "article_id", name: "fk_graphics_articles", on_delete: :cascade
@@ -218,6 +219,6 @@ ActiveRecord::Schema.define(version: 20171024022452) do
   add_foreign_key "skyboxes", "issues", primary_key: "issue_id", name: "skyboxes_ibfk_1"
   add_foreign_key "top_ten_entries", "top_tens", primary_key: "top_ten_id", name: "fk_top_ten_entries_top_ten", on_delete: :cascade
   add_foreign_key "top_ten_tags", "tags", primary_key: "tag_id", name: "top_ten_tags_ibfk_2"
-  add_foreign_key "top_ten_tags", "top_tens", primary_key: "top_ten_id", name: "top_ten_tags_ibfk_1"
+  add_foreign_key "top_ten_tags", "top_tens", primary_key: "top_ten_id", name: "fk_top_ten_tags_top_ten", on_delete: :cascade
   add_foreign_key "top_tens", "issues", primary_key: "issue_id", name: "top_tens_ibfk_1"
 end

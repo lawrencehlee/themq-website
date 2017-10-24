@@ -5,8 +5,11 @@ class TopTen < ActiveRecord::Base
 
   belongs_to :issue
   has_many :top_ten_entries
+  has_many :top_ten_tags
+  has_many :tags, through: :top_ten_tags
 
   accepts_nested_attributes_for :top_ten_entries, update_only: true, allow_destroy: true
+  accepts_nested_attributes_for :top_ten_tags, update_only: true, allow_destroy: true
 
   searchable do
     text :title
