@@ -4,6 +4,10 @@ class Feature < ActiveRecord::Base
   include RenderAnywhere
 
   belongs_to :issue
+  has_many :feature_tags
+  has_many :tags, through: :feature_tags
+
+  accepts_nested_attributes_for :feature_tags, update_only: true, allow_destroy: true
 
   searchable do
     text :title

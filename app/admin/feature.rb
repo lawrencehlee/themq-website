@@ -1,6 +1,8 @@
 ActiveAdmin.register Feature do
+  remove_filter :feature_tags
 
-	permit_params :feature_id, :issue_id, :title, :image, :spread, :width, :height, :name
+	permit_params :feature_id, :issue_id, :title, :image, :spread, :width, :height, :name,
+    feature_tags_attributes: [:id, :tag_id, :_destroy]
 
 	index do
 		selectable_column
@@ -23,6 +25,12 @@ ActiveAdmin.register Feature do
 			f.input :spread
 			f.input :width
 			f.input :height
+
+      f.inputs "Feature Tags" do
+        f.has_many :feature_tags, allow_destroy: true, new_record: true do |t|
+          t.input :tag
+        end
+      end
 		end
 		f.actions
 	end
