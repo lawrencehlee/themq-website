@@ -12,14 +12,13 @@ class Article < ActiveRecord::Base
 
   accepts_nested_attributes_for :graphic, update_only: true, allow_destroy: true
 
-  ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
-
   searchable do
     text :headline, :default_boost => 1.5
   end
 
   def get_text_location
-    Settings.assets.uri_base + ARTICLE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.text]
+    path_structure = "/" + ArticleStorageAdapter::ARTICLE_SUBDIRECTORY_STRUCTURE
+    Settings.assets.uri_base + path_structure % [issue.get_abbreviated_issue_name_without_sub_issue, self.text]
   end
 
   def get_attribution_line

@@ -1,7 +1,7 @@
 ActiveAdmin.register Article do
 
   remove_filter :graphic, :article_tags
-	permit_params :article_id, :author_id, :issue_id, :headline, :text, :brief, :co_author_id, graphic_attributes: [:id, :person_id, :caption, :image, :_destroy]
+	permit_params :article_id, :author_id, :issue_id, :headline, :text, :title, :brief, :co_author_id, graphic_attributes: [:id, :person_id, :caption, :image, :_destroy]
 
 	index do
 		selectable_column
@@ -21,7 +21,7 @@ ActiveAdmin.register Article do
       f.input :co_author
 			f.input :issue
 			f.input :headline
-			f.input :text
+			f.input :text, as: :file
 			f.input :brief
 
       f.inputs "Graphic Details" do
@@ -40,7 +40,16 @@ ActiveAdmin.register Article do
     def create
       attrs = permitted_params[:article]
       @article = Article.new(attrs)
-      image = permitted_params[:article][:graphic_attributes][:image]
+      article_text = attrs[:text]
+      image = nil
+      unless attrs[:graphic_attributes].nil?
+        image = attrs[:graphic_attributes][:image]
+      end
+
+      unless article_text.nil?
+        @article.text = article_text.original_filename
+        @article.title = @article.text.split(".md").first # Set the title to be just the filename without extension
+      end
 
       # No brief check because, while briefs currently don't have graphic, nothing really prevents them from doing so
       unless image.nil?
@@ -51,7 +60,11 @@ ActiveAdmin.register Article do
       # Save both article and graphic
       @article.save!
 
-      # Don't upload image until article saves successfully
+      # Don't upload stuff until article saves successfully
+      unless article_text.nil?
+        # Takes the StringIO version of the image, which is why we call image.open
+        ArticleStorageAdapter.upload_article(@article.issue.volume_no, @article.issue.issue_no, @article.text, article_text.open)
+      end
       unless image.nil?
         # Takes the StringIO version of the image, which is why we call image.open
         GraphicStorageAdapter.upload_graphic(@article.issue.volume_no, @article.issue.issue_no, @graphic.image, image.open)
@@ -65,7 +78,17 @@ ActiveAdmin.register Article do
     def update
       attrs = permitted_params[:article]
       @article = Article.find(resource.article_id)
-      image = permitted_params[:article][:graphic_attributes][:image]
+      article_text = attrs[:text]
+      image = nil
+      unless attrs[:graphic_attributes].nil?
+        image = attrs[:graphic_attributes][:image]
+      end
+
+      # If there's an uploaded article, it's probably new, so update the name
+      unless article_text.nil?
+        attrs[:text] = article_text.original_filename
+        attrs[:title] = attrs[:text].split(".md").first # Set the title to be just the filename without extension
+      end
 
       # If there's an uploaded image, it's probably new, so update the name
       unless image.nil?
@@ -75,6 +98,10 @@ ActiveAdmin.register Article do
       @article.update!(attrs)
 
       # Don't upload image until article updates successfully
+      unless article_text.nil?
+        # Takes the StringIO version of the image, which is why we call image.open
+        ArticleStorageAdapter.upload_article(@article.issue.volume_no, @article.issue.issue_no, article_text.original_filename, article_text.open)
+      end
       unless image.nil?
         # Takes the StringIO version of the image, which is why we call image.open
         GraphicStorageAdapter.upload_graphic(@article.issue.volume_no, @article.issue.issue_no, image.original_filename, image.open)
