@@ -1,5 +1,4 @@
 class Issue < ActiveRecord::Base
-  extend FriendlyId
 
   IMAGE_SUBDIRECTORY = 'general'
   IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/general/%s"

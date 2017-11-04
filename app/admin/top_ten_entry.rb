@@ -5,7 +5,7 @@ ActiveAdmin.register TopTenEntry do
 	index do
 		selectable_column
 		column :top_ten_entry_id
-		column :top_ten_id
+		column :top_ten
 		column :text
 		column :entry_no
 		actions
@@ -13,7 +13,7 @@ ActiveAdmin.register TopTenEntry do
 
 	form do |f|
 		f.inputs "Top Ten Entry Details" do
-			f.input :top_ten_id
+			f.input :top_ten
 			f.input :text
 			f.input :entry_no
 		end

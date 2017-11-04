@@ -1,21 +1,14 @@
 require 'render_anywhere'
 
 class Person < ActiveRecord::Base
-  extend FriendlyId
   include RenderAnywhere
 
   belongs_to :position
-
-  friendly_id :name, use: :slugged
 
   IMAGE_SUBDIRECTORY_STRUCTURE = "/images/editors/%s"
 
   searchable do
     text :name
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.name_changed?
   end
 
   def get_all_articles_for_person

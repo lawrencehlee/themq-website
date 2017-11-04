@@ -1,13 +1,5 @@
 class Tag < ActiveRecord::Base
 
-  extend FriendlyId
-  friendly_id :title, use: :slugged
-
-  def should_generate_new_friendly_id?
-    slug.blank? || self.title_changed?
-  end
-
-
   def get_all_articles_with_tag
     article_tags = ArticleTag.where(tag_id: self.tag_id)
     articles = Array.new()

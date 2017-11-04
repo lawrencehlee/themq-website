@@ -2,20 +2,21 @@
   <div class="container">
     <div id="navbar-content">
       <div id="navbar-logo">
+        <% issue = Issue.get_latest_issue %>
         <%= link_to image_tag(@logo_image, alt: "MQ logo"),
             {controller: 'main', action: 'index'} %>
-        <% if @masthead.nil? %>
+          <% if rand > 0.5 %>
             <div class="navbar-hideable navbar-lg navbar-block" id="navbar-masthead">
-            <%= @celeb_quote %>
+            <%= issue.celeb_quote %>
             <span id="navbar-celeb">
-              — <%= @celeb %>
+              — <%= issue.celeb %>
               <span>
-                <%= image_tag(Issue.get_latest_issue.get_full_celeb_photo_path, alt: "it me") %>
+                <%= image_tag(issue.get_full_celeb_photo_path, alt: "it me") %>
               </span>
             </span>
           </div>
         <% else %>
-          <div class="navbar-hideable navbar-lg navbar-block" id="navbar-masthead"><%= @masthead %></div>
+          <div class="navbar-hideable navbar-lg navbar-block" id="navbar-masthead"><%= issue.masthead %></div>
         <% end %>
       </div>
       <div id="navbar-nav">

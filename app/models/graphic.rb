@@ -1,20 +1,21 @@
 require 'render_anywhere'
+require_relative '../storage-adapters/graphic_storage_adapter'
 
 class Graphic < ActiveRecord::Base
   include RenderAnywhere
 
   belongs_to :article
-  belongs_to :issue
   belongs_to :person
 
-  IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/graphics/%s"
+  delegate :issue, to: :article
 
   searchable do
     text :caption, :default_boost => 0.5
   end
 
   def get_full_image_path
-    Settings.assets.uri_base + IMAGE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
+    path_structure = "/" + GraphicStorageAdapter::IMAGE_SUBDIRECTORY_STRUCTURE
+    Settings.assets.uri_base + path_structure % [issue.get_abbreviated_issue_name_without_sub_issue, self.image]
   end
 
   def render_search_view
@@ -23,11 +24,10 @@ class Graphic < ActiveRecord::Base
   end
 
   def self.order_by_issue_date(graphics, descending)
-    #= graphics.sort_by {|graphic| Issue.find(graphic.issue_id).date}
     if descending
-      graphics.joins(:issue).order('issues.date DESC')
+      graphics.joins(:article => :issue).order('issues.date DESC')
     else
-      graphics.joins(:issue).order('issues.date')
+      graphics.joins(:article => :issue).order('issues.date')
     end
   end
 end

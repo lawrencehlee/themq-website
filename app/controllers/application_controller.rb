@@ -8,13 +8,6 @@ class ApplicationController < ActionController::Base
 
   private
   def set_var
-    @issue = Issue.get_latest_issue
-    if rand >= 0.5
-      @celeb_quote = @issue.celeb_quote
-      @celeb = @issue.celeb
-    else
-      @masthead = @issue.masthead
-    end
     @logo_image = "logo_#{HEADER_TEXT}_transparent.png"
   end
 end

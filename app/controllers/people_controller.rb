@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.friendly.find(params[:id])
+    @person = Person.find(params[:id])
     @position_title = @person.get_title
     @articles = @person.get_all_articles_for_person
     @graphics = Array.new()

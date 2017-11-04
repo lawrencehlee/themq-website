@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'main#index'
 
-  if Rails.env.development?
+  if Rails.env.development? or Rails.env.staging?
     devise_for :admin_users, ActiveAdmin::Devise.config
     ActiveAdmin.routes(self)
   end

@@ -5,6 +5,10 @@ class EdPcp < ActiveRecord::Base
 
   belongs_to :issue
   belongs_to :crspnd_point, class_name: "EdPcp"
+  has_many :ed_pcp_tags
+  has_many :tags, through: :ed_pcp_tags
+
+  accepts_nested_attributes_for :ed_pcp_tags, update_only: true, allow_destroy: true
 
   IMAGE_SUBDIRECTORY_STRUCTURE = "/images/%s/ed_pcps/%s"
   ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"

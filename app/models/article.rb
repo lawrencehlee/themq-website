@@ -5,17 +5,21 @@ class Article < ActiveRecord::Base
 
   belongs_to :issue
   has_one :graphic
+  has_many :article_tags
+  has_many :tags, through: :article_tags
   belongs_to :author, class_name: "Person"
   belongs_to :co_author, class_name: "Person"
 
-  ARTICLE_SUBDIRECTORY_STRUCTURE = "/articles/%s/%s"
+  accepts_nested_attributes_for :graphic, update_only: true, allow_destroy: true
+  accepts_nested_attributes_for :article_tags, update_only: true, allow_destroy: true
 
   searchable do
     text :headline, :default_boost => 1.5
   end
 
   def get_text_location
-    Settings.assets.uri_base + ARTICLE_SUBDIRECTORY_STRUCTURE % [issue.get_abbreviated_issue_name_without_sub_issue, self.text]
+    path_structure = "/" + ArticleStorageAdapter::ARTICLE_SUBDIRECTORY_STRUCTURE
+    Settings.assets.uri_base + path_structure % [issue.get_abbreviated_issue_name_without_sub_issue, self.text]
   end
 
   def get_attribution_line
@@ -142,9 +146,9 @@ class Article < ActiveRecord::Base
 
   def self.order_by_issue_date(articles, descending)
     if descending
-      articles.joins(:issue).order('issues.date DESC')
+      articles.joins(:issue).order('issues.date DESC, articles.article_id DESC')
     else
-      articles.joins(:issue).order('issues.date')
+      articles.joins(:issue).order('issues.date DESC, articles.article_id')
     end
   end
 end
