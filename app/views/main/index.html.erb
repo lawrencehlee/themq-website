@@ -41,7 +41,7 @@
       </div>
 
       <div id="news" class="main-section">
-        <h2 class="main-section-title">News</h2>
+        <h2 class="compress main-section-title">News</h2>
         <% @news_articles.each do |article| %>
           <% graphic = article.graphic %>
           <% author = article.author %>
@@ -52,7 +52,7 @@
               <%= link_to image_tag(graphic.get_full_image_path),
                 article %>
             </div>
-            <div class="pure-u-1 pure-u-lg-2-3">
+            <div class="compress pure-u-1 pure-u-lg-2-3">
               <div class="news-content-headline">
                 <h2 class="regular-headline">
                   <%= link_to article.headline, article %>
@@ -69,12 +69,12 @@
             </div>
           </div>
         <% end %>
-        <div id="news-more" class="see-more">
+        <div id="news-more" class="compress see-more">
           <%= link_to "More news ›", :controller => :articles, :action => :index %>
         </div>
       </div>
 
-      <div id="more-stories" class="main-section">
+      <div id="more-stories" class="compress main-section">
         <h2 class="main-section-title">More Stories</h2>
         <div class="more-stories-content">
           <% @more_stories.each do |story| %>
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div id="features" class="main-section">
-        <h2 class="main-section-title">Features</h2>
+        <h2 class="compress main-section-title">Features</h2>
         <div class="more-stories-content">
           <% @features_content.each do |feature| %>
             <a href="<%= url_for(feature) %>">
@@ -104,7 +104,7 @@
               </div>
             </a>
           <% end %>
-          <div id="more-stories-features-more" class="see-more">
+          <div id="more-stories-features-more" class="compress see-more">
             <%= link_to "More features ›", :controller => :features, :action => :index %>
           </div>
         </div>
