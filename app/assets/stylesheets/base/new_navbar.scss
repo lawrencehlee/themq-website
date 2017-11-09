@@ -8,15 +8,15 @@ nav.navbar {
   font-weight: bold;
 
   .container {
-    border-bottom: 4px solid $accent-color;
+    //border-bottom: 4px solid $accent-color;
     padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    //padding-bottom: 0.5em;
   }
 
   #navbar-logo {
     text-align: center;
     img {
-      max-width: 60%;
+      max-width: 50%;
     }
   }
 
@@ -93,6 +93,37 @@ nav.navbar {
       }
     }
   }
+
+  #tagline {
+    // Handles the borders for the whole shebang!
+    border-top: 4px solid $accent-color;
+    border-bottom: 4px solid $accent-color;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-size: $font-xs-sm;
+
+    #navbar-celeb {
+      font-style: normal;
+      margin-left: 1em;
+      position: relative;
+      white-space: nowrap;
+
+      span {
+        position: absolute;
+        left: 50%;
+        display: none;
+        z-index: 99;
+
+        img {
+          max-width: 128px;
+        }
+      }
+
+      &:hover span {
+        display: block;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: $sm-min-width) {
@@ -100,11 +131,12 @@ nav.navbar {
 
 @media screen and (min-width: $md-min-width) {
   nav.navbar {
-    #navbar-logo {
-      text-align: center;
-      img {
-        max-width: 40%;
-      }
+    #navbar-nav {
+      // Pop the font a bit
+      font-size: $font-sm;
+    }
+    #tagline {
+      font-size: $font-sm;
     }
   }
 }
@@ -128,8 +160,6 @@ nav.navbar {
         display: block;
       }
 
-      // Pop the font a bit
-      font-size: $font-sm;
 
       // Change the padding to show better horizontally
       ul {
@@ -147,6 +177,15 @@ nav.navbar {
       img {
         max-width: 90%;
       }
+    }
+  }
+}
+
+@media screen and (min-width: $xl-min-width) {
+  nav.navbar {
+    #navbar-nav {
+      // Pop the font even bigger for big screens
+      font-size: $font-md-lg;
     }
   }
 }
