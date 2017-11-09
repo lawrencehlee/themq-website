@@ -55,9 +55,17 @@ a {
 }
 
 .container {
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
   float: none;
+
+  // Everything with compress should get "margins" from the container to look good on small screens
+  // Everything else extends to the edges e.g. pictures, navbar, etc.
+  .compress {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 // Responsive media queries for container
@@ -69,6 +77,14 @@ a {
 @media screen and (min-width: $md-min-width) {
   .container {
     width: $md-container-min-width;
+    max-width: 95%;
+
+    // On a wider screen, the container is width-limited, so no need to compress anymore
+    .compress {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
 @media screen and (min-width: $lg-min-width) {
