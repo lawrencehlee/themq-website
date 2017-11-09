@@ -3,7 +3,7 @@
     <div id="navbar-content">
       <div class="pure-g">
 
-        <div class="pure-u-1 pure-u-md-2-5">
+        <div class="pure-u-1 pure-u-lg-2-5">
           <div id="navbar-logo">
             <% issue = Issue.get_latest_issue %>
             <%= link_to image_tag(@logo_image, alt: "MQ logo"),
@@ -11,8 +11,8 @@
           </div>
         </div>
 
-        <div class="pure-u-1 pure-u-md-3-5">
-          <div id="navbar-nav">
+        <div class="pure-u-1 pure-u-lg-3-5" style="position:relative;">
+          <div id="navbar-nav" class="sans-serif">
             <div class="pure-menu pure-menu-horizontal" id="navbar-nav-inner">
               <ul>
                 <li class="navbar-hideable navbar-md navbar-lg caps">
@@ -49,7 +49,7 @@
                     <li class="pure-menu-item caps">
                       <%= link_to "About", controller: 'static_pages', action: 'about' %>
                     </li>
-                    <li class="navbar-hideable navbar-md pure-menu-item caps">
+                    <li class="pure-menu-item caps">
                       <%= link_to "Search", controller: 'search', action: 'index' %>
                     </li>
                   </ul>
@@ -88,12 +88,6 @@
                       <%= link_to "Search", controller: 'search', action: 'index' %>
                     </li>
                   </ul>
-                </li>
-
-                <li class="navbar-hideable navbar-lg " id="search-list-element">
-                  <%= form_tag("/search", method: "get", class: "search navbar-search") do %>
-                    <%= text_field_tag :query, nil, { placeholder: "Search" } %>
-                  <% end %>
                 </li>
               </ul>
             </div>
