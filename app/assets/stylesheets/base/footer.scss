@@ -22,6 +22,12 @@ footer {
     margin-top: 1em;
     margin-bottom: 1em;
 
+    .footer-img {
+      img {
+        float: none;
+      }
+    }
+
     .footer-links, .footer-social {
       font-weight: bold;
     }
@@ -36,6 +42,32 @@ footer {
       &:hover {
         background-color: inherit;
         color: #d3d3d3;
+      }
+    }
+  }
+
+  .footer-tagline {
+    .tagline {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    margin-bottom: 0.5em;
+    #navbar-celeb {
+      font-style: normal;
+      span {
+        position: absolute;
+        left: 50%;
+        display: none;
+        z-index: 99;
+
+        img {
+          max-width: 128px;
+        }
+      }
+
+      &:hover span {
+        display: block;
       }
     }
   }
@@ -58,6 +90,19 @@ footer {
     .footer-main {
       .footer-links, .footer-social {
         font-size: $font-lg;
+      }
+
+      .footer-img {
+        img {
+          float: right;
+        }
+      }
+
+      .footer-tagline {
+        .tagline {
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+        }
       }
     }
   }

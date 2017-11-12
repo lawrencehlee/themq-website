@@ -8,9 +8,9 @@ nav.navbar {
   font-weight: bold;
 
   .container {
-    //border-bottom: 4px solid $accent-color;
+    border-bottom: 4px solid $accent-color;
     padding-top: 0.5em;
-    //padding-bottom: 0.5em;
+    padding-bottom: 0.5em;
   }
 
   #navbar-logo {
@@ -90,37 +90,6 @@ nav.navbar {
             }
           }
         }
-      }
-    }
-  }
-
-  #tagline {
-    // Handles the borders for the whole shebang
-    border-top: 4px solid $accent-color;
-    border-bottom: 4px solid $accent-color;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    font-size: $font-xs-sm;
-
-    #navbar-celeb {
-      font-style: normal;
-      margin-left: 1em;
-      position: relative;
-      white-space: nowrap;
-
-      span {
-        position: absolute;
-        left: 50%;
-        display: none;
-        z-index: 99;
-
-        img {
-          max-width: 128px;
-        }
-      }
-
-      &:hover span {
-        display: block;
       }
     }
   }
