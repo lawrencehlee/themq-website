@@ -152,14 +152,7 @@
 
   .article-data {
     font-size: $font-md-lg;
-    p {
-      margin-left: 1em;
-    }
-    h3 {
-      margin-left: 1em;
-    }
     .article-tags {
-      margin-left: 1em;
       a {
         &:hover {
           background-color: $link-hover-background-color;
@@ -238,6 +231,12 @@
         width: 95%;
         height: 162px;
       }
+    }
+  }
+
+  .articles-content {
+    .article-data {
+      margin-left: 1em;
     }
   }
 }
