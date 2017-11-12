@@ -93,23 +93,7 @@
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-
-    <div id="tagline">
-      <% if rand > 0.5 %>
-        <%= issue.celeb_quote %>
-        <span id="navbar-celeb">
-          — <%= issue.celeb %>
-          <span>
-            <%= image_tag(issue.get_full_celeb_photo_path, alt: "it me") %>
-          </span>
-        </span>
-      </div>
-      <% else %>
-        <%= issue.masthead %></div>
-      <% end %>
     </div>
   </div>
 </nav>
