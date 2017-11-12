@@ -95,7 +95,7 @@ nav.navbar {
   }
 
   #tagline {
-    // Handles the borders for the whole shebang!
+    // Handles the borders for the whole shebang
     border-top: 4px solid $accent-color;
     border-bottom: 4px solid $accent-color;
     padding-top: 0.5em;
@@ -175,7 +175,7 @@ nav.navbar {
     #navbar-logo {
       text-align: left;
       img {
-        max-width: 90%;
+        max-width: 80%;
       }
     }
   }
