@@ -39,6 +39,7 @@ class FeaturesController < ApplicationController
     @height = @feature.height
     @tags = Array.new()
     @tags = @feature.get_tags
+    @issue = Issue.get_latest_issue
 
     # Specific sidebar stuff
     current_issue_filter = "issue_id = #{@issue.issue_id}"

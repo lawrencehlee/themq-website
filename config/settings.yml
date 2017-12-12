@@ -16,14 +16,14 @@ editors:
 # I'm going to try to make it as least based on line numbers and stuff like that
 # Putting article_ids here, which will be used to find the active record
 articles:
-  top_story: 374
-  more_stories: [368, 363, 360, 359, 355, 372]
+  top_story: 377
+  more_stories: [378, 380, 382, 385, 393, 395]
 
 # Eds should be eds for sure
 # Make sure to put only points in pcps
 ed_pcps:
-  eds: [44, 39]
-  pcps: [42, 34]
+  eds: [47, 44]
+  pcps: [45, 42]
 
 # This page contains data for determining exactly which articles, eds, features will be put on the home page
 # There are 4 sections here, slideshow, news, more, and features
@@ -32,14 +32,14 @@ main:
   # first is the slideshow. Put articles ids and those articles will appear in the slideshow on front page.
   # My suggestion would be articles with strong headlines or really instantly funny graphics.
   # Five is plenty for this I wouldn't go over that, but also not under 3
-  slideshow_content: [351, 353, 352]
-  news_content: [357, 361]
+  slideshow_content: [376, 381, 398]
+  news_content: [399, 386]
 
   # this next section should only contain ids for editorials or points, NOT counterpoints
   # also no more than 2 things, that is 2 eds or 1 ed 1 point, don't do 2 points
   # last thing, if you want a point, put it AFTER the ed
-  more_stories: [44]
-  features_content: [72]
+  more_stories: [45]
+  features_content: [77]
 
 # This here file is to manually enter which features will appear on the feature index page
 # Putting feature_ids here, which will be used to find the active record
@@ -47,6 +47,6 @@ main:
 # The second will be two column features (word misspelled to avoid codefusion), they will be next to each other
 # The third will be one or two horizontal features. Wouldn't recommend putting more than 2 things there. A BP would be nice for extra color
 features:
-  top_feature: 72
-  column_features: [71, 69]
-  more_features: [73, 70]
+  top_feature: 76
+  column_features: [75, 74]
+  more_features: [78, 77]
