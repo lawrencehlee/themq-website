@@ -17,7 +17,7 @@ editors:
 # Putting article_ids here, which will be used to find the active record
 articles:
   top_story: 409
-  more_stories: [426, 424, 419, 413, 415, 421]
+  more_stories: [426, 422, 419, 413, 415, 421]
 
 # Eds should be eds for sure
 # Make sure to put only points in pcps
