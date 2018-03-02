@@ -46,32 +46,6 @@ footer {
     }
   }
 
-  .footer-tagline {
-    .tagline {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    margin-bottom: 0.5em;
-    #navbar-celeb {
-      font-style: normal;
-      span {
-        position: absolute;
-        left: 55%;
-        bottom: 25%;
-        display: none;
-        z-index: 99;
-
-        img {
-          max-width: 128px;
-        }
-      }
-
-      &:hover span {
-        display: block;
-      }
-    }
-  }
 }
 
 @media screen and (min-width: $md-min-width) {
