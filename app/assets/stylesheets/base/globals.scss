@@ -16,16 +16,16 @@ h1:first-of-type {
   margin-top: 0;
 }
 
+.sans-serif {
+  font-family: $sans-serif-font-stack;
+}
+
 .serif-text, html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
   font-family: $serif-text-font-stack;
 }
 
 .serif-headline, h1, h2, h3, h4, h5, h6, .title, .headline {
   font-family: $serif-headline-font-stack;
-}
-
-.sans-serif {
-  font-family: $sans-serif-font-stack;
 }
 
 body {
