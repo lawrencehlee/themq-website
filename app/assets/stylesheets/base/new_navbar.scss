@@ -5,7 +5,6 @@ nav.navbar {
   display: block;
   text-align: center;
   color: black;
-  font-weight: bold;
 
   .container {
     padding-top: 0.5em;
@@ -22,17 +21,20 @@ nav.navbar {
     }
   }
 
-  #navbar-metadata {
+  .left { text-align: left; }
+  .right { text-align: right; }
+  .navbar-metadata {
     display: none;
     color: $tertiary-text-color;
     padding-bottom: 0.25em;
-    border-bottom: 4px solid $primary-text-color;
+    font-size: $font-sm;
   }
 
   #navbar-nav {
+    font-weight: bold;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
-    border-bottom: 1px solid $accent-color;
+    border-bottom: 1px solid $accent-hover-color;
     text-align: center;
     font-size: $font-sm;
     font-family: $serif-headline-font-stack;
@@ -113,7 +115,7 @@ nav.navbar {
 
 @media screen and (min-width: $md-min-width) {
   nav.navbar {
-    #navbar-metadata {
+    .navbar-metadata {
       display: block;
     }
 
@@ -141,6 +143,7 @@ nav.navbar {
       }
     }
     #navbar-nav {
+      border-top: 4px solid $primary-text-color;
       font-size: 100%;
       .navbar-hideable {
         display: none;
