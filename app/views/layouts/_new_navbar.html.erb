@@ -28,7 +28,13 @@
           </em>
         </div>
 
-        <div class="pure-u-1" style="position:relative;">
+        <div class="pure-u-1" id="navbar-metadata">
+          <span style="float: left"><%= Time.now.strftime('%B%e, %Y') %></span>
+          <span style="float: right"><%= issue.get_full_issue_name %></span>
+        </div>
+
+
+        <div class="pure-u-1">
           <div id="navbar-nav">
             <div class="pure-menu pure-menu-horizontal" id="navbar-nav-inner">
               <ul>

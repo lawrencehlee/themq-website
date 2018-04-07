@@ -8,9 +8,7 @@ nav.navbar {
   font-weight: bold;
 
   .container {
-    border-bottom: 4px solid $accent-color;
     padding-top: 0.5em;
-    padding-bottom: 0.5em;
   }
 
   #navbar-tagline {
@@ -24,7 +22,16 @@ nav.navbar {
     }
   }
 
+  #navbar-metadata {
+    color: $tertiary-text-color;
+    padding-bottom: 0.25em;
+    border-bottom: 4px solid $primary-text-color;
+  }
+
   #navbar-nav {
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid $accent-color;
     text-align: center;
     font-size: $font-sm;
     font-family: $serif-headline-font-stack;
