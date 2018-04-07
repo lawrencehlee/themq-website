@@ -23,6 +23,7 @@ nav.navbar {
   }
 
   #navbar-metadata {
+    display: none;
     color: $tertiary-text-color;
     padding-bottom: 0.25em;
     border-bottom: 4px solid $primary-text-color;
@@ -112,10 +113,13 @@ nav.navbar {
 
 @media screen and (min-width: $md-min-width) {
   nav.navbar {
+    #navbar-metadata {
+      display: block;
+    }
+
     #navbar-tagline {
       display: block;
       margin-bottom: 0.5em;
-      font-size: $font-sm;
       #navbar-celeb {
         font-size: $font-xs-sm;
         font-style: normal;
@@ -173,15 +177,6 @@ nav.navbar {
       img {
         max-width: 30%;
       }
-    }
-  }
-}
-
-@media screen and (min-width: $xl-min-width) {
-  nav.navbar {
-    #navbar-nav {
-      // Pop the font even bigger for big screens
-      font-size: $font-md-lg;
     }
   }
 }

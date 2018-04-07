@@ -1,19 +1,16 @@
+<% issue = Issue.get_latest_issue %>
 <nav class="navbar">
   <div class="container">
     <div id="navbar-content">
       <div class="pure-g">
-
         <div class="pure-u-1">
           <div id="navbar-logo">
-            <% issue = Issue.get_latest_issue %>
             <%= link_to image_tag(@logo_image, alt: "MQ logo"),
               {controller: 'main', action: 'index'} %>
           </div>
         </div>
-
-        <div class="pure-u-1">
+        <div class="pure-u-1" style="display: none;"> <!-- hidden for now... -->
           <em id="navbar-tagline">
-            <% issue = Issue.get_latest_issue %>
             <% if rand > 0.5 %>
               <div><%= issue.celeb_quote %></div>
               <span id="navbar-celeb">
@@ -54,28 +51,17 @@
                   <%= link_to "Editorials", {controller: 'ed_pcps', action: 'index'},
                       class: yield(:ed_pcps_navbar_class)%>
                 </li>
-                <li id="navbar-more" class="navbar-hideable navbar-md navbar-lg pure-menu-item pure-menu-has-children pure-menu-allow-hover navbar-parent-list">
-                  <a href="#" onclick="return false">More ▼</a>
-                  <ul class="pure-menu-children navbar-sublist">
-                    <li class="pure-menu-item">
-                      <%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Contributors", controller: 'people', action: 'index' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "About", controller: 'static_pages', action: 'about' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Search", controller: 'search', action: 'index' %>
-                    </li>
-                  </ul>
+                <li class="navbar-hideable navbar-md navbar-lg">
+                  <%= link_to "Contributors", {controller: 'people', action: 'index'},
+                      class: yield(:people_navbar_class)%>
+                </li>
+                <li class="navbar-hideable navbar-md navbar-lg">
+                  <%= link_to "About", {controller: 'static_pages', action: 'about'},
+                      class: yield(:about_navbar_class)%>
+                </li>
+                <li class="navbar-hideable navbar-md navbar-lg">
+                  <%= link_to "Search", {controller: 'search', action: 'index'},
+                      class: yield(:search_navbar_class)%>
                 </li>
                 <li id="navbar-sections" class="navbar-hideable navbar-sm pure-menu-item pure-menu-has-children pure-menu-allow-hover navbar-parent-list">
                   <a href="#" onclick="return false">Sections ▼</a>
@@ -91,15 +77,6 @@
                     </li>
                     <li class="pure-menu-item">
                       <%= link_to "Editorials", {controller: 'ed_pcps', action: 'index'} %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Campus", controller: 'tags', action: 'index', tag_id: '4' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Politics", controller: 'tags', action: 'index', tag_id: '2' %>
-                    </li>
-                    <li class="pure-menu-item">
-                      <%= link_to "Local News", controller: 'tags', action: 'index', tag_id: '5' %>
                     </li>
                     <li class="pure-menu-item">
                       <%= link_to "Contributors", controller: 'people', action: 'index' %>
