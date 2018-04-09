@@ -3,7 +3,7 @@
   <div class="search-top">
     <h1>Search</h1>
     <%= form_tag("/search", method: "get", class: "search") do %>
-      <i class="fa fa-search"></i><input type="text" name="query" id="query" value="<%= @query %>" />
+      <i class="fa fa-search fa-lg"></i><input type="text" name="query" id="query" value="<%= @query %>" />
     <% end %>
   </div>
   <% unless @query.blank? %>
