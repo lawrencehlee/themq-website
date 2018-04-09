@@ -22,6 +22,12 @@ footer {
     margin-top: 1em;
     margin-bottom: 1em;
 
+    .footer-img {
+      img {
+        float: none;
+      }
+    }
+
     .footer-links, .footer-social {
       font-weight: bold;
     }
@@ -39,6 +45,7 @@ footer {
       }
     }
   }
+
 }
 
 @media screen and (min-width: $md-min-width) {
@@ -58,6 +65,19 @@ footer {
     .footer-main {
       .footer-links, .footer-social {
         font-size: $font-lg;
+      }
+
+      .footer-img {
+        img {
+          float: right;
+        }
+      }
+
+      .footer-tagline {
+        .tagline {
+          padding-left: 0.5em;
+          padding-right: 0.5em;
+        }
       }
     }
   }

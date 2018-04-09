@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   before_filter :set_var
 
-  HEADER_TEXT = "white"
+  HEADER_TEXT = "black"
 
   private
   def set_var

@@ -15,65 +15,67 @@
       <h1>All Articles</h1>
       <% @articles.each do |article| %>
         <% if article.brief %>
-        <hr>
-        <div class="article-box pure-g">
-          <div class="brief-data pure-u-1">
-            <h3>Brief</h3>
-            <h3><%= link_to article.headline, article %></h3>
-            <div class="article-tags tag-row">
-              <% tags = article.get_tags %>
-              <% tags.each do |tag| %>
-                <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                  <button class="button-small pure-button">
-                    <i class="fa fa-tag"></i> <%= tag.title %>
-                  </button>
+        <div class="compress">
+          <div class="article-box pure-g">
+            <div class="brief-data pure-u-1">
+              <h3>Brief</h3>
+              <h3><%= link_to article.headline, article %></h3>
+              <div class="article-tags tag-row">
+                <% tags = article.get_tags %>
+                <% tags.each do |tag| %>
+                  <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                    <button class="button-small pure-button">
+                      <i class="fa fa-tag"></i> <%= tag.title %>
+                    </button>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-            <% @issue = article.issue %>
-            <div class="article-teaser">
-              <% @article_text_teaser = article.get_text_teaser 25 %>
-              <p><%= @article_text_teaser %></p>
-            </div>
-            <div class="date-author">
-              <p><%= @issue.get_human_readable_date %></p>
+              </div>
+              <% @issue = article.issue %>
+              <div class="article-teaser">
+                <% @article_text_teaser = article.get_text_teaser 25 %>
+                <p><%= @article_text_teaser %></p>
+              </div>
+              <div class="date-author">
+                <p><%= @issue.get_human_readable_date %></p>
+              </div>
             </div>
           </div>
         </div>
       <% else %>
         <% graphic = article.graphic %>
-        <hr>
         <div class="article-box pure-g">
           <div class="article-image pure-u-1 pure-u-md-1-3">
             <%= link_to image_tag(graphic.get_full_image_path, alt: "Article Graphic", width: '100%'), article %>
           </div>
-          <div class="article-data pure-u-1 pure-u-md-2-3">
-            <h3><%= link_to article.headline, article %></h3>
-            <div class="article-tags tag-row">
-              <% tags = article.get_tags %>
-              <% tags.each do |tag| %>
-                <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                  <button class="button-small pure-button">
-                    <i class="fa fa-tag"></i>
-                    <%= tag.title %>
-                  </button>
+          <div class="pure-u-1 pure-u-md-2-3">
+            <div class="article-data compress">
+              <h3><%= link_to article.headline, article %></h3>
+              <div class="article-tags tag-row">
+                <% tags = article.get_tags %>
+                <% tags.each do |tag| %>
+                  <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
+                    <button class="button-small pure-button">
+                      <i class="fa fa-tag"></i>
+                      <%= tag.title %>
+                    </button>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-            <% @person = article.author %>
-            <% @co_author = article.co_author %>
-            <% @issue = article.issue %>
-            <div class="article-teaser">
-              <% @article_text_teaser = article.get_text_teaser 25 %>
-              <p><%= @article_text_teaser %></p>
-            </div>
-            <div class="date-author">
-              <% if @co_author %>
-                <p><%= @issue.get_human_readable_date %> / <%= link_to @person.name, @person, {class: 'author-link'} %> /
-                <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>
-              <% else %>
-                <p><%= @issue.get_human_readable_date %> / <%= link_to @person.name, @person, {class: 'author-link'} %></p>
-              <% end %>
+              </div>
+              <% @person = article.author %>
+              <% @co_author = article.co_author %>
+              <% @issue = article.issue %>
+              <div class="article-teaser">
+                <% @article_text_teaser = article.get_text_teaser 25 %>
+                <p><%= @article_text_teaser %></p>
+              </div>
+              <div class="date-author">
+                <% if @co_author %>
+                  <p><%= @issue.get_human_readable_date %> / <%= link_to @person.name, @person, {class: 'author-link'} %> /
+                  <%= link_to @co_author.name, @co_author, {class: 'author-link'} %></p>
+                <% else %>
+                  <p><%= @issue.get_human_readable_date %> / <%= link_to @person.name, @person, {class: 'author-link'} %></p>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

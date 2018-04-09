@@ -41,43 +41,40 @@
       </div>
 
       <div id="news" class="main-section">
-        <h2 class="main-section-title">News</h2>
         <% @news_articles.each do |article| %>
-          <% graphic = article.graphic %>
-          <% author = article.author %>
-          <% co_author = article.co_author %>
-          <% issue = article.issue %>
-          <div class="news-content pure-g">
-            <div class="news-content-image pure-u-1 pure-u-lg-1-3">
-              <%= link_to image_tag(graphic.get_full_image_path),
-                article %>
-            </div>
-            <div class="pure-u-1 pure-u-lg-2-3">
-              <div class="news-content-headline">
-                <h2 class="regular-headline">
-                  <%= link_to article.headline, article %>
-                </h2>
-                <div class="attribution">
-                  <% if !co_author.nil? %>
-                    <span class="index-person"><%= link_to co_author.name, co_author, {class: 'author-link'} %> -</span>
-                  <% end %>
-                  <span class="index-person"><%= link_to author.name, author, {class: 'author-link'} %> -</span>
-                  <span class="index-issue"><%= issue.get_full_issue_name %> -</span>
-                  <span class="index-date"><%= issue.get_human_readable_date %></span>
+          <div class="main-content-piece">
+            <% graphic = article.graphic %>
+            <% author = article.author %>
+            <% co_author = article.co_author %>
+            <% issue = article.issue %>
+            <div class="news-content pure-g">
+              <div class="news-content-image pure-u-1 pure-u-lg-1-3">
+                <%= link_to image_tag(graphic.get_full_image_path),
+                  article %>
+              </div>
+              <div class="compress pure-u-1 pure-u-lg-2-3">
+                <div class="news-content-headline">
+                  <h2 class="regular-headline">
+                    <%= link_to article.headline, article %>
+                  </h2>
+                  <div class="attribution">
+                    <% if !co_author.nil? %>
+                      <span class="index-person"><%= link_to co_author.name, co_author, {class: 'author-link'} %> -</span>
+                    <% end %>
+                    <span class="index-person"><%= link_to author.name, author, {class: 'author-link'} %> -</span>
+                    <span class="index-issue"><%= issue.get_full_issue_name %> -</span>
+                    <span class="index-date"><%= issue.get_human_readable_date %></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         <% end %>
-        <div id="news-more" class="see-more">
-          <%= link_to "More news ›", :controller => :articles, :action => :index %>
-        </div>
       </div>
 
-      <div id="more-stories" class="main-section">
-        <h2 class="main-section-title">More Stories</h2>
-        <div class="more-stories-content">
-          <% @more_stories.each do |story| %>
+      <div id="more-stories" class="compress main-section">
+        <% @more_stories.each do |story| %>
+          <div class="main-content-piece">
             <a href="<%= url_for(story) %>">
               <% header = story.ed ? "Editorial" : "Point" %>
               <h2 class="regular-headline"><%="#{header}: #{story.headline}" %> </h2>
@@ -89,25 +86,18 @@
               <% end %>
             </a>
           <% end %>
-          <div id="more-stories-edpcp-more" class="see-more">
-            <%= link_to "More editorials and PCPs ›", :controller => :ed_pcps, :action => :index %>
-          </div>
         </div>
       </div>
       <div id="features" class="main-section">
-        <h2 class="main-section-title">Features</h2>
-        <div class="more-stories-content">
-          <% @features_content.each do |feature| %>
+        <% @features_content.each do |feature| %>
+          <div class="main-content-piece">
             <a href="<%= url_for(feature) %>">
               <div class="feature-content-image">
                 <%= link_to image_tag(feature.get_full_image_path, alt: feature.title, width: '100%'), feature %>
               </div>
             </a>
-          <% end %>
-          <div id="more-stories-features-more" class="see-more">
-            <%= link_to "More features ›", :controller => :features, :action => :index %>
           </div>
-        </div>
+        <% end %>
       </div>
 
     </div>

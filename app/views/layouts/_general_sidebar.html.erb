@@ -1,7 +1,7 @@
 <% content_for :specific_sidebar do %>
 <div class="general-sidebar">
   <% unless top_ten.nil? %>
-  <div class="sidebar-element">
+  <div class="compress sidebar-element">
     <%= render 'top_tens/inline', :top_ten => top_ten %>
   </div>
   <% end %>
@@ -13,7 +13,7 @@
   <% end %>
 
   <% unless brief.nil? %>
-  <div class="sidebar-element">
+  <div class="compress sidebar-element">
     <h3 class="regular-headline">
       <%= link_to "Brief: " + brief.headline, brief %>
     </h3>

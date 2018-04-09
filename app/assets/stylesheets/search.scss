@@ -1,7 +1,29 @@
+@import "base/variables";
+@import "base/mixins";
+
 .search {
   .search-top {
     margin-bottom: 1em;
+
+    h1 {
+      margin: 0;
+    }
   }
+
+  form.search {
+    input {
+      outline: 0;
+      border: 0;
+      border-bottom: 2px solid grey;
+      padding: 0.5em;
+      width: 80%;
+      &:focus {
+        border-color: white white $accent-hover-color white;
+      }
+    }
+    i { margin-right: 0.5em; }
+  }
+
   .search-results {
     .search-result {
       padding-top: 1em;

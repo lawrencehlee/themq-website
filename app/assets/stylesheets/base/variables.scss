@@ -1,15 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-@import url(https://fonts.googleapis.com/css?family=Ledger);
-@import url(https://fonts.googleapis.com/css?family=Fjord+One);
-$serif-headline-font-stack: 'Ledger', serif;
-$serif-text-font-stack: 'Fjord One', serif;
+@import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro);
+
+@font-face {
+  font-family: 'IBMPlex Serif';
+  src:font-url('IBMPlexSerif-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$serif-headline-font-stack: 'Source Serif Pro', serif;
+$serif-text-font-stack: 'IBMPlex Serif', serif;
 $sans-serif-font-stack: 'Lato', sans-serif;
 $primary-text-color: #333;
 $paragraph-text-color: #444;
+$tertiary-text-color: #555;
 $link-hover-background-color: #d3d3d3;
 
-$accent-color: #262644;
-$accent-hover-color: #454573;
+$accent-color: #5abae2;
+$accent-hover-color: #0ba0e0;
 $accent-text-color: white;
 
 $font-xs: 60%;
@@ -36,7 +44,7 @@ $bar-border-color: #d1d3d4;
 $light-grey: #757575;
 
 // Footer
-$footer-height: 14em;
+$footer-height: 18em;
 $footer-background-color: #262626;
 $footer-link-color: #fff;
 $footer-text-color: #808080;
