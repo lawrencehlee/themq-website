@@ -1,19 +1,12 @@
 <% content_for :search_navbar_class, "current-page" %>
-<div class="search">
-  <% if @query.blank? %>
-    <div class="search-top">
-      <h1>Search</h1>
-      <%= form_tag("/search", method: "get", class: "search large-search") do %>
-        <%= text_field_tag :query, @query, { placeholder: "Search" } %>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="search-top">
-      <h1>Search Results for "<%= @query %>"</h1>
-      <%= form_tag("/search", method: "get", class: "search large-search") do %>
-        <%= text_field_tag :query, @query, { placeholder: "Search" } %>
-      <% end %>
-    </div>
+<div class="search compress">
+  <div class="search-top">
+    <h1>Search</h1>
+    <%= form_tag("/search", method: "get", class: "search") do %>
+      <i class="fa fa-search"></i><input type="text" name="query" id="query" value="<%= @query %>" />
+    <% end %>
+  </div>
+  <% unless @query.blank? %>
     <div class="pagination">
       <%= paginate @results %>
     </div>
