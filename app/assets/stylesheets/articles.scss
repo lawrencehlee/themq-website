@@ -36,10 +36,8 @@
       }
     }
     .issue-date {
-      p {
-        color: $light-grey;
-        text-align: left;
-      }
+      color: $light-grey;
+      text-align: left;
     }
     .article-image {
       margin-top: 1em;
@@ -212,9 +210,7 @@
     .article-show-content {
       .article-content {
         .issue-date {
-          p {
-            text-align: right;
-          }
+          text-align: right;
         }
       }
     }
