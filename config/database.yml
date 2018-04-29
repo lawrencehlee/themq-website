@@ -63,7 +63,7 @@ test:
 #
 production:
   <<: *default
-  host: <%= ENV['MQDB'] %>
+  host: <%= ENV['MQDB_PROD] %>
   database: mqdb_prod
   username: mqdb-prod
   password: <%= ENV['PROD_DB_PASSWORD'] %>
