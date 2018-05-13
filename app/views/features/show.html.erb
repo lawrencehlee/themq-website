@@ -14,12 +14,9 @@
     <div class="left-bar">
       <span class="feature-tags tag-row">
         <% @tags.each do |tag| %>
-          <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-            <button class="pure-button">
-              <i class="fa fa-tag"></i>
-              <%= tag.title %>
-            </button>
-          <% end %>
+          <span class="tag pure-button">
+            <i class="fa fa-tag"></i> <%= tag.title %>
+          </span>
         <% end %>
       </span>
 

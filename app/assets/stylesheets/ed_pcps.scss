@@ -72,14 +72,6 @@
           margin-bottom: 1em;
         }
 
-        .pcp-tags {
-          a {
-            &:hover {
-              background-color: $link-hover-background-color;
-            }
-          }
-        }
-
         .date-author {
           width: 95%;
           p {
@@ -129,13 +121,6 @@
     p {
       color: $light-grey;
     }
-    .editorials-tags {
-      a {
-        &:hover {
-          background-color: $link-hover-background-color;
-        }
-      }
-    }
   }
 }
 
@@ -166,14 +151,6 @@
     }
     h3 {
       margin-left: 1em;
-    }
-    .ed-pcp-tags {
-      margin-left: 1em;
-      a {
-        &:hover {
-          background-color: $link-hover-background-color;
-        }
-      }
     }
     .ed-pcp-teaser {
       display: none;

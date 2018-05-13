@@ -20,16 +20,6 @@
             <div class="brief-data pure-u-1">
               <h3>Brief</h3>
               <h3><%= link_to article.headline, article %></h3>
-              <div class="article-tags tag-row">
-                <% tags = article.get_tags %>
-                <% tags.each do |tag| %>
-                  <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                    <button class="button-small pure-button">
-                      <i class="fa fa-tag"></i> <%= tag.title %>
-                    </button>
-                  <% end %>
-                <% end %>
-              </div>
               <% @issue = article.issue %>
               <div class="article-teaser">
                 <% @article_text_teaser = article.get_text_teaser 25 %>
@@ -50,17 +40,6 @@
           <div class="pure-u-1 pure-u-md-2-3">
             <div class="article-data compress">
               <h3><%= link_to article.headline, article %></h3>
-              <div class="article-tags tag-row">
-                <% tags = article.get_tags %>
-                <% tags.each do |tag| %>
-                  <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                    <button class="button-small pure-button">
-                      <i class="fa fa-tag"></i>
-                      <%= tag.title %>
-                    </button>
-                  <% end %>
-                <% end %>
-              </div>
               <% @person = article.author %>
               <% @co_author = article.co_author %>
               <% @issue = article.issue %>

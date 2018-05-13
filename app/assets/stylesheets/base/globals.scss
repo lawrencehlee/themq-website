@@ -149,16 +149,10 @@ a {
 }
 
 .tag {
-  button {
-    border-radius: 1em;
-    padding: 0.25em 0.75em;
-    background-color: $accent-color;
-    color: $accent-text-color;
-
-    &:hover {
-      background-color: $accent-hover-color;
-    }
-  }
+  border-radius: 0.4em;
+  padding: 0.25em 0.75em;
+  background-color: $accent-color;
+  color: $accent-text-color;
 }
 
 a.author-link:hover {

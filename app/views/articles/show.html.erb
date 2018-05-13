@@ -18,12 +18,9 @@
         <h1><%= @article.headline %></h1>
         <div class="article-tags tag-row">
           <% @tags.each do |tag| %>
-            <!-- this here link to directs to the tag index page, passing it the specific tag id-->
-            <%= link_to(tags_path(tag_id: tag.tag_id), {class: "tag"}) do %>
-              <button class="pure-button">
-                <i class="fa fa-tag"></i> <%= tag.title %>
-              </button>
-            <% end %>
+            <span class="tag pure-button">
+              <i class="fa fa-tag"></i> <%= tag.title %>
+            </span>
           <% end %>
         </div>
         <span class="social-share-small">

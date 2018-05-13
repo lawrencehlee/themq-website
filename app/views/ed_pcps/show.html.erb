@@ -14,18 +14,13 @@
 
   <div class="ed-pcp-content pure-u-1 pure-u-lg-15-24">
     <div class="left-bar">
-
       <% @ed_pcps.each do |piece| %>
-        <% if piece.counterpoint %>
+        <% unless piece.counterpoint %>
           <div class="ed-pcp-tags tag-row">
-            <% tags = piece.get_tags%>
-            <% tags.each do |tag| %>
-              <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                <button class="button-small pure-button">
-                  <i class="fa fa-tag"></i>
-                  <%= tag.title %>
-                </button>
-              <% end %>
+            <% piece.tags.each do |tag| %>
+              <span class="tag pure-button">
+                <i class="fa fa-tag"></i> <%= tag.title %>
+              </span>
             <% end %>
           </div>
         <% end %>
@@ -33,7 +28,6 @@
           <h2>Point</h2>
         <% end %>
         <% if piece.counterpoint %>
-          <hr>
           <h2>Counterpoint</h2>
         <% end %>
         <% if piece.ed %>

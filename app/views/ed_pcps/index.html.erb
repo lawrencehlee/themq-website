@@ -20,17 +20,6 @@
               <div class="editorial-data pure-u-3-4">
                 <div class="editorial-data-inner">
                   <h2 class="regular-headline"><%= link_to ed.headline, ed %></h2>
-                  <div class="editorial-tags tag-row">
-                    <% ed_tags = ed.get_tags %>
-                    <% ed_tags.each do |tag| %>
-                      <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                      <button class="button-small pure-button">
-                        <i class="fa fa-tag"></i>
-                        <%= tag.title %>
-                      </button>
-                    <% end %>
-                  <% end %>
-                  </div>
                   <div class="date-author">
                     <% ed_issue = ed.issue %>
                     <p><%= ed_issue.get_human_readable_date %> - <%= ed.author %>, <%= ed.author_title %></p>
@@ -57,17 +46,6 @@
                   <div class="pcp-text-wrapper">
                     <h3>Point</h3>
                     <h2 class="regular-headline"><%= link_to p.headline, p %></h2>
-                    <div class="pcp-tags tag-row">
-                      <% pcp_tags = p.get_tags %>
-                      <% pcp_tags.each do |tag| %>
-                        <%= link_to(tags_path(tag_id: tag.tag_id), {class: 'tag'}) do %>
-                        <button class="button-small pure-button">
-                          <i class="fa fa-tag"></i>
-                          <%= tag.title %>
-                        </button>
-                        <% end %>
-                      <% end %>
-                    </div>
                     <div class="date-author">
                       <% p_issue = p.issue %>
                       <p><%= p_issue.get_human_readable_date %> - <%= p.author %>, <%= p.author_title %></p>
@@ -86,17 +64,6 @@
                   <div class="pcp-text-wrapper">
                     <h3>Counterpoint</h3>
                     <h2 class="regular-headline"><%= link_to cp.headline, p %></h2>
-                    <div class="pcp-tags">
-                      <% pcp_tags = cp.get_tags %>
-                      <% pcp_tags.each do |tag| %>
-                        <%= link_to(tags_path(tag_id: tag.tag_id)) do %>
-                        <button class="button-small pure-button">
-                          <i class="fa fa-tag"></i>
-                          <%= tag.title %>
-                        </button>
-                        <% end %>
-                      <% end %>
-                    </div>
                     <div class="date-author">
                       <% cp_issue = p.issue %>
                       <p><%= cp_issue.get_human_readable_date %> - <%= cp.author %>, <%= cp.author_title %></p>

@@ -58,6 +58,9 @@
 
 /*Here starts the index page css. I hope*/
 .article-index-content {
+  .regular-headline {
+    margin-top: 0.5em;
+  }
   .articles-content {
     margin: auto;
   }
@@ -100,17 +103,8 @@
   .sub-story {
     text-align: left;
     margin-bottom: 1em;
-
-    .sub-story-tags {
-      a {
-        &:hover {
-          background-color: $link-hover-background-color;
-        }
-      }
-    }
     h3 {
       width: 95%;
-      margin-top: .5em;
     }
     .date-author {
       width: 95%;
@@ -144,13 +138,6 @@
 
   .article-data {
     font-size: $font-md-lg;
-    .article-tags {
-      a {
-        &:hover {
-          background-color: $link-hover-background-color;
-        }
-      }
-    }
     .article-teaser {
       display: none;
     }
@@ -161,13 +148,6 @@
 
   .brief-data {
     font-size: $font-md-lg;
-    .article-tags {
-      a {
-        &:hover {
-          background-color: $link-hover-background-color;
-        }
-      }
-    }
     .article-teaser {
       display: none;
     }
