@@ -1,15 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-@import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro);
+@import url('https://fonts.googleapis.com/css?family=Martel:700,800,900');
 
-@font-face {
-  font-family: 'IBMPlex Serif';
-  src:font-url('IBMPlexSerif-Regular.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-$serif-headline-font-stack: 'Source Serif Pro', serif;
-$serif-text-font-stack: 'Georgia, IBMPlex Serif', serif;
+$serif-headline-font-stack: 'Martel', serif;
+$serif-text-font-stack: 'Georgia', serif;
 $sans-serif-font-stack: 'Lato', sans-serif;
 $primary-text-color: #333;
 $paragraph-text-color: #444;
