@@ -50,9 +50,9 @@
         <div class="article-image">
           <%= image_tag(@graphic.get_full_image_path, alt:"Article Graphic", width: '100%') %>
         </div>
-        <div class="image-data">
-          <p class="designer">Photo by: <%= link_to @graphic_designer.name, @graphic_designer %></p>
-          <p class="compress caption"><%= @graphic.caption %></p>
+        <div class="image-data compress">
+          <p class="caption"><%= @graphic.caption %></p>
+          <p class="designer">(<%= link_to @graphic_designer.name, @graphic_designer %>)</p>
         </div>
       <% end %>
       <div class="compress content-text"><%= markdown(@article_text) %></div>
