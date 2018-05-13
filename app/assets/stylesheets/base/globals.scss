@@ -26,6 +26,8 @@ h1:first-of-type {
 
 .serif-headline, h1, h2, h3, h4, h5, h6, .title, .headline {
   font-family: $serif-headline-font-stack;
+  font-weight: 800;
+  line-height: 1.3;
 }
 
 body {
