@@ -43,19 +43,14 @@
       margin-top: 1em;
     }
     .image-data {
-      color: $light-grey;
-      .designer {
-        position: relative;
-        top: -2em;
-        margin-right: 5px;
-        text-align: right;
-        color: white;
-        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-      }
       .caption {
-        position: relative;
-        top: -1em;
-        font-size: 90%;
+        color: $primary-text-color;
+        font-size: $font-sm;
+      }
+      .designer {
+        color: $tertiary-text-color;
+        font-style: italic;
+        font-size: $font-sm;
       }
     }
   }
